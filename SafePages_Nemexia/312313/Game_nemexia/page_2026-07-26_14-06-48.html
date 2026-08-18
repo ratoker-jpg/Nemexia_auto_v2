@@ -1,0 +1,2223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)https://game.ares.nemexia.com/ships.php?show=CommanderShips -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Корабли</title>
+
+  
+
+  <link href="./page_2026-07-26_14-06-48_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-07-26_14-06-48_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_1.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-07-26_14-06-48_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-pe7Urw0O6UldFj7/kpENHcMoJqyFG1LTn/jG/lQGkgZVAZIpQYjd9+pcXEI3+VpL"></script><script type="text/javascript" src="./page_2026-07-26_14-06-48_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-06-48_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-07-26_14-06-48_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 75136;
+        PLAYER['max_metal'] = 100000;
+        PLAYER['crystal']   = 53931;
+        PLAYER['max_crystal'] = 100000;
+        PLAYER['gas']       = 22407;
+        PLAYER['max_gas']   = 100000;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 72;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 58;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 280;
+        PLAYER['phase']     = -1;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '75,136';
+        PLAYER['maxMetalFormat'] = '100,000';
+        PLAYER['crystalFormat'] = '53,931';
+        PLAYER['maxCrystalFormat'] = '100,000';
+        PLAYER['gasFormat'] = '22,407';
+        PLAYER['maxGasFormat'] = '100,000';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 14090;
+		PLAYER['ozone_loss'] = 110;
+		PLAYER['ozone_gain'] = 0;
+
+		PLAYER['battle_points'] = 0;
+		PLAYER['admiral_current_level'] = 0;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 0;
+		PLAYER['admiral_next_level_battle_points'] = 10;
+		PLAYER['admiral_level_up_battle_points'] = 10;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/ships.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10696;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fships.php%3Fshow%3DCommanderShips';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('July 26, 2026 13:06:44');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-07-26_14-06-48_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-07-26_14-06-48_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-07-26_14-06-48_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#"><img border="0" width="12px" src="./page_2026-07-26_14-06-48_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-06-48_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">13:06:55</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_3.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill0">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			75,136
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			53,931
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			22,407
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			72
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				58
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_3.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Jacliff <span>[3:39:11]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=991" onclick="delete($.post);">
+						<img src="./page_2026-07-26_14-06-48_files/planet_3.png" width="18" id="planetListImg-991">
+						Jacliff <span>[3:39:11]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=3&amp;solar=39">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+									<span class="newMessages" id="newMessages">1</span>
+												</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-07-26 22:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">280</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">10</span>
+		</a>
+	</div>
+
+		<div id="adviserLink" class="inactive">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Лаборатория</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Завод по переработке</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Фабрика</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript">
+var LangStrings = new Array('Общее время до завершения','Фабричная очередь','Отмена','Вы уверены что хотите прервать постройку?  40-60% из затраченных ресурсов будут возвращены, а все очки ресурсов за этот уровень потеряны.', 'УСКОРИТЬ!');
+</script>
+<script type="text/javascript" src="./page_2026-07-26_14-06-48_files/ships.js"></script>
+<script type="text/javascript" src="./page_2026-07-26_14-06-48_files/processesBooster.js"></script>
+
+<link href="./page_2026-07-26_14-06-48_files/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./page_2026-07-26_14-06-48_files/jquery.lightbox-0.5.min.js"></script>
+
+
+<script type="text/javascript">
+$(function() {
+    $('a.lightbox').lightBox(); // Select all links with lightbox class
+
+  $('#structuresList .structureItem .thumbnail img, #structuresList .structureItem .shipInfo h3 a').each(function(){
+    var tooltipElement = $(this).parentsUntil('.structureItem').parent().find('.tooltip');
+    if (tooltipElement.length <= 0) {
+      return;
+    }
+
+    $(this).bind('mouseover', function(){Tip(tooltipElement.html());}).bind('mouseout', function(){UnTip();});
+  });
+});
+</script>
+
+
+<div class="pageSubnavigation" id="buildingInfo">
+    <div class="title"><span style="letter-spacing: 0;">Верфь</span></div>
+
+    <div class="sub">
+
+    <div class="preview">
+      <div class="thumbnail"><img src="./page_2026-07-26_14-06-48_files/thumb_319.jpg"></div>
+      <div class="details">
+        <big><span style="letter-spacing: -1px;">Верфь</span></big>
+        <small>Уровень 1</small>
+      </div>
+    </div>
+
+    <div class="subTitle">Строительство</div>
+      <ul class="buttonsMenu">
+        <li class="ships">
+          <a href="javascript:void(0);" onclick="
+                 showTab(&#39;TabShips&#39;);
+                 refreshShipyard(&#39;Ships&#39;);
+                 $(&#39;#techShips&#39;).show();
+                 $(&#39;#techDefence&#39;).hide();
+                 $(&#39;#techCommanderShips&#39;).hide();
+                ">
+            Корабли          </a>
+        </li>
+        <li class="defence">
+          <a href="javascript:void(0);" onclick="
+                 showTab(&#39;TabDefence&#39;);
+                 refreshShipyard(&#39;Defence&#39;);
+                 $(&#39;#techShips&#39;).hide();
+                 $(&#39;#techDefence&#39;).show();
+                 $(&#39;#techCommanderShips&#39;).hide();
+                ">
+            Оборона          </a>
+        </li>
+        <li class="ships">
+          <a href="javascript:void(0);" onclick="
+                 showTab(&#39;TabCommanderShips&#39;);
+                 refreshQue(&#39;commanderShips&#39;);
+                 $(&#39;#techShips&#39;).hide();
+                 $(&#39;#techDefence&#39;).hide();
+                 $(&#39;#techCommanderShips&#39;).show();
+                ">
+            Боевые корабли           </a>
+        </li>
+        <li class="technics" id="techShips" style="display: none;">
+          <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a>
+        </li>
+        <li class="technics" id="techDefence" style="display: none;">
+          <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a>
+        </li>
+        <li class="technics" id="techCommanderShips" style="">
+          <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+        </li>
+      </ul>
+      <div class="subTitle">Усовершенствование</div>
+      <ul class="buttonsMenu">
+        <li class="ships"><a href="https://game.ares.nemexia.com/ship_upgrade.php">Корабли</a></li>
+        <li class="ships"><a href="https://game.ares.nemexia.com/commander_ship_upgrade.php">Боевые корабли</a></li>
+      </ul>
+      <div class="subTitle">Миссии</div>
+      <ul class="buttonsMenu">
+        <li class="ships"><a href="https://game.ares.nemexia.com/options.php?tabId=commanderShipsPriority">Боевой Приоритет</a></li>
+        <li class="flights"><a href="https://game.ares.nemexia.com/fleets.php">Полеты</a></li>
+        <li class="battles"><a href="https://game.ares.nemexia.com/fleets.php?show=Battles">Битвы</a></li>
+                  <li class="simulator"><a href="https://game.ares.nemexia.com/fleets.php?show=Simulator">Симулятор</a></li>
+              </ul>
+
+    </div>
+  <div class="pageSubnavigationBottom"></div>
+  <div class="ornamentsTop"></div>
+  <div class="ornamentsBot"></div>
+</div>
+
+<div id="contentWrapper">
+    <script type="text/javascript">
+	TimersGlobalQueue = new Array();
+	GlobalQueueCountTimers = 0;
+</script>
+<div id="queueBar">
+	<div id="queueBarOpen" style="">
+		<a href="javascript:void(0);" onclick="globalQueueHide();" class="hideQueueBar"></a>
+		<div class="queItemHolder"><div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_resource.php" onmouseover="Tip(&#39;Зона ресурсов&#39;)" onmouseout="UnTip();">
+		<span class="resource"></span>
+		<span class="queItemTime" id="gql_ZoneResource">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;)" onmouseout="UnTip();">
+		<span class="industry"></span>
+        <span class="queItemTime" id="gql_ZoneIndustry">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;)" onmouseout="UnTip();">
+		<span class="military"></span>
+        <span class="queItemTime" id="gql_ZoneMilitary">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/laboratory.php" onmouseover="Tip(&#39;Науки&#39;)" onmouseout="UnTip();">
+		<span class="laboratory"></span>
+        <span class="queItemTime" id="gql_Sciences">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/ships.php" onmouseover="Tip(&#39;Корабли&#39;)" onmouseout="UnTip();">
+		<span class="ships"></span>
+        <span class="queItemTime" id="gql_Ships">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/ship_upgrade.php" onmouseover="Tip(&#39;Усовершенствования&#39;)" onmouseout="UnTip();">
+		<span class="upgrades"></span>
+        <span class="queItemTime" id="gql_Upgrades">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+<!-- zlib compression level 1 --></div>
+	</div>
+	<div id="queueBarClose" style="display: none;">
+		<a href="javascript:void(0);" onclick="globalQueueShow();" class="showQueueBar"></a><span>Текущие процессы</span>
+	</div><!--#queueBarClose-->
+</div><!--#queueBar-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var showGlobalQueueStatus = readCookie('GlobalQueueBar');
+	if(showGlobalQueueStatus == null) {
+		createCookie('GlobalQueueBar', 1, 30);
+		showGlobalQueueStatus = 1;
+	}
+
+	if(showGlobalQueueStatus == 1) {
+		globalQueueShow();
+	} else {
+		globalQueueHide();
+	}
+
+	globalQueueTimers();
+});
+</script>
+
+  <a name="queHolder"></a>
+  <div id="structuresQueue" style="display: none;"></div>
+
+  <div id="mainFrame">
+    <div id="TabShips" style="display: none;">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      
+      <script type="text/javascript">
+              $(function() {$('a.lightbox').lightBox();});
+            </script>
+            
+                        <div id="totalTime">
+              <span>Общее время: <strong id="queTimer">00:00:00</strong></span><br>
+              <a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#queHolder" onclick="trainAllShips();">Строительство корабля</a>
+            </div>
+            
+      <div id="structuresList">
+                        <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-13" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-13" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-13">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_13.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_13.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=13">Солнечный спутник</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-13" style="display: none">500</div>
+                  <div id="ShipsNeededCrystal-13" style="display: none">2000</div>
+                  <div id="ShipsNeededGas-13" style="display: none">500</div>
+                  <div id="ShipsNeededPop-13" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-13" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">500</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-13" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">2,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-13" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">500</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-13" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">1</li>
+                </ul>
+                                              <form id="shipsTrainForm-13" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId13" id="ShipId13" onkeyup="calculateQueTime();">
+                                              <input type="hidden" name="ShipTimeId13" id="ShipTimeId13" value="29">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax13" style="display: none;"></div>
+                <a href="javascript:void(0);" onclick="$(&#39;#ShipId13&#39;).val($(&#39;#ShipsMax13&#39;).html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp13"></span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:29</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Обслуживающий корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 2,200</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 0</li>
+                <li>Скорость: 200</li>
+                <li>Расход топлива: 10</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-12" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-12" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-12">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_12.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_12.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=12">Шпионский зонд</a></h3>
+                                <div class="requirement">Вам нужен 3 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-12" style="display: none">0</div>
+                  <div id="ShipsNeededCrystal-12" style="display: none">1000</div>
+                  <div id="ShipsNeededGas-12" style="display: none">0</div>
+                  <div id="ShipsNeededPop-12" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-12" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-12" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">1,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-12" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-12" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">1</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:11</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 1</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 1</li>
+                <li>Скорость: 200,000,000</li>
+                <li>Расход топлива: 1</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-1" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-1" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-1">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_1.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_1.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=1">Транспортировщик</a></h3>
+                                <div class="requirement">Вам нужен 2 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-1" style="display: none">2400</div>
+                  <div id="ShipsNeededCrystal-1" style="display: none">1400</div>
+                  <div id="ShipsNeededGas-1" style="display: none">0</div>
+                  <div id="ShipsNeededPop-1" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-1" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">2,400</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-1" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">1,400</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-1" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-1" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">1</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:01:54</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 10</li>
+                <li>Жизнь: 2,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 5,000</li>
+                <li>Скорость: 24,000</li>
+                <li>Расход топлива: 12</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-2" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-2" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-2">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_2.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_2.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=2">Мегатранспортировщик</a></h3>
+                                <div class="requirement">Вам нужен 4 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-2" style="display: none">6400</div>
+                  <div id="ShipsNeededCrystal-2" style="display: none">5000</div>
+                  <div id="ShipsNeededGas-2" style="display: none">0</div>
+                  <div id="ShipsNeededPop-2" style="display: none">3</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-2" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">6,400</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-2" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">5,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-2" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-2" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">3</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:03:48</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 10</li>
+                <li>Жизнь: 7,800</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 20,000</li>
+                <li>Скорость: 19,000</li>
+                <li>Расход топлива: 45</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-10" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-10" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-10">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_10.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_10.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=10">Колонизатор</a></h3>
+                                <div class="requirement">Вам нужен 4 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-10" style="display: none">12500</div>
+                  <div id="ShipsNeededCrystal-10" style="display: none">25000</div>
+                  <div id="ShipsNeededGas-10" style="display: none">10600</div>
+                  <div id="ShipsNeededPop-10" style="display: none">12</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-10" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">12,500</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-10" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">25,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-10" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">10,600</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-10" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">12</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:11:01</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 600</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 7,500</li>
+                <li>Скорость: 5,000</li>
+                <li>Расход топлива: 1,500</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-11" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-11" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-11">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_11.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_11.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=11">Переработчик</a></h3>
+                                <div class="requirement">Вам нужен 4 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-11" style="display: none">10500</div>
+                  <div id="ShipsNeededCrystal-11" style="display: none">5300</div>
+                  <div id="ShipsNeededGas-11" style="display: none">1800</div>
+                  <div id="ShipsNeededPop-11" style="display: none">5</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-11" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">10,500</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-11" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">5,300</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-11" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">1,800</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-11" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">5</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:07:55</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 50</li>
+                <li>Жизнь: 2,200</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 40,000</li>
+                <li>Скорость: 7,000</li>
+                <li>Расход топлива: 120</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-3" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-3" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-3">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_3.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_3.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=3">Скаут</a></h3>
+                                <div class="requirement">Нужен 1 уровень науки "Астрономия"<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-3" style="display: none">2400</div>
+                  <div id="ShipsNeededCrystal-3" style="display: none">1600</div>
+                  <div id="ShipsNeededGas-3" style="display: none">0</div>
+                  <div id="ShipsNeededPop-3" style="display: none">2</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-3" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">2,400</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-3" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">1,600</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-3" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-3" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">2</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:03:48</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 800</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 250</li>
+                <li>Скорость: 28,000</li>
+                <li>Расход топлива: 25</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-4" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-4" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-4">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_4.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_4.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=4">Крейсер</a></h3>
+                                <div class="requirement">Вам нужен 3 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-4" style="display: none">10200</div>
+                  <div id="ShipsNeededCrystal-4" style="display: none">8400</div>
+                  <div id="ShipsNeededGas-4" style="display: none">0</div>
+                  <div id="ShipsNeededPop-4" style="display: none">7</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-4" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">10,200</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-4" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">8,400</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-4" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-4" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">7</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:04:53</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 3,080</li>
+                <li>Жизнь: 9,200</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 800</li>
+                <li>Скорость: 32,000</li>
+                <li>Расход топлива: 315</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-5" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-5" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-5">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_5.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_5.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=5">Защитник </a></h3>
+                                <div class="requirement">Вам нужен 5 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-5" style="display: none">5300</div>
+                  <div id="ShipsNeededCrystal-5" style="display: none">15900</div>
+                  <div id="ShipsNeededGas-5" style="display: none">0</div>
+                  <div id="ShipsNeededPop-5" style="display: none">6</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-5" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">5,300</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-5" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">15,900</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-5" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-5" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">6</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:06:39</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 2,760</li>
+                <li>Жизнь: 8,300</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 1,500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 280</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-6" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-6" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-6">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_6.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_6.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=6">Боевой корабль</a></h3>
+                                <div class="requirement">Вам нужен 7 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-6" style="display: none">49400</div>
+                  <div id="ShipsNeededCrystal-6" style="display: none">21200</div>
+                  <div id="ShipsNeededGas-6" style="display: none">0</div>
+                  <div id="ShipsNeededPop-6" style="display: none">15</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-6" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">49,400</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-6" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">21,200</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-6" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-6" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">15</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:10:27</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 9,000</li>
+                <li>Жизнь: 27,000</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 1,500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 480</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-7" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-7" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-7">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_7.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_7.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=7">Разрушитель </a></h3>
+                                <div class="requirement">Вам нужен 9 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-7" style="display: none">93900</div>
+                  <div id="ShipsNeededCrystal-7" style="display: none">84500</div>
+                  <div id="ShipsNeededGas-7" style="display: none">9400</div>
+                  <div id="ShipsNeededPop-7" style="display: none">30</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-7" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">93,900</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-7" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">84,500</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-7" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">9,400</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-7" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">30</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:15:12</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 19,500</li>
+                <li>Жизнь: 58,500</li>
+                <li>Тип оружия: Плазма</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 2,000</li>
+                <li>Скорость: 13,000</li>
+                <li>Расход топлива: 900</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-8" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-8" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-8">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_8.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_8.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=8">Бомбардировщик</a></h3>
+                                <div class="requirement">Вам нужен 8 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-8" style="display: none">44000</div>
+                  <div id="ShipsNeededCrystal-8" style="display: none">55000</div>
+                  <div id="ShipsNeededGas-8" style="display: none">11000</div>
+                  <div id="ShipsNeededPop-8" style="display: none">22</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-8" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">44,000</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-8" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">55,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-8" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">11,000</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-8" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">22</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:10:27</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 13,200</li>
+                <li>Жизнь: 39,600</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 800</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-9" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-9" onmouseover="Tip(&#39;Доступные корабли&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-9">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_9.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/ship_9.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=9">Звезда смерти </a></h3>
+                                <div class="requirement">Вам нужен 14 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-9" style="display: none">2327500</div>
+                  <div id="ShipsNeededCrystal-9" style="display: none">1862000</div>
+                  <div id="ShipsNeededGas-9" style="display: none">465500</div>
+                  <div id="ShipsNeededPop-9" style="display: none">700</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-9" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">2,327,500</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-9" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">1,862,000</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-9" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">465,500</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-9" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">700</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>33:15:00</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 700,000</li>
+                <li>Жизнь: 2,100,000</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 1,000,000</li>
+                <li>Скорость: 200</li>
+                <li>Расход топлива: 60,000</li>
+              </ul>
+            </div>
+          </div>
+        
+                                <div id="orderStructures"><a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips#queHolder" onclick="trainAllShips();">Строительство корабля</a></div>
+                    </div><!-- #structuresList -->
+
+    </div><!-- #TabShips -->
+    <div id="TabDefence" style="display:none;">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      <div id="structuresList">
+                        <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-1" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-1" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-1">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/1.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_1.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=1">Баллистическая установка</a></h3>
+                                <div class="requirement">Вам нужен 2 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-1" style="display: none">4600</div>
+                  <div id="DefenceNeededCrystal-1" style="display: none">2500</div>
+                  <div id="DefenceNeededGas-1" style="display: none">0</div>
+                  <div id="DefenceNeededPop-1" style="display: none">2</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-1" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">4,600</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-1" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">2,500</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-1" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-1" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">2</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 140</li>
+                <li>Жизнь: 1,500</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-2" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-2" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-2">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/2.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_2.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=2">Лазерная установка</a></h3>
+                                <div class="requirement">Вам нужен 3 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-2" style="display: none">8800</div>
+                  <div id="DefenceNeededCrystal-2" style="display: none">4700</div>
+                  <div id="DefenceNeededGas-2" style="display: none">0</div>
+                  <div id="DefenceNeededPop-2" style="display: none">3</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-2" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">8,800</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-2" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">4,700</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-2" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-2" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">3</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 180</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-4" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-4" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-4">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/4.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_4.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=4">Ионная установка</a></h3>
+                                <div class="requirement">Вам нужен 5 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-4" style="display: none">45500</div>
+                  <div id="DefenceNeededCrystal-4" style="display: none">24500</div>
+                  <div id="DefenceNeededGas-4" style="display: none">0</div>
+                  <div id="DefenceNeededPop-4" style="display: none">14</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-4" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">45,500</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-4" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">24,500</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-4" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-4" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">14</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 840</li>
+                <li>Жизнь: 12,600</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-5" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-5" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-5">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/5.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_5.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=5">Плазменая установка</a></h3>
+                                <div class="requirement">Вам нужен 7 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-5" style="display: none">67900</div>
+                  <div id="DefenceNeededCrystal-5" style="display: none">36600</div>
+                  <div id="DefenceNeededGas-5" style="display: none">0</div>
+                  <div id="DefenceNeededPop-5" style="display: none">19</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-5" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">67,900</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-5" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">36,600</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-5" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-5" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">19</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 3,800</li>
+                <li>Жизнь: 62,700</li>
+                <li>Тип оружия: Плазма</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-8" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-8" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-8">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/8.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_8.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=8">Лазер-Ионная Батарея</a></h3>
+                                <div class="requirement">Вам нужен 8 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-8" style="display: none">88200</div>
+                  <div id="DefenceNeededCrystal-8" style="display: none">37800</div>
+                  <div id="DefenceNeededGas-8" style="display: none">0</div>
+                  <div id="DefenceNeededPop-8" style="display: none">21</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-8" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">88,200</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-8" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">37,800</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-8" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-8" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">21</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 8,820</li>
+                <li>Жизнь: 128,800</li>
+                <li>Тип оружия: Лазер, Ион</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-9" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-9" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-9">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/9.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_9.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=9">Плазма-Лазерная Батарея</a></h3>
+                                <div class="requirement">Вам нужен 10 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-9" style="display: none">66000</div>
+                  <div id="DefenceNeededCrystal-9" style="display: none">154000</div>
+                  <div id="DefenceNeededGas-9" style="display: none">0</div>
+                  <div id="DefenceNeededPop-9" style="display: none">44</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-9" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">66,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-9" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">154,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-9" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-9" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">44</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 24,200</li>
+                <li>Жизнь: 263,000</li>
+                <li>Тип оружия: Лазер, Плазма</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-10" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-10" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-10">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/10.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_10.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=10">Ион-Плазменная Батарея</a></h3>
+                                <div class="requirement">Вам нужен 12 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-10" style="display: none">78000</div>
+                  <div id="DefenceNeededCrystal-10" style="display: none">130000</div>
+                  <div id="DefenceNeededGas-10" style="display: none">52000</div>
+                  <div id="DefenceNeededPop-10" style="display: none">65</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-10" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">78,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-10" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">130,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-10" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">52,000</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-10" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">65</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 34,250</li>
+                <li>Жизнь: 407,000</li>
+                <li>Тип оружия: Ион, Плазма</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-6" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-6" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-6">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/6.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_6.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=6">Башенный щит</a></h3>
+                                <div class="requirement">Вам нужен 5 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-6" style="display: none">96000</div>
+                  <div id="DefenceNeededCrystal-6" style="display: none">96000</div>
+                  <div id="DefenceNeededGas-6" style="display: none">0</div>
+                  <div id="DefenceNeededPop-6" style="display: none">12</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-6" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">96,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-6" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">96,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-6" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-6" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">12</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Дополнительный Щит</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 600,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="DefenceAvaible-7" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-7" onmouseover="Tip(&#39;Доступная оборона&#39;);" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-7">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/7.jpg" class="lightbox">
+                    <img src="./page_2026-07-26_14-06-48_files/defence_7.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="https://game.ares.nemexia.com/information.php?type=defence&amp;id=7">Планетарный щит</a></h3>
+                                <div class="requirement">Вам нужен 8 уровень Верфи<br>Перейти в <a href="https://game.ares.nemexia.com/technics.php?showTab=defence">Технологии</a></div>
+                                <ul>
+                  <div id="DefenceNeededMetal-7" style="display: none">352000</div>
+                  <div id="DefenceNeededCrystal-7" style="display: none">352000</div>
+                  <div id="DefenceNeededGas-7" style="display: none">0</div>
+                  <div id="DefenceNeededPop-7" style="display: none">44</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-7" onmouseover="Tip(&#39;Металл&#39;);" onmouseout="UnTip();">352,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-7" onmouseover="Tip(&#39;Минералы&#39;);" onmouseout="UnTip();">352,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-7" onmouseover="Tip(&#39;Газ&#39;);" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-7" onmouseover="Tip(&#39;Население&#39;);" onmouseout="UnTip();">44</li>
+                </ul>
+                                            </div>
+                          </div>
+            <div class="tooltip">
+              <b>Главный Щит</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 2,640,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                    </div><!-- #structuresList -->
+    </div><!-- #TabDefence -->
+
+    <div id="TabCommanderShips" style="">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      <script type="text/javascript">
+        
+              $(function() {$('a.lightbox').lightBox();});
+                
+                var TAG_CS_RESOURCE_ORDER = 'Заказать';
+                var TAG_CS_RESOURCE_REPAIR = 'Починить';
+                var TAG_CS_CREDITS_ORDER = 'Купить сейчас';
+                var TAG_CS_CREDITS_REPAIR = 'Моментальный ремонт';
+                var TAG_CS_BUY_SHIP_CONFIRM = 'Это будет стоить %1$s кредитов. Вы уверены что хотите купить этот корабль?';
+                var TAG_CS_BUY_REPAIR_CONFIRM = 'Это будет стоить %1$s кредитов. Вы уверены что хотите починить этот корабль?';
+            </script>
+
+      <div id="structuresList">
+                                                  <div class="structureItem disabled" id="structureItem-2">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-2">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/2.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_2.png" border="0" onmouseover="Tip(&#39;Увеличивает возможный процент украденных ресурсов за Пиратский Рейд.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=2" onmouseover="Tip(&#39;Увеличивает возможный процент украденных ресурсов за Пиратский Рейд.&#39;)" onmouseout="UnTip()">
+                    Корсар
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 2 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-2" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(2)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(2)" class="orderCredits" data-is-repair="false" data-price-credits="50">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-7">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-7">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/7.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_7.png" border="0" onmouseover="Tip(&#39;Шанс обнаружить вражеских шпионов.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=7" onmouseover="Tip(&#39;Шанс обнаружить вражеских шпионов.&#39;)" onmouseout="UnTip()">
+                    Охотник
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 2 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-7" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(7)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(7)" class="orderCredits" data-is-repair="false" data-price-credits="40">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:32</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-9">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-9">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/9.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_9.png" border="0" onmouseover="Tip(&#39;Увеличивает урон от атаки вашего флота&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=9" onmouseover="Tip(&#39;Увеличивает урон от атаки вашего флота&#39;)" onmouseout="UnTip()">
+                    Палач
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 5 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-9" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(9)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(9)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-10">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-10">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/10.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_10.png" border="0" onmouseover="Tip(&#39;Увеличивает жизненные очки ваших кораблей&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=10" onmouseover="Tip(&#39;Увеличивает жизненные очки ваших кораблей&#39;)" onmouseout="UnTip()">
+                    Джаггернаут
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 5 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-10" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(10)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(10)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-8">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-8">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/8.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_8.png" border="0" onmouseover="Tip(&#39;Увеличивает скорость полета&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=8" onmouseover="Tip(&#39;Увеличивает скорость полета&#39;)" onmouseout="UnTip()">
+                    Тайфун
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 10 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-8" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(8)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(8)" class="orderCredits" data-is-repair="false" data-price-credits="50">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-4">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-4">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/4.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_4.png" border="0" onmouseover="Tip(&#39;Увеличивает шанс нанести критический урон&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=4" onmouseover="Tip(&#39;Увеличивает шанс нанести критический урон&#39;)" onmouseout="UnTip()">
+                    Вайпер
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 20 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-4" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(4)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(4)" class="orderCredits" data-is-repair="false" data-price-credits="70">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:56</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-6">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-6">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/6.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_6.png" border="0" onmouseover="Tip(&#39;Дает шанс отменить атаку противника.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=6" onmouseover="Tip(&#39;Дает шанс отменить атаку противника.&#39;)" onmouseout="UnTip()">
+                    Фантом
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 25 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-6" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(6)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(6)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-5">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-5">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/5.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_5.png" border="0" onmouseover="Tip(&#39;Шанс парализовать корабли противника&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=5" onmouseover="Tip(&#39;Шанс парализовать корабли противника&#39;)" onmouseout="UnTip()">
+                    Скорпион
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 20 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-5" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(5)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(5)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-1">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-1">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/1.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_1.png" border="0" onmouseover="Tip(&#39;Увеличивает шанс уничтожить здание противника.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=1" onmouseover="Tip(&#39;Увеличивает шанс уничтожить здание противника.&#39;)" onmouseout="UnTip()">
+                    Аннигилятор
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 35 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-1" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(1)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(1)" class="orderCredits" data-is-repair="false" data-price-credits="90">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:12</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-3">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-3">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/3.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_3.png" border="0" onmouseover="Tip(&#39;Шанс восстановить потерянные корабли прямо на поле боя.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=3" onmouseover="Tip(&#39;Шанс восстановить потерянные корабли прямо на поле боя.&#39;)" onmouseout="UnTip()">
+                    Реаниматор
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 15 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-3" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(3)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(3)" class="orderCredits" data-is-repair="false" data-price-credits="70">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:56</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-11">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-11">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/11.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_11.png" border="0" onmouseover="Tip(&#39;Предоставляет дополнительные очки усовершенствования в боях с Отступниками.&lt;br /&gt;Также это увеличит грузоподъемность ваших кораблей.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=11" onmouseover="Tip(&#39;Предоставляет дополнительные очки усовершенствования в боях с Отступниками.&lt;br /&gt;Также это увеличит грузоподъемность ваших кораблей.&#39;)" onmouseout="UnTip()">
+                    Арго
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требования <a href="https://game.ares.nemexia.com/admiral.php?tabId=tabBlueprints">Чертежи</a> "Арго". Пройдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>.
+                  </div>
+                              <form id="commanderShipsTrainForm-11" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(11)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(11)" class="orderCredits" data-is-repair="false" data-price-credits="50">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-12">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-12">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/12.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_12.png" border="0" onmouseover="Tip(&#39;Уменьшает показатель брони у всех вражеских юнитов в течение боя.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=12" onmouseover="Tip(&#39;Уменьшает показатель брони у всех вражеских юнитов в течение боя.&#39;)" onmouseout="UnTip()">
+                    Судья
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требования <a href="https://game.ares.nemexia.com/admiral.php?tabId=tabBlueprints">Чертежи</a> "Судья". Пройдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>.
+                  </div>
+                              <form id="commanderShipsTrainForm-12" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(12)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(12)" class="orderCredits" data-is-repair="false" data-price-credits="90">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:12</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-13">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-13">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/13.jpg" class="lightbox">
+                                    <img src="./page_2026-07-26_14-06-48_files/commanderShip_13.png" border="0" onmouseover="Tip(&#39;Уменьшает вероятность разрушения планеты.&#39;)" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="https://game.ares.nemexia.com/information.php?type=commander_ship&amp;id=13" onmouseover="Tip(&#39;Уменьшает вероятность разрушения планеты.&#39;)" onmouseout="UnTip()">
+                    Polias
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 28 <a href="https://game.ares.nemexia.com/admiral.php">Адмирала</a>. Перейдите в <a href="https://game.ares.nemexia.com/technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-13" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(13)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(13)" class="orderCredits" data-is-repair="false" data-price-credits="120">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:36</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+            </div><!-- #structuresList -->
+    </div><!-- #TabCommanderShips -->
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  CountDown();
+            showTab('TabCommanderShips');
+      refreshQue('commanderShips');
+      $('#techShips').hide();
+      $('#techDefence').hide();
+      $('#techCommanderShips').show();
+            });
+
+</script>
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Хранилища заполнены более чем на 70%" style="top: 46px; left: 742.5px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 742.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 742.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Низкий запас энергии" style="top: 46px; left: 1119.5px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1119.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1119.5px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

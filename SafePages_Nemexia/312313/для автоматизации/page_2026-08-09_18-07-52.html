@@ -1,0 +1,1311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)https://game.ares.nemexia.com/overview.php?player_id=14764 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Просмотр</title>
+
+  
+
+  <link href="./page_2026-08-09_18-07-52_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-08-09_18-07-52_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_1.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-08-09_18-07-52_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-9LYKeNDnHlGQatoWvSQWQ/IYcrwQ8o5B37sJNDFqoHtTDHQarNX8EggRtqafcUwq"></script><script type="text/javascript" src="./page_2026-08-09_18-07-52_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-08-09_18-07-52_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 156747666;
+        PLAYER['max_metal'] = 450100000;
+        PLAYER['crystal']   = 149232014;
+        PLAYER['max_crystal'] = 300100000;
+        PLAYER['gas']       = 40148394;
+        PLAYER['max_gas']   = 77847829;
+        PLAYER['recycle']   = 6;
+        PLAYER['energy']    = 7643;
+        PLAYER['pop']       = 25112;
+        PLAYER['pop_used']  = 13866;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 25056;
+        PLAYER['credits']   = 97;
+        PLAYER['phase']     = 109;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '156,747,666';
+        PLAYER['maxMetalFormat'] = '450,100,000';
+        PLAYER['crystalFormat'] = '149,232,014';
+        PLAYER['maxCrystalFormat'] = '300,100,000';
+        PLAYER['gasFormat'] = '40,148,394';
+        PLAYER['maxGasFormat'] = '77,847,829';
+        PLAYER['popFormat'] = '25,112';
+
+		PLAYER['ozone'] = 14170;
+		PLAYER['ozone_loss'] = 3590;
+		PLAYER['ozone_gain'] = 3750;
+
+		PLAYER['battle_points'] = 233310;
+		PLAYER['admiral_current_level'] = 29;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 223300;
+		PLAYER['admiral_next_level_battle_points'] = 282600;
+		PLAYER['admiral_level_up_battle_points'] = 49290;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/overview.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10737;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Foverview.php%3Fplayer_id%3D14764';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('August 09, 2026 17:07:59');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-08-09_18-07-52_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-08-09_18-07-52_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 500px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-08-09_18-07-52_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/overview.php?player_id=14764#"><img border="0" width="12px" src="./page_2026-08-09_18-07-52_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-09_18-07-52_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">17:08:06</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_133.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill20">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			156,747,666
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			149,232,014
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			40,148,394
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			7,643
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				13,866
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				25,056
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			6
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Москва <span>[3:39:11]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=991" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_133.png" width="18" id="planetListImg-991">
+						Москва <span>[3:39:11]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1086" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_20.png" width="18" id="planetListImg-1086">
+						Питер <span>[3:39:8]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1094" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_8.png" width="18" id="planetListImg-1094">
+						Краснодар <span>[3:39:16]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1105" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_2.png" width="18" id="planetListImg-1105">
+						Ростов <span>[3:39:9]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1109" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_13.png" width="18" id="planetListImg-1109">
+						Воронеж <span>[3:39:17]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1125" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_6.png" width="18" id="planetListImg-1125">
+						Рязань <span>[3:39:21]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1132" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_21.png" width="18" id="planetListImg-1132">
+						Русь <span>[3:39:13]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1047" onclick="delete($.post);">
+						<img src="./page_2026-08-09_18-07-52_files/planet_25.png" width="18" id="planetListImg-1047">
+						klick...hmm..error <span>[2:5:6]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=3&amp;solar=39">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+									<span class="newMessages" id="newMessages">4</span>
+												</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_12.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-09-21 22:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">97</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" class="active" onmouseover="Tip(&#39;Вы Платинум пользователь!&lt;br/&gt;Ваша подписка заканчивается 2026-09-03 03:35:12.&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">0</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Лаборатория</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Завод по переработке</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Фабрика</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-08-09_18-07-52_files/overview.js"></script>
+
+<div class="pageSubnavigation">
+    
+    <div class="title">Планеты</div>
+    <div class="sub">
+
+        <ul class="menu">
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1047" onclick="loadPlanetContent(1047);$(&#39;#PlanetHolder-1047&#39;).toggle(&#39;normal&#39;);" class="planetItem">klick...hmm..error [2:5:6]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1047" onclick="loadModule(&#39;Buildings&#39;,1047);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1047" onclick="loadModule(&#39;Ships&#39;,1047);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1047" onclick="loadModule(&#39;Defence&#39;,1047);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1047" onclick="loadModule(&#39;Science&#39;,1047);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-991" onclick="loadPlanetContent(991);$(&#39;#PlanetHolder-991&#39;).toggle(&#39;normal&#39;);" class="planetItem">Москва [3:39:11]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-991" onclick="loadModule(&#39;Buildings&#39;,991);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-991" onclick="loadModule(&#39;Ships&#39;,991);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-991" onclick="loadModule(&#39;Defence&#39;,991);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-991" onclick="loadModule(&#39;Science&#39;,991);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1086" onclick="loadPlanetContent(1086);$(&#39;#PlanetHolder-1086&#39;).toggle(&#39;normal&#39;);" class="planetItem">Питер [3:39:8]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1086" onclick="loadModule(&#39;Buildings&#39;,1086);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1086" onclick="loadModule(&#39;Ships&#39;,1086);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1086" onclick="loadModule(&#39;Defence&#39;,1086);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1086" onclick="loadModule(&#39;Science&#39;,1086);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1094" onclick="loadPlanetContent(1094);$(&#39;#PlanetHolder-1094&#39;).toggle(&#39;normal&#39;);" class="planetItem">Краснодар [3:39:16]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1094" onclick="loadModule(&#39;Buildings&#39;,1094);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1094" onclick="loadModule(&#39;Ships&#39;,1094);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1094" onclick="loadModule(&#39;Defence&#39;,1094);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1094" onclick="loadModule(&#39;Science&#39;,1094);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1105" onclick="loadPlanetContent(1105);$(&#39;#PlanetHolder-1105&#39;).toggle(&#39;normal&#39;);" class="planetItem">Ростов [3:39:9]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1105" onclick="loadModule(&#39;Buildings&#39;,1105);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1105" onclick="loadModule(&#39;Ships&#39;,1105);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1105" onclick="loadModule(&#39;Defence&#39;,1105);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1105" onclick="loadModule(&#39;Science&#39;,1105);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1109" onclick="loadPlanetContent(1109);$(&#39;#PlanetHolder-1109&#39;).toggle(&#39;normal&#39;);" class="planetItem">Воронеж [3:39:17]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1109" onclick="loadModule(&#39;Buildings&#39;,1109);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1109" onclick="loadModule(&#39;Ships&#39;,1109);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1109" onclick="loadModule(&#39;Defence&#39;,1109);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1109" onclick="loadModule(&#39;Science&#39;,1109);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1125" onclick="loadPlanetContent(1125);$(&#39;#PlanetHolder-1125&#39;).toggle(&#39;normal&#39;);" class="planetItem">Рязань [3:39:21]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1125" onclick="loadModule(&#39;Buildings&#39;,1125);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1125" onclick="loadModule(&#39;Ships&#39;,1125);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1125" onclick="loadModule(&#39;Defence&#39;,1125);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1125" onclick="loadModule(&#39;Science&#39;,1125);">Науки</a></li>
+            	</ul>
+            </li>
+                        <li style="border: 0px;">
+            	<a href="https://game.ares.nemexia.com/overview.php?player_id=14764#planet-1132" onclick="loadPlanetContent(1132);$(&#39;#PlanetHolder-1132&#39;).toggle(&#39;normal&#39;);" class="planetItem">Русь [3:39:13]</a>
+            	<ul style="padding: 0px 30px;">
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1132" onclick="loadModule(&#39;Buildings&#39;,1132);">Здания</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1132" onclick="loadModule(&#39;Ships&#39;,1132);">Корабли</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1132" onclick="loadModule(&#39;Defence&#39;,1132);">Оборона</a></li>
+	            	<li><a href="https://game.ares.nemexia.com/overview.php?player_id=14764#Info-1132" onclick="loadModule(&#39;Science&#39;,1132);">Науки</a></li>
+            	</ul>
+            </li>
+                    </ul>
+        <dl class="list">
+			<dd><small>Очки:</small>2,081,851</dd>
+			<dd><small>Очки ресурсов:</small>1,848,541</dd>
+			<dd><small>Боевые очки:</small>233,310</dd>
+		</dl>
+    </div>   
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div> 
+</div>
+
+<div id="contentWrapper">
+
+	
+	
+	<a name="planet-1047"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-1047">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1047);
+						$(&#39;#PlanetHolder-1047&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1047&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			klick...hmm..error [2:5:6]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1047" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1047"></div>
+    
+        <a name="Info-1047"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1047"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1047);">Здания</a></li>
+                    <li id="ShipsLi-1047"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1047);">Корабли</a></li>
+                    <li id="DefenceLi-1047"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1047);">Оборона</a></li>
+                    <li id="ScienceLi-1047"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1047);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1047" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-1047" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1047" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1047" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-991"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-991">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(991);
+						$(&#39;#PlanetHolder-991&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-991&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Москва [3:39:11]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-991" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-991"></div>
+    
+        <a name="Info-991"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-991"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,991);">Здания</a></li>
+                    <li id="ShipsLi-991"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,991);">Корабли</a></li>
+                    <li id="DefenceLi-991"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,991);">Оборона</a></li>
+                    <li id="ScienceLi-991"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,991);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-991" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-991" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-991" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-991" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1086"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-1086">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1086);
+						$(&#39;#PlanetHolder-1086&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1086&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Питер [3:39:8]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1086" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1086"></div>
+    
+        <a name="Info-1086"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1086"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1086);">Здания</a></li>
+                    <li id="ShipsLi-1086"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1086);">Корабли</a></li>
+                    <li id="DefenceLi-1086"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1086);">Оборона</a></li>
+                    <li id="ScienceLi-1086"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1086);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1086" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-1086" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1086" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1086" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1094"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-1094">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1094);
+						$(&#39;#PlanetHolder-1094&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1094&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Краснодар [3:39:16]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1094" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1094"></div>
+    
+        <a name="Info-1094"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1094"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1094);">Здания</a></li>
+                    <li id="ShipsLi-1094"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1094);">Корабли</a></li>
+                    <li id="DefenceLi-1094"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1094);">Оборона</a></li>
+                    <li id="ScienceLi-1094"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1094);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1094" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-1094" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1094" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1094" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1105"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-1105">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1105);
+						$(&#39;#PlanetHolder-1105&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1105&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Ростов [3:39:9]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1105" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1105"></div>
+    
+        <a name="Info-1105"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1105"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1105);">Здания</a></li>
+                    <li id="ShipsLi-1105"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1105);">Корабли</a></li>
+                    <li id="DefenceLi-1105"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1105);">Оборона</a></li>
+                    <li id="ScienceLi-1105"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1105);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1105" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-1105" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1105" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1105" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1109"></a>
+	<h1 class="titleBottom" id="planetInfoTitle-1109">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1109);
+						$(&#39;#PlanetHolder-1109&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1109&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Воронеж [3:39:17]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1109" style="display:none"><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1109"></div>
+    
+        <a name="Info-1109"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1109"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1109);">Здания</a></li>
+                    <li id="ShipsLi-1109"><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1109);">Корабли</a></li>
+                    <li id="DefenceLi-1109"><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1109);">Оборона</a></li>
+                    <li id="ScienceLi-1109"><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1109);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1109" style="display:block;"></div>
+            <div class="innerBoxContent" id="ShipsHolder-1109" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1109" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1109" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1125"></a>
+	<h1 class="" id="planetInfoTitle-1125">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1125);
+						$(&#39;#PlanetHolder-1125&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1125&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Рязань [3:39:21]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1125" style=""><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1125">
+	<h2 class="overviewTitle">Ресурсы</h2>
+        <br>
+        
+        <div class="overviewPlanet">
+    	
+	    	<div class="overviewPlanetInfo">
+	
+			    <div class="group">
+			    	<div class="row">Ангар : <strong>10,315</strong></div>
+			    	<div class="row">Используемые ангары : <strong>1,050</strong></div>
+			    	<div class="row">Свободные ангары : <strong>9,265</strong></div>
+				</div>
+				<div class="group">
+			    	<div class="row">Добыча Энергии : <strong>19,779</strong></div>
+			    	<div class="row">Использованная энергия : <strong>18,437</strong></div>
+			    	<div class="row">Свободно Энергии : <strong>1,342</strong></div>
+			    </div>
+	
+			
+				<div class="group big">
+					
+	   				<div class="row">Озоновый слой : <strong>15,000</strong></div>
+	   				<div class="row">Макс. Озон : <strong>15,000</strong></div>
+	   				<div class="row">Потеря Озона в день : <strong>2,980</strong></div>
+		   			<span>Получение Озона в день : <strong>3,750</strong></span>
+	   			</div>
+			
+		
+			</div><!-- .overviewPlanetInfo -->
+		
+
+		
+	    	<table width="350">
+		    	<thead>
+		    		<tr>
+		    			<td></td>
+		    			<td>Металл</td>
+		    			<td>Минералы</td>
+		    			<td>Газ</td>
+		    		</tr>
+				</thead>
+				<tbody>
+		    		<tr>
+		    			<td>Доступно</td>
+		    			<td>564,981</td>
+		    			<td>819,422</td>
+		    			<td>259,429</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Производство</td>
+		    			<td>567,794</td>
+		    			<td>363,463</td>
+		    			<td>21,782</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Макс.</td>
+		    			<td>19,550,461</td>
+		    			<td>14,700,466</td>
+		    			<td>2,724,030</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Заполнится через</td>
+		    			<td>1 День 09:26:14</td>
+		    			<td>1 День 14:11:28</td>
+		    			<td>4 дней 17:08:55</td>
+		    		</tr>
+		    	</tbody>
+	    	</table>
+    	</div><!-- .overviewPlanet -->
+		   		
+		   		</div>
+    
+        <a name="Info-1125"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1125" class="active"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1125);">Здания</a></li>
+                    <li id="ShipsLi-1125" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1125);">Корабли</a></li>
+                    <li id="DefenceLi-1125" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1125);">Оборона</a></li>
+                    <li id="ScienceLi-1125" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1125);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1125" style="display: block;"><table width="100%">
+				<thead>
+					<tr>
+						<td>Доступно</td>
+						<td>В Очереди</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="border: 0px; solid;" width="50%" valign="top"><table><thead><tr><td>Имя</td><td>Уровень</td></tr></thead><tbody><tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Экстрактор минералов</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Экстрактор минералов</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Газовая скважина</a></td>
+		<td>15</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Газовая скважина</a></td>
+		<td>15</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Солнечные панели</a></td>
+		<td>23</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Атомная электроцентраль</a></td>
+		<td>14</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Ангар</a></td>
+		<td>16</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/factory.php" target="_blank">Фабрика</a></td>
+		<td>18</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/factory.php" target="_blank">Фабрика для тертетов</a></td>
+		<td>2</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Склад для металла</a></td>
+		<td>13</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Склад для минералов</a></td>
+		<td>13</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Резервуар для газа</a></td>
+		<td>8</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resource_trader.php" target="_blank">Торговый центр</a></td>
+		<td>1</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/ships.php" target="_blank">Верфь</a></td>
+		<td>10</td>
+		</tr>
+		</tbody></table></td>
+						<td style="border: 0px; solid;" width="50%" valign="top"><table><thead><tr><td>Имя</td><td>Уровень</td><td>Время</td></tr></thead><tbody><tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Ангар</a></td>
+		<td>17</td>
+		<td>-00:37:31</td>
+		</tr>
+		</tbody></table></td>
+					</tr>
+				</tbody>
+			   </table></div>
+            <div class="innerBoxContent" id="ShipsHolder-1125" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1125" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1125" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	
+	<a name="planet-1132"></a>
+	<h1 class="" id="planetInfoTitle-1132">
+		<a href="javascript:void(0);" onclick="loadPlanetContent(1132);
+						$(&#39;#PlanetHolder-1132&#39;).toggle(&#39;normal&#39;, function() {
+							$(&#39;#planetInfoTitle-1132&#39;).toggleClass(&#39;titleBottom&#39;);
+						});">
+			Русь [3:39:13]
+		</a>
+	</h1>
+    <div class="box" id="PlanetHolder-1132" style=""><div class="boxBottom"></div>
+    	<div id="PlanetContentHolder-1132">
+	<h2 class="overviewTitle">Ресурсы</h2>
+        <br>
+        
+        <div class="overviewPlanet">
+    	
+	    	<div class="overviewPlanetInfo">
+	
+			    <div class="group">
+			    	<div class="row">Ангар : <strong>10,315</strong></div>
+			    	<div class="row">Используемые ангары : <strong>1,050</strong></div>
+			    	<div class="row">Свободные ангары : <strong>9,265</strong></div>
+				</div>
+				<div class="group">
+			    	<div class="row">Добыча Энергии : <strong>20,897</strong></div>
+			    	<div class="row">Использованная энергия : <strong>18,453</strong></div>
+			    	<div class="row">Свободно Энергии : <strong>2,444</strong></div>
+			    </div>
+	
+			
+				<div class="group big">
+					
+	   				<div class="row">Озоновый слой : <strong>15,000</strong></div>
+	   				<div class="row">Макс. Озон : <strong>15,000</strong></div>
+	   				<div class="row">Потеря Озона в день : <strong>3,020</strong></div>
+		   			<span>Получение Озона в день : <strong>3,750</strong></span>
+	   			</div>
+			
+		
+			</div><!-- .overviewPlanetInfo -->
+		
+
+		
+	    	<table width="350">
+		    	<thead>
+		    		<tr>
+		    			<td></td>
+		    			<td>Металл</td>
+		    			<td>Минералы</td>
+		    			<td>Газ</td>
+		    		</tr>
+				</thead>
+				<tbody>
+		    		<tr>
+		    			<td>Доступно</td>
+		    			<td>564,666</td>
+		    			<td>819,220</td>
+		    			<td>359,416</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Производство</td>
+		    			<td>567,794</td>
+		    			<td>363,463</td>
+		    			<td>21,782</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Макс.</td>
+		    			<td>27,989,588</td>
+		    			<td>21,029,821</td>
+		    			<td>4,090,945</td>
+		    		</tr>
+		    		<tr>
+		    			<td>Заполнится через</td>
+		    			<td>2 дней 00:18:03</td>
+		    			<td>2 дней 07:36:20</td>
+		    			<td>7 дней 03:18:45</td>
+		    		</tr>
+		    	</tbody>
+	    	</table>
+    	</div><!-- .overviewPlanet -->
+		   		
+		   		</div>
+    
+        <a name="Info-1132"></a>
+        <div class="innerBox">
+            <div class="innerBoxTabs">
+                <ul>
+                    <li id="BuildingsLi-1132" class="active"><a href="javascript:void(0);" onclick="loadModule(&#39;Buildings&#39;,1132);">Здания</a></li>
+                    <li id="ShipsLi-1132" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Ships&#39;,1132);">Корабли</a></li>
+                    <li id="DefenceLi-1132" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Defence&#39;,1132);">Оборона</a></li>
+                    <li id="ScienceLi-1132" class=""><a href="javascript:void(0);" onclick="loadModule(&#39;Science&#39;,1132);">Науки</a></li>
+                </ul>
+            </div>
+            
+            <div class="innerBoxContent" id="BuildingsHolder-1132" style="display: block;"><table width="100%">
+				<thead>
+					<tr>
+						<td>Доступно</td>
+						<td>В Очереди</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="border: 0px; solid;" width="50%" valign="top"><table><thead><tr><td>Имя</td><td>Уровень</td></tr></thead><tbody><tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Рудник для металла</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Экстрактор минералов</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Экстрактор минералов</a></td>
+		<td>30</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Газовая скважина</a></td>
+		<td>15</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Газовая скважина</a></td>
+		<td>15</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Солнечные панели</a></td>
+		<td>23</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Атомная электроцентраль</a></td>
+		<td>15</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Ангар</a></td>
+		<td>16</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/factory.php" target="_blank">Фабрика</a></td>
+		<td>18</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/factory.php" target="_blank">Фабрика для тертетов</a></td>
+		<td>2</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Склад для металла</a></td>
+		<td>14</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Склад для минералов</a></td>
+		<td>14</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php?show=storages" target="_blank">Резервуар для газа</a></td>
+		<td>9</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/resource_trader.php" target="_blank">Торговый центр</a></td>
+		<td>1</td>
+		</tr>
+		<tr>
+		<td><a href="https://game.ares.nemexia.com/ships.php" target="_blank">Верфь</a></td>
+		<td>10</td>
+		</tr>
+		</tbody></table></td>
+						<td style="border: 0px; solid;" width="50%" valign="top"><table><thead><tr><td>Имя</td><td>Уровень</td><td>Время</td></tr></thead><tbody><tr>
+		<td><a href="https://game.ares.nemexia.com/resourceInfo.php" target="_blank">Ангар</a></td>
+		<td>17</td>
+		<td>-00:37:25</td>
+		</tr>
+		</tbody></table></td>
+					</tr>
+				</tbody>
+			   </table></div>
+            <div class="innerBoxContent" id="ShipsHolder-1132" style="display:none;"></div>
+            <div class="innerBoxContent" id="DefenceHolder-1132" style="display:none;"></div>
+            <div class="innerBoxContent" id="ScienceHolder-1132" style="display:none;"></div>
+        </div>
+    </div>
+    
+	
+	</div>
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 929px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 929px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 929px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

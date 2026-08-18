@@ -1,0 +1,1783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)https://game.ares.nemexia.com/options.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Опции</title>
+
+  
+
+  <link href="./page_2026-08-04_09-58-09_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-08-04_09-58-09_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_1.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-08-04_09-58-09_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-9LYKeNDnHlGQatoWvSQWQ/IYcrwQ8o5B37sJNDFqoHtTDHQarNX8EggRtqafcUwq"></script><script type="text/javascript" src="./page_2026-08-04_09-58-09_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-08-04_09-58-09_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 17201377;
+        PLAYER['max_metal'] = 77847829;
+        PLAYER['crystal']   = 14631290;
+        PLAYER['max_crystal'] = 58423532;
+        PLAYER['gas']       = 3811218;
+        PLAYER['max_gas']   = 19550461;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 496;
+        PLAYER['pop']       = 25112;
+        PLAYER['pop_used']  = 25013;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 23756;
+        PLAYER['credits']   = 316;
+        PLAYER['phase']     = 108;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '17,201,377';
+        PLAYER['maxMetalFormat'] = '77,847,829';
+        PLAYER['crystalFormat'] = '14,631,290';
+        PLAYER['maxCrystalFormat'] = '58,423,532';
+        PLAYER['gasFormat'] = '3,811,218';
+        PLAYER['maxGasFormat'] = '19,550,461';
+        PLAYER['popFormat'] = '25,112';
+
+		PLAYER['ozone'] = 13200;
+		PLAYER['ozone_loss'] = 3400;
+		PLAYER['ozone_gain'] = 3750;
+
+		PLAYER['battle_points'] = 225806;
+		PLAYER['admiral_current_level'] = 29;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 223300;
+		PLAYER['admiral_next_level_battle_points'] = 282600;
+		PLAYER['admiral_level_up_battle_points'] = 56794;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/options.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 4620;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Foptions.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('August 04, 2026 08:57:38');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-08-04_09-58-09_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-08-04_09-58-09_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 462.4px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-08-04_09-58-09_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/options.php#"><img border="0" width="12px" src="./page_2026-08-04_09-58-09_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/options.php#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-04_09-58-09_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/options.php#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">08:58:18</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_133.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill0">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			17,201,377
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			14,631,290
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			3,811,218
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			496
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				25,013
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				23,756
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Москва <span>[3:39:11]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=991" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_133.png" width="18" id="planetListImg-991">
+						Москва <span>[3:39:11]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1086" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_20.png" width="18" id="planetListImg-1086">
+						Питер <span>[3:39:8]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1094" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_8.png" width="18" id="planetListImg-1094">
+						Краснодар <span>[3:39:16]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1105" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_2.png" width="18" id="planetListImg-1105">
+						Ростов <span>[3:39:9]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1109" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_13.png" width="18" id="planetListImg-1109">
+						Воронеж <span>[3:39:17]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1125" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_6.png" width="18" id="planetListImg-1125">
+						Рязань <span>[3:39:21]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1132" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_21.png" width="18" id="planetListImg-1132">
+						Русь <span>[3:39:13]</span>
+					</a>
+				</li>
+							<li>
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=1047" onclick="delete($.post);">
+						<img src="./page_2026-08-04_09-58-09_files/planet_25.png" width="18" id="planetListImg-1047">
+						klick...hmm..error <span>[2:5:6]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=3&amp;solar=39">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+									<span class="newMessages" id="newMessages">55</span>
+												</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_9.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-09-14 10:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">316</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" class="active" onmouseover="Tip(&#39;Вы Платинум пользователь!&lt;br/&gt;Ваша подписка заканчивается 2026-08-18 03:35:12.&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">20</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Лаборатория</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Завод по переработке</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Фабрика</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-08-04_09-58-09_files/messages.js"></script>
+<script type="text/javascript" src="./page_2026-08-04_09-58-09_files/bbcode.js"></script>
+<script type="text/javascript" src="./page_2026-08-04_09-58-09_files/achievements.js"></script>
+<script type="text/javascript" src="./page_2026-08-04_09-58-09_files/options.js"></script>
+<div class="leftColumnWidth">
+	<div class="pageSubnavigation">
+				
+	<div class="title">Сообщения</div>
+	<div class="sub">
+
+		<ul class="menu" id="messagesFolders">
+			<li class="personal">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabPersonal&#39;,1,0);
+							showTab(&#39;TabPersonal&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Личные					<strong>
+						<span id="new1">0</span>/<span id="old1">30</span>
+					</strong>
+				</a>
+			</li>
+			<li class="system">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,0);
+							showTab(&#39;TabAdministrative&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Система					<strong><span id="new2">0</span>/<span id="old2">55</span></strong>
+				</a>
+			</li>
+						<li class="notifications">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabPayments&#39;,7,0);
+							showTab(&#39;TabPayments&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Уведомления					<strong>
+						<span id="new7">0</span>/<span id="old7">23</span>
+					</strong>
+				</a>
+			</li>
+									<li class="administrative">
+				<a href="javascript:void(0);" onclick="loadWall(0);
+							showTab(&#39;TabWall&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Административные					<strong>
+						<span id="new6">0</span>/<span id="old6">4</span>
+					</strong>
+				</a>
+			</li>
+						<li class="reports">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabReports&#39;,3,0);
+							showTab(&#39;TabReports&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Доклады					<strong>
+						<span id="new3">0</span>/<span id="old3">442</span>
+					</strong>
+				</a>
+			</li>
+			<li class="teamReports">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabTeamReports&#39;,11,0);
+							showTab(&#39;TabTeamReports&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Командные доклады					<strong>
+						<span id="new11">0</span>/<span id="old11">11</span>
+					</strong>
+				</a>
+			</li>
+			<li class="arenaReports">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabArenaReports&#39;,10,0);
+							showTab(&#39;TabArenaReports&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Очки Арены					<strong>
+						<span id="new10">0</span>/<span id="old10">0</span>
+					</strong>
+				</a>
+			</li>
+			<li class="fleets">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabFleets&#39;,4,0);
+							showTab(&#39;TabFleets&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);" class="newMessage">
+					Полеты					<strong>
+						<span id="new4">6</span>/<span id="old4">1277</span>
+					</strong>
+				</a>
+			</li>
+			<li class="alliances">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAlliance&#39;,5,0);
+							showTab(&#39;TabAlliance&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Союзы					<strong>
+						<span id="new5">0</span>/<span id="old5">10</span>
+					</strong>
+				</a>
+			</li>
+			<li class="achievementsMessages">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAchievementsMessages&#39;,9,0);
+							showTab(&#39;TabAchievementsMessages&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Достижения					<strong>
+						<span id="new5">0</span>/<span id="old9">4</span>
+					</strong>
+				</a>
+			</li>
+			<li class="sent">
+				<a href="javascript:void(0);" onclick="loadTabContent(&#39;TabSent&#39;,0,0);
+							showTab(&#39;TabSent&#39;);
+							$(this).removeClass(&#39;newMessage&#39;);">
+					Отправленные сообщения					<strong>
+						<span id="new0">0</span>/<span id="old0">1</span>
+					</strong>
+				</a>
+			</li>
+			<li class="send">
+				<a href="javascript:void(0);" onclick="showTab(&#39;TabSend&#39;);">
+					<span>Отправить сообщение</span>
+				</a>
+			</li>
+		</ul>
+	
+	</div>
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>
+</div>	
+<div class="pageSubnavigation">
+	<div class="title">Информация об игроке</div>
+	<div class="sub">
+	
+        <ul class="menu">
+		    <li><a href="javascript:void(0);" onclick="showTab(&#39;TabOverview&#39;);">Профиль</a></li>
+		    <li><a href="javascript:void(0);" onclick="showTab(&#39;TabProfile&#39;);">Изменить профиль</a></li>
+		    <li><a href="javascript:void(0);" onclick="showTab(&#39;TabHotLinks&#39;);">Ссылки</a></li>
+					    <li><a href="javascript:void(0);" onclick="showTab(&#39;TabOptions&#39;);">Настройки</a></li>
+						<li><a href="javascript:void(0);" onclick="showTab(&#39;fleetsArrange&#39;);">Реорганизовать полеты</a></li>
+			<li>
+				<a href="javascript:void(0);" onclick="showCommanderShipPriorities();">
+					Приоритет Боевых кораблей				</a>
+			</li>
+					    <li><a href="javascript:void(0);" onclick="showTab(&#39;TabSitting&#39;);sittingLoad(&#39;Sitters&#39;);sittingLoad(&#39;Babies&#39;);">Ситтер</a></li>
+						<li><a href="javascript:void(0);" onclick="loadAchievementsByCategory(1);showTab(&#39;TabAchievements&#39;);">Достижения</a></li>
+							<li><a href="javascript:void(0);" onclick="loadSignatures();showTab(&#39;TabSignatures&#39;);">Подпись</a></li>
+					    <li><a href="javascript:void(0);" onclick="loadFriendList(1);showTab(&#39;TabBuddyList&#39;);">Список друзей</a></li>
+		    <li><a href="javascript:void(0);" onclick="loadFriendList(2);showTab(&#39;TabIgnoreList&#39;);">Черный список</a></li>
+		    <li><a href="javascript:void(0);" onclick="loadNotes();showTab(&#39;TabNotes&#39;);">Записки</a></li>
+        </ul>
+	
+		<!-- Premium shortcuts - start -->
+		<br>
+		<ul class="buttons">
+			<li>
+				<a href="javascript: openPremiumPopup(&#39;subtabProtection&#39;);" class="premiumButton">
+					<span>Режим защиты</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript: openPremiumPopup(&#39;subtabVacationMode&#39;);" class="premiumButton">
+					<span>Режим отпуска</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Premium shortcuts - end -->
+		
+	</div>
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>
+</div>	
+</div>
+
+<div id="contentWrapper">
+
+    <div id="mainFrame">
+	    <div id="TabOverview" style="display: none;">
+	<h1>Профиль игрока</h1>
+<div class="box player" id="userPreview" style="background: url(&#39;img/v3.0/raceSkin-1/bknd_profile.png&#39;) no-repeat 50% 0;">
+	<div class="boxBottom"></div>
+	<div class="avatar">
+				<img src="./page_2026-08-04_09-58-09_files/no_clanlogo.png" border="0" style="width: 160px; height: 160px; margin: -30px 0 0 0;">
+						<div class="allianceName"><a href="https://game.ares.nemexia.com/alliance.php?alliance_id=7">klick...hmm..error</a></div>
+			</div>
+	
+	<div class="playerAdmiral" style="background: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/small/1.png&#39;) no-repeat 0% 0% / 100%;">
+        <span class="admiralName">Dendrilion</span>
+	</div>
+	<dl class="playerInfo plInfo-1">
+		<dd>
+			<big class="bigName">
+								Dendrilion
+							</big>
+									<small class="titleGeneral">Генерал</small>
+						</dd>
+
+		<dd>
+			<big class="resPoints" onmouseover="Tip(&#39;Очки ресурсов&#39;);" onmouseout="UnTip();">921,330</big>
+		</dd>
+
+		<dd>
+			<big class="battlePoints" onmouseover="Tip(&#39;Боевые очки&#39;);" onmouseout="UnTip();">225,806</big>
+		</dd>
+
+		<dd>
+			<big class="allPoints" onmouseover="Tip(&#39;Очки&#39;);" onmouseout="UnTip();">1,147,136</big>
+		</dd>
+
+		<dd>
+			<big class="achievementsPoints" onmouseover="Tip(&#39;Очки Достижений&#39;);" onmouseout="UnTip();">675</big>
+		</dd>
+	</dl>
+	<div class="playerStatus">
+			</div>
+	</div>    </div>
+
+<div id="TabProfile" style="display:none;">
+
+    <h1>Профиль игрока</h1>
+    
+    <div class="box"><div class="boxBottom"></div>
+        <form enctype="multipart/form-data" method="POST" id="formProfile">
+        <div class="formbox">
+            <div class="row">
+                <label>Дата рождения:</label>
+                <span>
+	                <select name="dd" id="dd">
+	                	                	<option value="1" selected="selected">1</option>
+	                	                	<option value="2">2</option>
+	                	                	<option value="3">3</option>
+	                	                	<option value="4">4</option>
+	                	                	<option value="5">5</option>
+	                	                	<option value="6">6</option>
+	                	                	<option value="7">7</option>
+	                	                	<option value="8">8</option>
+	                	                	<option value="9">9</option>
+	                	                	<option value="10">10</option>
+	                	                	<option value="11">11</option>
+	                	                	<option value="12">12</option>
+	                	                	<option value="13">13</option>
+	                	                	<option value="14">14</option>
+	                	                	<option value="15">15</option>
+	                	                	<option value="16">16</option>
+	                	                	<option value="17">17</option>
+	                	                	<option value="18">18</option>
+	                	                	<option value="19">19</option>
+	                	                	<option value="20">20</option>
+	                	                	<option value="21">21</option>
+	                	                	<option value="22">22</option>
+	                	                	<option value="23">23</option>
+	                	                	<option value="24">24</option>
+	                	                	<option value="25">25</option>
+	                	                	<option value="26">26</option>
+	                	                	<option value="27">27</option>
+	                	                	<option value="28">28</option>
+	                	                	<option value="29">29</option>
+	                	                	<option value="30">30</option>
+	                	                	<option value="31">31</option>
+	                	                </select> - 
+	                <select name="mm" id="mm">
+	                	                	<option value="1" selected="selected">1</option>
+	                	                	<option value="2">2</option>
+	                	                	<option value="3">3</option>
+	                	                	<option value="4">4</option>
+	                	                	<option value="5">5</option>
+	                	                	<option value="6">6</option>
+	                	                	<option value="7">7</option>
+	                	                	<option value="8">8</option>
+	                	                	<option value="9">9</option>
+	                	                	<option value="10">10</option>
+	                	                	<option value="11">11</option>
+	                	                	<option value="12">12</option>
+	                	                </select> - 
+	                <select name="yy" id="yy">
+	                	                
+	                	                	<option value="2026">2026</option>
+	                	                	<option value="2025">2025</option>
+	                	                	<option value="2024">2024</option>
+	                	                	<option value="2023">2023</option>
+	                	                	<option value="2022">2022</option>
+	                	                	<option value="2021">2021</option>
+	                	                	<option value="2020">2020</option>
+	                	                	<option value="2019">2019</option>
+	                	                	<option value="2018">2018</option>
+	                	                	<option value="2017">2017</option>
+	                	                	<option value="2016">2016</option>
+	                	                	<option value="2015">2015</option>
+	                	                	<option value="2014">2014</option>
+	                	                	<option value="2013">2013</option>
+	                	                	<option value="2012">2012</option>
+	                	                	<option value="2011">2011</option>
+	                	                	<option value="2010">2010</option>
+	                	                	<option value="2009">2009</option>
+	                	                	<option value="2008">2008</option>
+	                	                	<option value="2007">2007</option>
+	                	                	<option value="2006">2006</option>
+	                	                	<option value="2005">2005</option>
+	                	                	<option value="2004">2004</option>
+	                	                	<option value="2003">2003</option>
+	                	                	<option value="2002">2002</option>
+	                	                	<option value="2001">2001</option>
+	                	                	<option value="2000" selected="selected">2000</option>
+	                	                	<option value="1999">1999</option>
+	                	                	<option value="1998">1998</option>
+	                	                	<option value="1997">1997</option>
+	                	                	<option value="1996">1996</option>
+	                	                	<option value="1995">1995</option>
+	                	                	<option value="1994">1994</option>
+	                	                	<option value="1993">1993</option>
+	                	                	<option value="1992">1992</option>
+	                	                	<option value="1991">1991</option>
+	                	                	<option value="1990">1990</option>
+	                	                	<option value="1989">1989</option>
+	                	                	<option value="1988">1988</option>
+	                	                	<option value="1987">1987</option>
+	                	                	<option value="1986">1986</option>
+	                	                	<option value="1985">1985</option>
+	                	                	<option value="1984">1984</option>
+	                	                	<option value="1983">1983</option>
+	                	                	<option value="1982">1982</option>
+	                	                	<option value="1981">1981</option>
+	                	                	<option value="1980">1980</option>
+	                	                	<option value="1979">1979</option>
+	                	                	<option value="1978">1978</option>
+	                	                	<option value="1977">1977</option>
+	                	                	<option value="1976">1976</option>
+	                	                	<option value="1975">1975</option>
+	                	                	<option value="1974">1974</option>
+	                	                	<option value="1973">1973</option>
+	                	                	<option value="1972">1972</option>
+	                	                	<option value="1971">1971</option>
+	                	                	<option value="1970">1970</option>
+	                	                	<option value="1969">1969</option>
+	                	                	<option value="1968">1968</option>
+	                	                	<option value="1967">1967</option>
+	                	                	<option value="1966">1966</option>
+	                	                	<option value="1965">1965</option>
+	                	                	<option value="1964">1964</option>
+	                	                	<option value="1963">1963</option>
+	                	                	<option value="1962">1962</option>
+	                	                	<option value="1961">1961</option>
+	                	                	<option value="1960">1960</option>
+	                	                	<option value="1959">1959</option>
+	                	                	<option value="1958">1958</option>
+	                	                	<option value="1957">1957</option>
+	                	                	<option value="1956">1956</option>
+	                	                	<option value="1955">1955</option>
+	                	                	<option value="1954">1954</option>
+	                	                	<option value="1953">1953</option>
+	                	                	<option value="1952">1952</option>
+	                	                	<option value="1951">1951</option>
+	                	                	<option value="1950">1950</option>
+	                	                	<option value="1949">1949</option>
+	                	                	<option value="1948">1948</option>
+	                	                	<option value="1947">1947</option>
+	                	                	<option value="1946">1946</option>
+	                	                	<option value="1945">1945</option>
+	                	                	<option value="1944">1944</option>
+	                	                	<option value="1943">1943</option>
+	                	                	<option value="1942">1942</option>
+	                	                	<option value="1941">1941</option>
+	                	                	<option value="1940">1940</option>
+	                	                	<option value="1939">1939</option>
+	                	                	<option value="1938">1938</option>
+	                	                	<option value="1937">1937</option>
+	                	                </select>
+                
+                </span>
+            </div>
+            <div class="row">
+                <label>Пол:</label>
+                <span>
+                	<input type="radio" name="sex" id="sex" value="1"> Мужской  
+                	<input type="radio" name="sex" id="sex" value="2"> Женский                </span>
+            </div>
+			<div class="row">
+				<div class="bbCode">
+							<a href="javascript:bbcode_add(&#39;b&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/bold.gif" width="18" height="18" alt="bold" border="0" title="Жирный"></a>
+		<a href="javascript:bbcode_add(&#39;i&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/italic.gif" width="18" height="18" alt="italic" border="0" title="Курсив"></a>
+		<a href="javascript:bbcode_add(&#39;u&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/underline.gif" width="18" height="18" alt="underline" border="0" title="Подчеркнутый"></a>
+		<a href="javascript:bbcode_add(&#39;s&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/striketrough.gif" width="18" height="18" alt="striketrough" border="0" title="Зачеркнутый"></a>
+		<a href="javascript:bbcode_add(&#39;url&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/link.gif" width="18" height="18" alt="link" border="0" title="Ссылка"></a>
+		<a href="javascript:bbcode_add(&#39;img&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/image.gif" width="18" height="18" alt="image" border="0" title="Изображение"></a>
+		<a href="javascript:bbcode_add(&#39;email&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/email.gif" width="18" height="18" alt="email" border="0" title="Email"></a>
+		<a href="javascript:bbcode_add(&#39;align&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/align.gif" width="18" height="18" alt="align" border="0" title="Выравнивание"></a>
+		<a href="javascript:bbcode_add(&#39;size&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/size.gif" width="18" height="18" alt="size" border="0" title="Размер"></a>
+		<a href="javascript:bbcode_add(&#39;color&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/color.gif" width="18" height="18" alt="color" border="0" title="Цвет"></a>
+		<a href="javascript:bbcode_add(&#39;bg&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/background.gif" width="18" height="18" alt="background" border="0" title="Фон"></a>
+		<br>
+		<a href="javascript:bbcode_add(&#39;smile&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/smile.gif" width="16" height="16" alt="smile" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;tongue&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/tongue.gif" width="16" height="16" alt="tongue" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;laugh&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/laugh.gif" width="16" height="16" alt="laugh" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;wink&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/wink.gif" width="16" height="16" alt="wink" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;sad&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/sad.gif" width="16" height="16" alt="sad" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;scream&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/scream.gif" width="16" height="16" alt="scream" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;wonder&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/wonder.gif" width="16" height="16" alt="wonder" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;blush&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/blush.gif" width="16" height="16" alt="blush" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;cool&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/cool.gif" width="16" height="16" alt="cool" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;cry&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/cry.gif" width="16" height="16" alt="cry" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;kiss&#39;,&#39;profileDescription&#39;)"><img src="./page_2026-08-04_09-58-09_files/kiss.gif" width="16" height="16" alt="kiss" border="0"></a>				</div>
+			</div>
+            <div class="row">
+                <label>Описание:</label>
+                <span><textarea name="description" id="profileDescription" cols="50" rows="10"></textarea></span>
+            </div>
+			<div class="row">
+				<label>Лозунг:</label>
+				<span>
+					<input type="text" name="slogan" id="slogan" value="" maxlength="50">
+					<div class="sloganSymbolsCount">
+						<current>0</current>/<total>50</total>
+					</div>
+				</span>
+			</div>
+			<div class="row">
+				 <label>Страница по умолчанию:</label>
+				 <select name="default_panel" id="default_panel">
+					 <option value="planets">
+						 Планеты					 </option>
+					 <option value="commanderShips">
+						 Боевые Корабли					 </option>
+					 <option value="achievements" selected="selected">
+						 Достижения					 </option>
+					 <option value="wall">
+						 Стена					 </option>
+				 </select>
+			</div>
+            <div class="buttonrow">
+            	<input type="hidden" name="type" value="changeProfile">
+                <input type="submit" name="submit" value="Сохранить изменения" onclick="changeProfile();return false;">
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <h1>Аватар пользователя</h1>
+    <iframe name="avatarUploadFrame" id="avatarUploadFrame" style="display:none;position:absolute;left: -1200px;top: -1200px;" src="./page_2026-08-04_09-58-09_files/saved_resource.html"></iframe>
+    <div class="box"><div class="boxBottom"></div>
+        <form action="https://game.ares.nemexia.com/ajax_options.php" enctype="multipart/form-data" method="POST" id="formAvatar" target="avatarUploadFrame">
+        <div class="formbox">
+        	<div id="avatarWait" class="loadingAnimation" style="position:absolute; margin-top:70px;margin-left:260px;display:none;"></div>
+        	<div class="row">
+                <label>Текущий аватар:</label>
+                <span><img src="./page_2026-08-04_09-58-09_files/no_avatar.jpg" id="avatarHolder" border="0"></span>
+            </div>
+             <div class="row">
+                <label>Аватар:</label>
+                <span><input type="file" id="avatar" name="avatar" style="color: #000;"></span>
+            </div>
+            <div class="buttonrow">
+                <input type="hidden" name="type" value="changeAvatar">
+                <input type="submit" name="submit" value="Сохранить изменения" onclick="$(&#39;#avatarWait&#39;).show();">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<div id="TabHotLinks" style="display:none;">
+	<h1>Горячие ссылки</h1>
+	<div class="box"><div class="boxBottom"></div>
+		<p>
+			Здесь вы можете добавить ваши закладки.			<br>
+			Например: если вы хотите добавить закладку на Лабораторию, то в поле url впишите: laboratory.php		</p>
+		
+		
+		<script type="text/javascript">
+			var hotlinksMaxNumber = 10;
+			var hotLinksList = [];
+			$(document).ready(function() {
+				for (i in hotLinksList) {
+					hotlinksAddRow(hotLinksList[i].name, hotLinksList[i].link);
+				}
+				hotlinksAddRow();
+			});
+		</script>
+		
+
+		<div id="hotlinksRowModel" style="display: none;">
+			<div class="row">
+				<div class="boxDetails">
+					<label>Имя:</label>
+					<span><input type="text" id="hotlinkNameId" size="24"></span>
+				</div>
+				<div class="boxDetails">
+					<label>URL:</label>
+					<span><input type="text" id="hotlinkUrlId" size="24"></span>
+				</div>
+			</div>
+		</div>
+
+		<div id="hotlinksAddButtonModel" style="display: none;">
+			<a href="https://game.ares.nemexia.com/options.php#" class="addMore" onclick="hotlinksAddRow(); return false;" onmouseover="Tip(&#39;Добавить&#39;);" onmouseout="UnTip();"></a>
+		</div>
+
+		<div id="hotlinksRowsContainer">
+		<div class="row">
+				<div class="boxDetails">
+					<label>Имя:</label>
+					<span><input type="text" id="hotlinkName_0" size="24" name="hotlinkName[0]"></span>
+				</div>
+				<div class="boxDetails">
+					<label>URL:</label>
+					<span><input type="text" id="hotlinkUrl_0" size="24" name="hotlinkUrl[0]"></span>
+				</div>
+			
+			<a href="https://game.ares.nemexia.com/options.php#" class="addMore" onclick="hotlinksAddRow(); return false;" onmouseover="Tip(&#39;Добавить&#39;);" onmouseout="UnTip();" id="hotlinksAddMoreBtn"></a>
+		</div></div>
+
+		<div class="buttonrow">
+			<input type="submit" name="submit" value="Сохранить" onclick="hotlinksSave();return false;">
+		</div>
+	</div>
+</div>
+
+<div id="TabOptions" style="display:none;">
+
+
+    <h1>Рестарт аккаунта</h1>
+    <div class="box"><div class="boxBottom"></div>
+		<span class="warningBox">Внимание !!! Если вы воспользуетесь этой опцией аккаунт будет перезапущен.</span>
+		<span class="warningBox">Если вы хотите обнулить свой аккаунт, ни на одной планете не должно быть активных полетов (включая шпионаж).</span>
+			
+		<form enctype="multipart/form-data" method="POST" id="formOptionsDelete">
+			<div class="formbox">
+									<div class="row">
+						<label>Пароль:</label>
+						<span><input type="password" name="restart_password" id="restart_password" value="" autocomplete="off"></span>
+					</div>
+					<!--
+					<div class="row">
+						<label>E-Mail:</label>
+						<span><input type="text" name="restart_email" id="restart_email" value=""/></span>
+					</div>
+					-->
+					<div class="buttonrow">
+						<input type="submit" name="submit" value="Рестарт моего аккаунта" onclick="restartStart();return false;">
+					</div>
+							</div>
+		</form>
+	</div>
+</div>
+
+<div id="TabSitting" style="display:none;">
+	
+		<h1>Добавить ситтера</h1>
+	<div class="box"><div class="boxBottom"></div>
+		<form>
+			<div class="formbox">
+
+				<span>Здесь вы можете указать имена ваших ситтеров, которые могут приглядывать за вашим аккаунтом, пока вы на работе, на учебе или даже ушли гулять. <br>Пожалуйста, острожное выбирайте игроков, которым вы предоставляете доступ к вашему аккаунту.<br><br>Ситтер имеет право отказаться от вашего предложения.</span>
+
+				<div class="row">
+					<label>Ник</label>
+					<span>
+						<input type="text" name="sitterNickname" id="addSitterNickname" value="">
+					</span>
+				</div>
+
+				<div class="buttonrow">
+					<input type="submit" name="submit" value="Сохранить" onclick="sittersContractPropose(); return false;">
+				</div>
+
+			</div>
+		</form>
+	</div>
+	
+	<h1>Ваши ситтеры</h1>
+	<div class="box" id="sittingHolderSitters"><div class="boxBottom"></div>
+		
+	</div>
+	
+	<h1>Вы являетесь ситтером игрока</h1>
+	<div class="box" id="sittingHolderBabies"><div class="boxBottom"></div>
+		
+	</div>
+		
+	<h1>Запреты</h1>
+	<div class="box"><div class="boxBottom"></div>
+		<p>
+			Ситтеры могут приглядывать за аккаунтом, когда его собственник не может играть. Они могут использовать основные меню - строить здания, проведить исследования и отправлять корабли на Космический рейс, чтобы защитить их от вражеских атак.		</p>
+		<p>
+			Имейте в виду, чго у ситтеров есть некоторые ограничения, чтобы защитить аккаунт от злоупотребления. Самое важное - они <b>не могут</b> тратить кредиты и <b>не видят</b>полеты, прибывающие к планете владельца.		</p>
+	</div>
+	
+</div>
+
+
+<div id="TabAchievements" style="display:none;">
+
+	<h1>Достижения</h1>
+    <div class="box"><div class="boxBottom"></div>
+
+		<div id="TabAchievementsCategories">
+				<div class="buttonrow">
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(1);" id="cat_1">
+						Очки
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(2);" id="cat_2">
+						Социальный
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(3);" id="cat_3">
+						Завоевание
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(4);" id="cat_4">
+						Строительство
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(5);" id="cat_5">
+						Премиум
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(7);" id="cat_7">
+						Адмирал
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(8);" id="cat_8">
+						Легендарный
+					</a>
+
+					<a href="javascript:void(0);" onclick="loadAchievementsByCategory(6);" id="cat_6">
+						Война
+					</a>
+				</div>
+		</div>
+
+		<div id="TabAchievementsList" class="achievementsList"></div>
+	
+	</div>
+</div> 
+
+<div id="TabSignatures" style="display:none;"></div> 
+<div id="TabBuddyList" style="display:none;">
+    <h1>Друзья</h1>
+    <div class="box"><div class="boxBottom"></div>
+        
+        <div class="playersList" id="buddyList">
+            
+        </div>
+    </div>
+</div>
+
+<div id="TabIgnoreList" style="display:none;">
+    <h1>Черный список</h1>
+    <div class="box"><div class="boxBottom"></div>
+
+        <div class="playersList" id="ignoredList">
+    	</div>
+    </div>
+</div>
+
+<div id="TabNotes" style="display:none;">
+    <h1>Записки</h1>
+    <div class="box"><div class="boxBottom"></div>
+        <div class="formbox">
+        	<div class="row" align="center">
+               <textarea style="width: 95%;" rows="30" name="playerNotes" id="playerNotes"></textarea>
+            </div>
+            <div class="buttonrow" align="center" style="padding: 0 0 0 0;">
+                <input type="submit" name="submit" value="Сохранить" onclick="saveNotes();return false;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fleetsArrange" style="display:none;">
+	<h1 id="missions">Реорганизовать полеты</h1>
+	<div class="box"><div class="boxBottom"></div>
+		<span class="infoText">Вы можете реорганизовать (изменить порядок) меню Полеты отсюда. <br> Пожалуйста, перетащите и отпустите название полетов на желанную позицию. Вам не нужно сохранять ничего – все изменения сохраняются автоматично.</span>
+		<div class="formbox" id="missionsList">
+			
+			<ul id="missions-list" style="list-style:none; padding:0;" class="ui-sortable">
+									<li id="1">
+						<div class="row">
+							<label id="missionPosition">1</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Транспортировка</h3>
+							</span>
+						</div>
+					</li>
+									<li id="2">
+						<div class="row">
+							<label id="missionPosition">2</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Шпионаж</h3>
+							</span>
+						</div>
+					</li>
+									<li id="3">
+						<div class="row">
+							<label id="missionPosition">3</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Атака</h3>
+							</span>
+						</div>
+					</li>
+									<li id="4">
+						<div class="row">
+							<label id="missionPosition">4</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Дислокация</h3>
+							</span>
+						</div>
+					</li>
+									<li id="5">
+						<div class="row">
+							<label id="missionPosition">5</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Колонизация</h3>
+							</span>
+						</div>
+					</li>
+									<li id="6">
+						<div class="row">
+							<label id="missionPosition">6</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Переработка</h3>
+							</span>
+						</div>
+					</li>
+									<li id="7">
+						<div class="row">
+							<label id="missionPosition">7</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Пиратский рейд</h3>
+							</span>
+						</div>
+					</li>
+									<li id="8">
+						<div class="row">
+							<label id="missionPosition">8</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Добыча газа</h3>
+							</span>
+						</div>
+					</li>
+									<li id="10">
+						<div class="row">
+							<label id="missionPosition">9</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Поддержка Солнца</h3>
+							</span>
+						</div>
+					</li>
+									<li id="14">
+						<div class="row">
+							<label id="missionPosition">10</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Космический рейс</h3>
+							</span>
+						</div>
+					</li>
+									<li id="15">
+						<div class="row">
+							<label id="missionPosition">11</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Шпионаж на Отступников</h3>
+							</span>
+						</div>
+					</li>
+									<li id="16">
+						<div class="row">
+							<label id="missionPosition">12</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Атака Отступников</h3>
+							</span>
+						</div>
+					</li>
+							</ul>
+			
+		</div>
+	</div>
+
+	<h1 id="missionsTeam">Реорганизовать полеты - Командная планета</h1>
+	<div class="box"><div class="boxBottom"></div>
+		<span class="infoText">Вы можете реорганизовать (изменить порядок) меню Полеты отсюда. <br> Эти изменения относятся только для вашего аккаунта. Игроки из вашей команды, могут сделать тоже самое. <br>  Пожалуйста, перетащите и отпустите название полетов на желанную позицию. Вам не нужно сохранять ничего – все изменения сохраняются автоматично.</span>
+		<div class="formbox" id="missionsListTeam">
+			<ul id="missions-list-team" style="list-style:none; padding:0;" class="ui-sortable">
+									<li id="2">
+						<div class="row">
+							<label id="missionPositionTeam">1</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Шпионаж</h3>
+							</span>
+						</div>
+					</li>
+									<li id="6">
+						<div class="row">
+							<label id="missionPositionTeam">2</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Переработка</h3>
+							</span>
+						</div>
+					</li>
+									<li id="11">
+						<div class="row">
+							<label id="missionPositionTeam">3</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Атака Солнца</h3>
+							</span>
+						</div>
+					</li>
+									<li id="12">
+						<div class="row">
+							<label id="missionPositionTeam">4</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Командная Атака</h3>
+							</span>
+						</div>
+					</li>
+									<li id="13">
+						<div class="row">
+							<label id="missionPositionTeam">5</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Командное пиратство</h3>
+							</span>
+						</div>
+					</li>
+									<li id="14">
+						<div class="row">
+							<label id="missionPositionTeam">6</label>
+							
+							<span class="handle ui-sortable-handle" style="cursor:move; margin-top:4px;">
+								<h3>Космический рейс</h3>
+							</span>
+						</div>
+					</li>
+							</ul>
+		</div>
+	</div>
+</div>
+
+<div id="commanderShipsPriority" style="display:none;"></div>	    <script type="text/javascript">
+	var DELETE_ALL_CONFIRM = 'Вы уверены, что хотите удалить все сообщения в этом разделе?';
+	var DELETE_SELECTED_CONFIRM = 'Вы уверены, что хотите удалить выбранные сообщения в этом разделе?';
+</script>
+
+<div id="TabPersonal" style="display:none;">
+    <h1>Личные сообщения</h1>
+	<div class="box2">
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteAllMessages(1);">Удалить все</a>
+    	</div>
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteSelectedMessages(1);">Удалить выбранное</a>
+    	</div>
+	</div>
+    <div class="box" id="TabPersonalBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabAdministrative" style="">
+    <h1>Системные сообщения</h1>
+	<div class="box2">
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteAllMessages(2);">Удалить все</a>
+    	</div>
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteSelectedMessages(2);">Удалить выбранное</a>
+    	</div>
+    </div>
+	<div class="box" id="TabAdministrativeBox"><div id="messagesList">
+                <div class="messageItem">
+                        <div class="userAvatar">
+                                <a href="javascript: void(0);"><img src="./page_2026-08-04_09-58-09_files/avatar_secretary.jpg" alt="Секретарь" width="50" height="50" border="0"></a>
+                        </div>
+                        <div class="messageWrapper">
+                                <div class="messageTitle">
+                                        <span class="messageDate">2026-08-04 08:57:37</span>
+                                        От: Секретарь
+                                </div>
+                                <div class="messageBody" id="body-44079590">
+                                        <b>Полный шпионский отчет от <a href="https://game.ares.nemexia.com/fleets.php?c1=1&amp;c2=7&amp;c3=16">1:7:16</a>&nbsp;(<a href="https://game.ares.nemexia.com/playerInfo.php?player_id=3445">svanylink</a>)</b><br><br><table>		<tbody><tr><td>Металл</td><td>486719</td></tr>		<tr><td>Минералы</td><td>375847</td></tr>		<tr><td>Газ</td><td>145746</td></tr>		<tr><td>Обломки</td><td>0</td></tr>		<tr><td>Энергия</td><td>17292</td></tr></tbody></table><br>Оборона не найдена<br><br>Корабли не найдены<br><br>Население Планеты: 1<br><br><br><a href="https://game.ares.nemexia.com/fleets.php?returnSpy=152366">Вернуть шпиона</a>
+                                </div>
+                                <div class="messageOptions">
+                                        <ul>
+							<li><input type="checkbox" name="messageSelect[44079590]" value="44079590"></li>
+							<li><a href="javascript:void(0);" onclick="showConfirm(&#39;Вы уверены, что хотите удалить это сообщение?&#39;, function() {messageButtons(44079590,&#39;deleteMessage&#39;,&#39;TabAdministrative&#39;,2, 3)});">Удалить</a></li>
+                                       </ul>
+                                </div>
+                        </div>
+                </div>
+                <div class="messageItem">
+                        <div class="userAvatar">
+                                <a href="javascript: void(0);"><img src="./page_2026-08-04_09-58-09_files/avatar_secretary.jpg" alt="Секретарь" width="50" height="50" border="0"></a>
+                        </div>
+                        <div class="messageWrapper">
+                                <div class="messageTitle">
+                                        <span class="messageDate">2026-08-04 08:57:37</span>
+                                        От: Секретарь
+                                </div>
+                                <div class="messageBody" id="body-44079589">
+                                        <b>Подробный шпионский отчет от <a href="https://game.ares.nemexia.com/fleets.php?c1=2&amp;c2=28&amp;c3=9">2:28:9</a>&nbsp;(<a href="https://game.ares.nemexia.com/playerInfo.php?player_id=1529">Thor</a>)</b><br><br><table>		<tbody><tr><td>Металл</td><td>441757</td></tr>		<tr><td>Минералы</td><td>412713</td></tr>		<tr><td>Газ</td><td>93470</td></tr>		<tr><td>Обломки</td><td>0</td></tr>		<tr><td>Энергия</td><td>7298</td></tr></tbody></table><br>Оборона не найдена<br><br><br><a href="https://game.ares.nemexia.com/fleets.php?returnSpy=152364">Вернуть шпиона</a>
+                                </div>
+                                <div class="messageOptions">
+                                        <ul>
+							<li><input type="checkbox" name="messageSelect[44079589]" value="44079589"></li>
+							<li><a href="javascript:void(0);" onclick="showConfirm(&#39;Вы уверены, что хотите удалить это сообщение?&#39;, function() {messageButtons(44079589,&#39;deleteMessage&#39;,&#39;TabAdministrative&#39;,2, 3)});">Удалить</a></li>
+                                       </ul>
+                                </div>
+                        </div>
+                </div>
+                <div class="messageItem">
+                        <div class="userAvatar">
+                                <a href="javascript: void(0);"><img src="./page_2026-08-04_09-58-09_files/avatar_secretary.jpg" alt="Секретарь" width="50" height="50" border="0"></a>
+                        </div>
+                        <div class="messageWrapper">
+                                <div class="messageTitle">
+                                        <span class="messageDate">2026-08-04 08:57:37</span>
+                                        От: Секретарь
+                                </div>
+                                <div class="messageBody" id="body-44079588">
+                                        <b>Полный шпионский отчет от <a href="https://game.ares.nemexia.com/fleets.php?c1=2&amp;c2=28&amp;c3=8">2:28:8</a>&nbsp;(<a href="https://game.ares.nemexia.com/playerInfo.php?player_id=1529">Thor</a>)</b><br><br><table>		<tbody><tr><td>Металл</td><td>500000</td></tr>		<tr><td>Минералы</td><td>462352</td></tr>		<tr><td>Газ</td><td>220141</td></tr>		<tr><td>Обломки</td><td>0</td></tr>		<tr><td>Энергия</td><td>7834</td></tr></tbody></table><br>Оборона не найдена<br><br>Корабли не найдены<br><br>Население Планеты: 0<br><br><br><a href="https://game.ares.nemexia.com/fleets.php?returnSpy=152363">Вернуть шпиона</a>
+                                </div>
+                                <div class="messageOptions">
+                                        <ul>
+							<li><input type="checkbox" name="messageSelect[44079588]" value="44079588"></li>
+							<li><a href="javascript:void(0);" onclick="showConfirm(&#39;Вы уверены, что хотите удалить это сообщение?&#39;, function() {messageButtons(44079588,&#39;deleteMessage&#39;,&#39;TabAdministrative&#39;,2, 3)});">Удалить</a></li>
+                                       </ul>
+                                </div>
+                        </div>
+                </div>
+                <div class="messageItem">
+                        <div class="userAvatar">
+                                <a href="javascript: void(0);"><img src="./page_2026-08-04_09-58-09_files/avatar_secretary.jpg" alt="Секретарь" width="50" height="50" border="0"></a>
+                        </div>
+                        <div class="messageWrapper">
+                                <div class="messageTitle">
+                                        <span class="messageDate">2026-08-04 08:57:37</span>
+                                        От: Секретарь
+                                </div>
+                                <div class="messageBody" id="body-44079587">
+                                        <b>Неполный шпионский отчет от <a href="https://game.ares.nemexia.com/fleets.php?c1=1&amp;c2=2&amp;c3=11">1:2:11</a>&nbsp;(<a href="https://game.ares.nemexia.com/playerInfo.php?player_id=1529">Thor</a>)</b><br><br><table>		<tbody><tr><td>Металл</td><td>500000</td></tr>		<tr><td>Минералы</td><td>484426</td></tr>		<tr><td>Газ</td><td>500000</td></tr>		<tr><td>Обломки</td><td>0</td></tr>		<tr><td>Энергия</td><td>12757</td></tr></tbody></table><br><br><a href="https://game.ares.nemexia.com/fleets.php?returnSpy=152362">Вернуть шпиона</a>
+                                </div>
+                                <div class="messageOptions">
+                                        <ul>
+							<li><input type="checkbox" name="messageSelect[44079587]" value="44079587"></li>
+							<li><a href="javascript:void(0);" onclick="showConfirm(&#39;Вы уверены, что хотите удалить это сообщение?&#39;, function() {messageButtons(44079587,&#39;deleteMessage&#39;,&#39;TabAdministrative&#39;,2, 3)});">Удалить</a></li>
+                                       </ul>
+                                </div>
+                        </div>
+                </div>
+                <div class="messageItem">
+                        <div class="userAvatar">
+                                <a href="javascript: void(0);"><img src="./page_2026-08-04_09-58-09_files/avatar_secretary.jpg" alt="Секретарь" width="50" height="50" border="0"></a>
+                        </div>
+                        <div class="messageWrapper">
+                                <div class="messageTitle">
+                                        <span class="messageDate">2026-08-04 08:57:37</span>
+                                        От: Секретарь
+                                </div>
+                                <div class="messageBody" id="body-44079586">
+                                        <b>Подробный шпионский отчет от <a href="https://game.ares.nemexia.com/fleets.php?c1=1&amp;c2=2&amp;c3=18">1:2:18</a>&nbsp;(<a href="https://game.ares.nemexia.com/playerInfo.php?player_id=1529">Thor</a>)</b><br><br><table>		<tbody><tr><td>Металл</td><td>500000</td></tr>		<tr><td>Минералы</td><td>500000</td></tr>		<tr><td>Газ</td><td>469185</td></tr>		<tr><td>Обломки</td><td>0</td></tr>		<tr><td>Энергия</td><td>25959</td></tr></tbody></table><br>Оборона не найдена<br><br><br><a href="https://game.ares.nemexia.com/fleets.php?returnSpy=152361">Вернуть шпиона</a>
+                                </div>
+                                <div class="messageOptions">
+                                        <ul>
+							<li><input type="checkbox" name="messageSelect[44079586]" value="44079586"></li>
+							<li><a href="javascript:void(0);" onclick="showConfirm(&#39;Вы уверены, что хотите удалить это сообщение?&#39;, function() {messageButtons(44079586,&#39;deleteMessage&#39;,&#39;TabAdministrative&#39;,2, 3)});">Удалить</a></li>
+                                       </ul>
+                                </div>
+                        </div>
+                </div><div class="pagination"><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,0);">1</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,1);">2</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,2);">3</a><span>4</span><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,4);">5</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,5);">6</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,6);">7</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,7);">8</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,8);">9</a><a href="javascript:void(0);" onclick="loadTabContent(&#39;TabAdministrative&#39;,2,9);">10</a></div></div>&nbsp; <div class="boxBottom"></div></div>
+</div>
+
+<div id="TabPayments" style="display:none;">
+    <h1>Уведомления</h1>
+    <div class="box" id="TabPaymentsBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabReports" style="display:none;">
+    <h1>Военные доклады</h1>
+	<div class="box2">
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteAllMessages(3);">Удалить все</a>
+    	</div>
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteSelectedMessages(3);">Удалить выбранное</a>
+    	</div>
+    </div>
+	<div class="box" id="TabReportsBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabTeamReports" style="display:none;">
+	<h1>Командные доклады</h1>
+	<div class="box2">
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteAllMessages(11);">Удалить все</a>
+		</div>
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteSelectedMessages(11);">Удалить выбранное</a>
+		</div>
+	</div>
+	<div class="box" id="TabTeamReportsBox"><div class="boxBottom"></div>
+	</div>
+</div>
+
+<div id="TabArenaReports" style="display:none;">
+	<h1>Очки Арены</h1>
+	<div class="box2">
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteAllMessages(10);">Удалить все</a>
+		</div>
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteSelectedMessages(10);">Удалить выбранное</a>
+		</div>
+	</div>
+	<div class="box" id="TabArenaReportsBox"><div class="boxBottom"></div>
+	</div>
+</div>
+
+<div id="TabFleets" style="display:none;">
+    <h1>Полеты</h1>
+	<div class="box2">
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteAllMessages(4);">Удалить все</a>
+    	</div>
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteSelectedMessages(4);">Удалить выбранное</a>
+    	</div>
+    </div>
+	<div class="box" id="TabFleetsBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabSent" style="display:none;">
+    <h1>Отправленные</h1>
+	<div class="box2">
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteAllMessages(0);">Удалить все</a>
+    	</div>
+    	<div class="titleBlock">
+    		<a href="javascript:void(0);" onclick="deleteSelectedMessages(0);">Удалить выбранное</a>
+    	</div>
+    </div>
+	<div class="box" id="TabSentBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabWall" style="display:none;">
+    <h1>Административные сообщения</h1>
+    <div class="box" id="TabWallBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabAlliance" style="display:none;">
+	<h1>Сообщения от Союза</h1>
+	<div class="box2">
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteAllMessages(5);">Удалить все</a>
+		</div>
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteSelectedMessages(5);">Удалить выбранное</a>
+		</div>
+	</div>
+    <div class="box" id="TabAllianceBox"><div class="boxBottom"></div>
+    </div>
+</div>
+
+<div id="TabAchievementsMessages" style="display:none;">
+	<h1>Достижения</h1>
+	<div class="box2">
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteAllMessages(9);">Удалить все</a>
+		</div>
+		<div class="titleBlock">
+			<a href="javascript:void(0);" onclick="deleteSelectedMessages(9);">Удалить выбранное</a>
+		</div>
+	</div>
+	<div class="box" id="TabAchievementsMessagesBox"><div class="boxBottom"></div>
+	</div>
+</div>
+
+<div id="TabSend" style="display:none;">
+    <h1>Отправить сообщение</h1>
+    <div class="box" id="TabSendBox"><div class="boxBottom"></div>
+    	<form enctype="multipart/form-data" method="POST" id="formSentMessage">
+        <div class="formbox">
+        	<span id="replayMessage"></span>
+            <div class="row">
+                <label>Игроку:</label>
+                <span><input type="text" value="" id="sendUser" name="sentUser"></span>
+            </div>
+            <div class="row">
+				<div class="bbCode">
+							<a href="javascript:bbcode_add(&#39;b&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/bold.gif" width="18" height="18" alt="bold" border="0" title="Жирный"></a>
+		<a href="javascript:bbcode_add(&#39;i&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/italic.gif" width="18" height="18" alt="italic" border="0" title="Курсив"></a>
+		<a href="javascript:bbcode_add(&#39;u&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/underline.gif" width="18" height="18" alt="underline" border="0" title="Подчеркнутый"></a>
+		<a href="javascript:bbcode_add(&#39;s&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/striketrough.gif" width="18" height="18" alt="striketrough" border="0" title="Зачеркнутый"></a>
+		<a href="javascript:bbcode_add(&#39;url&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/link.gif" width="18" height="18" alt="link" border="0" title="Ссылка"></a>
+		<a href="javascript:bbcode_add(&#39;img&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/image.gif" width="18" height="18" alt="image" border="0" title="Изображение"></a>
+		<a href="javascript:bbcode_add(&#39;email&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/email.gif" width="18" height="18" alt="email" border="0" title="Email"></a>
+		<a href="javascript:bbcode_add(&#39;align&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/align.gif" width="18" height="18" alt="align" border="0" title="Выравнивание"></a>
+		<a href="javascript:bbcode_add(&#39;size&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/size.gif" width="18" height="18" alt="size" border="0" title="Размер"></a>
+		<a href="javascript:bbcode_add(&#39;color&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/color.gif" width="18" height="18" alt="color" border="0" title="Цвет"></a>
+		<a href="javascript:bbcode_add(&#39;bg&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/background.gif" width="18" height="18" alt="background" border="0" title="Фон"></a>
+		<br>
+		<a href="javascript:bbcode_add(&#39;smile&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/smile.gif" width="16" height="16" alt="smile" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;tongue&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/tongue.gif" width="16" height="16" alt="tongue" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;laugh&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/laugh.gif" width="16" height="16" alt="laugh" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;wink&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/wink.gif" width="16" height="16" alt="wink" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;sad&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/sad.gif" width="16" height="16" alt="sad" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;scream&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/scream.gif" width="16" height="16" alt="scream" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;wonder&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/wonder.gif" width="16" height="16" alt="wonder" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;blush&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/blush.gif" width="16" height="16" alt="blush" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;cool&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/cool.gif" width="16" height="16" alt="cool" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;cry&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/cry.gif" width="16" height="16" alt="cry" border="0"></a>
+		<a href="javascript:bbcode_add(&#39;kiss&#39;,&#39;sendMessage&#39;)"><img src="./page_2026-08-04_09-58-09_files/kiss.gif" width="16" height="16" alt="kiss" border="0"></a>				</div>
+			</div>
+			<div class="row">
+			<label>Сообщение:</label>
+                <span><textarea name="sentMessage" id="sendMessage" cols="50" rows="10"></textarea></span>
+            </div>
+            <div class="buttonrow">
+                <input type="submit" name="submit" value="Отправить сообщение" onclick="sendPersonalMessage();return false;">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>    </div>
+</div>
+
+
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 552px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 929px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning high" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Ангары заполнены более чем на 90%" style="top: 68px; left: 929px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 929px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

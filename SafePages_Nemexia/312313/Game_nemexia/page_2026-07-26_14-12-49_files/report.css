@@ -1,0 +1,536 @@
+﻿/*
+Title: Styles for Nemexia
+Author: Design Department, XS Software
+Website: http://www.xs-software.com/
+
+*/
+
+p {
+margin: 0;
+}
+
+#battleWrapper {
+padding: 10px 0 0 0;
+}
+
+#battleWrapper h1 {
+	background: url(../img/v3.0/bknd_title3.png) no-repeat center top;
+	width: 985px;
+}
+
+#raceSkin-2 #battleWrapper h1 {
+	background: url(../img/v3.0/raceSkin-2/bknd_title3.png) no-repeat center top;
+	line-height: 68px;
+}
+
+#raceSkin-3 #battleWrapper h1 {
+	background: url(../img/v3.0/raceSkin-3/bknd_title3.png) no-repeat center top;
+	line-height: 70px;
+}
+
+
+#battleWrapper h1 a {
+font-size: 12px;
+}
+
+/* ---------------- */
+table.BonusSummaryTable thead tr {
+	cursor: pointer;
+}
+
+/* ---------------- */
+
+#battleHeader {
+	overflow: hidden;
+	background: url("../img/v3.0/bknd_content_reports.png") no-repeat left top;
+	margin-top: -105px;
+	padding: 120px 0 10px;
+}
+
+#raceSkin-2 #battleHeader{
+	margin-top: -96px;
+}
+
+#raceSkin-3 #battleHeader{
+	margin-top: -102px;
+}
+
+/* ---------------- */
+
+#battleHeader #upgrades {
+float: left;
+padding: 0 0 0 15px;
+}
+
+#battleHeader #upgrades .playerUpgrades {
+float: left;
+width: 447px;
+color: #fff;
+margin: 0 15px 0 0;
+padding: 10px;
+}
+
+#battleHeader #upgrades .playerUpgrades .playerHeader {
+font-size: 16px;
+padding: 7px;
+background: url('../img/v3.0/common/bknd_br_player.png') no-repeat 0 0;
+overflow: hidden;
+font-weight: bold;
+}
+
+#battleHeader #upgrades .playerUpgrades .playerHeader .avatar {
+float: left;
+margin: 0 10px 0 0;
+}
+
+#battleHeader #upgrades .playerUpgrades:nth-of-type(2) .playerHeader .avatar {
+-moz-transform: scaleX(-1);
+-o-transform: scaleX(-1);
+-webkit-transform: scaleX(-1);
+transform: scaleX(-1);
+filter: FlipH;
+-ms-filter: "FlipH";
+}
+
+#battleHeader #upgrades .playerUpgrades .playerHeader .avatar img {
+border: 1px solid #fff;
+}
+
+#battleHeader #upgrades .playerUpgrades .playerHeader small {
+display: block;
+font-weight: normal;
+font-size: 12px;
+}
+
+#battleHeader #upgrades .playerUpgrades table thead tr td {
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+#battleHeader #upgrades .playerUpgrades table tbody tr td {
+font-size: 12px;
+padding: 3px;
+color: #fff;
+font-weight: bold;
+font-size: 14px;
+cursor: default;
+}
+
+#battleHeader #upgrades .playerUpgrades table tbody tr.inactive td {
+color: #fff;
+font-weight: normal;
+font-size: 11px;
+}
+
+/* ----------------- */
+
+.round {
+background: url('../img/v2.0/img/report/round_default.jpg') no-repeat;
+position: relative;
+margin: 0 0 15px 0;
+overflow: hidden;
+border-bottom: 1px solid #313133;
+padding: 0 0 250px 0;
+}
+
+.round.teamRound {
+padding: 0 0 620px 0;
+}
+
+.round .sun {
+width: 550px;
+height: 214px;
+position: absolute;
+bottom: 0;
+right: 50px;
+background: url('../img/v2.0/img/report/planet_sun.png') no-repeat;
+}
+
+.round .planet {
+background: url('../img/v2.0/img/report/planet_user.png') no-repeat;
+width: 423px;
+height: 423px;
+position: absolute;
+bottom: -207px;
+right: 45px;
+}
+
+.round.teamRound .planet,
+.round.teamRound .planet.shield-1 {
+bottom: -7px;
+}
+
+.round.teamRound .planet.shield-2,
+.round.teamRound .planet.shield-12 {
+bottom: -30px;
+}
+
+.round .planet.shield-1 {
+width: 579px;
+height: 444px;
+background: url('../img/v2.0/img/report/planet_user_shield_1.png') no-repeat;
+}
+
+.round .planet.shield-2,
+.round .planet.shield-12 {
+width: 603px;
+height: 482px;
+right: 15px;
+bottom: -230px;
+background: url('../img/v2.0/img/report/planet_user_shield_2.png') no-repeat;
+}
+
+.round .planet.shield-12 {
+background: url('../img/v2.0/img/report/planet_user_shield_12.png') no-repeat;
+}
+
+.round.teamRound .planet.shield-12 {
+bottom: -30px;
+}
+
+.shieldInfo {
+position: absolute;
+width: 145px;
+height: 89px;
+left: 367px;
+}
+
+.shieldInfo.shield-1 {
+bottom: 22px;
+}
+
+.round.teamRound .shieldInfo.shield-1 {
+bottom: 221px;
+}
+
+.shieldInfo.shield-2 {
+bottom: 128px;
+}
+
+.shieldInfo.sunInfo {
+bottom: 73px;
+left: 385px;
+}
+
+.round.teamRound .shieldInfo.shield-2 {
+bottom: 327px;
+}
+
+.shieldInfo h5 {
+height: 26px;
+font-size: 13px;
+line-height: 13px;
+padding: 7px 9px;
+}
+
+.shieldInfo.shield-1 h5 {
+color: #fff;
+}
+
+.shieldInfo.shield-2 h5 {
+color: #60b631;
+}
+
+.shieldInfo.sunInfo h5 {
+color: #e99640;
+}
+
+.shieldInfo.sunInfo h5 span.aliveCount {
+	display: block;
+	color: #E99640;
+	padding: 0;
+	font-size: 10px;
+}
+
+.shieldInfo span {
+display: block;
+height: 24px;
+line-height: 24px;
+font-size: 12px;
+font-weight: bold;
+color: #fff;
+padding: 0 8px;
+}
+
+.detailedReport a {
+position: absolute;
+bottom: 20px;
+left: 20px;
+display: block;
+width: 253px;
+height: 36px;
+padding: 23px 0 0 55px;
+font-size: 14px;
+font-weight: bold;
+text-decoration: none;
+color: #ccc;
+background: url('../img/v2.0/img/report/round_analysis.png') no-repeat;
+}
+
+.detailedReport a:hover {
+color: #fff;
+}
+
+.hits {
+border: 1px solid #555;
+margin: 0 0 15px 0;
+}
+
+.hits p {
+font-size: 12px;
+color: #999;
+font-weight: bold;
+line-height: 12px;
+padding: 5px 10px;
+position: relative; /* IE6 fix */
+margin: 0;
+}
+
+.hits p.hit {
+background: #222;
+}
+
+.hits p.sustain {
+background: #333;
+}
+
+.hits p strong {
+color: #fff;
+}
+
+.round h4 {
+height: 55px;
+line-height: 55px;
+font-size: 18px;
+padding: 0 20px;
+color: #fff;
+background: url('../img/v2.0/img/report/r_title.jpg') no-repeat;
+}
+
+.round .attacker {
+float: left;
+width: 455px;
+margin: 10px 0 0 20px;
+}
+
+.round .attacker .playerTitle {
+height: 42px;
+line-height: 33px;
+padding: 0 10px;
+font-size: 16px;
+color: #fff;
+text-align: right;
+margin: 0 0 0 100px;
+width: 310px;
+font-weight: bold;
+}
+
+.round .attacker .playerTitle span {
+display: block;
+float: left;
+font-size: 11px;
+text-transform: uppercase;
+}
+
+.round .attacker .ships,
+.round .defender .ships {
+position: relative;
+margin: 20px 0 0 0;
+}
+
+.round .attacker .ship,
+.round .defender .ship {
+width: 90px;
+height: 90px;
+color: #fff;
+font-weight: bold;
+text-align: center;
+position: relative;
+}
+
+.round .attacker .ship {
+float: right;
+}
+
+.round .defender .ship {
+float: left;
+}
+
+.round .attacker .ship span,
+.round .defender .ship span {
+display: block;
+position: absolute;
+z-index: 1;
+top: -5px;
+right: -5px;
+background: #fff;
+color: #000;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+padding: 3px 6px;
+text-align: center;
+font-size: 12px;
+line-height: 12px;
+}
+
+/* -------------------- */
+
+.round .defender {
+float: right;
+width: 455px;
+margin: 10px 20px 0 0;
+}
+
+.round .defender .playerTitle {
+height: 42px;
+line-height: 33px;
+padding: 0 10px;
+font-size: 16px;
+color: #fff;
+text-align: left;
+width: 300px;
+margin: 0 0 0 30px;
+font-weight: bold;
+}
+
+.round .defender .playerTitle span {
+display: block;
+float: right;
+font-size: 11px;
+text-transform: uppercase;
+}
+
+/* ---------------- */
+
+.round .defender .defence {
+position: absolute;
+width: 455px;
+right: 0;
+bottom: 15px;
+margin: 150px 0 0 0;
+}
+
+.round .defender .def {
+width: 90px;
+height: 90px;
+color: #fff;
+font-weight: bold;
+text-align: center;
+float: left;
+margin: 5px;
+position: relative;
+}
+
+.round .defender .def span {
+display: block;
+position: absolute;
+z-index: 1;
+top: -5px;
+right: -5px;
+background: #fff;
+color: #000;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+padding: 3px 6px;
+text-align: center;
+font-size: 12px;
+line-height: 12px;
+}
+
+/* --------------- */
+
+.shieldTip {
+border: 1px solid #fff;
+padding: 3px;
+margin:5px 0 0 0;
+}
+
+.shieldTip span {
+display: block;
+font-size: 13px;
+background: #686ba4;
+font-weight: bold;
+padding: 3px;
+margin: 0 0 2px 0;
+}
+
+/* ------------ */
+
+
+
+
+.information h6 {
+font-size: 18px;
+margin: 8px 0;
+border-bottom: 1px solid #333;
+color: #999;
+}
+
+.information p {
+font-size: 12px;
+color: #fff;
+padding: 0 10px;
+}
+
+.information ul {
+color: #fff;
+list-style-type: square;
+font-size: 12px;
+padding: 0 30px;
+}
+
+.information ul li {
+color: #ccc;
+}
+
+.information ul li strong {
+color: #fff;
+}
+
+/*-----------------*/
+
+.headerInfo {
+padding: 0;
+text-align: center;
+overflow: hidden;
+position: relative;
+z-index: 3;
+margin-top: 30px;
+}
+
+.headerInfo .titleBlock {
+display: inline-block;
+background: #999;
+color: #000;
+font-size: 11px;
+text-shadow: 0 1px 0 #ccc;
+line-height: 11px;
+font-weight: normal;
+padding: 5px 10px;
+margin: 7px 5px 0 5px;
+text-decoration: none;
+border: 1px solid #ddd;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
+
+.headerInfo .titleBlock a {
+font-size: 11px;
+line-height: 11px;
+text-decoration: underline;
+color: #000;
+}
+
+.headerInfo .titleBlock a:hover {
+color: #fff;
+text-shadow: 0 1px 0 #000;
+}
+
+#footer {
+margin: 10px auto 0;
+width: 980px;
+}
