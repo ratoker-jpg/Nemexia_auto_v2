@@ -363,6 +363,53 @@ class Database:
                     (key, json.dumps(value, ensure_ascii=False)),
                 )
 
+    def migrate_report_clock_utc_plus_two(self) -> int:
+        """One-time repair after correcting the server clock from UTC+01 to UTC+02.
+
+        Only reconnaissance/combat report timestamps are adjusted; game flight
+        history is already stored as real instants and must never be shifted.
+        """
+        marker = self.conn.execute(
+            "SELECT value FROM settings WHERE key='report_clock_utc_plus_two_migrated'"
+        ).fetchone()
+        if marker is not None:
+            return 0
+        prior_utc_plus_one = self.conn.execute(
+            "SELECT value FROM settings WHERE key='report_clock_utc_plus_one_migrated'"
+        ).fetchone() is not None
+        correction = timedelta(hours=-1 if prior_utc_plus_one else 2)
+        changed = 0
+        with self.conn:
+            for table, key, columns in (
+                ("targets", "coord", ("last_report_at", "last_spy_at")),
+                ("spy_reports", "id", ("report_at",)),
+                ("combat_reports", "id", ("report_at",)),
+            ):
+                rows = self.conn.execute(
+                    f"SELECT {key}, {', '.join(columns)} FROM {table}"
+                ).fetchall()
+                for row in rows:
+                    updates: dict[str, str] = {}
+                    for column in columns:
+                        value = parse_dt(row[column]) if row[column] else None
+                        if value is not None:
+                            # Old UTC+04 imports need +2 hours. Databases that
+                            # already ran the interim UTC+01 repair need only
+                            # the final -1 hour correction.
+                            updates[column] = (value + correction).isoformat()
+                    if updates:
+                        fields = ", ".join(f"{column}=?" for column in updates)
+                        self.conn.execute(
+                            f"UPDATE {table} SET {fields} WHERE {key}=?",
+                            [*updates.values(), row[key]],
+                        )
+                        changed += 1
+            self.conn.execute(
+                "INSERT INTO settings(key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value",
+                ("report_clock_utc_plus_two_migrated", json.dumps(True)),
+            )
+        return changed
+
     def list_targets(self) -> list[Target]:
         rows = self.conn.execute("SELECT * FROM targets ORDER BY g, s, p").fetchall()
         return [Target.from_row(row) for row in rows]

@@ -104,6 +104,41 @@ def launch_yandex(port: int) -> subprocess.Popen[Any]:
         raise BrowserAutomationError(f"Не удалось запустить Яндекс Браузер: {exc}") from exc
 
 
+def stop_managed_yandex(port: int) -> list[int]:
+    """Stop only the dedicated Nemexia browser profile, never a user's browser.
+
+    A hidden Yandex root process can retain the CDP port after its last window
+    is closed.  The profile directory and debugging port together identify the
+    process launched by this application; any other listener is left untouched.
+    """
+    profile = str(PROFILE_DIR.resolve()).replace("'", "''")
+    script = f"""
+$profile = '{profile}'
+$port = '{int(port)}'
+$profilePattern = [regex]::Escape($profile)
+$portPattern = [regex]::Escape('--remote-debugging-port=' + $port)
+$pids = Get-CimInstance Win32_Process | Where-Object {{
+    $cmd = [string]$_.CommandLine
+    $_.Name -ieq 'browser.exe' -and $cmd -and
+    $cmd -match "(?i)(?:^|\\s)--user-data-dir=(?:`\"$profilePattern`\"|$profilePattern)(?:\\s|$)" -and
+    $cmd -match "(?i)(?:^|\\s)$portPattern(?:\\s|$)"
+}} | ForEach-Object {{ $_.ProcessId }}
+$pids | ForEach-Object {{ $_ }}
+"""
+    try:
+        result = subprocess.run(
+            ["powershell", "-NoProfile", "-NonInteractive", "-Command", script],
+            capture_output=True, text=True, timeout=8, check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise BrowserAutomationError(f"Не удалось найти процесс браузера: {exc}") from exc
+    pids = [int(value) for value in re.findall(r"^\s*(\d+)\s*$", result.stdout, flags=re.MULTILINE)]
+    for pid in pids:
+        # /T closes only the identified Yandex root process and its children.
+        subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, text=True, timeout=12, check=False)
+    return pids
+
+
 class BrowserWorker:
     """All Playwright calls run on one dedicated asyncio thread."""
 
@@ -143,6 +178,8 @@ class BrowserWorker:
             pass
         self._browser = None
         self._playwright = None
+        self._page = None
+        self._endpoint = None
 
     async def connect(self, endpoint: str) -> dict[str, Any]:
         if self._browser and self._endpoint == endpoint:
@@ -279,6 +316,34 @@ class BrowserWorker:
                 return m ? [m[1],m[2],m[3]].join(':') : '';
             }"""
         )
+
+    async def read_owned_planets(self) -> list[dict[str, str]]:
+        """Read the authoritative planet switcher without changing planets.
+
+        The switcher is rendered by the game on every normal game page and is
+        therefore a safer identity source than an old locally saved snapshot.
+        """
+        page = await self._select_nemexia_page(create_if_missing=True)
+        await self._assert_no_captcha(page, "captcha_owned_planets")
+        planets = await page.evaluate(
+            r"""() => {
+              const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+              return Array.from(document.querySelectorAll('#planetsListHolder a[href*="change_planet.php"], #planetsListHolder a[href*="change_planet.php"]'))
+                .map(link => {
+                  const text = clean(link.textContent);
+                  const match = text.match(/\[(\d+\s*:\s*\d+\s*:\s*\d+)\]/);
+                  const id = (link.href || '').match(/[?&]id=(\d+)/)?.[1] || '';
+                  return match ? {
+                    id,
+                    name: clean(text.replace(/\s*\[[^\]]+\]\s*$/, '')),
+                    coord: match[1].replace(/\s/g, ''),
+                  } : null;
+                }).filter(Boolean);
+            }"""
+        )
+        if not planets:
+            raise BrowserAutomationError("Не удалось прочитать список твоих планет из переключателя игры")
+        return [dict(item) for item in planets]
 
     async def _select_planet(self, page: Page, home: tuple[int, int, int]) -> str:
         await self._assert_no_captcha(page, "captcha_planet_switch")

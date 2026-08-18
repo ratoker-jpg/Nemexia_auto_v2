@@ -1,0 +1,2737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Корабли</title>
+
+  
+
+  <link href="https://static.nemexia.com/ares/css/jquery.pnotify.default.css?ver=5410" rel="stylesheet" type="text/css">
+  <link href="https://static.nemexia.com/ares/css/layout.css?ver=5410" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_1.ico">
+  
+  
+  
+      <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/XOqlk8PL_yVx6IdpLbpXdiLy/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-mcwA+jPbqKpaKJOy+MDn1rWYyUFwcdOnvEFQz7sVles7djT1Zddp5nHWJn5/84x9"></script><script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/sprintf.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/misc.js?ver=5387&amp;2"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/tutorialArrow.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/activityRewards.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/actionsQueue.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/treasureHunting.js?ver=5387"></script>
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px; z-index: 1000001;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 229809383;
+        PLAYER['max_metal'] = 450100000;
+        PLAYER['crystal']   = 62484490;
+        PLAYER['max_crystal'] = 300100000;
+        PLAYER['gas']       = 9355421;
+        PLAYER['max_gas']   = 77847829;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 8488;
+        PLAYER['pop']       = 25112;
+        PLAYER['pop_used']  = 21945;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 25056;
+        PLAYER['credits']   = 1514;
+        PLAYER['phase']     = 109;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '229,809,383';
+        PLAYER['maxMetalFormat'] = '450,100,000';
+        PLAYER['crystalFormat'] = '62,484,490';
+        PLAYER['maxCrystalFormat'] = '300,100,000';
+        PLAYER['gasFormat'] = '9,355,421';
+        PLAYER['maxGasFormat'] = '77,847,829';
+        PLAYER['popFormat'] = '25,112';
+
+		PLAYER['ozone'] = 14630;
+		PLAYER['ozone_loss'] = 3600;
+		PLAYER['ozone_gain'] = 3750;
+
+		PLAYER['battle_points'] = 280982;
+		PLAYER['admiral_current_level'] = 29;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 223300;
+		PLAYER['admiral_next_level_battle_points'] = 282600;
+		PLAYER['admiral_level_up_battle_points'] = 1618;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/ships.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 8146;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fships.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('August 12, 2026 21:49:36');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="https://static.nemexia.com/ares/js/promotions.js?ver=5384"></script>
+	<a href="javascript: void(0)" class="promoLabel " onclick="loadPromoWindow(showPromoMessage)"></a>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="#"><img border="0" width="12px" src="https://static.nemexia.com/ares/img/flags/small/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="#" onclick="changeLanguage('ar');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('bg');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('br');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('cz');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('de');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/de.png">German</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('es');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('en');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/en.png">English</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('fr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('gr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('hr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('hu');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('it');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ir');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('pl');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('lt');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ro');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ru');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('sk');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('tr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="logout.php" class="logout" onmouseover="Tip('Выход');" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">21:49:43</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url('../img/v2.0/img/planets/top/planet_133.png')">
+				<div id="ozoneStatusWidget" class="fill100">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup('subtabOzonePurchase');" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="zone_resource.php?race=1" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="zone_resource.php?race=2" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="zone_resource.php?race=3" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="zone_galaxy.php" onmouseover="Tip('Галактическая зона');" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="zone_industry.php" onmouseover="Tip('Промышленная зона');" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="zone_military.php" onmouseover="Tip('Военная зона');" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = 'admiral.php?tabId=tabStats'" class="admiral" id="admiral" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/header/1.png');">
+				<div id="admiralLevelProgressWidget" class="fill100">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip('Характеристики')" onmouseout="UnTip();"></a>
+			<a href="admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip('Навыки')" onmouseout="UnTip();"></a>
+			<a href="auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip('Ежедневные подарки')" onmouseout="UnTip();"></a>
+			<a href="arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip('Металл&lt;br&gt;' + PLAYER['metalFormat'] + '/&lt;br&gt;' + PLAYER['maxMetalFormat']);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			229,809,383
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Минералы&lt;br&gt;' + PLAYER['crystalFormat'] + '/&lt;br&gt;' + PLAYER['maxCrystalFormat']);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			62,484,490
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Газ&lt;br&gt;' + PLAYER['gasFormat'] + '/&lt;br&gt;' + PLAYER['maxGasFormat']);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			9,355,421
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip('Энергия');" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = '/resourceInfo.php?show=gathering';">
+			8,488
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Ангар&lt;br&gt;' + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + '/&lt;br&gt;' + PLAYER['popFormat']);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			<span id="resourceBoxHangarShips">
+				21,945
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				25,056
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip('Обломки');" onmouseout="UnTip();" onclick="window.location.href = '/recyclingPlant.php';">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $('#planetsListHolder').slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png');"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Москва <span>[3:39:11]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display: block;">
+							<li class="active">
+					<a href="change_planet.php?id=991" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png" width="18" id="planetListImg-991">
+						Москва <span>[3:39:11]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1086" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_20.png" width="18" id="planetListImg-1086">
+						Питер <span>[3:39:8]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1105" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_2.png" width="18" id="planetListImg-1105">
+						Ростов <span>[3:39:9]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1109" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_13.png" width="18" id="planetListImg-1109">
+						Воронеж <span>[3:39:17]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1125" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_6.png" width="18" id="planetListImg-1125">
+						Рязань <span>[3:39:21]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1132" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_21.png" width="18" id="planetListImg-1132">
+						Русь <span>[3:39:13]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1258" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_8.png" width="18" id="planetListImg-1258">
+						Краснодар <span>[2:15:16]</span>
+					</a>
+				</li>
+							<li>
+					<a href="change_planet.php?id=1047" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_25.png" width="18" id="planetListImg-1047">
+						klick...hmm..error <span>[2:5:6]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="galaxy.php?galaxy=3&amp;solar=39">Галактика</a></li>
+			<li class="alliance"><a href="alliance.php">Союз</a></li>
+			<li class="personal"><a href="options.php">Личные</a>
+									<span class="newMessages" id="newMessages">3</span>
+												</li>
+			<li class="ranking"><a href="ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_12.png');"></div>
+				<a href="ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip('Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-09-22 22:39:45.');" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">1,514</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" class="active" onmouseover="Tip('Вы Платинум пользователь!&lt;br/&gt;Ваша подписка заканчивается 2026-09-03 09:35:12.');" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">180</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip('Изменение интерфейса');" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="laboratory.php">Лаборатория</a></li>
+<li><a href="ships.php">Верфь</a></li>
+<li><a href="ship_upgrade.php">Космодром</a></li>
+<li><a href="recyclingPlant.php">Завод по переработке</a></li>
+<li><a href="resource_trader.php">Торговый центр</a></li>
+<li><a href="factory.php">Фабрика</a></li>
+<li><a href="auction.php">Аукцион</a></li>
+<li><a href="bank.php">Банк</a></li>
+<li><a href="technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript">
+var LangStrings = new Array('Общее время до завершения','Фабричная очередь','Отмена','Вы уверены что хотите прервать постройку?  40-60% из затраченных ресурсов будут возвращены, а все очки ресурсов за этот уровень потеряны.', 'УСКОРИТЬ!');
+</script>
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/ships.js?ver=5384"></script>
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/processesBooster.js?ver=5387"></script>
+
+<link href="https://static.nemexia.com/ares/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery.lightbox-0.5.min.js"></script>
+
+
+<script type="text/javascript">
+$(function() {
+    $('a.lightbox').lightBox(); // Select all links with lightbox class
+
+  $('#structuresList .structureItem .thumbnail img, #structuresList .structureItem .shipInfo h3 a').each(function(){
+    var tooltipElement = $(this).parentsUntil('.structureItem').parent().find('.tooltip');
+    if (tooltipElement.length <= 0) {
+      return;
+    }
+
+    $(this).bind('mouseover', function(){Tip(tooltipElement.html());}).bind('mouseout', function(){UnTip();});
+  });
+});
+</script>
+
+
+<div class="pageSubnavigation" id="buildingInfo">
+    <div class="title"><span style="letter-spacing: 0;">Верфь</span></div>
+
+    <div class="sub">
+
+    <div class="preview">
+      <div class="thumbnail"><img src="https://static.nemexia.com/ares/img/v2.0/img/buildings/race1/thumb_319.jpg"></div>
+      <div class="details">
+        <big><span style="letter-spacing: -1px;">Верфь</span></big>
+        <small>Уровень 15</small>
+      </div>
+    </div>
+
+    <div class="subTitle">Строительство</div>
+      <ul class="buttonsMenu">
+        <li class="ships">
+          <a href="javascript:void(0);" onclick="
+                 showTab('TabShips');
+                 refreshShipyard('Ships');
+                 $('#techShips').show();
+                 $('#techDefence').hide();
+                 $('#techCommanderShips').hide();
+                ">
+            Корабли          </a>
+        </li>
+        <li class="defence">
+          <a href="javascript:void(0);" onclick="
+                 showTab('TabDefence');
+                 refreshShipyard('Defence');
+                 $('#techShips').hide();
+                 $('#techDefence').show();
+                 $('#techCommanderShips').hide();
+                ">
+            Оборона          </a>
+        </li>
+        <li class="ships">
+          <a href="javascript:void(0);" onclick="
+                 showTab('TabCommanderShips');
+                 refreshQue('commanderShips');
+                 $('#techShips').hide();
+                 $('#techDefence').hide();
+                 $('#techCommanderShips').show();
+                ">
+            Боевые корабли           </a>
+        </li>
+        <li class="technics" id="techShips">
+          <a href="technics.php?showTab=ships">Технологии</a>
+        </li>
+        <li class="technics" id="techDefence" style="display: none;">
+          <a href="technics.php?showTab=defence">Технологии</a>
+        </li>
+        <li class="technics" id="techCommanderShips" style="display: none;">
+          <a href="technics.php?showTab=commanderShips">Технологии</a>
+        </li>
+      </ul>
+      <div class="subTitle">Усовершенствование</div>
+      <ul class="buttonsMenu">
+        <li class="ships"><a href="ship_upgrade.php">Корабли</a></li>
+        <li class="ships"><a href="commander_ship_upgrade.php">Боевые корабли</a></li>
+      </ul>
+      <div class="subTitle">Миссии</div>
+      <ul class="buttonsMenu">
+        <li class="ships"><a href="options.php?tabId=commanderShipsPriority">Боевой Приоритет</a></li>
+        <li class="flights"><a href="fleets.php">Полеты</a></li>
+        <li class="battles"><a href="fleets.php?show=Battles">Битвы</a></li>
+                  <li class="simulator"><a href="fleets.php?show=Simulator">Симулятор</a></li>
+              </ul>
+
+    </div>
+  <div class="pageSubnavigationBottom"></div>
+  <div class="ornamentsTop"></div>
+  <div class="ornamentsBot"></div>
+</div>
+
+<div id="contentWrapper">
+    <script type="text/javascript">
+	TimersGlobalQueue = new Array();
+	GlobalQueueCountTimers = 0;
+</script>
+<div id="queueBar">
+	<div id="queueBarOpen" style="">
+		<a href="javascript:void(0);" onclick="globalQueueHide();" class="hideQueueBar"></a>
+		<div class="queItemHolder"><div class="queueItem">
+	<a class="queItemInfo" href="zone_resource.php" onmouseover="Tip('Зона ресурсов')" onmouseout="UnTip();">
+		<span class="resource"></span>
+		<span class="queItemTime" id="gql_ZoneResource">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="zone_industry.php" onmouseover="Tip('Промышленная зона')" onmouseout="UnTip();">
+		<span class="industry"></span>
+        <span class="queItemTime" id="gql_ZoneIndustry">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="zone_military.php" onmouseover="Tip('Военная зона')" onmouseout="UnTip();">
+		<span class="military"></span>
+        <span class="queItemTime" id="gql_ZoneMilitary">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="laboratory.php" onmouseover="Tip('Науки')" onmouseout="UnTip();">
+		<span class="laboratory"></span>
+        <span class="queItemTime" id="gql_Sciences">27:59:04</span>
+	</a>
+			<script type="text/javascript">
+			TimersGlobalQueue[GlobalQueueCountTimers++] = new Array('gql_Sciences', 100749, 'globalQueueLoad()');
+		</script>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="ships.php" onmouseover="Tip('Корабли')" onmouseout="UnTip();">
+		<span class="ships"></span>
+        <span class="queItemTime" id="gql_Ships">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+
+<div class="queueItem">
+	<a class="queItemInfo" href="ship_upgrade.php" onmouseover="Tip('Усовершенствования')" onmouseout="UnTip();">
+		<span class="upgrades"></span>
+        <span class="queItemTime" id="gql_Upgrades">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+<!-- zlib compression level 1 --></div>
+	</div>
+	<div id="queueBarClose" style="display: none;">
+		<a href="javascript:void(0);" onclick="globalQueueShow();" class="showQueueBar"></a><span>Текущие процессы</span>
+	</div><!--#queueBarClose-->
+</div><!--#queueBar-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var showGlobalQueueStatus = readCookie('GlobalQueueBar');
+	if(showGlobalQueueStatus == null) {
+		createCookie('GlobalQueueBar', 1, 30);
+		showGlobalQueueStatus = 1;
+	}
+
+	if(showGlobalQueueStatus == 1) {
+		globalQueueShow();
+	} else {
+		globalQueueHide();
+	}
+
+	globalQueueTimers();
+});
+</script>
+
+  <a name="queHolder"></a>
+  <div id="structuresQueue" style="display: none;"></div>
+
+  <div id="mainFrame">
+    <div id="TabShips" style="display:block;">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      
+      <script type="text/javascript">
+              $(function() {$('a.lightbox').lightBox();});
+            </script>
+            
+                        <div id="totalTime">
+              <span>Общее время: <strong id="queTimer">00:00:00</strong></span><br>
+              <a href="#queHolder" onclick="trainAllShips();">Строительство корабля</a>
+            </div>
+            
+      <div id="structuresList">
+                        <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-13" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-13" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-13">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_13.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_13.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=13">Солнечный спутник</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-13" style="display: none">375</div>
+                  <div id="ShipsNeededCrystal-13" style="display: none">1500</div>
+                  <div id="ShipsNeededGas-13" style="display: none">375</div>
+                  <div id="ShipsNeededPop-13" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-13" onmouseover="Tip('Металл');" onmouseout="UnTip();">375</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-13" onmouseover="Tip('Минералы');" onmouseout="UnTip();">1,500</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-13" onmouseover="Tip('Газ');" onmouseout="UnTip();">375</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-13" onmouseover="Tip('Население');" onmouseout="UnTip();">1</li>
+                </ul>
+                                              <form id="shipsTrainForm-13" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId13" id="ShipId13" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId13" id="ShipTimeId13" value="4" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax13" style="display: none;">3167</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId13').val($('#ShipsMax13').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp13">3,167</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:04</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Обслуживающий корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 2,200</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 0</li>
+                <li>Скорость: 200</li>
+                <li>Расход топлива: 10</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-12" style="display: none;">53</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-12" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">53</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-12">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_12.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_12.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=12">Шпионский зонд</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-12" style="display: none">0</div>
+                  <div id="ShipsNeededCrystal-12" style="display: none">750</div>
+                  <div id="ShipsNeededGas-12" style="display: none">0</div>
+                  <div id="ShipsNeededPop-12" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-12" onmouseover="Tip('Металл');" onmouseout="UnTip();">0</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-12" onmouseover="Tip('Минералы');" onmouseout="UnTip();">750</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-12" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-12" onmouseover="Tip('Население');" onmouseout="UnTip();">1</li>
+                </ul>
+                                              <form id="shipsTrainForm-12" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId12" id="ShipId12" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId12" id="ShipTimeId12" value="2" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax12" style="display: none;">3167</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId12').val($('#ShipsMax12').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp12">3,167</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:02</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 1</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 1</li>
+                <li>Скорость: 200,000,000</li>
+                <li>Расход топлива: 1</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-1" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-1" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-1">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_1.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_1.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=1">Транспортировщик</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-1" style="display: none">1800</div>
+                  <div id="ShipsNeededCrystal-1" style="display: none">1050</div>
+                  <div id="ShipsNeededGas-1" style="display: none">0</div>
+                  <div id="ShipsNeededPop-1" style="display: none">1</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-1" onmouseover="Tip('Металл');" onmouseout="UnTip();">1,800</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-1" onmouseover="Tip('Минералы');" onmouseout="UnTip();">1,050</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-1" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-1" onmouseover="Tip('Население');" onmouseout="UnTip();">1</li>
+                </ul>
+                                              <form id="shipsTrainForm-1" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId1" id="ShipId1" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId1" id="ShipTimeId1" value="15" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax1" style="display: none;">3167</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId1').val($('#ShipsMax1').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp1">3,167</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:15</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 10</li>
+                <li>Жизнь: 2,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 5,000</li>
+                <li>Скорость: 24,000</li>
+                <li>Расход топлива: 12</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-2" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-2" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-2">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_2.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_2.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=2">Мегатранспортировщик</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-2" style="display: none">4800</div>
+                  <div id="ShipsNeededCrystal-2" style="display: none">3750</div>
+                  <div id="ShipsNeededGas-2" style="display: none">0</div>
+                  <div id="ShipsNeededPop-2" style="display: none">3</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-2" onmouseover="Tip('Металл');" onmouseout="UnTip();">4,800</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-2" onmouseover="Tip('Минералы');" onmouseout="UnTip();">3,750</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-2" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-2" onmouseover="Tip('Население');" onmouseout="UnTip();">3</li>
+                </ul>
+                                              <form id="shipsTrainForm-2" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId2" id="ShipId2" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId2" id="ShipTimeId2" value="31" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax2" style="display: none;">1055</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId2').val($('#ShipsMax2').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp2">1,055</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:31</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 10</li>
+                <li>Жизнь: 7,800</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 20,000</li>
+                <li>Скорость: 19,000</li>
+                <li>Расход топлива: 45</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-10" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-10" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-10">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_10.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_10.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=10">Колонизатор</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-10" style="display: none">9375</div>
+                  <div id="ShipsNeededCrystal-10" style="display: none">18750</div>
+                  <div id="ShipsNeededGas-10" style="display: none">7950</div>
+                  <div id="ShipsNeededPop-10" style="display: none">12</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-10" onmouseover="Tip('Металл');" onmouseout="UnTip();">9,375</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-10" onmouseover="Tip('Минералы');" onmouseout="UnTip();">18,750</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-10" onmouseover="Tip('Газ');" onmouseout="UnTip();">7,950</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-10" onmouseover="Tip('Население');" onmouseout="UnTip();">12</li>
+                </ul>
+                                              <form id="shipsTrainForm-10" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId10" id="ShipId10" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId10" id="ShipTimeId10" value="89" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax10" style="display: none;">263</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId10').val($('#ShipsMax10').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp10">263</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:01:29</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 600</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 7,500</li>
+                <li>Скорость: 5,000</li>
+                <li>Расход топлива: 1,500</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-11" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-11" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-11">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_11.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_11.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=11">Переработчик</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-11" style="display: none">7875</div>
+                  <div id="ShipsNeededCrystal-11" style="display: none">3975</div>
+                  <div id="ShipsNeededGas-11" style="display: none">1350</div>
+                  <div id="ShipsNeededPop-11" style="display: none">5</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-11" onmouseover="Tip('Металл');" onmouseout="UnTip();">7,875</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-11" onmouseover="Tip('Минералы');" onmouseout="UnTip();">3,975</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-11" onmouseover="Tip('Газ');" onmouseout="UnTip();">1,350</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-11" onmouseover="Tip('Население');" onmouseout="UnTip();">5</li>
+                </ul>
+                                              <form id="shipsTrainForm-11" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId11" id="ShipId11" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId11" id="ShipTimeId11" value="64" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax11" style="display: none;">633</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId11').val($('#ShipsMax11').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp11">633</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:01:04</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Гражданский корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 50</li>
+                <li>Жизнь: 2,200</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 40,000</li>
+                <li>Скорость: 7,000</li>
+                <li>Расход топлива: 120</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-3" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-3" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-3">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_3.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_3.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=3">Скаут</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-3" style="display: none">1800</div>
+                  <div id="ShipsNeededCrystal-3" style="display: none">1200</div>
+                  <div id="ShipsNeededGas-3" style="display: none">0</div>
+                  <div id="ShipsNeededPop-3" style="display: none">2</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-3" onmouseover="Tip('Металл');" onmouseout="UnTip();">1,800</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-3" onmouseover="Tip('Минералы');" onmouseout="UnTip();">1,200</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-3" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-3" onmouseover="Tip('Население');" onmouseout="UnTip();">2</li>
+                </ul>
+                                              <form id="shipsTrainForm-3" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId3" id="ShipId3" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId3" id="ShipTimeId3" value="31" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax3" style="display: none;">1583</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId3').val($('#ShipsMax3').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp3">1,583</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:31</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 800</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 250</li>
+                <li>Скорость: 28,000</li>
+                <li>Расход топлива: 25</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-4" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-4" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-4">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_4.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_4.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=4">Крейсер</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-4" style="display: none">7650</div>
+                  <div id="ShipsNeededCrystal-4" style="display: none">6300</div>
+                  <div id="ShipsNeededGas-4" style="display: none">0</div>
+                  <div id="ShipsNeededPop-4" style="display: none">7</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-4" onmouseover="Tip('Металл');" onmouseout="UnTip();">7,650</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-4" onmouseover="Tip('Минералы');" onmouseout="UnTip();">6,300</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-4" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-4" onmouseover="Tip('Население');" onmouseout="UnTip();">7</li>
+                </ul>
+                                              <form id="shipsTrainForm-4" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId4" id="ShipId4" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId4" id="ShipTimeId4" value="39" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax4" style="display: none;">452</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId4').val($('#ShipsMax4').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp4">452</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:39</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 3,080</li>
+                <li>Жизнь: 9,200</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 800</li>
+                <li>Скорость: 32,000</li>
+                <li>Расход топлива: 315</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-5" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-5" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-5">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_5.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_5.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=5">Защитник </a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-5" style="display: none">3975</div>
+                  <div id="ShipsNeededCrystal-5" style="display: none">11925</div>
+                  <div id="ShipsNeededGas-5" style="display: none">0</div>
+                  <div id="ShipsNeededPop-5" style="display: none">6</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-5" onmouseover="Tip('Металл');" onmouseout="UnTip();">3,975</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-5" onmouseover="Tip('Минералы');" onmouseout="UnTip();">11,925</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-5" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-5" onmouseover="Tip('Население');" onmouseout="UnTip();">6</li>
+                </ul>
+                                              <form id="shipsTrainForm-5" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId5" id="ShipId5" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId5" id="ShipTimeId5" value="54" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax5" style="display: none;">527</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId5').val($('#ShipsMax5').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp5">527</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:00:54</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 2,760</li>
+                <li>Жизнь: 8,300</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+                <li>Грузоподъемность: 1,500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 280</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-6" style="display: none;">600</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-6" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">600</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-6">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_6.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_6.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=6">Боевой корабль</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-6" style="display: none">37050</div>
+                  <div id="ShipsNeededCrystal-6" style="display: none">15900</div>
+                  <div id="ShipsNeededGas-6" style="display: none">0</div>
+                  <div id="ShipsNeededPop-6" style="display: none">15</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-6" onmouseover="Tip('Металл');" onmouseout="UnTip();">37,050</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-6" onmouseover="Tip('Минералы');" onmouseout="UnTip();">15,900</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-6" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-6" onmouseover="Tip('Население');" onmouseout="UnTip();">15</li>
+                </ul>
+                                              <form id="shipsTrainForm-6" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId6" id="ShipId6" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId6" id="ShipTimeId6" value="84" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax6" style="display: none;">211</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId6').val($('#ShipsMax6').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp6">211</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:01:24</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 9,000</li>
+                <li>Жизнь: 27,000</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 1,500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 480</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-7" style="display: none;">200</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-7" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">200</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-7">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_7.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_7.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=7">Разрушитель </a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-7" style="display: none">70425</div>
+                  <div id="ShipsNeededCrystal-7" style="display: none">63375</div>
+                  <div id="ShipsNeededGas-7" style="display: none">7050</div>
+                  <div id="ShipsNeededPop-7" style="display: none">30</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-7" onmouseover="Tip('Металл');" onmouseout="UnTip();">70,425</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-7" onmouseover="Tip('Минералы');" onmouseout="UnTip();">63,375</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-7" onmouseover="Tip('Газ');" onmouseout="UnTip();">7,050</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-7" onmouseover="Tip('Население');" onmouseout="UnTip();">30</li>
+                </ul>
+                                              <form id="shipsTrainForm-7" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId7" id="ShipId7" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId7" id="ShipTimeId7" value="122" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax7" style="display: none;">105</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId7').val($('#ShipsMax7').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp7">105</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:02:02</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 19,500</li>
+                <li>Жизнь: 58,500</li>
+                <li>Тип оружия: Плазма</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 2,000</li>
+                <li>Скорость: 13,000</li>
+                <li>Расход топлива: 900</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="ShipsAvaible-8" style="display: none;">310</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-8" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">310</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-8">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_8.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_8.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=8">Бомбардировщик</a></h3>
+                                <ul>
+                  <div id="ShipsNeededMetal-8" style="display: none">33000</div>
+                  <div id="ShipsNeededCrystal-8" style="display: none">41250</div>
+                  <div id="ShipsNeededGas-8" style="display: none">8250</div>
+                  <div id="ShipsNeededPop-8" style="display: none">22</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-8" onmouseover="Tip('Металл');" onmouseout="UnTip();">33,000</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-8" onmouseover="Tip('Минералы');" onmouseout="UnTip();">41,250</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-8" onmouseover="Tip('Газ');" onmouseout="UnTip();">8,250</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-8" onmouseover="Tip('Население');" onmouseout="UnTip();">22</li>
+                </ul>
+                                              <form id="shipsTrainForm-8" method="POST">
+                  <div class="action">
+                                          <input type="text" size="5" maxlength="5" name="ShipId8" id="ShipId8" onkeyup="calculateQueTime();" style="">
+                                              <input type="hidden" name="ShipTimeId8" id="ShipTimeId8" value="84" style="">
+                                            &nbsp;
+                                      </div>
+                </form>
+                <div id="ShipsMax8" style="display: none;">143</div>
+                <a href="javascript:void(0);" onclick="$('#ShipId8').val($('#ShipsMax8').html());calculateQueTime();" class="maxAmmount">Max. <span id="ShipsMaxDisp8">143</span></a>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>00:01:24</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 13,200</li>
+                <li>Жизнь: 39,600</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+                <li>Грузоподъемность: 500</li>
+                <li>Скорость: 20,000</li>
+                <li>Расход топлива: 800</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem disabled">
+            <div class="wrapper">
+              <div id="ShipsAvaible-9" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="ShipsAvaibleDisp-9" onmouseover="Tip('Доступные корабли');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="ship-9">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/large/ship_9.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/ships/race1/thumbs/ship_9.png" border="0">
+                                  </a>
+                                </div>
+                <h3><a href="information.php?type=ship&amp;id=9">Звезда смерти </a></h3>
+                                <div class="requirement">Нужен 1 уровень науки "Параллельные вселенные"<br>Перейти в <a href="technics.php?showTab=ships">Технологии</a></div>
+                                <ul>
+                  <div id="ShipsNeededMetal-9" style="display: none">1745625</div>
+                  <div id="ShipsNeededCrystal-9" style="display: none">1396500</div>
+                  <div id="ShipsNeededGas-9" style="display: none">349125</div>
+                  <div id="ShipsNeededPop-9" style="display: none">700</div>
+                  <li class="neededMetal" id="ShipsNeededMetalDisp-9" onmouseover="Tip('Металл');" onmouseout="UnTip();">1,745,625</li>
+                  <li class="neededCrystal" id="ShipsNeededCrystalDisp-9" onmouseover="Tip('Минералы');" onmouseout="UnTip();">1,396,500</li>
+                  <li class="neededGas" id="ShipsNeededGasDisp-9" onmouseover="Tip('Газ');" onmouseout="UnTip();">349,125</li>
+                  <li class="neededStorage" id="ShipsNeededPopDisp-9" onmouseover="Tip('Население');" onmouseout="UnTip();">700</li>
+                </ul>
+                                            </div>
+
+                <div class="shipTime">Время за единицу: <strong>04:27:45</strong></div>
+
+            </div>
+            <div class="tooltip">
+              <b>Боевой корабль</b>
+              <br>
+              <ul>
+                <li>Атака: 700,000</li>
+                <li>Жизнь: 2,100,000</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+                <li>Грузоподъемность: 1,000,000</li>
+                <li>Скорость: 200</li>
+                <li>Расход топлива: 60,000</li>
+              </ul>
+            </div>
+          </div>
+        
+                                <div id="orderStructures"><a href="#queHolder" onclick="trainAllShips();">Строительство корабля</a></div>
+                    </div><!-- #structuresList -->
+
+    </div><!-- #TabShips -->
+    <div id="TabDefence" style="display:none;">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      <div id="structuresList">
+                        <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-1" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-1" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-1">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/1.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_1.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=1">Баллистическая установка</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-1" style="display: none">3450</div>
+                  <div id="DefenceNeededCrystal-1" style="display: none">1875</div>
+                  <div id="DefenceNeededGas-1" style="display: none">0</div>
+                  <div id="DefenceNeededPop-1" style="display: none">2</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-1" onmouseover="Tip('Металл');" onmouseout="UnTip();">3,450</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-1" onmouseover="Tip('Минералы');" onmouseout="UnTip();">1,875</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-1" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-1" onmouseover="Tip('Население');" onmouseout="UnTip();">2</li>
+                </ul>
+                                              <form id="defenceTrainForm-1" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId1" id="DefenceId1" style="">
+                                                                                    <a href="javascript:trainDefence(1);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax1" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId1').val($('#DefenceMax1').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp1"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:00:07</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 140</li>
+                <li>Жизнь: 1,500</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-2" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-2" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-2">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/2.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_2.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=2">Лазерная установка</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-2" style="display: none">6600</div>
+                  <div id="DefenceNeededCrystal-2" style="display: none">3525</div>
+                  <div id="DefenceNeededGas-2" style="display: none">0</div>
+                  <div id="DefenceNeededPop-2" style="display: none">3</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-2" onmouseover="Tip('Металл');" onmouseout="UnTip();">6,600</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-2" onmouseover="Tip('Минералы');" onmouseout="UnTip();">3,525</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-2" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-2" onmouseover="Tip('Население');" onmouseout="UnTip();">3</li>
+                </ul>
+                                              <form id="defenceTrainForm-2" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId2" id="DefenceId2" style="">
+                                                                                    <a href="javascript:trainDefence(2);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax2" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId2').val($('#DefenceMax2').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp2"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:00:08</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 180</li>
+                <li>Жизнь: 2,400</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-4" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-4" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-4">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/4.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_4.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=4">Ионная установка</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-4" style="display: none">34125</div>
+                  <div id="DefenceNeededCrystal-4" style="display: none">18375</div>
+                  <div id="DefenceNeededGas-4" style="display: none">0</div>
+                  <div id="DefenceNeededPop-4" style="display: none">14</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-4" onmouseover="Tip('Металл');" onmouseout="UnTip();">34,125</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-4" onmouseover="Tip('Минералы');" onmouseout="UnTip();">18,375</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-4" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-4" onmouseover="Tip('Население');" onmouseout="UnTip();">14</li>
+                </ul>
+                                              <form id="defenceTrainForm-4" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId4" id="DefenceId4" style="">
+                                                                                    <a href="javascript:trainDefence(4);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax4" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId4').val($('#DefenceMax4').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp4"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:01:08</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 840</li>
+                <li>Жизнь: 12,600</li>
+                <li>Тип оружия: Ион</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-5" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-5" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-5">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/5.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_5.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=5">Плазменая установка</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-5" style="display: none">50925</div>
+                  <div id="DefenceNeededCrystal-5" style="display: none">27450</div>
+                  <div id="DefenceNeededGas-5" style="display: none">0</div>
+                  <div id="DefenceNeededPop-5" style="display: none">19</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-5" onmouseover="Tip('Металл');" onmouseout="UnTip();">50,925</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-5" onmouseover="Tip('Минералы');" onmouseout="UnTip();">27,450</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-5" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-5" onmouseover="Tip('Население');" onmouseout="UnTip();">19</li>
+                </ul>
+                                              <form id="defenceTrainForm-5" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId5" id="DefenceId5" style="">
+                                                                                    <a href="javascript:trainDefence(5);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax5" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId5').val($('#DefenceMax5').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp5"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:01:32</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 3,800</li>
+                <li>Жизнь: 62,700</li>
+                <li>Тип оружия: Плазма</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-8" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-8" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-8">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/8.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_8.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=8">Лазер-Ионная Батарея</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-8" style="display: none">66150</div>
+                  <div id="DefenceNeededCrystal-8" style="display: none">28350</div>
+                  <div id="DefenceNeededGas-8" style="display: none">0</div>
+                  <div id="DefenceNeededPop-8" style="display: none">21</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-8" onmouseover="Tip('Металл');" onmouseout="UnTip();">66,150</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-8" onmouseover="Tip('Минералы');" onmouseout="UnTip();">28,350</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-8" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-8" onmouseover="Tip('Население');" onmouseout="UnTip();">21</li>
+                </ul>
+                                              <form id="defenceTrainForm-8" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId8" id="DefenceId8" style="">
+                                                                                    <a href="javascript:trainDefence(8);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax8" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId8').val($('#DefenceMax8').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp8"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:02:09</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 8,820</li>
+                <li>Жизнь: 128,800</li>
+                <li>Тип оружия: Лазер, Ион</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-9" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-9" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-9">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/9.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_9.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=9">Плазма-Лазерная Батарея</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-9" style="display: none">49500</div>
+                  <div id="DefenceNeededCrystal-9" style="display: none">115500</div>
+                  <div id="DefenceNeededGas-9" style="display: none">0</div>
+                  <div id="DefenceNeededPop-9" style="display: none">44</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-9" onmouseover="Tip('Металл');" onmouseout="UnTip();">49,500</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-9" onmouseover="Tip('Минералы');" onmouseout="UnTip();">115,500</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-9" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-9" onmouseover="Tip('Население');" onmouseout="UnTip();">44</li>
+                </ul>
+                                              <form id="defenceTrainForm-9" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId9" id="DefenceId9" style="">
+                                                                                    <a href="javascript:trainDefence(9);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax9" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId9').val($('#DefenceMax9').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp9"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:04:52</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 24,200</li>
+                <li>Жизнь: 263,000</li>
+                <li>Тип оружия: Лазер, Плазма</li>
+                <li>Тип брони: Тяжелая Броня</li>
+                <li>Сила брони: 9%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-10" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-10" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-10">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/10.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_10.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=10">Ион-Плазменная Батарея</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-10" style="display: none">58500</div>
+                  <div id="DefenceNeededCrystal-10" style="display: none">97500</div>
+                  <div id="DefenceNeededGas-10" style="display: none">39000</div>
+                  <div id="DefenceNeededPop-10" style="display: none">65</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-10" onmouseover="Tip('Металл');" onmouseout="UnTip();">58,500</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-10" onmouseover="Tip('Минералы');" onmouseout="UnTip();">97,500</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-10" onmouseover="Tip('Газ');" onmouseout="UnTip();">39,000</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-10" onmouseover="Tip('Население');" onmouseout="UnTip();">65</li>
+                </ul>
+                                              <form id="defenceTrainForm-10" method="POST">
+                  <div class="action">
+                                          <input type="text" size="4" maxlength="5" name="DefenceId10" id="DefenceId10" style="">
+                                                                                    <a href="javascript:trainDefence(10);">Строительство</a>
+                                                            </div>
+                </form>
+                  <div id="DefenceMax10" style="display: none;"></div>
+                                      <a href="javascript:void(0);" onclick="$('#DefenceId10').val($('#DefenceMax10').html());" class="maxAmmount">Max. <span id="DefenceMaxDisp10"></span></a>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:12:26</strong></div>            </div>
+            <div class="tooltip">
+              <b>Защита</b>
+              <br>
+              <ul>
+                <li>Атака: 34,250</li>
+                <li>Жизнь: 407,000</li>
+                <li>Тип оружия: Ион, Плазма</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-6" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-6" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-6">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/6.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_6.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=6">Башенный щит</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-6" style="display: none">72000</div>
+                  <div id="DefenceNeededCrystal-6" style="display: none">72000</div>
+                  <div id="DefenceNeededGas-6" style="display: none">0</div>
+                  <div id="DefenceNeededPop-6" style="display: none">12</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-6" onmouseover="Tip('Металл');" onmouseout="UnTip();">72,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-6" onmouseover="Tip('Минералы');" onmouseout="UnTip();">72,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-6" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-6" onmouseover="Tip('Население');" onmouseout="UnTip();">12</li>
+                </ul>
+                                              <form id="defenceTrainForm-6" method="POST">
+                  <div class="action">
+                                          <input type="hidden" name="DefenceId6" id="DefenceId6" value="1" style="">
+                                                                                                    </div>
+                </form>
+                  <div id="DefenceMax6" style="display: none;"></div>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:08:10</strong></div>            </div>
+            <div class="tooltip">
+              <b>Дополнительный Щит</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 600,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Легкая Броня</li>
+                <li>Сила брони: 3%</li>
+              </ul>
+            </div>
+          </div>
+                  <div class="structureItem">
+            <div class="wrapper">
+              <div id="DefenceAvaible-7" style="display: none;">0</div>
+                            <div class="itemCurrentCount" id="DefenceAvaibleDisp-7" onmouseover="Tip('Доступная оборона');" onmouseout="UnTip();">0</div>
+              <div class="shipInfo">
+                <div class="thumbnail" id="defence-7">
+                                    <a href="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/large/7.jpg" class="lightbox">
+                    <img src="https://static.nemexia.com/ares/img/v2.0/img/defence/race1/thumbs/defence_7.png" border="0">
+                                    </a>
+                                </div>
+                <h3><a href="information.php?type=defence&amp;id=7">Планетарный щит</a></h3>
+                                <ul>
+                  <div id="DefenceNeededMetal-7" style="display: none">264000</div>
+                  <div id="DefenceNeededCrystal-7" style="display: none">264000</div>
+                  <div id="DefenceNeededGas-7" style="display: none">0</div>
+                  <div id="DefenceNeededPop-7" style="display: none">44</div>
+                  <li class="neededMetal" id="DefenceNeededMetalDisp-7" onmouseover="Tip('Металл');" onmouseout="UnTip();">264,000</li>
+                  <li class="neededCrystal" id="DefenceNeededCrystalDisp-7" onmouseover="Tip('Минералы');" onmouseout="UnTip();">264,000</li>
+                  <li class="neededGas" id="DefenceNeededGasDisp-7" onmouseover="Tip('Газ');" onmouseout="UnTip();">0</li>
+                  <li class="neededStorage" id="DefenceNeededPopDisp-7" onmouseover="Tip('Население');" onmouseout="UnTip();">44</li>
+                </ul>
+                                              <form id="defenceTrainForm-7" method="POST">
+                  <div class="action">
+                                          <input type="hidden" name="DefenceId7" id="DefenceId7" value="1" style="">
+                                                                                                    </div>
+                </form>
+                  <div id="DefenceMax7" style="display: none;"></div>
+                                                              </div>
+              <div class="shipTime">Время за единицу: <strong>00:41:08</strong></div>            </div>
+            <div class="tooltip">
+              <b>Главный Щит</b>
+              <br>
+              <ul>
+                <li>Атака: 1</li>
+                <li>Жизнь: 2,640,000</li>
+                <li>Тип оружия: Лазер</li>
+                <li>Тип брони: Средняя Броня</li>
+                <li>Сила брони: 6%</li>
+              </ul>
+            </div>
+          </div>
+                    </div><!-- #structuresList -->
+    </div><!-- #TabDefence -->
+
+    <div id="TabCommanderShips" style="display:none;">
+      &nbsp; <!-- DO NOT REMOVE THE &nbsp; TABS STOP WORKING -->
+      <script type="text/javascript">
+        
+              $(function() {$('a.lightbox').lightBox();});
+                
+                var TAG_CS_RESOURCE_ORDER = 'Заказать';
+                var TAG_CS_RESOURCE_REPAIR = 'Починить';
+                var TAG_CS_CREDITS_ORDER = 'Купить сейчас';
+                var TAG_CS_CREDITS_REPAIR = 'Моментальный ремонт';
+                var TAG_CS_BUY_SHIP_CONFIRM = 'Это будет стоить %1$s кредитов. Вы уверены что хотите купить этот корабль?';
+                var TAG_CS_BUY_REPAIR_CONFIRM = 'Это будет стоить %1$s кредитов. Вы уверены что хотите починить этот корабль?';
+            </script>
+
+      <div id="structuresList">
+                                                  <div class="structureItem" id="structureItem-2">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-2">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/2.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_2.png" border="0" onmouseover="Tip('Увеличивает возможный процент украденных ресурсов за Пиратский Рейд.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=2" onmouseover="Tip('Увеличивает возможный процент украденных ресурсов за Пиратский Рейд.')" onmouseout="UnTip()">
+                    Корсар
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-2" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-2" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededGas-2" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-2" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-2" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">2,500</span>
+                      <span class="resourcesRepair" style="display: none;">474</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-2" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">2,500</span>
+                      <span class="resourcesRepair" style="display: none;">474</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-2" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-2" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-2" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(2)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(2)" class="orderCredits" data-is-repair="false" data-price-credits="50">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:05:18</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-7">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-7">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/7.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_7.png" border="0" onmouseover="Tip('Шанс обнаружить вражеских шпионов.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=7" onmouseover="Tip('Шанс обнаружить вражеских шпионов.')" onmouseout="UnTip()">
+                    Охотник
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-7" style="display: none">
+                      2000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-7" style="display: none">
+                      2000
+                    </div>
+                    <div id="CommanderShipsNeededGas-7" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-7" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-7" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">2,000</span>
+                      <span class="resourcesRepair">368,978</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-7" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">2,000</span>
+                      <span class="resourcesRepair">368,978</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-7" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">0</span>
+                      <span class="resourcesRepair">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-7" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">10</span>
+                      <span class="resourcesRepair">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-7" method="POST">
+                <div class="action">
+                                      <a href="javascript: void(0)" class="orderRes disabled">
+                    </a>
+                    <a href="javascript: void(0)" class="orderCredits disabled">
+                    </a>
+                                  </div>
+              </form>
+
+              <div class="shipTime repair">
+                Время на восстановление:
+                <strong>00:31:14</strong>
+              </div>
+
+              <div class="shipTime build" style="display: none;">
+                Время постройки:
+                <strong>00:00:32</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-9">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-9">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/9.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_9.png" border="0" onmouseover="Tip('Увеличивает урон от атаки вашего флота')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=9" onmouseover="Tip('Увеличивает урон от атаки вашего флота')" onmouseout="UnTip()">
+                    Палач
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-9" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-9" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededGas-9" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-9" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-9" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">4,000</span>
+                      <span class="resourcesRepair">51,782</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-9" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">4,000</span>
+                      <span class="resourcesRepair">51,782</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-9" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">0</span>
+                      <span class="resourcesRepair">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-9" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">10</span>
+                      <span class="resourcesRepair">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-9" method="POST">
+                <div class="action">
+                                      <a href="javascript: void(0)" class="orderRes disabled">
+                    </a>
+                    <a href="javascript: void(0)" class="orderCredits disabled">
+                    </a>
+                                  </div>
+              </form>
+
+              <div class="shipTime repair">
+                Время на восстановление:
+                <strong>00:20:29</strong>
+              </div>
+
+              <div class="shipTime build" style="display: none;">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-10">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-10">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/10.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_10.png" border="0" onmouseover="Tip('Увеличивает жизненные очки ваших кораблей')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=10" onmouseover="Tip('Увеличивает жизненные очки ваших кораблей')" onmouseout="UnTip()">
+                    Джаггернаут
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-10" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-10" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededGas-10" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-10" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-10" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-10" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-10" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-10" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-10" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(10)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(10)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-8">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-8">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/8.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_8.png" border="0" onmouseover="Tip('Увеличивает скорость полета')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=8" onmouseover="Tip('Увеличивает скорость полета')" onmouseout="UnTip()">
+                    Тайфун
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-8" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-8" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededGas-8" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-8" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-8" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">2,500</span>
+                      <span class="resourcesRepair">8,543</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-8" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">2,500</span>
+                      <span class="resourcesRepair">8,543</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-8" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">0</span>
+                      <span class="resourcesRepair">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-8" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">10</span>
+                      <span class="resourcesRepair">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-8" method="POST">
+                <div class="action">
+                                      <a href="javascript: void(0)" class="orderRes disabled">
+                    </a>
+                    <a href="javascript: void(0)" class="orderCredits disabled">
+                    </a>
+                                  </div>
+              </form>
+
+              <div class="shipTime repair">
+                Время на восстановление:
+                <strong>00:15:18</strong>
+              </div>
+
+              <div class="shipTime build" style="display: none;">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-4">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-4">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/4.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_4.png" border="0" onmouseover="Tip('Увеличивает шанс нанести критический урон')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=4" onmouseover="Tip('Увеличивает шанс нанести критический урон')" onmouseout="UnTip()">
+                    Вайпер
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-4" style="display: none">
+                      3500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-4" style="display: none">
+                      3500
+                    </div>
+                    <div id="CommanderShipsNeededGas-4" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-4" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-4" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">3,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-4" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">3,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-4" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-4" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-4" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(4)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(4)" class="orderCredits" data-is-repair="false" data-price-credits="70">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:56</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-6">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-6">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/6.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_6.png" border="0" onmouseover="Tip('Дает шанс отменить атаку противника.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=6" onmouseover="Tip('Дает шанс отменить атаку противника.')" onmouseout="UnTip()">
+                    Фантом
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-6" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-6" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededGas-6" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-6" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-6" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-6" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-6" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-6" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-6" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(6)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(6)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-5">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-5">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/5.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_5.png" border="0" onmouseover="Tip('Шанс парализовать корабли противника')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=5" onmouseover="Tip('Шанс парализовать корабли противника')" onmouseout="UnTip()">
+                    Скорпион
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-5" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-5" style="display: none">
+                      4000
+                    </div>
+                    <div id="CommanderShipsNeededGas-5" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-5" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-5" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-5" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">4,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-5" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-5" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-5" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(5)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(5)" class="orderCredits" data-is-repair="false" data-price-credits="80">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:04</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem disabled" id="structureItem-1">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-1">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/1.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png" border="0" onmouseover="Tip('Увеличивает шанс уничтожить здание противника.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=1" onmouseover="Tip('Увеличивает шанс уничтожить здание противника.')" onmouseout="UnTip()">
+                    Аннигилятор
+                  </a>
+                </h3>
+                                  <div class="disabledShipMessage">
+                    Требуется уровень 35 <a href="admiral.php">Адмирала</a>. Перейдите в <a href="technics.php?showTab=commanderShips">Технологии</a>
+                  </div>
+                              <form id="commanderShipsTrainForm-1" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(1)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(1)" class="orderCredits" data-is-repair="false" data-price-credits="90">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:12</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-3">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-3">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/3.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_3.png" border="0" onmouseover="Tip('Шанс восстановить потерянные корабли прямо на поле боя.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=3" onmouseover="Tip('Шанс восстановить потерянные корабли прямо на поле боя.')" onmouseout="UnTip()">
+                    Реаниматор
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-3" style="display: none">
+                      3500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-3" style="display: none">
+                      3500
+                    </div>
+                    <div id="CommanderShipsNeededGas-3" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-3" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-3" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">3,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-3" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">3,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-3" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-3" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-3" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(3)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(3)" class="orderCredits" data-is-repair="false" data-price-credits="70">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:56</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-11">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-11">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/11.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_11.png" border="0" onmouseover="Tip('Предоставляет дополнительные очки усовершенствования в боях с Отступниками.&lt;br /&gt;Также это увеличит грузоподъемность ваших кораблей.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=11" onmouseover="Tip('Предоставляет дополнительные очки усовершенствования в боях с Отступниками.&lt;br /&gt;Также это увеличит грузоподъемность ваших кораблей.')" onmouseout="UnTip()">
+                    Арго
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-11" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-11" style="display: none">
+                      2500
+                    </div>
+                    <div id="CommanderShipsNeededGas-11" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-11" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-11" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">2,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-11" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">2,500</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-11" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-11" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">10</span>
+                      <span class="resourcesRepair" style="display: none;">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-11" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(11)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(11)" class="orderCredits" data-is-repair="false" data-price-credits="50">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:00:40</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-12">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-12">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/12.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_12.png" border="0" onmouseover="Tip('Уменьшает показатель брони у всех вражеских юнитов в течение боя.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=12" onmouseover="Tip('Уменьшает показатель брони у всех вражеских юнитов в течение боя.')" onmouseout="UnTip()">
+                    Судья
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-12" style="display: none">
+                      4500
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-12" style="display: none">
+                      4500
+                    </div>
+                    <div id="CommanderShipsNeededGas-12" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-12" style="display: none">
+                      10
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-12" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">4,500</span>
+                      <span class="resourcesRepair">2,446,648</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-12" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">4,500</span>
+                      <span class="resourcesRepair">2,446,648</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-12" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">0</span>
+                      <span class="resourcesRepair">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-12" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild" style="display: none;">10</span>
+                      <span class="resourcesRepair">10</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-12" method="POST">
+                <div class="action">
+                                      <a href="javascript: void(0)" class="orderRes disabled">
+                    </a>
+                    <a href="javascript: void(0)" class="orderCredits disabled">
+                    </a>
+                                  </div>
+              </form>
+
+              <div class="shipTime repair">
+                Время на восстановление:
+                <strong>00:36:32</strong>
+              </div>
+
+              <div class="shipTime build" style="display: none;">
+                Время постройки:
+                <strong>00:01:12</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+                                                  <div class="structureItem" id="structureItem-13">
+          <div class="wrapper">
+              <div class="shipInfo">
+                <div class="thumbnail cShips" id="ship-13">
+                                  <a href="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/large/race1/13.jpg" class="lightbox">
+                                    <img src="https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_13.png" border="0" onmouseover="Tip('Уменьшает вероятность разрушения планеты.')" onmouseout="UnTip()">
+                                  </a>
+                                </div>
+                <h3>
+                  <a href="information.php?type=commander_ship&amp;id=13" onmouseover="Tip('Уменьшает вероятность разрушения планеты.')" onmouseout="UnTip()">
+                    Polias
+                  </a>
+                </h3>
+                                  <ul>
+                    <div id="CommanderShipsNeededMetal-13" style="display: none">
+                      6000
+                    </div>
+                    <div id="CommanderShipsNeededCrystal-13" style="display: none">
+                      6000
+                    </div>
+                    <div id="CommanderShipsNeededGas-13" style="display: none">
+                      0
+                    </div>
+                    <div id="CommanderShipsNeededPop-13" style="display: none">
+                      500
+                    </div>
+                    <li class="neededMetal" id="CommanderShipsNeededMetalDisp-13" onmouseover="Tip('Металл');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">6,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededCrystal" id="CommanderShipsNeededCrystalDisp-13" onmouseover="Tip('Минералы');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">6,000</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededGas" id="CommanderShipsNeededGasDisp-13" onmouseover="Tip('Газ');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">0</span>
+                      <span class="resourcesRepair" style="display: none;">0</span>
+                    </li>
+                    <li class="neededStorage" id="CommanderShipsNeededPopDisp-13" onmouseover="Tip('Население');" onmouseout="UnTip();">
+                      <span class="resourcesBuild">500</span>
+                      <span class="resourcesRepair" style="display: none;">500</span>
+                    </li>
+                  </ul>
+                              <form id="commanderShipsTrainForm-13" method="POST">
+                <div class="action">
+                                      <a href="javascript:trainCommanderShip(13)" class="orderRes">
+                                              Заказать                                          </a>
+                                                                  <a href="javascript:buyCommanderShip(13)" class="orderCredits" data-is-repair="false" data-price-credits="120">
+                          Купить сейчас                        </a>
+                                                                            </div>
+              </form>
+
+              <div class="shipTime repair" style="display: none;">
+                Время на восстановление:
+                <strong>00:00:00</strong>
+              </div>
+
+              <div class="shipTime build">
+                Время постройки:
+                <strong>00:01:36</strong>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+            </div><!-- #structuresList -->
+    </div><!-- #TabCommanderShips -->
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  CountDown();
+      refreshShipyard('Ships');
+    $('#techShips').show();
+    $('#techDefence').hide();
+    $('#techCommanderShips').hide();
+      });
+
+</script>
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 750px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 750px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 750px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 1127px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResHangar" data-type="hangarShips" class="warning medium" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="Ангары заполнены более чем на 80%" style="top: 68px; left: 1127px; display: block;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1127px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

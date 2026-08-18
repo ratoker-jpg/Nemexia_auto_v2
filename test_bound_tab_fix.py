@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import unittest
 
-from bound_tab_fix import _bound_page_is_valid, _choose_active_game_page
+from bound_tab_fix import _active_game_target_id, _choose_active_game_page
 
 
 class FakePage:
@@ -36,6 +36,21 @@ class FakeWorker:
 
 
 class BoundTabFixTest(unittest.TestCase):
+    def test_devtools_order_selects_first_game_tab(self) -> None:
+        targets = [
+            {"id": "active-game", "type": "page", "url": "https://game.ares.nemexia.com/fleets.php"},
+            {"id": "other-game", "type": "page", "url": "https://game.ares.nemexia.com/ranking.php"},
+            {"id": "new-tab", "type": "page", "url": "chrome://newtab/"},
+        ]
+        self.assertEqual(_active_game_target_id(targets), "active-game")
+
+    def test_devtools_skips_non_game_tab_before_active_game(self) -> None:
+        targets = [
+            {"id": "new-tab", "type": "page", "url": "chrome://newtab/"},
+            {"id": "active-game", "type": "page", "url": "https://game.ares.nemexia.com/fleets.php"},
+        ]
+        self.assertEqual(_active_game_target_id(targets), "active-game")
+
     def test_focused_game_page_wins(self) -> None:
         first = FakePage("https://game.ares.nemexia.com/fleets.php", visible=True)
         second = FakePage("https://game.ares.nemexia.com/galaxy.php", focused=True, visible=True)
@@ -56,9 +71,11 @@ class BoundTabFixTest(unittest.TestCase):
         with self.assertRaisesRegex(Exception, "несколько активных вкладок"):
             asyncio.run(_choose_active_game_page(FakeWorker(pages)))
 
-    def test_closed_bound_page_is_invalid(self) -> None:
-        page = FakePage("https://game.ares.nemexia.com/fleets.php", closed=True)
-        self.assertFalse(_bound_page_is_valid(FakeWorker([page]), page))
+    def test_closed_tab_is_never_selected(self) -> None:
+        closed = FakePage("https://game.ares.nemexia.com/fleets.php", focused=True, visible=True, closed=True)
+        active = FakePage("https://game.ares.nemexia.com/galaxy.php", visible=True)
+        selected = asyncio.run(_choose_active_game_page(FakeWorker([closed, active])))
+        self.assertIs(selected, active)
 
 
 if __name__ == "__main__":

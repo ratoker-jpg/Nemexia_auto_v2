@@ -61,6 +61,11 @@ class FakeWorker:
         context.pages.append(page)
         self._browser = FakeBrowser(context)
         self._page = page
+        self.selected_calls = 0
+
+    async def _select_nemexia_page(self):
+        self.selected_calls += 1
+        return self._page
 
 
 class CaptureCurrentPageTest(unittest.TestCase):
@@ -96,6 +101,7 @@ class CaptureCurrentPageTest(unittest.TestCase):
                 if index < 11:
                     asyncio.run(asyncio.sleep(0.002))
             self.assertEqual(len([path for path in root.iterdir() if path.is_dir()]), 10)
+            self.assertEqual(worker.selected_calls, 12)
 
 
 if __name__ == "__main__":

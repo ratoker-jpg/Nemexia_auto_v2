@@ -7,6 +7,7 @@ import tkinter as tk
 
 from farm_flight_classification_fix import _farm_attacks
 from models import parse_dt, utc_now
+from ui_utils import format_clock
 from visual_system import FONT_CAPTION, SURFACE_2, TEXT_2
 
 
@@ -176,7 +177,7 @@ def install_farm_wave_cooldown(app_class: type[Any]) -> None:
                 buffer = self._farm_buffer_minutes()
                 deadline = self._farm_save_deadline(latest, buffer)
                 final_text = (
-                    f"{text} · следующий скан {deadline.astimezone().strftime('%H:%M:%S')} "
+                    f"{text} · следующий скан {format_clock(deadline)} "
                     f"(+{buffer} мин)"
                 )
                 self.logger.info(
@@ -210,7 +211,7 @@ def install_farm_wave_cooldown(app_class: type[Any]) -> None:
                 buffer = self._farm_buffer_minutes()
                 deadline = self._farm_save_deadline(latest, buffer)
                 final_text = (
-                    f"{text} · следующий скан {deadline.astimezone().strftime('%H:%M:%S')} "
+                    f"{text} · следующий скан {format_clock(deadline)} "
                     f"(+{buffer} мин)"
                 )
 
@@ -221,7 +222,7 @@ def install_farm_wave_cooldown(app_class: type[Any]) -> None:
         now = utc_now()
         if deadline is not None and deadline > now:
             self._set_farm_status(
-                f"Автофарм · ждём таймер волны до {deadline.astimezone().strftime('%H:%M:%S')} "
+                f"Автофарм · ждём таймер волны до {format_clock(deadline)} "
                 f"· осталось {_remaining_text(deadline, now)}",
                 topbar=False,
             )
@@ -243,7 +244,7 @@ def install_farm_wave_cooldown(app_class: type[Any]) -> None:
             now = utc_now()
             if deadline > now:
                 self._set_farm_status(
-                    f"Автофарм · следующая разведка в {deadline.astimezone().strftime('%H:%M:%S')} "
+                    f"Автофарм · следующая разведка в {format_clock(deadline)} "
                     f"· осталось {_remaining_text(deadline, now)}",
                     topbar=False,
                 )

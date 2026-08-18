@@ -8,13 +8,15 @@ from browser import BrowserWorker
 from models import utc_now
 
 
-GAME_SERVER_TIMEZONE = timezone(timedelta(hours=4), name="UTC+04:00")
+# Confirmed against the player's live screen: a server stamp is one hour behind
+# Moscow, therefore the game wall-clock is UTC+02:00.
+GAME_SERVER_TIMEZONE = timezone(timedelta(hours=2), name="UTC+02:00")
 _ORIGINAL_IMPORT_REPORTS = BrowserWorker.import_reports
 _INSTALLED = False
 
 
 def _server_wall_clock_to_utc(value: datetime) -> datetime:
-    """Interpret a naive Nemexia timestamp as server UTC+04 and store it in UTC."""
+    """Interpret a naive Nemexia timestamp as server UTC+02 and store it in UTC."""
     wall_clock = value.replace(tzinfo=None)
     return wall_clock.replace(tzinfo=GAME_SERVER_TIMEZONE).astimezone(timezone.utc)
 

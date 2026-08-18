@@ -106,7 +106,11 @@ def install_tables_dpi(app_class: type[Any]) -> None:
         }
         view._orbital_sort_column = None  # type: ignore[attr-defined]
 
-        wide = wide_table_required(columns, widths)
+        # Every user-facing table fills the available panel width.  Previously
+        # tables with many columns were forced to keep fixed widths, leaving a
+        # large blank region on wide screens.  Tk keeps each column above its
+        # configured minimum width when the window is made narrow.
+        wide = False
         for column in columns:
             # Wide data tables preserve their audited widths and scroll instead of
             # compressing every column into an unreadable strip.

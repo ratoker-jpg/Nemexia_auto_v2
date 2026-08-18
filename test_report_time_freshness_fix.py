@@ -30,15 +30,15 @@ class FakeApp:
 
 
 class ReportTimeFreshnessFixTest(unittest.TestCase):
-    def test_server_utc_plus_four_is_converted_to_utc(self) -> None:
+    def test_server_utc_plus_two_is_converted_to_utc(self) -> None:
         wall_clock = datetime(2026, 8, 6, 20, 15, 0)
         converted = _server_wall_clock_to_utc(wall_clock)
-        self.assertEqual(converted, datetime(2026, 8, 6, 16, 15, 0, tzinfo=timezone.utc))
+        self.assertEqual(converted, datetime(2026, 8, 6, 18, 15, 0, tzinfo=timezone.utc))
 
     def test_browser_import_repairs_wrongly_labelled_utc(self) -> None:
         report = SimpleNamespace(report_at=datetime(2026, 8, 6, 20, 15, 0, tzinfo=timezone.utc))
         _normalize_browser_report_times([report])
-        self.assertEqual(report.report_at.hour, 16)
+        self.assertEqual(report.report_at.hour, 18)
         self.assertEqual(report.report_at.tzinfo, timezone.utc)
 
     def test_stale_recon_is_excluded_but_fresh_order_stays_by_metal(self) -> None:

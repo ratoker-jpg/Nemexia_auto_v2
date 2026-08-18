@@ -7,6 +7,7 @@ import tkinter as tk
 from browser import BrowserAutomationError, CaptchaRequiredError
 from farm_flight_classification_fix import _farm_attacks, _slot_flights
 from resource_farm_auto import FARM_MIN_MINERALS
+from ui_utils import format_clock
 from visual_system import (
     BORDER_1,
     BUTTON_SPECS,
@@ -240,7 +241,7 @@ def install_farm_capacity_fix(browser_class: type[Any], app_class: type[Any]) ->
                 suffix = ""
                 if latest:
                     try:
-                        suffix = f" · последний возврат {latest.astimezone().strftime('%H:%M:%S')}"
+                        suffix = f" · последний возврат {format_clock(latest)}"
                     except Exception:
                         pass
                 used = int(capacity_after.get("used", 0))

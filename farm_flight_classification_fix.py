@@ -7,6 +7,7 @@ from typing import Any
 from browser import BrowserAutomationError, CaptchaRequiredError
 from resource_farm_auto import FARM_MIN_MINERALS, _farm_targets
 from storage import is_protected_coord
+from ui_utils import format_clock
 
 
 _INSTALLED_CLASSES: set[type[Any]] = set()
@@ -121,7 +122,7 @@ def install_farm_flight_classification_fix(app_class: type[Any]) -> None:
                 suffix = ""
                 if latest:
                     try:
-                        suffix = f" · последний возврат {latest.astimezone().strftime('%H:%M:%S')}"
+                        suffix = f" · последний возврат {format_clock(latest)}"
                     except Exception:
                         pass
                 self._set_farm_status(
@@ -311,7 +312,7 @@ def install_farm_flight_classification_fix(app_class: type[Any]) -> None:
                 suffix = ""
                 if latest:
                     try:
-                        suffix = f" · последний возврат {latest.astimezone().strftime('%H:%M:%S')}"
+                        suffix = f" · последний возврат {format_clock(latest)}"
                     except Exception:
                         pass
                 self._set_farm_status(

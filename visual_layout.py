@@ -162,30 +162,32 @@ def install_visual_layout(app_class: type[Any]) -> None:
         )
 
         self._nav_group_frames = {
-            "overview": _nav_group(self, sidebar, "ОБЗОР", (("dashboard", "Дашборд"),)),
             "operations": _nav_group(
                 self,
                 sidebar,
                 "ОПЕРАЦИИ",
-                (("queue", "План отправки"), ("active", "Активные"), ("asteroids", "Астероиды")),
+                (("queue", "⌁  План отправки"), ("active", "◷  Активные"), ("asteroids", "◆  Астероиды")),
             ),
             "data": _nav_group(
                 self,
                 sidebar,
-                "ДАННЫЕ",
-                (("recon", "Разведка"), ("targets", "Цели"), ("history", "История")),
+                "РАЗВЕДКА",
+                (("recon", "◉  Отчёты разведки"),),
             ),
             "system": _nav_group(
                 self,
                 sidebar,
                 "СИСТЕМА",
-                (("settings", "Настройки"), ("logs", "Лог")),
+                (("settings", "⚙  Настройки"), ("logs", "≣  Лог")),
             ),
         }
 
         bottom = tk.Frame(sidebar, bg=SURFACE_1, padx=SPACE_MD, pady=SPACE_LG)
         bottom.pack(side="bottom", fill="x")
         make_button(bottom, "Запустить браузер", self.launch_browser, "secondary", size="compact").pack(
+            fill="x", pady=3
+        )
+        make_button(bottom, "Перезапустить браузер", self.restart_browser, "ghost", size="compact").pack(
             fill="x", pady=3
         )
         make_button(bottom, "Подключиться", self.connect_browser, "primary", size="compact").pack(
@@ -400,7 +402,7 @@ def install_visual_layout(app_class: type[Any]) -> None:
             side="left", padx=6
         )
 
-        manage_card, manage = _control_group(groups, "УПРАВЛЕНИЕ СПИСКОМ")
+        manage_card, manage = _control_group(groups, "СПИСОК")
         manage_card.grid(row=1, column=0, columnspan=2, sticky="ew")
         make_button(
             manage,
@@ -424,8 +426,8 @@ def install_visual_layout(app_class: type[Any]) -> None:
 
         panel = self._section(
             page,
-            "План отправки",
-            "поставьте галочки для волны; без галочек «следующий» идёт по металлу",
+            "Цели для отправки",
+            "галочки — для волны; без галочек «следующий» выбирает цель с наибольшим металлом",
         )
         panel.pack(fill="both", expand=True)
         frame = tk.Frame(panel, bg=SURFACE_2, padx=SPACE_SM, pady=SPACE_SM)
@@ -434,16 +436,11 @@ def install_visual_layout(app_class: type[Any]) -> None:
             "picked",
             "position",
             "coord",
-            "player",
-            "energy",
             "metal",
             "minerals",
             "resource_gas",
-            "total",
-            "spy_at",
+            "report",
             "trip",
-            "score",
-            "last",
             "state",
         )
         self.queue_tree, scroll = self._tree(
@@ -453,33 +450,23 @@ def install_visual_layout(app_class: type[Any]) -> None:
                 "picked": "✓",
                 "position": "#",
                 "coord": "Координаты",
-                "player": "Игрок",
-                "energy": "Энергия",
                 "metal": "Металл",
                 "minerals": "Минералы",
                 "resource_gas": "Газ",
-                "total": "Всего",
-                "spy_at": "Разведка",
-                "trip": "Полный цикл",
-                "score": "Приоритет",
-                "last": "Последняя отправка",
+                "report": "Отчёт разведки",
+                "trip": "Цикл",
                 "state": "Статус",
             },
             {
                 "picked": 38,
                 "position": 45,
                 "coord": 95,
-                "player": 140,
-                "energy": 90,
-                "trip": 100,
-                "metal": 85,
-                "minerals": 85,
-                "resource_gas": 85,
-                "total": 95,
-                "spy_at": 145,
-                "score": 95,
-                "last": 150,
-                "state": 90,
+                "metal": 110,
+                "minerals": 110,
+                "resource_gas": 100,
+                "report": 170,
+                "trip": 75,
+                "state": 95,
             },
             selectmode="extended",
         )

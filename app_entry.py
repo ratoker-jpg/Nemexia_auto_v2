@@ -22,6 +22,9 @@ from report_time_freshness_fix import install_report_time_freshness_fix
 from resource_farm_auto import install_resource_farm_auto
 from resource_queue_modes import install_resource_queue_modes
 from ship_retry_fix import install_ship_retry_fix
+from fleet_planner_feature import install_fleet_planner_feature
+from fleet_manager_feature import install_fleet_manager_feature
+from battle_feature import install_battle_feature
 
 install_bound_tab_fix()
 install_ship_retry_fix()
@@ -80,7 +83,15 @@ install_farm_ui_fix(BaseRaidManagerApp)
 install_fleet_capacity_presentation(BaseRaidManagerApp)
 # If Nemexia exposes a stale/zero max counter, fall back to the explicit app setting.
 install_fleet_capacity_settings_fallback(app_module.BrowserWorker, BaseRaidManagerApp)
-install_motion(BaseRaidManagerApp)
+# Own-planet fleet planning is isolated from raid logic but uses the same
+# authenticated browser session and verified-flight transport machinery.
+install_fleet_planner_feature(app_module, BaseRaidManagerApp)
+install_fleet_manager_feature(app_module, BaseRaidManagerApp)
+# Text reconnaissance is analysed locally; this adds no game actions.
+install_battle_feature(app_module, BaseRaidManagerApp)
+# Animated repainting can leave transient black rectangles while cards are
+# rebuilt or folded on some Windows/Tk combinations.  The static visual system
+# keeps the same hierarchy and colors without those redraw artefacts.
 # Patch only debris presentation helpers before the feature wrapper captures the shell.
 install_debris_layout(debris_module)
 debris_module.install_debris_asteroid_feature(BaseRaidManagerApp)
@@ -106,6 +117,14 @@ class RaidManagerApp(BaseRaidManagerApp):
             size="compact",
         )
         button.pack(side="right", padx=8, before=sync_button)
+        refresh_planets = make_button(
+            sync_button.master,
+            "Обновить координаты планет",
+            self.refresh_owned_planets,
+            "secondary",
+            size="compact",
+        )
+        refresh_planets.pack(side="right", padx=8, before=button)
 
     def show_page(self, key: str) -> None:
         super().show_page(key)

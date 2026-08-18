@@ -9,6 +9,7 @@ from tkinter import messagebox
 
 from browser import BrowserAutomationError, CaptchaRequiredError
 from storage import is_protected_coord
+from ui_utils import format_clock
 from visual_system import FONT_CAPTION, SURFACE_2, TEXT_2, make_button
 
 FARM_MIN_MINERALS = 500_000
@@ -286,7 +287,7 @@ def install_resource_farm_auto(app_class: type[Any]) -> None:
                 suffix = ""
                 if latest:
                     try:
-                        suffix = f" · последний возврат {latest.astimezone().strftime('%H:%M:%S')}"
+                        suffix = f" · последний возврат {format_clock(latest)}"
                     except Exception:
                         pass
                 self._set_farm_status(f"Автофарм · ждём возврата {len(flights)} атак{suffix}")
@@ -463,7 +464,7 @@ def install_resource_farm_auto(app_class: type[Any]) -> None:
                 suffix = ""
                 if latest:
                     try:
-                        suffix = f" · последний возврат {latest.astimezone().strftime('%H:%M:%S')}"
+                        suffix = f" · последний возврат {format_clock(latest)}"
                     except Exception:
                         pass
                 self._set_farm_status(

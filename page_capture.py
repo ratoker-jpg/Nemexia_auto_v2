@@ -27,31 +27,11 @@ def default_snapshot_root() -> Path:
 
 
 async def _focused_game_page(worker: Any):
-    """Return the focused Nemexia tab, with safe fallbacks to the worker page."""
-    browser = getattr(worker, "_browser", None)
-    if browser is None:
-        raise RuntimeError("Браузер не подключён")
-
-    pages = [
-        page
-        for context in browser.contexts
-        for page in context.pages
-        if not page.is_closed() and "game.ares.nemexia.com" in page.url
-    ]
-    if not pages:
-        raise RuntimeError("Открытая вкладка Nemexia не найдена")
-
-    for page in pages:
-        try:
-            if await page.evaluate("() => document.hasFocus()"):
-                return page
-        except Exception:
-            continue
-
-    current = getattr(worker, "_page", None)
-    if current in pages:
-        return current
-    return pages[0]
+    """Use the same active-tab resolver as every game action."""
+    selector = getattr(worker, "_select_nemexia_page", None)
+    if not callable(selector):
+        raise RuntimeError("Вкладка Nemexia не выбрана")
+    return await selector()
 
 
 def _cleanup_snapshots(root: Path, keep: int) -> None:

@@ -21,6 +21,7 @@ from browser import (
     CaptchaRequiredError,
     cdp_is_available,
     launch_yandex,
+    stop_managed_yandex,
 )
 from config import (
     APP_NAME,
@@ -36,7 +37,7 @@ from config import (
 from models import AsteroidObservation, AsteroidPlan, Flight, QueueItem, SpyReport, Target, parse_dt, utc_now
 from reports import parse_report_paths
 from storage import Database, is_protected_coord
-from ui_utils import format_clock, format_datetime, format_duration, format_number, remaining
+from ui_utils import as_moscow, format_clock, format_datetime, format_duration, format_number, remaining
 
 try:
     import pystray
@@ -75,14 +76,21 @@ class MemoryLogHandler(logging.Handler):
             pass
 
 
+class MoscowLogFormatter(logging.Formatter):
+    """Keep the file and in-app operation log on the same Moscow clock as UI."""
+    def formatTime(self, record: logging.LogRecord, datefmt: str | None = None) -> str:
+        moment = as_moscow(datetime.fromtimestamp(record.created, tz=timezone.utc))
+        return moment.strftime(datefmt or "%d.%m.%Y %H:%M:%S")
+
+
 def setup_logging(callback: Callable[[str], None]) -> logging.Logger:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     logger = logging.getLogger("nemexia")
     logger.setLevel(logging.INFO)
     logger.handlers.clear()
-    formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s", "%d.%m.%Y %H:%M:%S")
-    file_handler = logging.handlers.RotatingFileHandler(
-        LOG_DIR / "nemexia.log", maxBytes=2_000_000, backupCount=5, encoding="utf-8"
+    formatter = MoscowLogFormatter("%(asctime)s | %(levelname)s | %(message)s", "%d.%m.%Y %H:%M:%S")
+    file_handler = logging.handlers.TimedRotatingFileHandler(
+        LOG_DIR / "nemexia.log", when="midnight", interval=1, backupCount=30, encoding="utf-8"
     )
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
@@ -243,6 +251,9 @@ class RaidManagerApp(tk.Tk):
             self.db.backup(BACKUP_DIR)
         except Exception as exc:
             self.logger.warning("Не создана резервная копия: %s", exc)
+        repaired_reports = self.db.migrate_report_clock_utc_plus_two()
+        if repaired_reports:
+            self.logger.info("Исправлены времена ранее импортированных отчётов: %s", repaired_reports)
         self.settings = self.db.get_settings()
         self.worker = BrowserWorker()
         self.tray = TrayController(self)
@@ -252,7 +263,7 @@ class RaidManagerApp(tk.Tk):
         self.notified_returns: set[str] = set()
         self.busy = False
         self.connected = False
-        self.current_page = "dashboard"
+        self.current_page = "queue"
         self.nav_buttons: dict[str, tk.Button] = {}
         self.pages: dict[str, tk.Frame] = {}
         self.checked_queue_ids: set[int] = set()
@@ -266,7 +277,7 @@ class RaidManagerApp(tk.Tk):
         self._closing = False
 
         self.status_var = tk.StringVar(value="Браузер не подключён")
-        self.page_title_var = tk.StringVar(value="Дашборд")
+        self.page_title_var = tk.StringVar(value="План отправки")
         self.search_var = tk.StringVar()
         self.min_energy_var = tk.IntVar(value=int(self.settings["min_energy"]))
         self.min_metal_queue_var = tk.IntVar(value=int(self.settings.get("min_metal_for_queue", 480000)))
@@ -314,7 +325,7 @@ class RaidManagerApp(tk.Tk):
         self._configure_style()
         self._build_shell()
         self.reload_data()
-        self.show_page("dashboard")
+        self.show_page("queue")
         self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.after(500, self._tick)
         self.logger.info("Запущен %s %s; данные: %s", APP_NAME, APP_VERSION, DATA_DIR)
@@ -352,13 +363,10 @@ class RaidManagerApp(tk.Tk):
                  font=("Segoe UI Semibold", 9)).pack(anchor="w", pady=(3, 0))
 
         nav = [
-            ("dashboard", "⌂  Дашборд"),
             ("queue", "≡  План отправки"),
             ("active", "◷  Активные"),
-            ("recon", "◉  Разведка"),
+            ("recon", "◉  Отчёты разведки"),
             ("asteroids", "◆  Астероиды"),
-            ("targets", "◎  Цели"),
-            ("history", "↺  История"),
             ("settings", "⚙  Настройки"),
             ("logs", "≣  Лог"),
         ]
@@ -373,6 +381,7 @@ class RaidManagerApp(tk.Tk):
         bottom = tk.Frame(sidebar, bg=SIDEBAR, padx=16, pady=18)
         bottom.pack(side="bottom", fill="x")
         make_button(bottom, "Запустить браузер", self.launch_browser, "secondary").pack(fill="x", pady=3)
+        make_button(bottom, "Перезапустить браузер", self.restart_browser, "ghost").pack(fill="x", pady=3)
         make_button(bottom, "Подключиться", self.connect_browser, "primary").pack(fill="x", pady=3)
         tk.Label(bottom, text=f"v{APP_VERSION}", bg=SIDEBAR, fg="#536174",
                  font=("Segoe UI", 8)).pack(anchor="center", pady=(10, 0))
@@ -533,19 +542,17 @@ class RaidManagerApp(tk.Tk):
         make_button(toolbar, "Удалить", self.remove_queue_selected, "danger").pack(side="right", padx=3)
         make_button(toolbar, "Очистить", self.clear_queue, "secondary").pack(side="right", padx=3)
 
-        panel = self._section(page, "План отправки", "поставьте галочки для волны; без галочек «следующий» идёт по металлу")
+        panel = self._section(page, "Цели для отправки", "галочки — для волны; без галочек «следующий» выбирает цель с наибольшим металлом")
         panel.pack(fill="both", expand=True)
         frame = tk.Frame(panel, bg=PANEL, padx=8, pady=8)
         frame.pack(fill="both", expand=True)
-        cols = ("picked", "position", "coord", "player", "energy", "metal", "minerals", "resource_gas", "total", "spy_at", "trip", "score", "last", "state")
+        cols = ("picked", "position", "coord", "metal", "minerals", "resource_gas", "report", "trip", "state")
         self.queue_tree, scroll = self._tree(
             frame, cols,
-            {"picked": "✓", "position": "#", "coord": "Координаты", "player": "Игрок", "energy": "Энергия",
-             "metal": "Металл", "minerals": "Минералы", "resource_gas": "Газ", "total": "Всего", "spy_at": "Разведка",
-             "trip": "Полный цикл", "score": "Приоритет", "last": "Последняя отправка", "state": "Статус"},
-            {"picked": 38, "position": 45, "coord": 95, "player": 140, "energy": 90, "trip": 100,
-             "metal": 85, "minerals": 85, "resource_gas": 85, "total": 95, "spy_at": 145,
-             "score": 95, "last": 150, "state": 90},
+            {"picked": "✓", "position": "#", "coord": "Координаты", "metal": "Металл", "minerals": "Минералы",
+             "resource_gas": "Газ", "report": "Отчёт разведки", "trip": "Цикл", "state": "Статус"},
+            {"picked": 38, "position": 45, "coord": 110, "metal": 110, "minerals": 110,
+             "resource_gas": 100, "report": 170, "trip": 75, "state": 95},
             selectmode="extended",
         )
         self.queue_tree.pack(side="left", fill="both", expand=True)
@@ -936,20 +943,15 @@ class RaidManagerApp(tk.Tk):
             target = self.target_by_coord.get(item.coord)
             if not target:
                 continue
-            resources = (target.metal, target.minerals, target.resource_gas)
-            resource_total = sum(value or 0 for value in resources) if any(value is not None for value in resources) else None
             state_map = {"queued": "Готов", "sending": "Отправка", "failed": "Ошибка", "done": "Отправлено"}
             is_active = item.coord in active
             status = "В полёте" if is_active else state_map.get(item.state, item.state)
             tag = "active" if is_active else item.state if item.state in {"sending", "failed", "done"} else ""
             self.queue_tree.insert("", "end", iid=f"q:{item.id}", tags=(tag,) if tag else (), values=(
-                "☑" if item.id in self.checked_queue_ids else "☐", item.position, target.coord, target.player, format_number(target.energy),
+                "☑" if item.id in self.checked_queue_ids else "☐", item.position, target.coord,
                 format_number(target.metal), format_number(target.minerals), format_number(target.resource_gas),
-                format_number(resource_total),
                 format_datetime(target.last_spy_at) if target.last_spy_at else "нет разведки",
-                format_duration(target.round_trip_seconds), format_number(target.metal),
-                format_datetime(target.last_raid_at) if target.last_raid_at else "нет данных",
-                status,
+                format_duration(target.round_trip_seconds), status,
             ))
 
     def render_active(self) -> None:
@@ -1010,7 +1012,11 @@ class RaidManagerApp(tk.Tk):
 
     @staticmethod
     def _format_server_datetime(value: datetime | None) -> str:
-        return value.strftime("%d.%m.%Y %H:%M:%S") if value else "—"
+        if value is None:
+            return "—"
+        # Server timestamps retained their original semantics; this only makes
+        # their displayed clock consistent with the rest of the application.
+        return as_moscow(value).strftime("%d.%m.%Y %H:%M:%S")
 
     def render_asteroids(self) -> None:
         if not hasattr(self, "asteroid_tree"):
@@ -1151,6 +1157,49 @@ class RaidManagerApp(tk.Tk):
             self.logger.error("Ошибка запуска браузера: %s", exc)
             messagebox.showerror(APP_NAME, str(exc))
 
+    def restart_browser(self) -> None:
+        """Clear a stale manager browser process and create a fresh session."""
+        if self.busy:
+            messagebox.showinfo(APP_NAME, "Дождись завершения текущей операции.")
+            return
+        if not messagebox.askyesno(
+            APP_NAME,
+            "Перезапустить отдельный браузер Nemexia?\n\n"
+            "Будет закрыт только браузер с профилем менеджера. Обычный Яндекс Браузер и другие программы не затрагиваются.",
+        ):
+            return
+        port = self._safe_int(self.port_var, 9222)
+
+        async def operation() -> list[int]:
+            await self.worker.shutdown()
+            pids = await asyncio.to_thread(stop_managed_yandex, port)
+            await asyncio.sleep(0.4)
+            if await asyncio.to_thread(cdp_is_available, port):
+                raise BrowserAutomationError(
+                    f"Порт {port} всё ещё занят чужим или зависшим процессом. "
+                    "Для безопасности менеджер его не завершал."
+                )
+            return pids
+
+        def success(pids: list[int]) -> None:
+            self.connected = False
+            try:
+                launch_yandex(port)
+            except Exception as exc:
+                self.logger.error("Ошибка перезапуска браузера: %s", exc)
+                messagebox.showerror(APP_NAME, str(exc))
+                return
+            detail = f"Закрыто процессов: {len(pids)}. " if pids else "Старый процесс не найден; "
+            self.status_var.set(detail + "Яндекс Браузер перезапускается…")
+            self.logger.info("Перезапущен отдельный браузер Nemexia на порту %s; закрыто процессов: %s", port, len(pids))
+            self.after(1800, self.connect_browser)
+
+        def error(exc: Exception) -> None:
+            self.connected = False
+            messagebox.showerror(APP_NAME, f"Не удалось перезапустить браузер:\n{exc}")
+
+        self.run_task(operation(), "Перезапуск браузера…", success, error)
+
     def connect_browser(self, silent: bool = False) -> None:
         endpoint = self.endpoint()
         async def operation():
@@ -1159,7 +1208,7 @@ class RaidManagerApp(tk.Tk):
         def success(result: dict[str, Any]) -> None:
             self.connected = True
             self.status_var.set("Подключено")
-            self.logger.info("Подключено к вкладке: %s", result["url"])
+            self.logger.info("Подключено к активной вкладке: %s", result["url"])
             self.sync_flights(silent=True)
 
         def error(_: Exception) -> None:
@@ -1611,7 +1660,7 @@ class RaidManagerApp(tk.Tk):
                 return
             if auto:
                 if next_cycle:
-                    local_text = next_cycle.astimezone().strftime("%d.%m.%Y %H:%M:%S") if next_cycle.tzinfo else next_cycle.strftime("%d.%m.%Y %H:%M:%S")
+                    local_text = format_datetime(next_cycle)
                     self.asteroid_status_var.set(f"Цикл завершён · следующий запуск {local_text}")
                     self.logger.info("Астероиды: отправлено=%s, следующий цикл=%s", sent, local_text)
                 elif not results:
@@ -2022,8 +2071,11 @@ class RaidManagerApp(tk.Tk):
             writer = csv.writer(file, delimiter=";")
             writer.writerow(["Отправлен", "Цель", "Игрок", "МТ", "Прибытие", "Возврат", "Fleet ID", "Статус", "Ошибка"])
             for row in rows:
-                writer.writerow([row["sent_at"], row["target"], row["player"], row["ship_count"], row["arrival_at"],
-                                 row["return_at"], row["fleet_id"], row["status"], row["error"]])
+                writer.writerow([
+                    format_datetime(parse_dt(row["sent_at"])), row["target"], row["player"], row["ship_count"],
+                    format_datetime(parse_dt(row["arrival_at"])), format_datetime(parse_dt(row["return_at"])),
+                    row["fleet_id"], row["status"], row["error"],
+                ])
         self.logger.info("История экспортирована: %s", path)
 
     def open_data_dir(self) -> None:

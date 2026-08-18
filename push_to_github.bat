@@ -1,6 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
+title Nemexia Raid Manager - Publish changes
 
 git rev-parse --is-inside-work-tree >nul 2>&1
 if errorlevel 1 (
@@ -35,12 +36,12 @@ if errorlevel 1 (
     exit /b 1
 )
 
-git push origin main
+git push -u origin main
 if errorlevel 1 (
     echo Upload failed. Check your Internet connection and GitHub access.
     pause
     exit /b 1
 )
 
-echo Project was uploaded successfully.
+echo Local changes were published successfully.
 pause

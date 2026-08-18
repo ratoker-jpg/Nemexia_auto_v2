@@ -1,6 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
+title Nemexia Raid Manager - Get updates
 
 git rev-parse --is-inside-work-tree >nul 2>&1
 if errorlevel 1 (
@@ -17,10 +18,10 @@ for /f "delims=" %%A in ('git status --porcelain') do (
 
 git pull --rebase origin main
 if errorlevel 1 (
-    echo Download failed. Your local copy may need manual conflict resolution.
+    echo Update failed. Your local copy may need manual conflict resolution.
     pause
     exit /b 1
 )
 
-echo Project was downloaded successfully.
+echo Local project was updated successfully.
 pause
