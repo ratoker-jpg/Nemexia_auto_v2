@@ -1,0 +1,2063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)https://game.ares.nemexia.com/auction.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Аукцион</title>
+
+  
+
+  <link href="./page_2026-07-26_14-24-23_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-07-26_14-24-23_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_1.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-07-26_14-24-23_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-pe7Urw0O6UldFj7/kpENHcMoJqyFG1LTn/jG/lQGkgZVAZIpQYjd9+pcXEI3+VpL"></script><script type="text/javascript" src="./page_2026-07-26_14-24-23_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-07-26_14-24-23_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px; z-index: 1000001;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 70158;
+        PLAYER['max_metal'] = 100000;
+        PLAYER['crystal']   = 51112;
+        PLAYER['max_crystal'] = 100000;
+        PLAYER['gas']       = 20637;
+        PLAYER['max_gas']   = 100000;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 35;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 58;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 9;
+        PLAYER['phase']     = -1;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '70,158';
+        PLAYER['maxMetalFormat'] = '100,000';
+        PLAYER['crystalFormat'] = '51,112';
+        PLAYER['maxCrystalFormat'] = '100,000';
+        PLAYER['gasFormat'] = '20,637';
+        PLAYER['maxGasFormat'] = '100,000';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 14090;
+		PLAYER['ozone_loss'] = 260;
+		PLAYER['ozone_gain'] = 0;
+
+		PLAYER['battle_points'] = 0;
+		PLAYER['admiral_current_level'] = 0;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 0;
+		PLAYER['admiral_next_level_battle_points'] = 10;
+		PLAYER['admiral_level_up_battle_points'] = 10;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/auction.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10761;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fauction.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('July 26, 2026 13:24:00');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-07-26_14-24-23_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-07-26_14-24-23_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-07-26_14-24-23_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/auction.php#"><img border="0" width="12px" src="./page_2026-07-26_14-24-23_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/auction.php#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_14-24-23_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/auction.php#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">13:24:28</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_3.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race1/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill0">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			70,158
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			51,112
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			20,637
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			35
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				58
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_3.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Jacliff <span>[3:39:11]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=991" onclick="delete($.post);">
+						<img src="./page_2026-07-26_14-24-23_files/planet_3.png" width="18" id="planetListImg-991">
+						Jacliff <span>[3:39:11]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=3&amp;solar=39">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+									<span class="newMessages" id="newMessages">1</span>
+												</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-08-25 22:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">9</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">10</span>
+		</a>
+	</div>
+
+		<div id="adviserLink" class="inactive">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Лаборатория</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Завод по переработке</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Фабрика</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-07-26_14-24-23_files/xsdropdown.js"></script>
+<script type="text/javascript" src="./page_2026-07-26_14-24-23_files/auction.js"></script>
+
+<div class="leftColumnWidth">
+	<div class="pageSubnavigation" id="auctionTimerContainer">
+		<div class="title">Текущая очередь</div>
+		<div class="sub">
+			<div class="auctionTimer">
+				<span class="text">Осталось:</span>
+				<span class="time" id="auctionTimerDisplay">35:33</span>
+			</div>
+		</div>
+		<div class="pageSubnavigationBottom"></div>
+		<div class="ornamentsTop"></div>
+		<div class="ornamentsBot"></div>
+	</div>
+
+	<div class="pageSubnavigation">
+		<div class="title">Аукцион</div>
+		<div class="sub">
+
+			<ul class="menu">
+				<li><a href="javascript:void(0);" id="auctionMenuItemTurns">Текущий ход</a></li>
+				<li><a href="javascript:void(0);" id="auctionMenuItemWinners">Победитель прошедшего хода</a></li>
+				<li><a href="javascript:void(0);" id="auctionMenuItemWins">Выигранные пакеты</a></li>
+			</ul>
+
+			<div class="subTitle">Информация</div>
+			<div class="block">
+				<div id="auctionBuyoutPopLeftLabel">
+										Популяции осталось: 35,000
+				</div>
+				Вы можете получить различные пакеты, размещая ставки некоторыми из своих ресурсов. Вы можете размещать ставки в неограниченном количестве пока длится ход, либо пока у вас не закончатся ресурсы. В случае проигрыша, 60% поставленных ресурсов будет возвращено на вашу планету. <br> Вы также можете выкупать нужные пакеты, пока не будет достигнут лимит 35,000 популяции в день. Данный лимит не распространяется на выигранные в торгах пакеты.
+			</div>
+		</div>
+		<div class="pageSubnavigationBottom"></div>
+		<div class="ornamentsTop"></div>
+		<div class="ornamentsBot"></div>
+	</div>
+</div>
+<div class="auctionContainer" id="contentWrapper">
+		<div id="mainFrame">
+			<div id="TabPackages" style="display: none;">
+									<h1>Пакеты в текущем ходу</h1>
+					<div class="box">
+					<div class="boxBottom"></div>
+					<table class="auctionPackages" id="auctionTable">
+						<thead>
+							<tr>
+								<th>Тип</th>
+								<th>Количество</th>
+								<th>Лидер</th>
+								<th>
+																		Ставки								</th>
+								<th>
+																		Выкупить								</th>
+							</tr>
+						</thead>
+						<tbody>
+																																		<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614436" data-auction2-min-bid="222933" data-auction2-buyout-price="11" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 600 очков" data-auction2-buyout-disabled-reason="Необходимо 600 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=1">
+												<img src="./page_2026-07-26_14-24-23_files/ship_1.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Транспортировщик
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="29">29</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="222933" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="11" data-auction2-buyout-price="11" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614437" data-auction2-min-bid="405333" data-auction2-buyout-price="21" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 1,500 очков" data-auction2-buyout-disabled-reason="Необходимо 1,500 очков">
+																			<td class="tableAmount" data-auction2-amount="53">53</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											*** МОНАХ ***
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="405333" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="21" data-auction2-buyout-price="21" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614438" data-auction2-min-bid="1428800" data-auction2-buyout-price="73" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 5,900 очков" data-auction2-buyout-disabled-reason="Необходимо 5,900 очков">
+																			<td class="tableAmount" data-auction2-amount="188">188</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="1428800" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="73" data-auction2-buyout-price="73" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614439" data-auction2-min-bid="385067" data-auction2-buyout-price="29" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 1,400 очков" data-auction2-buyout-disabled-reason="Необходимо 1,400 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=2">
+												<img src="./page_2026-07-26_14-24-23_files/ship_2.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Мегатранспортировщик
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="51">17</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="385067" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="29" data-auction2-buyout-price="29" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614440" data-auction2-min-bid="1444000" data-auction2-buyout-price="108" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 3,500 очков" data-auction2-buyout-disabled-reason="Необходимо 3,500 очков">
+																			<td class="tableAmount" data-auction2-amount="189">63</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											*** МОНАХ ***
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="1444000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="108" data-auction2-buyout-price="108" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614441" data-auction2-min-bid="3306000" data-auction2-buyout-price="247" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 9,300 очков" data-auction2-buyout-disabled-reason="Необходимо 9,300 очков">
+																			<td class="tableAmount" data-auction2-amount="435">145</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="3306000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="247" data-auction2-buyout-price="247" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614442" data-auction2-min-bid="46667" data-auction2-buyout-price="8" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 400 очков" data-auction2-buyout-disabled-reason="Необходимо 400 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=3">
+												<img src="./page_2026-07-26_14-24-23_files/ship_3.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Скаут
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="12">6</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="46667" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="8" data-auction2-buyout-price="8" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614443" data-auction2-min-bid="254667" data-auction2-buyout-price="43" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 1,000 очков" data-auction2-buyout-disabled-reason="Необходимо 1,000 очков">
+																			<td class="tableAmount" data-auction2-amount="64">32</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="254667" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="43" data-auction2-buyout-price="43" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614444" data-auction2-min-bid="1120000" data-auction2-buyout-price="193" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 4,100 очков" data-auction2-buyout-disabled-reason="Необходимо 4,100 очков">
+																			<td class="tableAmount" data-auction2-amount="280">140</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="1120000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="193" data-auction2-buyout-price="193" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614445" data-auction2-min-bid="1007400" data-auction2-buyout-price="76" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 4,100 очков" data-auction2-buyout-disabled-reason="Необходимо 4,100 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=4">
+												<img src="./page_2026-07-26_14-24-23_files/ship_4.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Крейсер
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="189">27</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="1007400" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="76" data-auction2-buyout-price="76" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614446" data-auction2-min-bid="2758400" data-auction2-buyout-price="208" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 10,400 очков" data-auction2-buyout-disabled-reason="Необходимо 10,400 очков">
+																			<td class="tableAmount" data-auction2-amount="518">74</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="2758400" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="208" data-auction2-buyout-price="208" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614447" data-auction2-min-bid="7388200" data-auction2-buyout-price="556" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 27,000 очков" data-auction2-buyout-disabled-reason="Необходимо 27,000 очков">
+																			<td class="tableAmount" data-auction2-amount="1393">199</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="7388200" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="556" data-auction2-buyout-price="556" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614448" data-auction2-min-bid="603133" data-auction2-buyout-price="50" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 3,300 очков" data-auction2-buyout-disabled-reason="Необходимо 3,300 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=5">
+												<img src="./page_2026-07-26_14-24-23_files/ship_5.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Защитник 
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="84">14</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="603133" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="50" data-auction2-buyout-price="50" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614449" data-auction2-min-bid="2107267" data-auction2-buyout-price="172" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 8,400 очков" data-auction2-buyout-disabled-reason="Необходимо 8,400 очков">
+																			<td class="tableAmount" data-auction2-amount="300">50</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="2107267" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="172" data-auction2-buyout-price="172" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614450" data-auction2-min-bid="7956133" data-auction2-buyout-price="651" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 22,000 очков" data-auction2-buyout-disabled-reason="Необходимо 22,000 очков">
+																			<td class="tableAmount" data-auction2-amount="1122">187</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="7956133" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="651" data-auction2-buyout-price="651" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614451" data-auction2-min-bid="4058667" data-auction2-buyout-price="167" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 8,800 очков" data-auction2-buyout-disabled-reason="Необходимо 8,800 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=6">
+												<img src="./page_2026-07-26_14-24-23_files/ship_6.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Боевой корабль
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="435">29</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="4058667" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="167" data-auction2-buyout-price="167" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614452" data-auction2-min-bid="10040000" data-auction2-buyout-price="418" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 22,000 очков" data-auction2-buyout-disabled-reason="Необходимо 22,000 очков">
+																			<td class="tableAmount" data-auction2-amount="1065">71</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="10040000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="418" data-auction2-buyout-price="418" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614453" data-auction2-min-bid="20287067" data-auction2-buyout-price="840" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 59,000 очков" data-auction2-buyout-disabled-reason="Необходимо 59,000 очков">
+																			<td class="tableAmount" data-auction2-amount="2160">144</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="20287067" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="840" data-auction2-buyout-price="840" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614454" data-auction2-min-bid="8325600" data-auction2-buyout-price="259" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 17,300 очков" data-auction2-buyout-disabled-reason="Необходимо 17,300 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=7">
+												<img src="./page_2026-07-26_14-24-23_files/ship_7.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Разрушитель 
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="660">22</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="8325600" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="259" data-auction2-buyout-price="259" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614455" data-auction2-min-bid="22439467" data-auction2-buyout-price="696" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 43,000 очков" data-auction2-buyout-disabled-reason="Необходимо 43,000 очков">
+																			<td class="tableAmount" data-auction2-amount="1800">60</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="22439467" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="696" data-auction2-buyout-price="696" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614456" data-auction2-min-bid="53972400" data-auction2-buyout-price="1680" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 87,000 очков" data-auction2-buyout-disabled-reason="Необходимо 87,000 очков">
+																			<td class="tableAmount" data-auction2-amount="4320">144</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="53972400" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="1,680" data-auction2-buyout-price="1680" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614457" data-auction2-min-bid="2723333" data-auction2-buyout-price="105" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 12,800 очков" data-auction2-buyout-disabled-reason="Необходимо 12,800 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=8">
+												<img src="./page_2026-07-26_14-24-23_files/ship_8.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Бомбардировщик
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="264">12</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="2723333" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="105" data-auction2-buyout-price="105" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614458" data-auction2-min-bid="11043333" data-auction2-buyout-price="430" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 32,000 очков" data-auction2-buyout-disabled-reason="Необходимо 32,000 очков">
+																			<td class="tableAmount" data-auction2-amount="1100">50</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="11043333" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="430" data-auction2-buyout-price="430" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614459" data-auction2-min-bid="32360000" data-auction2-buyout-price="1260" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 64,000 очков" data-auction2-buyout-disabled-reason="Необходимо 64,000 очков">
+																			<td class="tableAmount" data-auction2-amount="3234">147</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="32360000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="1,260" data-auction2-buyout-price="1260" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614460" data-auction2-min-bid="8667200" data-auction2-buyout-price="1342" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Требует 300,000 ресурсных очков" data-auction2-buyout-disabled-reason="Требует 300,000 ресурсных очков">
+																			<td class="tableShip" rowspan="1">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=9">
+												<img src="./page_2026-07-26_14-24-23_files/ship_9.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Звезда смерти 
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="700">1</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="8667200" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="1,342" data-auction2-buyout-price="1342" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614461" data-auction2-min-bid="288600" data-auction2-buyout-price="33" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 700 очков" data-auction2-buyout-disabled-reason="Необходимо 700 очков">
+																			<td class="tableShip" rowspan="2">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=10">
+												<img src="./page_2026-07-26_14-24-23_files/ship_10.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Колонизатор
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="36">3</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="288600" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="33" data-auction2-buyout-price="33" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614462" data-auction2-min-bid="481000" data-auction2-buyout-price="63" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 1,600 очков" data-auction2-buyout-disabled-reason="Необходимо 1,600 очков">
+																			<td class="tableAmount" data-auction2-amount="60">5</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="481000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="63" data-auction2-buyout-price="63" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614463" data-auction2-min-bid="738800" data-auction2-buyout-price="95" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 2,600 очков" data-auction2-buyout-disabled-reason="Необходимо 2,600 очков">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=11">
+												<img src="./page_2026-07-26_14-24-23_files/ship_11.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Переработчик
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="105">21</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="738800" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="95" data-auction2-buyout-price="95" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614464" data-auction2-min-bid="1827067" data-auction2-buyout-price="233" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 6,700 очков" data-auction2-buyout-disabled-reason="Необходимо 6,700 очков">
+																			<td class="tableAmount" data-auction2-amount="260">52</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="1827067" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="233" data-auction2-buyout-price="233" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614465" data-auction2-min-bid="4782267" data-auction2-buyout-price="611" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 13,400 очков" data-auction2-buyout-disabled-reason="Необходимо 13,400 очков">
+																			<td class="tableAmount" data-auction2-amount="680">136</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="4782267" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="611" data-auction2-buyout-price="611" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																																										<tr class="empty"><td></td><td></td><td></td><td></td><td></td></tr>
+																		<tr data-auction2-pack-id="4614466" data-auction2-min-bid="12000" data-auction2-buyout-price="1" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="" data-auction2-buyout-disabled-reason="">
+																			<td class="tableShip" rowspan="3">
+											<a href="https://game.ares.nemexia.com/information.php?type=ship&amp;id=12">
+												<img src="./page_2026-07-26_14-24-23_files/ship_12.png" width="120" alt="">
+											</a>
+											<div class="shipName">
+												Шпионский зонд
+											</div>
+										</td>
+																			<td class="tableAmount" data-auction2-amount="6">6</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="12000" data-auction2-bid-value="true">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits" value="1" data-auction2-buyout-price="1" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614467" data-auction2-min-bid="50000" data-auction2-buyout-price="6" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 210 очков" data-auction2-buyout-disabled-reason="Необходимо 210 очков">
+																			<td class="tableAmount" data-auction2-amount="25">25</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="50000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="6" data-auction2-buyout-price="6" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+																										<tr data-auction2-pack-id="4614468" data-auction2-min-bid="278000" data-auction2-buyout-price="31" data-auction2-player-bidding="false" data-auction2-bidding-disabled-reason="Необходимо 650 очков" data-auction2-buyout-disabled-reason="Необходимо 650 очков">
+																			<td class="tableAmount" data-auction2-amount="139">139</td>
+										<td class="tableBidder" data-auction2-highest-bidder="true">
+											
+										</td>
+										<td class="tableBidding">
+											<div data-xsdropdown="true" class="dropdown"> 
+												<div class="arrow" data-xsdropdown-arrow="true">
+													<div class="icon metal">
+													</div>
+												</div>
+												<ul>
+																																																																						<li class="icon selected metal" data-xsdropdown-value="metal">
+														</li>
+																																									<li class="icon crystal" data-xsdropdown-value="crystal">
+														</li>
+																																									<li class="icon gas" data-xsdropdown-value="gas">
+														</li>
+																																									<li class="icon recycle" data-xsdropdown-value="recycle">
+														</li>
+																									</ul>
+												<div class="disabled icon metal" data-xsdropdown-disabled-view="true">
+												</div>
+											</div>
+
+											<input type="text" size="16" value="278000" data-auction2-bid-value="true" disabled="disabled">
+											<div class="buttonrow">
+												<input type="button" value="Ставка" class="inactive" data-auction2-bid-btn="true">
+											</div>
+										</td>
+										<td class="tableBoyout">
+											<div class="buttonrow">
+												<input type="button" class="credits inactive" value="31" data-auction2-buyout-price="31" data-auction2-buyout-btn="true">
+											</div>
+										</td>
+									</tr>
+															 
+						</tbody>
+					</table>
+					</div>
+					</div>
+		<div id="TabLastTurnWinners" style="display: none;"><h1>Победители предыдущего хода</h1>
+<div class="box" id="TabRecentWinnersBox">
+			<div class="boxBottom"></div>
+		<table width="100%" cellspacing="1">
+			<thead>
+				<tr>
+					<td>#</td>
+					<td>Игрок</td>
+					<td>Дата выигрыша</td>
+					<td>Содержание</td>
+					<td>Ресурсы</td>
+				</tr>
+			</thead>
+			<tbody>
+									<tr>
+						<td>1</td>
+						<td>CHeLsEA</td>
+						<td>2026-07-26 13:00:04</td>
+						<td>Шпионский зонд: 6</td>
+						<td>12,000 Металл</td>
+					</tr>
+									<tr>
+						<td>2</td>
+						<td>CHeLsEA</td>
+						<td>2026-07-26 13:00:03</td>
+						<td>Защитник : 13</td>
+						<td>567,200 Металл</td>
+					</tr>
+									<tr>
+						<td>3</td>
+						<td>CHeLsEA</td>
+						<td>2026-07-26 13:00:03</td>
+						<td>Скаут: 127</td>
+						<td>1,094,667 Металл</td>
+					</tr>
+									<tr>
+						<td>4</td>
+						<td>CHeLsEA</td>
+						<td>2026-07-26 13:00:02</td>
+						<td>Скаут: 30</td>
+						<td>250,000 Металл</td>
+					</tr>
+									<tr>
+						<td>5</td>
+						<td>CHeLsEA</td>
+						<td>2026-07-26 13:00:02</td>
+						<td>Скаут: 13</td>
+						<td>105,000 Минералы</td>
+					</tr>
+									<tr>
+						<td>6</td>
+						<td>tcterorist</td>
+						<td>2026-07-26 13:00:02</td>
+						<td>Мегатранспортировщик: 25</td>
+						<td>577,600 Газ</td>
+					</tr>
+							</tbody>
+		</table>
+	</div>
+<!-- zlib compression level 1 --></div>
+			
+		<div id="TabWins" style=""><h1>Ваши победы</h1>
+<div class="box" id="TabWonBox">
+	<div class="message information" id="noUnusedWinsMsg">
+		<div class="boxBottom"></div>
+		<div class="sub">
+			<h2>Внимание</h2>
+			<br>
+			История пуста		</div>
+	</div>
+	</div>
+<h1>
+	История выигрышей	<a href="javascript:void(0);" id="a_showHistory" class="show" title="Показать" style="text-decoration: none;">
+		&nbsp;
+	</a>
+	<a href="javascript:void(0);" id="a_hideHistory" class="hide" style="display: none; text-decoration: none;" title="Скрыть">
+		 &nbsp;
+	</a>
+</h1>
+<div class="box" id="TabWonHistoryBox" style="display: none;">
+		   
+</div>
+<!-- zlib compression level 1 --></div>
+	</div>
+</div>
+<script type="text/javascript">
+	var AucController = new AuctionController(
+		{"NOT_ENOUGH_RESOURCE":"\u0423 \u0432\u0430\u0441 \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0440\u0435\u0441\u0443\u0440\u0441\u043e\u0432 \u043d\u0430 \u043f\u043b\u0430\u043d\u0435\u0442\u0435. \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043a\u0443\u043f\u0438\u0442\u044c \u0440\u0435\u0441\u0443\u0440\u0441\u044b <a href=\"javascript: openPremiumPopup('subtabResourcePurchase');\">\u0437\u0434\u0435\u0441\u044c<\/a>, \u043b\u0438\u0431\u043e \u0432\u0437\u044f\u0442\u044c \u043a\u0440\u0435\u0434\u0438\u0442 \u0438\u0437 <a href=\"bank.php\">\u0411\u0430\u043d\u043a<\/a>.","NOT_ENOUGH_SCRAP":"\u041d\u0430 \u0432\u0430\u0448\u0435\u0439 \u043f\u043b\u0430\u043d\u0435\u0442\u0435 \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043e\u0431\u043b\u043e\u043c\u043a\u043e\u0432. <br \/>\u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043e\u0431\u043d\u0430\u0440\u0443\u0436\u0438\u0442\u044c \u043e\u0431\u043b\u043e\u043c\u043a\u0438, \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0432\u0438\u0432 \u0444\u043b\u043e\u0442 \u0432 \u0440\u0435\u0439\u0441 \"\u041f\u0435\u0440\u0435\u0440\u0430\u0431\u043e\u0442\u043a\u0430\" \u043f\u043e \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0430\u043c \u043f\u043e\u043b\u0435\u0439, \u0432 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043d\u0430\u0445\u043e\u0434\u044f\u0442\u0441\u044f \u043e\u0431\u043b\u043e\u043c\u043a\u0438.<br \/>\u0422\u0430\u043a\u0436\u0435 \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043e\u0431\u043b\u043e\u043c\u043a\u0438, \u0430\u0442\u0430\u043a\u0443\u044f \u0434\u0440\u0443\u0433\u0438\u0445 \u0438\u0433\u0440\u043e\u043a\u043e\u0432.","NOT_ENOUGH_CREDITS":"\u0423 \u0432\u0430\u0441 \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u041a\u0440\u0435\u0434\u0438\u0442\u043e\u0432 \u043d\u0430 \u0441\u0447\u0435\u0442\u0435. \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043a\u0443\u043f\u0438\u0442\u044c \u0438\u0445 <a href=\"javascript: paymentsOpen();\">\u0437\u0434\u0435\u0441\u044c<\/a>.","BID_TOO_LOW":"\u0412\u044b \u043d\u0435 \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u0441\u0442\u0430\u0432\u043a\u0443 \u043c\u0435\u043d\u044c\u0448\u0435 \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0439, \u043b\u0438\u0431\u043e \u043c\u0435\u043d\u044c\u0448\u0435 \u0441\u0432\u043e\u0435\u0439 \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0435\u0439 \u0441\u0442\u0430\u0432\u043a\u0438.","CONFIRM_BID":"\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u044d\u0442\u043e?","CONFIRM_BUYOUT":"\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u044d\u0442\u043e?","RES_METAL":"\u041c\u0435\u0442\u0430\u043b\u043b","RES_CRYSTAL":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","RES_GAS":"\u0413\u0430\u0437","RES_SCRAP":"\u041e\u0431\u043b\u043e\u043c\u043a\u0438","POPULATION_TOOLTIP":"\u041f\u043e\u043f\u0443\u043b\u044f\u0446\u0438\u044f: %1$s","TIMER_TOOLTIP":"\u041a\u0430\u0436\u0434\u044b\u0439 \u0445\u043e\u0434 \u0430\u0443\u043a\u0446\u0438\u043e\u043d\u0430 \u0434\u043b\u0438\u0442\u0441\u044f 1 \u0447\u0430\u0441(\u0430).","BUYOUT_POP_LEFT_LABEL":"\u041f\u043e\u043f\u0443\u043b\u044f\u0446\u0438\u0438 \u043e\u0441\u0442\u0430\u043b\u043e\u0441\u044c: %1$s","BUYOUT_POP_LEFT_LABEL_TOOLTIP":"\u041e\u0441\u0442\u0430\u043b\u043e\u0441\u044c \u043f\u043e\u043f\u0443\u043b\u044f\u0446\u0438\u0438 \u043f\u0435\u0440\u0435\u0434 \u0434\u043e\u0441\u0442\u0438\u0436\u0435\u043d\u0438\u0435\u043c \u0435\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u043e\u0433\u043e \u043b\u0438\u043c\u0438\u0442\u0430"},
+		121573,
+		2160,
+		false,
+		null
+	);
+
+	
+		$(window).bind('scroll',function(){
+			animateSideMenuOnPageScroll('#auctionTimerContainer', $('#contentWrapper').offset().top);
+		});
+	
+</script>
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Хранилища заполнены более чем на 70%" style="top: 46px; left: 742.5px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 742.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 742.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Низкий запас энергии" style="top: 46px; left: 1119.5px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1119.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1119.5px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

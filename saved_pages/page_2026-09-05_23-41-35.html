@@ -1,0 +1,1482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0057)https://game.ares.nemexia.com/admiral.php?tabId=tabSkills -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Адмирал</title>
+
+  
+
+  <link href="./page_2026-09-05_23-41-35_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-09-05_23-41-35_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_2.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-09-05_23-41-35_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-GZOMOo9O/ounJvR2TNpoloQ7l9CFkeRUBwtwh7YwOUesk0Ry333H6x0WAv3NTh2W"></script><script type="text/javascript" src="./page_2026-09-05_23-41-35_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-09-05_23-41-35_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-2" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px; z-index: 1000001;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '2';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 112831;
+        PLAYER['max_metal'] = 6141298;
+        PLAYER['crystal']   = 480086;
+        PLAYER['max_crystal'] = 4643563;
+        PLAYER['gas']       = 75304;
+        PLAYER['max_gas']   = 2724030;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 136;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 2;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 952;
+        PLAYER['phase']     = 14;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '112,831';
+        PLAYER['maxMetalFormat'] = '6,141,298';
+        PLAYER['crystalFormat'] = '480,086';
+        PLAYER['maxCrystalFormat'] = '4,643,563';
+        PLAYER['gasFormat'] = '75,304';
+        PLAYER['maxGasFormat'] = '2,724,030';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 5410;
+		PLAYER['ozone_loss'] = 2420;
+		PLAYER['ozone_gain'] = 2500;
+
+		PLAYER['battle_points'] = 155;
+		PLAYER['admiral_current_level'] = 6;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 140;
+		PLAYER['admiral_next_level_battle_points'] = 210;
+		PLAYER['admiral_level_up_battle_points'] = 55;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/admiral.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 7604;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fadmiral.php%3FtabId%3DtabSkills';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('September 05, 2026 22:41:23');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-09-05_23-41-35_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#"><img border="0" width="12px" src="./page_2026-09-05_23-41-35_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-41-35_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">22:41:39</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_133.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill40">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race2/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill20">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			112,831
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			480,086
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			75,304
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			136
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				2
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Lemay <span>[2:32:7]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=557" onclick="delete($.post);">
+						<img src="./page_2026-09-05_23-41-35_files/planet_133.png" width="18" id="planetListImg-557">
+						Lemay <span>[2:32:7]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+													<a class="repairNotification" href="https://game.ares.nemexia.com/repair_center.php"></a>
+							</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=2&amp;solar=32">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+							</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-10-06 10:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">952</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">130</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Экспериментальный центр</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Свалка</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Конструкцион</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiral.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiralInventory.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiralEquip.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiralCraft.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiralBlueprintsManager.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/admiralBlueprintsAssemble.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/xscarousel.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-41-35_files/jquery.flip.min.js"></script>
+<div class="pageSubnavigation">
+	<div class="title">Адмирал</div>
+	<div class="sub">
+		<div class="admiralHolder openEditWindow">
+			<div id="admiralMainThumbnail" style="background:url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race2/large/1.png&#39;) no-repeat 0 0;">
+				<a class="edit" href="javascript:void(0);" title="Изменить Адмирала"></a>				<div class="admiralName">Dendrilion</div>
+			</div>
+		</div>
+					<div id="admiralEquipmentElementsCounter" class="maxProcesses" data-elements-count="2883">
+				Элементы: <span style="font-weight: bold;">2,883</span>			</div>
+				<div class="subTitle">Адмирал</div>
+        <ul class="menu" id="messagesFolders">
+			<li class="admiralSkills"><a href="javascript:void(0);" onclick="loadTabContent(&#39;tabSkills&#39;);">Навыки</a></li>
+			<li class="admiralStats"><a href="javascript:void(0);" onclick="loadTabContent(&#39;tabStats&#39;);">Характеристики</a></li>
+			<li class="admiralEquipmentEquip"><a href="javascript:void(0);" onclick="loadTabContent(&#39;tabEquipmentEquip&#39;);">Снаряжение</a></li>
+			<li class="admiralEquipmentCraft"><a href="javascript:void(0);" onclick="loadTabContent(&#39;tabEquipmentCraft&#39;);">Крафтинг</a></li>        </ul>
+
+		<div class="subTitle">Боевые Корабли</div>
+        <ul class="menu" id="messagesFolders">
+			<li class="fleets"><a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Купить/Ремонт</a></li>
+			<li class="fleets"><a href="https://game.ares.nemexia.com/commander_ship_upgrade.php">Усовершенствование</a></li>
+			<li class="fleets"><a href="https://game.ares.nemexia.com/options.php?tabId=commanderShipsPriority">Боевой Приоритет</a></li>
+        </ul>
+
+		<div class="subTitle">Чертежи</div>
+		<ul class="menu" id="messagesFolders">
+			<li class="admiralBlueprints"><a href="javascript:void(0);" onclick="loadTabContent(&#39;tabBlueprints&#39;);">Чертежи</a></li>
+		</ul>
+    </div><!--.sub-->
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>
+</div><!--.pageSubnavigation-->
+<div id="contentWrapper">
+
+
+	<!-- Progress Bar -->
+		<h1>Боевой Опыт</h1>
+	<div class="box"><div class="boxBottom"></div>
+        <div id="levelProgressWrapper">
+            <h2>
+            	Уровень Адмирала: <b>6</b>            	<span onmouseover="Tip(&#39;Сила используется для определения какой Адмирал будет возглавлять защиту в бое за Солнце.&#39;)" onmouseout="UnTip()">
+            		(Сила: <b>0</b>)            	</span>
+            </h2>
+            <div id="levelProgress">
+                <div class="full" style="width: 21%">
+					                </div>
+				                <span class="outSide">155</span>
+												<div class="currentPoints">140 Боевые очки</div>
+								                <div class="nextPoints">210 Боевые очки</div>
+				                <div class="level-1 active">0%</div>
+                <div class="level-2 active">25%</div>
+                <div class="level-3 ">50%</div>
+                <div class="level-4 ">75%</div>
+                <div class="level-5 ">100%</div>
+            </div>
+											<p>Вы имеете <b>155</b> боевых очков. Вам не хватает <b>55</b> очков для перехода на уровень <b>7</b>, для получения <b>1</b> очков(а) навыка.</p>
+							        </div>
+	</div>
+		<!-- .Progress Bar -->
+
+
+	<div id="mainFrame">
+		<div id="tabMain" style="display: none;">&nbsp;</div><!--.tabMain-->
+		<div id="tabStats" style="display:none;">&nbsp;</div><!--.tabStats-->
+		<div id="tabSkills" style="display: none;">
+<script type="text/javascript">
+	var skillsManager;
+	$(document).ready(function(){
+		var skillsTree = new MultipleTree('#treeSkills', [
+															['#treeSkillsTabOffence', '#multipleTreeSetSkillsOffence'],
+															['#treeSkillsTabDefence', '#multipleTreeSetSkillsDefence'],
+															['#treeSkillsTabUtility', '#multipleTreeSetSkillsUtility']
+														]);
+		skillsTree.init();
+
+		var skillsList = {"SkillLaserDamage":{"name":"\u041b\u0430\u0437\u0435\u0440\u043d\u044b\u0439 \u0423\u0434\u0430\u0440","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":3,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsOffence","treeTier":0,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u043d \u043e\u0442 \u0430\u0442\u0430\u043a\u0438 \u043b\u0430\u0437\u0435\u0440\u043e\u043c \u043d\u0430 3% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 15%)."},"SkillIonDamage":{"name":"\u041f\u0443\u0447\u043e\u043a \u0418\u043e\u043d\u043e\u0432","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":3,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsOffence","treeTier":0,"treeTierOrder":1,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u043d \u043e\u0442 \u0438\u043e\u043d\u043e\u0432\u043e\u0439 \u0430\u0442\u0430\u043a\u0438 \u043d\u0430 3% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 15%)."},"SkillPlasmaDamage":{"name":"\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u041f\u043b\u0430\u0437\u043c\u044b","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":3,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsOffence","treeTier":0,"treeTierOrder":2,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u043d \u043e\u0442 \u043f\u043b\u0430\u0437\u043c\u0435\u043d\u043d\u043e\u0439 \u0430\u0442\u0430\u043a\u0438 \u043d\u0430 3% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 15%)."},"SkillAllDamage":{"name":"\u0423\u0441\u0438\u043b\u0435\u043d\u043d\u0430\u044f \u0430\u0442\u0430\u043a\u0430","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"%","pointsPerLevel":2,"treeGroup":"SkillsOffence","treeTier":1,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u043d \u0432\u0441\u0435\u0445 \u0432\u0430\u0448\u0438\u0445 \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 2% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 6%)."},"SkillCriticalChance":{"name":"\u041c\u0435\u0442\u043a\u043e\u0441\u0442\u044c","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":1,"bonusUnit":"%","pointsPerLevel":2,"treeGroup":"SkillsOffence","treeTier":1,"treeTierOrder":1,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0448\u0430\u043d\u0441 \u043d\u0430\u043d\u0435\u0441\u0442\u0438 \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0443\u0434\u0430\u0440 \u043d\u0430 1% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 3%)."},"SkillDestroyPlanetChance":{"name":"\u0420\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044c","levelCurrent":0,"levelMax":1,"levelDelta":0,"bonusPerLevel":5,"bonusUnit":"%","pointsPerLevel":5,"treeGroup":"SkillsOffence","treeTier":2,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e \u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u0448\u0430\u043d\u0441 \u0443\u043d\u0438\u0447\u0442\u043e\u0436\u0438\u0442\u044c \u043f\u043b\u0430\u043d\u0435\u0442\u0443 \u043f\u0440\u043e\u0442\u0438\u0432\u043d\u0438\u043a\u0430 \u043d\u0430 5% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 5%)."},"SkillShipsLife":{"name":"\u0423\u043b\u0443\u0447\u0448\u0435\u043d\u043d\u0430\u044f \u0411\u0440\u043e\u043d\u044f","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsDefence","treeTier":0,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0436\u0438\u0437\u043d\u0438 \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 2% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 10%)."},"SkillShipsArmor":{"name":"\u0423\u0441\u0438\u043b\u0435\u043d\u043d\u044b\u0435 \u0429\u0438\u0442\u044b","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":1,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsDefence","treeTier":0,"treeTierOrder":1,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0437\u0430\u0449\u0438\u0442\u0443 \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 1% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 5%)."},"SkillDefenceLife":{"name":"\u041c\u0430\u0441\u0442\u0435\u0440 \u0417\u0430\u0449\u0438\u0442\u044b","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsDefence","treeTier":0,"treeTierOrder":2,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043f\u0440\u043e\u0447\u043d\u043e\u0441\u0442\u044c \u0437\u0430\u0449\u0438\u0442\u044b \u043d\u0430 2% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 10%)."},"SkillShipsDefenceLife":{"name":"\u0416\u0438\u0437\u043d\u0435\u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u0435","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"%","pointsPerLevel":2,"treeGroup":"SkillsDefence","treeTier":1,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0436\u0438\u0437\u043d\u0438 \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 2% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 6%)."},"SkillAntiDemolitionChance":{"name":"\u0417\u0430\u0449\u0438\u0442\u043d\u0438\u043a","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":15,"bonusUnit":"%","pointsPerLevel":2,"treeGroup":"SkillsDefence","treeTier":1,"treeTierOrder":1,"description":"\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442 \u0448\u0430\u043d\u0441 \u0432\u0440\u0430\u0433\u0430 \u043d\u0430 \u0443\u043d\u0438\u0447\u0442\u043e\u0436\u0435\u043d\u0438\u044f \u0432\u0430\u0448\u0438\u0445 \u0437\u0434\u0430\u043d\u0438\u0439 \u043d\u0430 15% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 45%)."},"SkillAntiDestroyPlanetChance":{"name":"\u0417\u0430\u0449\u0438\u0442\u043d\u0430\u044f \u0441\u0444\u0435\u0440\u0430","levelCurrent":0,"levelMax":1,"levelDelta":0,"bonusPerLevel":7,"bonusUnit":"%","pointsPerLevel":5,"treeGroup":"SkillsDefence","treeTier":2,"treeTierOrder":0,"description":"\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442 \u0448\u0430\u043d\u0441 \u043f\u0440\u043e\u0442\u0438\u0432\u043d\u0438\u043a\u0430 \u0443\u043d\u0438\u0447\u0442\u043e\u0436\u0438\u0442\u044c \u043f\u043b\u0430\u043d\u0435\u0442\u0443 \u043d\u0430 7% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 7%)."},"SkillShipsGasReduce":{"name":"\u0425\u0438\u043c\u0438\u043a","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":1,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsUtility","treeTier":0,"treeTierOrder":0,"description":"\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442 \u043f\u043e\u0442\u0440\u0435\u0431\u043b\u0435\u043d\u0438\u0435 \u0442\u043e\u043f\u043b\u0438\u0432\u0430 \u0432\u0430\u0448\u0438\u0445 \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 1% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 5%)."},"SkillSpacetripTime":{"name":"\u041f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"","pointsPerLevel":1,"treeGroup":"SkillsUtility","treeTier":0,"treeTierOrder":1,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0443\u044e \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u041a\u043e\u0441\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0440\u0435\u0439\u0441\u0430 \u043d\u0430 2 \u0447\u0430\u0441\u0430 \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 10)."},"SkillShipsCargo":{"name":"\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u043c\u043e\u0434\u0443\u043b\u044c","levelCurrent":0,"levelMax":5,"levelDelta":0,"bonusPerLevel":2,"bonusUnit":"%","pointsPerLevel":1,"treeGroup":"SkillsUtility","treeTier":0,"treeTierOrder":2,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0441\u0443\u0434\u043e\u0432 \u043d\u0430 2% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 10%)."},"SkillShipsSpeed":{"name":"\u0424\u043e\u0440\u0441\u0430\u0436","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":3,"bonusUnit":"%","pointsPerLevel":2,"treeGroup":"SkillsUtility","treeTier":1,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043a\u043e\u0440\u0430\u0431\u043b\u0435\u0439 \u043d\u0430 3% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 9%)."},"SkillFlightsCount":{"name":"\u041f\u0438\u043b\u043e\u0442","levelCurrent":0,"levelMax":3,"levelDelta":0,"bonusPerLevel":1,"bonusUnit":"","pointsPerLevel":2,"treeGroup":"SkillsUtility","treeTier":1,"treeTierOrder":1,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 \u043f\u043e\u043b\u0435\u0442\u043e\u0432 \u043d\u0430 1 \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 3)."},"SkillBattleScrap":{"name":"\u041c\u0430\u0441\u0442\u0435\u0440 \u043e\u0431\u043b\u043e\u043c\u043a\u043e\u0432","levelCurrent":0,"levelMax":1,"levelDelta":0,"bonusPerLevel":7,"bonusUnit":"%","pointsPerLevel":5,"treeGroup":"SkillsUtility","treeTier":2,"treeTierOrder":0,"description":"\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043e\u0431\u043b\u043e\u043c\u043a\u043e\u0432 \u043f\u043e\u0441\u043b\u0435 \u0431\u0438\u0442\u0432\u044b \u043d\u0430 7% \u0437\u0430 \u0443\u0440\u043e\u0432\u0435\u043d\u044c (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 7%)."}};
+
+		skillsManager = new SkillsManager(2,
+										{"0":0,"1":10,"2":18},
+										skillsList,
+										{
+											'SkillsOffence': '#treeSkillsTabOffence',
+											'SkillsDefence': '#treeSkillsTabDefence',
+											'SkillsUtility': '#treeSkillsTabUtility'
+										},
+										'#skillPoints');
+		skillsManager.init();
+
+		// Add event listeners
+		$('#treeSkillsSaveBtn').bind('click', onSaveSkillsClick);
+		$('#treeSkillsRedistBtn').bind('click', skillsResetMenuLoad);
+	});
+</script>
+
+
+<h1>Навыки</h1>
+<div class="box"><div class="boxBottom"></div>
+
+	<div class="multipleTreeTabBtnHolder">
+		<div class="multipleTreeTabBtn offence active" id="treeSkillsTabOffence">Атакующие(<span class="tabSpentPointsDisp">0</span>)</div>
+		<div class="multipleTreeTabBtn defence" id="treeSkillsTabDefence">Защитные(<span class="tabSpentPointsDisp">0</span>)</div>
+		<div class="multipleTreeTabBtn utility" id="treeSkillsTabUtility">Вспомогательные(<span class="tabSpentPointsDisp">0</span>)</div>
+                <div class="multipleTreeTabBtn RedistBtn" id="treeSkillsRedistBtn">Сбросить навыки</div>
+        	</div>
+		<div class="pointstoDistribute">
+		Доступно очков:		<span id="skillPoints">2</span>
+	</div>
+	
+	<div class="multipleTree" id="treeSkills">
+
+				<div class="layer layer0" id="multipleTreeSetSkillsOffence">
+						<div class="leaf leaf_r0c0">
+				<div class="protector" style="display: none;"></div>
+				<div class="content active" id="ContainerSkillLaserDamage">
+					<div class="overlay"></div>
+					<div class="name">Лазерный Удар</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Лазерный Удар</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает урон от атаки лазером на 3% за уровень (максимум 15%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">3</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c1">
+				<div class="protector" style="display: none;"></div>
+				<div class="content active" id="ContainerSkillIonDamage">
+					<div class="overlay"></div>
+					<div class="name">Пучок Ионов</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Пучок Ионов</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает урон от ионовой атаки на 3% за уровень (максимум 15%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">3</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c2">
+				<div class="protector" style="display: none;"></div>
+				<div class="content active" id="ContainerSkillPlasmaDamage">
+					<div class="overlay"></div>
+					<div class="name">Контроль Плазмы</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Контроль Плазмы</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает урон от плазменной атаки на 3% за уровень (максимум 15%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">3</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c0">
+				<div class="protector" style="display: none;"></div>
+				<div class="content inactive" id="ContainerSkillAllDamage">
+					<div class="overlay"></div>
+					<div class="name">Усиленная атака</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Усиленная атака</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Атакующие						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает урон всех ваших кораблей на 2% за уровень (максимум 6%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c1">
+				<div class="protector" style="display: none;"></div>
+				<div class="content inactive" id="ContainerSkillCriticalChance">
+					<div class="overlay"></div>
+					<div class="name">Меткость</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Меткость</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Атакующие						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает шанс нанести критический удар на 1% за уровень (максимум 3%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">1</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r2c0">
+				<div class="protector" style="display: none;"></div>
+				<div class="content inactive" id="ContainerSkillDestroyPlanetChance">
+					<div class="overlay"></div>
+					<div class="name">Разрушитель</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Разрушитель</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">1</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 18 очков навыков в ветке Атакующие						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает максимально допустимый шанс уничтожить планету противника на 5% за уровень (максимум 5%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">5</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 5 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+			
+		</div><!-- .multipleTreeSet -->
+				<div class="layer layer1" id="multipleTreeSetSkillsDefence">
+						<div class="leaf leaf_r0c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillShipsLife">
+					<div class="overlay"></div>
+					<div class="name">Улучшенная Броня</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Улучшенная Броня</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает уровень жизни кораблей на 2% за уровень (максимум 10%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c1 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillShipsArmor">
+					<div class="overlay"></div>
+					<div class="name">Усиленные Щиты</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Усиленные Щиты</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает защиту кораблей на 1% за уровень (максимум 5%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">1</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c2 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillDefenceLife">
+					<div class="overlay"></div>
+					<div class="name">Мастер Защиты</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Мастер Защиты</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает прочность защиты на 2% за уровень (максимум 10%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillShipsDefenceLife">
+					<div class="overlay"></div>
+					<div class="name">Жизнеобеспечение</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Жизнеобеспечение</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Защитные						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает уровень жизни кораблей на 2% за уровень (максимум 6%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c1 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillAntiDemolitionChance">
+					<div class="overlay"></div>
+					<div class="name">Защитник</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Защитник</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Защитные						</div>
+												<div class="containerDescription">
+							<span class="description">Уменьшает шанс врага на уничтожения ваших зданий на 15% за уровень (максимум 45%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">15</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r2c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillAntiDestroyPlanetChance">
+					<div class="overlay"></div>
+					<div class="name">Защитная сфера</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Защитная сфера</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">1</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 18 очков навыков в ветке Защитные						</div>
+												<div class="containerDescription">
+							<span class="description">Уменьшает шанс противника уничтожить планету на 7% за уровень (максимум 7%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">7</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 5 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+			
+		</div><!-- .multipleTreeSet -->
+				<div class="layer layer2" id="multipleTreeSetSkillsUtility">
+						<div class="leaf leaf_r0c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillShipsGasReduce">
+					<div class="overlay"></div>
+					<div class="name">Химик</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Химик</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Уменьшает потребление топлива ваших кораблей на 1% за уровень (максимум 5%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">1</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c1 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillSpacetripTime">
+					<div class="overlay"></div>
+					<div class="name">Путешественник</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Путешественник</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает максимальную продолжительность Космического рейса на 2 часа за уровень (максимум 10).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit"></span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit"></span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r0c2 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content active" id="ContainerSkillShipsCargo">
+					<div class="overlay"></div>
+					<div class="name">Дополнительный модуль</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Дополнительный модуль</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">5</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает вместимость судов на 2% за уровень (максимум 10%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">2</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 1 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillShipsSpeed">
+					<div class="overlay"></div>
+					<div class="name">Форсаж</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Форсаж</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Вспомогательные						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает скорость кораблей на 3% за уровень (максимум 9%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">3</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r1c1 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillFlightsCount">
+					<div class="overlay"></div>
+					<div class="name">Пилот</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Пилот</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">3</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 10 очков навыков в ветке Вспомогательные						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает количество одновременных полетов на 1 за уровень (максимум 3).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit"></span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">1</span><span class="bonusUnit"></span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 2 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+						<div class="leaf leaf_r2c0 dimmed">
+				<div class="protector" style="display: block;"></div>
+				<div class="content inactive" id="ContainerSkillBattleScrap">
+					<div class="overlay"></div>
+					<div class="name">Мастер обломков</div>
+					<div class="levelCurrent">0</div>
+					<div class="downgradeBtn" style="display: none;"></div>
+					<div class="tooltip">
+						<div class="containerName">
+							<span class="name">Мастер обломков</span>
+						</div>
+						<div class="containerLevels">
+							Текущий уровень:&nbsp;
+							<span class="levelCurrent">0</span>/<span class="levelMax">1</span>
+							(<span class="spentSkillPoints">0</span>)
+						</div>
+												<div class="containerRequirement" style="color: #f00; font-weight: bold;">
+							Необходимо 18 очков навыков в ветке Вспомогательные						</div>
+												<div class="containerDescription">
+							<span class="description">Увеличивает количество обломков после битвы на 7% за уровень (максимум 7%).</span>
+						</div>
+						<div class="containerBonusCurrent" style="display: none;">
+							Текущий бонус:&nbsp;<span class="bonusCurrent">0</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerBonusNext">
+							Бонус на следующем уровне:&nbsp;<span class="bonusNext">7</span><span class="bonusUnit">%</span>
+						</div>
+						<div class="containerPrice">
+							Стоимость: 5 очка(ов) навыков						</div>
+					</div>
+				</div>
+			</div><!-- .leaf-->
+			
+		</div><!-- .multipleTreeSet -->
+		
+	</div>
+    
+	        <div class="formbox">
+            <div class="buttonrow">
+                <input type="button" id="treeSkillsSaveBtn" onclick="" value="Сохранить изменения">
+            </div>
+        </div>
+	
+</div>
+<!-- zlib compression level 1 --></div><!--.tabSkills-->
+		<div id="tabEquipmentEquip" style="display:none;">&nbsp;</div><!--.tabEquipmentEquip-->
+		<div id="tabEquipmentCraft" style=""><h1>Снаряжение</h1>
+<div class="box"><div class="boxBottom"></div>
+			<div id="TabAdmiralEquipment">
+			<div class="buttonrow">
+				<a href="javascript:void(0);" id="tabAdmiralEquipmentEquip" onclick="loadTabContent(&#39;tabEquipmentEquip&#39;);" class="">
+					Снаряжение				</a>
+				<a href="javascript:void(0);" id="tabAdmiralEquipmentCraft" onclick="" class=" active">
+					Крафтинг				</a>
+			</div>
+		</div>
+	
+	
+			<div class="admiralEquipmentCraft">
+	<div class="transformerDisplay">
+		<div class="inputItems">
+			<div class="admiralEquipmentItem inputSlot position_1 allowed"></div>
+			<div class="admiralEquipmentItem inputSlot position_2 allowed"></div>
+			<div class="admiralEquipmentItem inputSlot position_3 allowed"></div>
+			<div class="admiralEquipmentItem inputSlot position_4 forbidden"></div>
+			<div class="admiralEquipmentItem inputSlot position_5 forbidden"></div>
+		</div>
+		<div class="productItem">
+			<div class="admiralEquipmentItem productSlot empty" onmouseover="Tip($(this).find(&#39;.tooltipContent&#39;).html());" onmouseout="UnTip();" style="visibility: visible; background-color: rgb(153, 153, 153); display: block;">
+				<div class="hallmark"></div>
+				<div class="tooltipContent">
+					<div class="admiralEquipmentTooltip">
+						<div class="titleBox">Возможные бонусы</div>
+						<ul>
+							<li>Атака единиц</li>
+							<li>Жизни единиц</li>
+							<li>Скорость единиц</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hints">
+			<a href="javascript: void(0);" class="transformItems" onmouseover="Tip($(this).find(&#39;.tooltipContent&#39;).html());" onmouseout="UnTip();">
+				<div class="tooltipContent">
+					<div class="admiralEquipmentTooltip">
+						<div class="titleBox">Информация</div>
+						<ul>
+							<li>Скомбинируйте 3 одинаковых части снаряжения для создания такого же снаряжения, но с другим эффектом.</li>
+							<li>Скомбинируйте 5 одинаковых частей снаряжения для создания более сильного однотипного снаряжения.</li>
+							<li>Комбинированное снаряжение будет использоваться</li>
+							<li>Созданное снаряжение будут располагаться в вашем инвентаре.</li>
+							<li>Для создание требуется 100 элементов</li>
+						</ul>
+					</div>
+				</div>
+			</a>
+			<a href="javascript: void(0);" class="generateItems" onmouseover="Tip($(this).find(&#39;.tooltipContent&#39;).html());" onmouseout="UnTip();">
+				<div class="tooltipContent">
+					<div class="admiralEquipmentTooltip">
+						<div class="titleBox">Информация</div>
+						<ul>
+							<li>Используйте 250 элементов для создания случайного снаряжения Мощи.</li>
+							<li>Созданное снаряжение будут располагаться в вашем инвентаре.</li>
+						</ul>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="actionsBar buttonrow">
+			<div class="transformItems">
+				<input type="submit" value="Использовать снаряжение" data-elements-req="100" class="inactive">
+				<div class="requirementsBox">
+					<div>Требования</div>
+					<div>
+						<ul>
+							<li class="elements">Элементы: 100<div class="purchaseBtn" onmouseover="Tip(&#39;Приобрести Элементы&#39;);" onmouseout="UnTip();" onclick="openPremiumPopup(&#39;subtabAdmiralElementsPurchase&#39;);"></div></li>
+							<li class="items">Снаряжение 3 или 5</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="generateItems">
+				<input type="submit" value="Использовать элементы" data-elements-req="250" class="">
+				<div class="requirementsBox">
+					<div>Требования</div>
+					<div>
+						<ul>
+							<li class="elements">Элементы: 250<div class="purchaseBtn" onmouseover="Tip(&#39;Приобрести Элементы&#39;);" onmouseout="UnTip();" onclick="openPremiumPopup(&#39;subtabAdmiralElementsPurchase&#39;);"></div></li>
+							<li class="inventory">Свободные слоты инвентаря</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	
+		$(document).ready(function() {
+			admiralCraftManager = new AdmiralCraftManager({"common":{"upgradesTo":"rare"},"rare":{"upgradesTo":"ultimate"},"ultimate":{"upgradesTo":false},"legendary":{"upgradesTo":false}}, 3, 5, '.transformerDisplay', '#admiralEquipmentElementsCounter');
+		});
+	
+</script>	
+	<div class="inventory">
+	<h2>
+		Инвентарь.		&nbsp;<span class="itemsCounter" data-max="100">(<span class="current">1</span>/<span class="max">100</span>)</span>
+	</h2>
+	<div class="inventoryCarousel craft">
+		<a class="leftArrow" href="javascript:void(0)"></a>
+		<a class="rightArrow" href="javascript:void(0)"></a>
+		<div class="container">
+			<div class="inside"><div class="column"><div class="admiralEquipmentItem hand common attack" data-item-id="984" data-hint-text="Левый клик для использования содержимого" style="display: block;"><div class="hallmark"></div></div></div></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+		$(document).ready(function() {
+			var inventoryMode = 'craft';
+			var carouselDirection = 'left';
+
+			// Create carousel
+			var carousel = new xscarousel('.inventoryCarousel.' + inventoryMode + ' .container .inside', '.inventoryCarousel.' + inventoryMode + ' .column', 8, '.inventoryCarousel.' + inventoryMode + ' .leftArrow', '.inventoryCarousel.' + inventoryMode + ' .rightArrow');
+			carousel.slideNextDirection = carouselDirection;
+			carousel.addOnMoveCallback(function() {
+				inventoryScrollPage = carousel.getCurrenPageNumber();
+			});
+			carousel.init();
+
+			// Create inventory
+			var inventory = new AdmiralInventory(carousel, '.inventory span.itemsCounter');
+			inventory.addTranslation('ITEM_ACTIVE_CLICK_TO_USE', html_entity_decode('Левый клик для использования содержимого'));
+			inventory.addTranslation('ITEM_ACTIVE_CLICK_TO_UNUSE', html_entity_decode('Левый клик по неиспользованному содержимому'));
+			inventory.addTranslation('ITEM_INACTIVE_REASON_IS_EQUIPPED', html_entity_decode('Содержимое используется.'));
+			inventory.addTranslation('ITEM_INACTIVE_REASON_IN_USE', html_entity_decode('Содержимое используется'));
+			inventory.addTranslation('ITEM_INACTIVE_REASON_FORBIDDEN_ITEM_LEVEL', html_entity_decode('Запрещено на этом уровне.'));
+			inventory.addTranslation('ITEMS_COUNT_MAX_LIMIT_REACHED', html_entity_decode('Ваш инвентарь заполнен.'));
+
+			inventory.addOnItemsListUpdateCallback(function() {
+				carousel.slideToPage(inventoryScrollPage);
+			});
+
+			if (inventoryMode === 'equip' && typeof admiralEquipManager !== 'undefined') {
+				admiralEquipManager.init(inventory);
+			}
+
+			if (inventoryMode === 'craft' && typeof admiralCraftManager !== 'undefined') {
+				admiralCraftManager.init(inventory);
+			}
+
+			inventory.init();
+		});
+	
+</script>
+			<div class="gatheringInfo">
+	<h2>Как получить Элементы?</h2>
+	<ul>
+		<li>Во время сбора газа и обломков в "Добыче газа".</li>
+		<li>Во время победы и получения боевых очков в "Атаке".</li>
+		<li>Во время победы и получения очков усовершенствования в "Атаке Отступников".</li>
+		<li>Во время сбора ресурсов в "Пиратском рейде".</li>
+		<li>Во время сбора обломков в "Переработке".</li>
+		<li>Приобрести элементы.</li>
+	</ul>
+</div>	</div>
+<!-- zlib compression level 1 --></div><!--.tabEquipmentCraft-->
+		<div id="tabBlueprints" style="display:none;">&nbsp;</div><!--.tabBlueprints-->
+	</div><!--.mainFrame-->
+</div><!--.contentWrapper -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		// Add event listeners
+		$('.admiralHolder.openEditWindow').bind('click', function() {
+			admiralEditMenuLoad();
+			return false;
+		});	
+		
+		loadTabContent('tabSkills');
+
+		// Equip/Craft inventory page sync variable
+		inventoryScrollPage = 0;
+	});
+</script>
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 89.9659px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

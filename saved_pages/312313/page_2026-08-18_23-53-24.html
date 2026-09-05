@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0055)https://game.horus.nemexia.com/zone_resource.php?race=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Universe 2  // Buildings</title>
+
+  
+
+  <link href="./page_2026-08-18_23-53-24_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-08-18_23-53-24_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/horus/img/race_icon_1.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-08-18_23-53-24_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-mcwA+jPbqKpaKJOy+MDn1rWYyUFwcdOnvEFQz7sVles7djT1Zddp5nHWJn5/84x9"></script><script type="text/javascript" src="./page_2026-08-18_23-53-24_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-08-18_23-53-24_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-1" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px; z-index: 1000001;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '1';
+/* Translated Strings */
+    var Ok = 'Ok';
+    var Yes = 'Yes';
+    var No = 'No';
+    var Submit = 'Submit';
+    var Select = 'Select';
+    var Cancel = 'Cancel';
+    var Attention = 'Attention';
+    var Success = 'Success!';
+    var StringError = 'Error';
+    var Info = 'Info';
+    var RUSure = 'Are you sure ?';
+	var TutorialArrowClickHere = 'Check this out';
+	var StringServerTime = 'Server time';
+	var StringBotcheckTime = 'Automated activity protection after %1$s minutes';
+	var StringSpyScanInstantBtnLabel = 'Scan now';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'You have %1$s unused packages';
+	var StringHeaderArenaHasReturningUnits = 'Your ships are ready to be returned.';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Resource storages are over 90% full';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Resource storages are over 80% full';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Resource storages are over 70% full';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Low energy reserves';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Low energy reserves';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Low energy reserves';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Hangars are over 90% full';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Hangars are over 80% full';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Hangars are over 70% full';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Ozone layer status: Critical&lt;br /&gt;&lt;br /&gt;Our scientists suggest to take measures immediately or the planet may become unusable.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Ozone layer status: Dangerous';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Ozone layer status: Good';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Ozone on this planet: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Daily Ozone income: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Admiral level: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'You are %1$s battle points away from going to the next level.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Maximum level reached';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"Metal","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"Mineral","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"Gas","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 56651;
+        PLAYER['max_metal'] = 100000;
+        PLAYER['crystal']   = 40510;
+        PLAYER['max_crystal'] = 100000;
+        PLAYER['gas']       = 16235;
+        PLAYER['max_gas']   = 100000;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 92;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 0;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 350;
+        PLAYER['phase']     = -1;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '56,651';
+        PLAYER['maxMetalFormat'] = '100,000';
+        PLAYER['crystalFormat'] = '40,510';
+        PLAYER['maxCrystalFormat'] = '100,000';
+        PLAYER['gasFormat'] = '16,235';
+        PLAYER['maxGasFormat'] = '100,000';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 13880;
+		PLAYER['ozone_loss'] = 70;
+		PLAYER['ozone_gain'] = 0;
+
+		PLAYER['battle_points'] = 16;
+		PLAYER['admiral_current_level'] = 1;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 10;
+		PLAYER['admiral_next_level_battle_points'] = 20;
+		PLAYER['admiral_level_up_battle_points'] = 4;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/zone_resource.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10739;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fzone_resource.php%3Frace%3D1';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('August 18, 2026 22:52:51');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/horus/2/index/index/4691/81c8aae35c243008962aacaf3cf7fb520ee46bc9c978e59a82bb23cb99212a73/en_EN/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/horus/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-08-18_23-53-24_files/promotions.js"></script>
+	<a href="javascript: void(0)" class="promoLabel " onclick="loadPromoWindow(showPromoMessage)"></a>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-08-18_23-53-24_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-08-18_23-53-24_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Supremacy</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.horus.nemexia.com/zone_resource.php?race=1#"><img border="0" width="12px" src="./page_2026-08-18_23-53-24_files/en.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-08-18_23-53-24_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.horus.nemexia.com/zone_resource.php?race=1#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendril</a>
+	
+	<div id="sittersLoginList"><!-- Options and title row -->
+<p>
+	Sitters (select to login):</p>
+<a class="settings" href="https://game.horus.nemexia.com/options.php?tabId=TabSitting" onmouseover="Tip(&#39;Settings&#39;)" onmouseout="UnTip()"></a>
+
+<!-- Sitter nickname row (login back) -->
+<div class="yourName">
+		<b>Dendril</b>
+	</div>
+
+<!-- Sitters list row -->
+<ul>
+	</ul>
+<!-- zlib compression level 1 --></div>
+	
+</div>
+		<a href="https://game.horus.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Logout&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">22:53:30</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_23.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.horus.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Resource Zone&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.horus.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Resource Zone&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.horus.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Resource Zone&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.horus.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Galaxy Zone&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.horus.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Industry Zone&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.horus.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Government Zone&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/admiral/race1/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill60">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.horus.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Stats&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Skills&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Auction"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Daily rewards&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Galaxy Arena" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Metal&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			56,651
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Minerals&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			40,510
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Gas&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			16,235
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Energy&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			92
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Hangar&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				0
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Scrap&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/planets/icon/planet_23.png&#39;);"></div>
+        <div class="trigger" title="Click to change planet">
+            <small>Current planet:</small>
+            <big>Conrada <span>[1:12:1]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.horus.nemexia.com/change_planet.php?id=260" onclick="delete($.post);">
+						<img src="./page_2026-08-18_23-53-24_files/planet_23.png" width="18" id="planetListImg-260">
+						Conrada <span>[1:12:1]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.horus.nemexia.com/planet.php">Planet</a></li>
+			<li class="fleets">
+				<a href="https://game.horus.nemexia.com/fleets.php">Fleets</a>
+											</li>
+			<li class="galaxy"><a href="https://game.horus.nemexia.com/galaxy.php?galaxy=1&amp;solar=12">Galaxy</a></li>
+			<li class="alliance"><a href="https://game.horus.nemexia.com/alliance.php">Alliance</a></li>
+			<li class="personal"><a href="https://game.horus.nemexia.com/options.php">Personal</a>
+									<span class="newMessages" id="newMessages">5</span>
+												</li>
+			<li class="ranking"><a href="https://game.horus.nemexia.com/ranking.php">Ranking</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.horus.nemexia.com/ships.php?show=CommanderShips">Commander ships</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" onmouseover="Tip(&#39;Premium&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">350</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Platinum&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">10</span>
+		</a>
+	</div>
+
+		<div id="adviserLink" class="inactive">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Open your Adviser" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Hey, I have news for you!</div>
+			<p>Check your adviser!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Switch HUD&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.horus.nemexia.com/options.php?tabId=TabHotLinks">Hotlinks</a></div>
+        <ul>
+          <li><a href="https://game.horus.nemexia.com/laboratory.php">Laboratory</a></li>
+<li><a href="https://game.horus.nemexia.com/ships.php">Shipyard</a></li>
+<li><a href="https://game.horus.nemexia.com/ship_upgrade.php">Starport</a></li>
+<li><a href="https://game.horus.nemexia.com/recyclingPlant.php">Recycling Plant</a></li>
+<li><a href="https://game.horus.nemexia.com/resource_trader.php">Trade Center</a></li>
+<li><a href="https://game.horus.nemexia.com/factory.php">Factory</a></li>
+<li><a href="https://game.horus.nemexia.com/auction.php">Auction</a></li>
+<li><a href="https://game.horus.nemexia.com/bank.php">Bank</a></li>
+<li><a href="https://game.horus.nemexia.com/technics.php">Technics</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">hide menu »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Show</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-08-18_23-53-24_files/buildings_dimentios.js"></script>
+<script type="text/javascript">
+    var playerBuildings = new Array({'id': 1, 'race_id': 1, 'left': 142, 'top': 152, 'width': 34, 'height': 41, 'pos_left': 142, 'pos_top': 152, 'pos_width': 34, 'pos_height': 41},{'id': 4, 'race_id': 1, 'left': 596, 'top': 51, 'width': 113, 'height': 145, 'pos_left': 596, 'pos_top': 51, 'pos_width': 113, 'pos_height': 145},{'id': 6, 'race_id': 1, 'left': 439, 'top': 15, 'width': 130, 'height': 134, 'pos_left': 439, 'pos_top': 15, 'pos_width': 130, 'pos_height': 134},{'id': 8, 'race_id': 1, 'left': 513, 'top': 310, 'width': 180, 'height': 190, 'pos_left': 540, 'pos_top': 410, 'pos_width': 95, 'pos_height': 65},{'id': 10, 'race_id': 1, 'left': 159, 'top': 184, 'width': 200, 'height': 180, 'pos_left': 164, 'pos_top': 249, 'pos_width': 180, 'pos_height': 110});
+    
+    var BuildingsInfo = new Array();
+BuildingsInfo[1]={'name': 'Metal Mine #1','desc': 'Metal income', 'race_id': 1, 'max_level': 30, 'current_level': 1};
+BuildingsInfo[2] = {'name': 'Metal Mine #2','desc': 'Metal income','race_id': 1,'max_level': 30, 'current_level': 0};
+BuildingsInfo[3] = {'name': 'Metal Mine #3','desc': 'Metal income','race_id': 1,'max_level': 30, 'current_level': 0};
+BuildingsInfo[4]={'name': 'Mineral Extractor #1','desc': 'Minerals income', 'race_id': 1, 'max_level': 30, 'current_level': 1};
+BuildingsInfo[5] = {'name': 'Mineral Extractor #2','desc': 'Minerals income','race_id': 1,'max_level': 30, 'current_level': 0};
+BuildingsInfo[6]={'name': 'Gas refinery #1','desc': 'Gas income', 'race_id': 1, 'max_level': 30, 'current_level': 1};
+BuildingsInfo[7] = {'name': 'Gas refinery #2','desc': 'Gas income','race_id': 1,'max_level': 30, 'current_level': 0};
+BuildingsInfo[8]={'name': 'Solar panels','desc': 'Energy supply', 'race_id': 1, 'max_level': 30, 'current_level': 3};
+BuildingsInfo[9] = {'name': 'Nuclear Plant','desc': 'Energy supply','race_id': 1,'max_level': 20, 'current_level': 0};
+BuildingsInfo[10]={'name': 'Hangars','desc': 'Storing units', 'race_id': 1, 'max_level': 20, 'current_level': 1};
+
+    var type_zone = 1;
+    var TMP_RACE_ID = 1;
+    var TitleArray = new Array("","","","","","","","","","","");
+    var LangStrings = new Array();
+    LangString={
+			    locationError: 'You can not build on that location.',
+			    CurrentLevel: 'Current Level',
+			    MaxLevel: 'Max Level',
+			    NextLevel: 'Next Level',
+			    CurrentIncome: 'Current Income',
+			    BuildingNextLevel: 'Building next level',
+			    NeededMetal: 'Needed Metal',
+			    NeededCrystal: 'Needed Minerals',
+			    NeededGas: 'Needed Gas',
+			    NeededEnergy: 'Needed Energy',
+			    BuildLevel: 'Build Level',
+			    PerHour: 'per hour',
+			    Move: 'Move',
+			    Cancel: 'Cancel',
+			    GoTo: 'Go to',
+			    ResourceInfo: 'Resource info',
+			    Desrtoy: 'Destroy 1 level',
+			    DesrtoyConfirm: 'Are you sure you want to destroy one level of this building? 50-80% of the resources spent for it will be returned to you and all resource points for this level will be taken away.', 
+			    Close: 'close',
+			    DBClickTip: 'Double-click for default position'
+			    };
+    CountDown();
+    </script>
+    
+<div class="pageSubnavigation">
+	<div id="disableLeftMenu" style="display:none;width: 254px; height: 500px; position: absolute; z-index: 5;"></div>
+    <div class="title">Resource Zone</div>
+	
+    <div class="sub">
+    
+
+    <span id="toolTipHandler"></span>
+    
+    <dl id="buildingsList" class="race1">
+        			<dd id="1" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_11.jpg&#39;);" onclick="next_level(1);" ondblclick="next_level(1)">
+			</dd>
+        			<dd id="2" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_12.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+			</dd>
+        			<dd id="3" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_13.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+			</dd>
+        			<dd id="4" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_14.jpg&#39;);" onclick="next_level(4);" ondblclick="next_level(4)">
+			</dd>
+        			<dd id="5" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_15.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+			</dd>
+        			<dd id="6" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_16.jpg&#39;);" onclick="next_level(6);" ondblclick="next_level(6)">
+			</dd>
+        			<dd id="7" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_17.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+			</dd>
+        			<dd id="8" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_18.jpg&#39;);" onclick="next_level(8);" ondblclick="next_level(8)">
+			</dd>
+        			<dd id="9" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_19.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+			</dd>
+        			<dd id="10" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/race1/thumb_110.jpg&#39;);" onclick="next_level(10);" ondblclick="next_level(10)">
+			</dd>
+            </dl>
+    
+    <dl class="list">
+        <dt>Resource Income per hour:</dt>
+        <dd><small>Metal:</small>350</dd>
+        <dd><small>Minerals:</small>250</dd> 
+        <dd><small>Gas:</small>100</dd> 
+                	<dd><a href="javascript: openPremiumPopup(&#39;subtabResourcePurchase&#39;);" class="premiumButton"><span>Buy Resources</span></a></dd>
+            </dl>
+    
+    <dl class="list">
+    	<dt>Ozone</dt>
+    	<dd><small>Max. Ozone</small>15,000</dd>
+    	<dd><small>Ozone</small>13,880</dd>
+    	    		<dd><a href="javascript: openPremiumPopup(&#39;subtabOzonePurchase&#39;);" class="premiumButton"><span>Buy Ozone</span></a></dd>
+    	    </dl>
+    
+    <div class="resourceInfo">
+        <a href="https://game.horus.nemexia.com/resourceInfo.php?show=gathering" class="infoGathering" onmouseover="Tip(&#39;Details about the Resource Gathering&#39;);" onmouseout="UnTip();"></a>
+        <a href="https://game.horus.nemexia.com/resourceInfo.php?show=storages" class="infoStorages" onmouseover="Tip(&#39;Details about the Resource Storages&#39;);" onmouseout="UnTip();"></a>
+    </div>
+    
+    </div> 
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>   
+</div>
+
+<div id="contentWrapper">
+
+		<script type="text/javascript">
+	TimersGlobalQueue = new Array();
+	GlobalQueueCountTimers = 0;
+</script>
+<div id="queueBar">
+	<div id="queueBarOpen" style="">
+		<a href="javascript:void(0);" onclick="globalQueueHide();" class="hideQueueBar"></a>
+		<div class="queItemHolder"><div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/zone_resource.php" onmouseover="Tip(&#39;Resource Zone&#39;)" onmouseout="UnTip();">
+		<span class="resource"></span>
+		<span class="queItemTime" id="gql_ZoneResource">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Industry Zone&#39;)" onmouseout="UnTip();">
+		<span class="industry"></span>
+        <span class="queItemTime" id="gql_ZoneIndustry">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Military Zone&#39;)" onmouseout="UnTip();">
+		<span class="military"></span>
+        <span class="queItemTime" id="gql_ZoneMilitary">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/laboratory.php" onmouseover="Tip(&#39;Science&#39;)" onmouseout="UnTip();">
+		<span class="laboratory"></span>
+        <span class="queItemTime" id="gql_Sciences">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/ships.php" onmouseover="Tip(&#39;Ships&#39;)" onmouseout="UnTip();">
+		<span class="ships"></span>
+        <span class="queItemTime" id="gql_Ships">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.horus.nemexia.com/ship_upgrade.php" onmouseover="Tip(&#39;Upgrades&#39;)" onmouseout="UnTip();">
+		<span class="upgrades"></span>
+        <span class="queItemTime" id="gql_Upgrades">Ready</span>
+	</a>
+	</div><!--.queueItem-->
+<!-- zlib compression level 1 --></div>
+	</div>
+	<div id="queueBarClose" style="display: none;">
+		<a href="javascript:void(0);" onclick="globalQueueShow();" class="showQueueBar"></a><span>Current processes</span>
+	</div><!--#queueBarClose-->
+</div><!--#queueBar-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var showGlobalQueueStatus = readCookie('GlobalQueueBar');
+	if(showGlobalQueueStatus == null) {
+		createCookie('GlobalQueueBar', 1, 30);
+		showGlobalQueueStatus = 1;
+	}
+
+	if(showGlobalQueueStatus == 1) {
+		globalQueueShow();
+	} else {
+		globalQueueHide();
+	}
+
+	globalQueueTimers();
+});
+</script>
+
+	
+    <div id="drawArea" name="drawArea" onclick="map_click()" class="terrain" style="background: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/buildings/terrain/1_zone_resources.png&#39;) no-repeat;">
+	    <div id="playerB-1" style="width:34px;height:41px;position:absolute;left:142px;top:152px;z-index:193">
+		<div id="BuildingImageHolder-1"> 
+		<img src="./page_2026-08-18_23-53-24_files/11-1.png" border="0" usemap="#Map1-1">
+		</div>
+		<map name="Map1-1" id="Map1-1"><area shape="poly" coords="16,1,25,1,29,10,33,28,20,37,2,40,1,14,5,12,3,1" href="javascript:void(0)" onmouseover="SmallToolTip(1)" onmouseout="UnTip()" onclick="next_level(1)"></map>
+		<div id="BuildingTimerHolder-1"></div></div>
+<div id="playerB-4" style="width:113px;height:145px;position:absolute;left:596px;top:51px;z-index:196">
+		<div id="BuildingImageHolder-4"> 
+		<img src="./page_2026-08-18_23-53-24_files/14-1.png" border="0" usemap="#Map4-1">
+		</div>
+		<map name="Map4-1" id="Map4-1"><area shape="poly" coords="79,0,79,17,96,68,54,90,53,86,30,75,4,84,5,109,0,112,20,133,63,119,67,123,74,119,72,117,75,115,70,109,70,93,113,68,108,64" href="javascript:void(0)" onmouseover="SmallToolTip(4)" onmouseout="UnTip()" onclick="next_level(4)"></map>
+		<div id="BuildingTimerHolder-4"></div></div>
+<div id="playerB-6" style="width:130px;height:134px;position:absolute;left:439px;top:15px;z-index:149">
+		<div id="BuildingImageHolder-6"> 
+		<img src="./page_2026-08-18_23-53-24_files/16-1.png" border="0" usemap="#Map6-1">
+		</div>
+		<map name="Map6-1" id="Map6-1"><area shape="poly" coords="60,54,73,98,45,115,67,133,129,122,78,60" href="javascript:void(0)" onmouseover="SmallToolTip(6)" onmouseout="UnTip()" onclick="next_level(6)"> <area shape="poly" coords="0,19,3,43,22,55,44,51,56,44,56,21,42,7,28,2" href="javascript:void(0)" onmouseover="SmallToolTip(6)" onmouseout="UnTip()" onclick="next_level(6)"></map>
+		<div id="BuildingTimerHolder-6"></div></div>
+<div id="playerB-8" style="width:180px;height:190px;position:absolute;left:513px;top:310px;z-index:500">
+		<div id="BuildingImageHolder-8"> 
+		<img src="./page_2026-08-18_23-53-24_files/18-1.png" border="0" usemap="#Map8-1">
+		</div>
+		<map name="Map8-1" id="Map8-1"><area shape="poly" coords="76,21,27,42,50,110,30,129,40,157,97,163,119,127,93,102,87,90,105,81" href="javascript:void(0)" onmouseover="SmallToolTip(8)" onmouseout="UnTip()" onclick="next_level(8)"></map>
+						 <map name="Map8-2" id="Map8-2"><area shape="poly" coords="12,46,89,9,105,18,128,61,117,79,86,97,86,101,92,102,120,129,96,162,45,158,38,152,31,127,44,115,22,102,9,66" href="javascript:void(0)" onmouseover="SmallToolTip(8)" onmouseout="UnTip()" onclick="next_level(8)"></map>
+						 <map name="Map8-3" id="Map8-3"><area shape="poly" coords="3,53,26,32,69,11,82,12,96,4,129,58,124,82,96,104,119,127,96,163,41,158,31,129,42,114,23,104" href="javascript:void(0)" onmouseover="SmallToolTip(8)" onmouseout="UnTip()" onclick="next_level(8)"></map>
+		<div id="BuildingTimerHolder-8"></div></div>
+<div id="playerB-10" style="width:200px;height:180px;position:absolute;left:159px;top:184px;z-index:364">
+		<div id="BuildingImageHolder-10"> 
+		<img src="./page_2026-08-18_23-53-24_files/110-1.png" border="0" usemap="#Map10-1">
+		</div>
+		<map name="Map10-1" id="Map10-1"><area shape="poly" coords="90,60,82,69,80,78,79,87,153,106,171,98,170,79,164,73" href="javascript:void(0)" onmouseover="SmallToolTip(10)" onmouseout="UnTip()" onclick="next_level(10)"></map>
+						 <map name="Map10-2" id="Map10-2"><area shape="poly" coords="5,25,5,109,13,109,13,59,27,49,27,85,22,93,27,96,24,108,32,111,34,114,29,130,37,132,37,148,46,148,46,121,52,121,56,133,64,129,59,116,66,118,71,114,70,108,81,106,82,113,87,114,90,110,89,118,97,120,97,92,154,106,171,96,171,83,167,75,161,73,98,62,98,36,94,29,89,36,89,49,86,53,81,45,72,41,64,43,64,4,60,0,56,5,56,29,51,38,44,33,35,33,30,37,27,42,27,45,13,34,13,26,10,17" href="javascript:void(0)" onmouseover="SmallToolTip(10)" onmouseout="UnTip()" onclick="next_level(10)"></map>
+						 <map name="Map10-3" id="Map10-3"><area shape="poly" coords="5,25,5,109,13,109,13,59,27,49,27,86,23,93,27,95,23,108,29,111,31,107,35,113,28,130,37,133,37,148,46,148,46,121,52,120,55,131,63,130,58,114,61,104,65,106,63,117,66,117,71,113,71,109,82,107,80,111,74,117,69,128,68,137,102,146,98,165,139,175,185,130,182,114,177,105,168,99,170,93,170,80,164,73,98,62,98,35,94,30,90,35,90,48,86,54,81,45,71,41,64,44,64,6,60,0,57,6,56,29,51,38,42,33,34,35,28,40,27,46,13,34,13,24,10,18" href="javascript:void(0)" onmouseover="SmallToolTip(10)" onmouseout="UnTip()" onclick="next_level(10)"></map>
+		<div id="BuildingTimerHolder-10"></div></div>
+
+	    <div id="cursor" name="cursor" style="display:none;left: 0;top: 0;position:absolute;z-index:10000;"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="./page_2026-08-18_23-53-24_files/buildings.js"></script>
+<script type="text/javascript" src="./page_2026-08-18_23-53-24_files/processesBooster.js"></script>
+
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Terms and Conditions</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Game Forum</a> |
+                      <a href="javascript:supportOpen();">Game Support</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Game Help</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 734.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 734.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 734.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Low energy reserves" style="top: 46px; left: 1111.5px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1111.5px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1111.5px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+<script type="module" src="./page_2026-08-18_23-53-24_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ce8637103a9447749966475d995e9f9b&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+
+
+</body></html>

@@ -1,0 +1,1170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)https://game.ares.nemexia.com/ranking.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Рейтинг</title>
+
+  
+
+  <link href="./page_2026-09-05_22-54-33_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-09-05_22-54-33_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_2.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-09-05_22-54-33_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-GZOMOo9O/ounJvR2TNpoloQ7l9CFkeRUBwtwh7YwOUesk0Ry333H6x0WAv3NTh2W"></script><script type="text/javascript" src="./page_2026-09-05_22-54-33_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-09-05_22-54-33_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-2" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '2';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 597544;
+        PLAYER['max_metal'] = 6141298;
+        PLAYER['crystal']   = 641782;
+        PLAYER['max_crystal'] = 4643563;
+        PLAYER['gas']       = 97880;
+        PLAYER['max_gas']   = 2724030;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 276;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 2;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 952;
+        PLAYER['phase']     = 14;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '597,544';
+        PLAYER['maxMetalFormat'] = '6,141,298';
+        PLAYER['crystalFormat'] = '641,782';
+        PLAYER['maxCrystalFormat'] = '4,643,563';
+        PLAYER['gasFormat'] = '97,880';
+        PLAYER['maxGasFormat'] = '2,724,030';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 5410;
+		PLAYER['ozone_loss'] = 2420;
+		PLAYER['ozone_gain'] = 2500;
+
+		PLAYER['battle_points'] = 155;
+		PLAYER['admiral_current_level'] = 6;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 140;
+		PLAYER['admiral_next_level_battle_points'] = 210;
+		PLAYER['admiral_level_up_battle_points'] = 55;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/ranking.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10420;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Franking.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('September 05, 2026 21:54:27');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-09-05_22-54-33_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-09-05_22-54-33_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-09-05_22-54-33_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/ranking.php#"><img border="0" width="12px" src="./page_2026-09-05_22-54-33_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/ranking.php#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_22-54-33_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/ranking.php#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">21:54:37</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_133.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill40">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race2/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill20">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			597,544
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			641,782
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			97,880
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			276
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				2
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Lemay <span>[2:32:7]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=557" onclick="delete($.post);">
+						<img src="./page_2026-09-05_22-54-33_files/planet_133.png" width="18" id="planetListImg-557">
+						Lemay <span>[2:32:7]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+													<a class="repairNotification" href="https://game.ares.nemexia.com/repair_center.php"></a>
+							</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=2&amp;solar=32">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+							</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-10-06 10:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">952</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">130</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Экспериментальный центр</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Свалка</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Конструкцион</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-09-05_22-54-33_files/alliance.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_22-54-33_files/main.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_22-54-33_files/tournaments.js"></script>
+<div class="rankingWrapper">
+  <div class="title">Рейтинг</div>
+  <div class="menu typeSelection" style="">
+    <a href="javascript: void(0);" onclick="rankingManager.show(&#39;players&#39;, 0, &#39;total_points&#39;, []);" class="players selected">Игроки</a>
+    <a href="javascript: void(0);" onclick="rankingManager.show(&#39;alliances&#39;, 0, &#39;alliance_points&#39;, []);" class="alliances">Альянсы</a>
+    <a href="javascript: void(0);" onclick="rankingManager.show(&#39;tournaments&#39;, 0, &#39;&#39;, {&quot;type&quot;:&quot;ArenaGlory&quot;});" class="tournaments">Чемпионаты</a>
+    <a href="javascript: void(0);" onclick="rankingManager.show(&#39;hallOfFame&#39;, 0, &#39;&#39;, {&quot;round&quot;:&quot;121&quot;,&quot;type&quot;:&quot;players&quot;});" class="hallOfFame">Зал Славы</a>
+  </div>
+  <div class="menu search" style="">
+    <input type="text" class="criteria">
+    <input type="button" class="search">
+          <input type="button" class="gotoSelf players" value="Показать мою позицию">
+                  <input type="button" class="gotoSelf tournaments" value="Показать мою позицию" style="display: none;">
+      </div>
+  <div class="menu tournamentsTypeSelection" style="display: none;">
+                  <a href="javascript: void(0);" onclick="rankingManager.show(&#39;tournaments&#39;, 0, &#39;&#39;, {&quot;type&quot;:&quot;ArenaGlory&quot;});" data-type="ArenaGlory" class="type ArenaGlory competition">
+          <span class="timer" data-elapsed="381267" data-pre-comp="0" data-comp="604800" data-post-comp="0" data-pre-comp-tip="Этот чемпионат скоро начнется" data-comp-tip="Этот чемпионат в процессе">62:05:23</span>
+          <span class="name">Герои Арены</span>
+        </a>
+            </div>
+  <div class="menu tournamentsLeagueSelection" style="display: none;">
+    <a href="javascript: void(0);" onclick="new RankingTournamentRewardsPopup().show(rankingManager.getCurrentSearchCriteria().type);" class="rewardsInfoIcon"></a>
+    <input type="button" class="bronze" data-league-key="bronze" value="бронза">
+    <input type="button" class="silver" data-league-key="silver" value="Серебро">
+    <input type="button" class="gold" data-league-key="gold" value="Золото">
+  </div>
+  <div class="menu hallOfFame" style="display: none;">
+        <div class="selectRoundWrapper">
+      <select class="round">
+                  <option value="1">Раунд 1</option>
+                  <option value="2">Раунд 2</option>
+                  <option value="3">Раунд 3</option>
+                  <option value="4">Раунд 4</option>
+                  <option value="5">Раунд 5</option>
+                  <option value="6">Раунд 6</option>
+                  <option value="7">Раунд 7</option>
+                  <option value="8">Раунд 8</option>
+                  <option value="9">Раунд 9</option>
+                  <option value="10">Раунд 10</option>
+                  <option value="11">Раунд 11</option>
+                  <option value="12">Раунд 12</option>
+                  <option value="13">Раунд 13</option>
+                  <option value="14">Раунд 14</option>
+                  <option value="15">Раунд 15</option>
+                  <option value="16">Раунд 16</option>
+                  <option value="17">Раунд 17</option>
+                  <option value="18">Раунд 18</option>
+                  <option value="19">Раунд 19</option>
+                  <option value="20">Раунд 20</option>
+                  <option value="21">Раунд 21</option>
+                  <option value="22">Раунд 22</option>
+                  <option value="23">Раунд 23</option>
+                  <option value="24">Раунд 24</option>
+                  <option value="25">Раунд 25</option>
+                  <option value="26">Раунд 26</option>
+                  <option value="27">Раунд 27</option>
+                  <option value="28">Раунд 28</option>
+                  <option value="29">Раунд 29</option>
+                  <option value="30">Раунд 30</option>
+                  <option value="31">Раунд 31</option>
+                  <option value="32">Раунд 32</option>
+                  <option value="33">Раунд 33</option>
+                  <option value="34">Раунд 34</option>
+                  <option value="35">Раунд 35</option>
+                  <option value="36">Раунд 36</option>
+                  <option value="37">Раунд 37</option>
+                  <option value="38">Раунд 38</option>
+                  <option value="39">Раунд 39</option>
+                  <option value="40">Раунд 40</option>
+                  <option value="41">Раунд 41</option>
+                  <option value="42">Раунд 42</option>
+                  <option value="43">Раунд 43</option>
+                  <option value="44">Раунд 44</option>
+                  <option value="45">Раунд 45</option>
+                  <option value="46">Раунд 46</option>
+                  <option value="47">Раунд 47</option>
+                  <option value="48">Раунд 48</option>
+                  <option value="49">Раунд 49</option>
+                  <option value="50">Раунд 50</option>
+                  <option value="51">Раунд 51</option>
+                  <option value="52">Раунд 52</option>
+                  <option value="53">Раунд 53</option>
+                  <option value="54">Раунд 54</option>
+                  <option value="55">Раунд 55</option>
+                  <option value="56">Раунд 56</option>
+                  <option value="57">Раунд 57</option>
+                  <option value="58">Раунд 58</option>
+                  <option value="59">Раунд 59</option>
+                  <option value="60">Раунд 60</option>
+                  <option value="61">Раунд 61</option>
+                  <option value="62">Раунд 62</option>
+                  <option value="63">Раунд 63</option>
+                  <option value="64">Раунд 64</option>
+                  <option value="65">Раунд 65</option>
+                  <option value="66">Раунд 66</option>
+                  <option value="67">Раунд 67</option>
+                  <option value="68">Раунд 68</option>
+                  <option value="69">Раунд 69</option>
+                  <option value="70">Раунд 70</option>
+                  <option value="71">Раунд 71</option>
+                  <option value="72">Раунд 72</option>
+                  <option value="73">Раунд 73</option>
+                  <option value="74">Раунд 74</option>
+                  <option value="75">Раунд 75</option>
+                  <option value="76">Раунд 76</option>
+                  <option value="77">Раунд 77</option>
+                  <option value="78">Раунд 78</option>
+                  <option value="79">Раунд 79</option>
+                  <option value="80">Раунд 80</option>
+                  <option value="81">Раунд 81</option>
+                  <option value="82">Раунд 82</option>
+                  <option value="83">Раунд 83</option>
+                  <option value="84">Раунд 84</option>
+                  <option value="85">Раунд 85</option>
+                  <option value="86">Раунд 86</option>
+                  <option value="87">Раунд 87</option>
+                  <option value="88">Раунд 88</option>
+                  <option value="89">Раунд 89</option>
+                  <option value="90">Раунд 90</option>
+                  <option value="91">Раунд 91</option>
+                  <option value="92">Раунд 92</option>
+                  <option value="93">Раунд 93</option>
+                  <option value="94">Раунд 94</option>
+                  <option value="95">Раунд 95</option>
+                  <option value="96">Раунд 96</option>
+                  <option value="97">Раунд 97</option>
+                  <option value="98">Раунд 98</option>
+                  <option value="99">Раунд 99</option>
+                  <option value="100">Раунд 100</option>
+                  <option value="101">Раунд 101</option>
+                  <option value="102">Раунд 102</option>
+                  <option value="103">Раунд 103</option>
+                  <option value="104">Раунд 104</option>
+                  <option value="105">Раунд 105</option>
+                  <option value="106">Раунд 106</option>
+                  <option value="107">Раунд 107</option>
+                  <option value="108">Раунд 108</option>
+                  <option value="109">Раунд 109</option>
+                  <option value="110">Раунд 110</option>
+                  <option value="111">Раунд 111</option>
+                  <option value="112">Раунд 112</option>
+                  <option value="113">Раунд 113</option>
+                  <option value="114">Раунд 114</option>
+                  <option value="115">Раунд 115</option>
+                  <option value="116">Раунд 116</option>
+                  <option value="117">Раунд 117</option>
+                  <option value="118">Раунд 118</option>
+                  <option value="119">Раунд 119</option>
+                  <option value="120">Раунд 120</option>
+                  <option value="121">Раунд 121</option>
+              </select>
+        </div>
+        <div class="selectTypeWrapper">
+      <select class="type">
+        <option value="players">Игроки</option>
+        <option value="alliances">Альянсы</option>
+      </select>
+        </div>
+  </div>
+  <div class="paginationPanel" style="">
+    <div class="info">Показано 20 из 123 результатов</div>
+    <div class="controls"><div class="pagination"><span>1</span><a href="javascript:void(0);" onclick="rankingManager.showPage(1);">2</a><a href="javascript:void(0);" onclick="rankingManager.showPage(2);">3</a><a href="javascript:void(0);" onclick="rankingManager.showPage(3);">4</a><a href="javascript:void(0);" onclick="rankingManager.showPage(4);">5</a><a href="javascript:void(0);" onclick="rankingManager.showPage(5);">6</a><a href="javascript:void(0);" onclick="rankingManager.showPage(6);">7</a></div></div>
+  </div>
+  <div class="resultsPanel" style=""><table class="players">
+	<thead>
+		<tr>
+			<td class="position" onmouseover="Tip(&#39;Место&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+			</td>
+			<td class="nickname" onmouseover="Tip(&#39;Игрок&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+			</td>
+			<td class="alliance" onmouseover="Tip(&#39;Альянс&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+			</td>
+			<td class="tournamentGloryLeague" onmouseover="Tip(&#39;Лига в чемпионате &quot;Арена Героев&quot;&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+			</td>
+			<td class="achievementsPoints sortable" onclick="rankingManager.orderBy(&#39;achievements_points&#39;);" onmouseover="Tip(&#39;Очки достижений&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+				<div class="headIcon order"></div>
+			</td>
+			<td class="totalPoints sortable selected" onclick="rankingManager.orderBy(&#39;total_points&#39;);" onmouseover="Tip(&#39;Общие очки&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+				<div class="headIcon order"></div>
+			</td>
+			<td class="resourcePoints sortable" onclick="rankingManager.orderBy(&#39;resource_points&#39;);" onmouseover="Tip(&#39;Ресурсные Очки&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+				<div class="headIcon order"></div>
+			</td>
+			<td class="battlePoints sortable" onclick="rankingManager.orderBy(&#39;battle_points&#39;);" onmouseover="Tip(&#39;Боевые очки&#39;);" onmouseout="UnTip();">
+				<div class="headIcon type"></div>
+				<div class="headIcon order"></div>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+												<tr class="row result">
+	<td>1</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 5887, $(this).parents(&#39;tr.row.result&#39;));" style="color: #eff705;">- DianaScript™ ~&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>16,040</td>
+	<td>2,287,466</td>
+	<td>1,862,275</td>
+	<td>425,191</td>
+</tr>							<tr class="row result">
+	<td>2</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 32, $(this).parents(&#39;tr.row.result&#39;));" style="color: #00ff26;">elen4&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>27,095</td>
+	<td>1,658,277</td>
+	<td>1,658,277</td>
+	<td>0</td>
+</tr>							<tr class="row result">
+	<td>3</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14703, $(this).parents(&#39;tr.row.result&#39;));" style="color: #d500ff;">Tishinata&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>1,120</td>
+	<td>1,538,191</td>
+	<td>1,524,796</td>
+	<td>13,395</td>
+</tr>							<tr class="row result">
+	<td>4</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14489, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff9900;">КРЪЧМАРЯ&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>3,710</td>
+	<td>1,494,275</td>
+	<td>1,354,080</td>
+	<td>140,195</td>
+</tr>							<tr class="row result">
+	<td>5</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 9350, $(this).parents(&#39;tr.row.result&#39;));" style="color: #1c00d1;">InsanE&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, , $(this).parents(&#39;tr.row.result&#39;));" style=""></a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>9,265</td>
+	<td>1,418,012</td>
+	<td>1,413,909</td>
+	<td>4,103</td>
+</tr>							<tr class="row result">
+	<td>6</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 9673, $(this).parents(&#39;tr.row.result&#39;));" style="color: #000000;">الله اكبر&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>8,700</td>
+	<td>1,357,105</td>
+	<td>1,357,104</td>
+	<td>1</td>
+</tr>							<tr class="row result">
+	<td>7</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14839, $(this).parents(&#39;tr.row.result&#39;));" style="">VENOMOUS&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>1,360</td>
+	<td>720,364</td>
+	<td>662,635</td>
+	<td>57,729</td>
+</tr>							<tr class="row result">
+	<td>8</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 248, $(this).parents(&#39;tr.row.result&#39;));" style="color: #0f0301;">goblin11111&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>45,110</td>
+	<td>537,424</td>
+	<td>522,566</td>
+	<td>14,858</td>
+</tr>							<tr class="row result">
+	<td>9</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 13697, $(this).parents(&#39;tr.row.result&#39;));" style="color: #3ff555;">Iddqd&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 1, $(this).parents(&#39;tr.row.result&#39;));" style="color: #fa00a3;">Pegasus Team</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>3,630</td>
+	<td>511,083</td>
+	<td>477,188</td>
+	<td>33,895</td>
+</tr>							<tr class="row result">
+	<td>10</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14876, $(this).parents(&#39;tr.row.result&#39;));" style="">Nab01&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>505</td>
+	<td>372,848</td>
+	<td>372,663</td>
+	<td>185</td>
+</tr>							<tr class="row result">
+	<td>11</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 19, $(this).parents(&#39;tr.row.result&#39;));" style="color: #000000;">VirginsHunter&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 19, $(this).parents(&#39;tr.row.result&#39;));" style="">******</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>72,585</td>
+	<td>352,503</td>
+	<td>320,608</td>
+	<td>31,895</td>
+</tr>							<tr class="row result">
+	<td>12</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14631, $(this).parents(&#39;tr.row.result&#39;));" style="">Adelardo&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 1, $(this).parents(&#39;tr.row.result&#39;));" style="color: #fa00a3;">Pegasus Team</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>1,855</td>
+	<td>306,454</td>
+	<td>283,943</td>
+	<td>22,511</td>
+</tr>							<tr class="row result">
+	<td>13</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 8485, $(this).parents(&#39;tr.row.result&#39;));" style="color: #01b537;">Zordon™®ⓒ&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 1, $(this).parents(&#39;tr.row.result&#39;));" style="color: #fa00a3;">Pegasus Team</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>17,505</td>
+	<td>301,721</td>
+	<td>286,209</td>
+	<td>15,512</td>
+</tr>							<tr class="row result">
+	<td>14</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 6063, $(this).parents(&#39;tr.row.result&#39;));" style="color: #00ff00;">balyas&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, , $(this).parents(&#39;tr.row.result&#39;));" style=""></a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>30,385</td>
+	<td>295,423</td>
+	<td>285,624</td>
+	<td>9,799</td>
+</tr>							<tr class="row result">
+	<td>15</td>
+	<td>
+		<div class="bodyIcon race_3" onmouseover="Tip(&#39;Нокс&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 12843, $(this).parents(&#39;tr.row.result&#39;));" style="color: #00d5ff;">aullido&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 3, $(this).parents(&#39;tr.row.result&#39;));" style="color: #ff00e1;">ANIMAL PLANET</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>9,745</td>
+	<td>263,541</td>
+	<td>241,549</td>
+	<td>21,992</td>
+</tr>							<tr class="row result">
+	<td>16</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 13911, $(this).parents(&#39;tr.row.result&#39;));" style="">Bobys&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 1, $(this).parents(&#39;tr.row.result&#39;));" style="color: #fa00a3;">Pegasus Team</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>4,275</td>
+	<td>173,617</td>
+	<td>146,701</td>
+	<td>26,916</td>
+</tr>							<tr class="row result">
+	<td>17</td>
+	<td>
+		<div class="bodyIcon race_1" onmouseover="Tip(&#39;Конфедерация&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 105, $(this).parents(&#39;tr.row.result&#39;));" style="">himmel&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, , $(this).parents(&#39;tr.row.result&#39;));" style=""></a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>38,085</td>
+	<td>173,033</td>
+	<td>169,923</td>
+	<td>3,110</td>
+</tr>							<tr class="row result">
+	<td>18</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14698, $(this).parents(&#39;tr.row.result&#39;));" style="">-stata-&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, , $(this).parents(&#39;tr.row.result&#39;));" style=""></a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>375</td>
+	<td>164,024</td>
+	<td>141,103</td>
+	<td>22,921</td>
+</tr>							<tr class="row result">
+	<td>19</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 10354, $(this).parents(&#39;tr.row.result&#39;));" style="">joma seku&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 1, $(this).parents(&#39;tr.row.result&#39;));" style="color: #fa00a3;">Pegasus Team</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>11,450</td>
+	<td>159,947</td>
+	<td>157,358</td>
+	<td>2,589</td>
+</tr>							<tr class="row result">
+	<td>20</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 12811, $(this).parents(&#39;tr.row.result&#39;));" style="">DARIUSČŠ&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, 19, $(this).parents(&#39;tr.row.result&#39;));" style="">******</a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>9,420</td>
+	<td>151,788</td>
+	<td>148,810</td>
+	<td>2,978</td>
+</tr>										<tr>
+					<td colspan="8">...</td>
+				</tr>
+				<tr class="row result self">
+	<td>49</td>
+	<td>
+		<div class="bodyIcon race_2" onmouseover="Tip(&#39;Тертеты&#39;);" onmouseout="UnTip();"></div>
+						<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;player&#39;, 14764, $(this).parents(&#39;tr.row.result&#39;));" style="color: #14ff14;">Dendrilion&nbsp;</a>
+	</td>
+	<td>
+										<a href="javascript:void(0);" onclick="rankingManager.showRowInfo(&#39;alliance&#39;, , $(this).parents(&#39;tr.row.result&#39;));" style=""></a>
+	</td>
+	<td>
+		<div class="bodyIcon league bronze" onmouseover="Tip(&#39;Бронзовая&#39;);" onmouseout="UnTip();"></div>
+	</td>
+	<td>1,010</td>
+	<td>11,704</td>
+	<td>11,549</td>
+	<td>155</td>
+</tr>						</tbody>
+</table></div>
+  <div class="paginationPanel" style="">
+    <div class="info">Показано 20 из 123 результатов</div>
+    <div class="controls"><div class="pagination"><span>1</span><a href="javascript:void(0);" onclick="rankingManager.showPage(1);">2</a><a href="javascript:void(0);" onclick="rankingManager.showPage(2);">3</a><a href="javascript:void(0);" onclick="rankingManager.showPage(3);">4</a><a href="javascript:void(0);" onclick="rankingManager.showPage(4);">5</a><a href="javascript:void(0);" onclick="rankingManager.showPage(5);">6</a><a href="javascript:void(0);" onclick="rankingManager.showPage(6);">7</a></div></div>
+  </div>
+  <div class="message information" style="">
+    <div class="sub">
+      <h2>Рейтинг игроков</h2>
+      <p><ul>	<li>Очки достижений зарабатываются выполнением Достижений. Очки достижений не сбрасываются при обнулении аккаунта или окончании раунда</li>	<li>Общие очки это сумма ресурсных и боевых очков.</li>	<li>Ресурсные очки зарабатываются путем траты ресурсов. Игрок получает 1 ресурсное очко за каждую 1,000 потраченных ресурсов.</li>	<li>Боевые очки зарабатываются в битвах. Количество получаемых боевых очков определяется количеством потерянных оппонентом ресурсных очков.</li></ul></p>
+    </div>
+  </div>
+    <div class="boxBottom"></div>
+</div>
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+      rankingManager = new RankingManager();
+      rankingManager.init();
+      rankingManager.show('players', 0, 'total_points', []);
+
+      $('.tournamentsTypeSelection a').each(function () {
+        var timer = new RankingTournamentTimer($(this).attr('data-type'));
+        timer.init().start();
+      });
+    });
+  
+</script>
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 89.9659px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

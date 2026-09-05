@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)https://game.ares.nemexia.com/zone_industry.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Здания</title>
+
+  
+
+  <link href="./page_2026-09-05_23-39-45_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-09-05_23-39-45_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_2.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-09-05_23-39-45_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-GZOMOo9O/ounJvR2TNpoloQ7l9CFkeRUBwtwh7YwOUesk0Ry333H6x0WAv3NTh2W"></script><script type="text/javascript" src="./page_2026-09-05_23-39-45_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-09-05_23-39-45_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-2" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '2';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 104456;
+        PLAYER['max_metal'] = 6141298;
+        PLAYER['crystal']   = 475109;
+        PLAYER['max_crystal'] = 4643563;
+        PLAYER['gas']       = 74753;
+        PLAYER['max_gas']   = 2724030;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 136;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 2;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 952;
+        PLAYER['phase']     = 14;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '104,456';
+        PLAYER['maxMetalFormat'] = '6,141,298';
+        PLAYER['crystalFormat'] = '475,109';
+        PLAYER['maxCrystalFormat'] = '4,643,563';
+        PLAYER['gasFormat'] = '74,753';
+        PLAYER['maxGasFormat'] = '2,724,030';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 5410;
+		PLAYER['ozone_loss'] = 2420;
+		PLAYER['ozone_gain'] = 2500;
+
+		PLAYER['battle_points'] = 155;
+		PLAYER['admiral_current_level'] = 6;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 140;
+		PLAYER['admiral_next_level_battle_points'] = 210;
+		PLAYER['admiral_level_up_battle_points'] = 55;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/zone_industry.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 7704;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fzone_industry.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('September 05, 2026 22:39:43');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-09-05_23-39-45_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-09-05_23-39-45_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-09-05_23-39-45_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.ares.nemexia.com/zone_industry.php#"><img border="0" width="12px" src="./page_2026-09-05_23-39-45_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-09-05_23-39-45_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.ares.nemexia.com/zone_industry.php#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.ares.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">22:39:49</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_133.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill40">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.ares.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.ares.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.ares.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.ares.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/admiral/race2/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill20">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.ares.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			104,456
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			475,109
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			74,753
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			136
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				2
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Lemay <span>[2:32:7]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.ares.nemexia.com/change_planet.php?id=557" onclick="delete($.post);">
+						<img src="./page_2026-09-05_23-39-45_files/planet_133.png" width="18" id="planetListImg-557">
+						Lemay <span>[2:32:7]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.ares.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.ares.nemexia.com/fleets.php">Полеты</a>
+													<a class="repairNotification" href="https://game.ares.nemexia.com/repair_center.php"></a>
+							</li>
+			<li class="galaxy"><a href="https://game.ares.nemexia.com/galaxy.php?galaxy=2&amp;solar=32">Галактика</a></li>
+			<li class="alliance"><a href="https://game.ares.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.ares.nemexia.com/options.php">Личные</a>
+							</li>
+			<li class="ranking"><a href="https://game.ares.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.ares.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip(&#39;Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-10-06 10:39:45.&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">952</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">130</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.ares.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.ares.nemexia.com/laboratory.php">Экспериментальный центр</a></li>
+<li><a href="https://game.ares.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.ares.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.ares.nemexia.com/recyclingPlant.php">Свалка</a></li>
+<li><a href="https://game.ares.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.ares.nemexia.com/factory.php">Конструкцион</a></li>
+<li><a href="https://game.ares.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.ares.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.ares.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-09-05_23-39-45_files/buildings_dimentios.js"></script>
+<script type="text/javascript">
+    var playerBuildings = new Array({'id': 11, 'race_id': 2, 'left': 61, 'top': 175, 'width': 214, 'height': 109, 'pos_left': 63, 'pos_top': 205, 'pos_width': 174, 'pos_height': 77},{'id': 13, 'race_id': 2, 'left': 236, 'top': 75, 'width': 174, 'height': 104, 'pos_left': 243, 'pos_top': 102, 'pos_width': 145, 'pos_height': 75},{'id': 14, 'race_id': 2, 'left': 445, 'top': 67, 'width': 167, 'height': 119, 'pos_left': 445, 'pos_top': 97, 'pos_width': 140, 'pos_height': 86},{'id': 15, 'race_id': 2, 'left': 551, 'top': 146, 'width': 169, 'height': 144, 'pos_left': 553, 'pos_top': 216, 'pos_width': 128, 'pos_height': 57},{'id': 17, 'race_id': 2, 'left': 473, 'top': 238, 'width': 211, 'height': 172, 'pos_left': 473, 'pos_top': 298, 'pos_width': 154, 'pos_height': 110});
+    
+    var BuildingsInfo = new Array();
+BuildingsInfo[11]={'name': 'Конструкцион','desc': 'Уменьшение времени строительства зданий.', 'race_id': 2, 'max_level': 20, 'current_level': 18};
+BuildingsInfo[12] = {'name': 'Фабрика для тертетов','desc': 'Уменьшение времени строительства юнитов','race_id': 2,'max_level': 5, 'current_level': 0};
+BuildingsInfo[13]={'name': 'Трезор для металла','desc': 'Хранилище Металла', 'race_id': 2, 'max_level': 20, 'current_level': 10};
+BuildingsInfo[14]={'name': 'Сокровищница минералов','desc': 'Хранилище Минералов', 'race_id': 2, 'max_level': 20, 'current_level': 10};
+BuildingsInfo[15]={'name': 'Газовая палата','desc': 'Хранилище Газа', 'race_id': 2, 'max_level': 20, 'current_level': 8};
+BuildingsInfo[16] = {'name': 'Свалка','desc': 'Трансформация Обломков в ресурсы','race_id': 2,'max_level': 10, 'current_level': 0};
+BuildingsInfo[17]={'name': 'Торговый центр','desc': 'Торговля ресурсами', 'race_id': 2, 'max_level': 10, 'current_level': 1};
+
+    var type_zone = 2;
+    var TMP_RACE_ID = 2;
+    var TitleArray = new Array("","","","","","","","","","","","","","","","","","","","","","","","");
+    var LangStrings = new Array();
+    LangString={
+			    locationError: 'Вы не можете строить на этоме месте.',
+			    CurrentLevel: 'Текущий уровень',
+			    MaxLevel: 'Макс. уровень',
+			    NextLevel: 'Следующий уровень',
+			    CurrentIncome: 'Текущий доход',
+			    BuildingNextLevel: 'Постройте следующий уровень',
+			    NeededMetal: 'Необходимый металл',
+			    NeededCrystal: 'Необходимые минералы',
+			    NeededGas: 'Необходимый газ',
+			    NeededEnergy: 'Необходимая энергия',
+			    BuildLevel: 'Постройте уровень',
+			    PerHour: 'в час',
+			    Move: 'Переместить',
+			    Cancel: 'Отмена',
+			    GoTo: 'Вход &gt;&gt;',
+			    Desrtoy: 'Разрушить 1 уровень',
+			    DesrtoyConfirm: 'Вы уверены что хотите уничтожить 1 уровень здания?  50-80% из затраченных ресурсов будут возвращены, а все очки ресурсов за этот уровень потеряны.', 
+			    Close: 'закрыть',
+			    DBClickTip: 'Двойной клик для изначальной позиции'
+			    };
+	CountDown();
+	 
+</script>
+
+
+<div class="pageSubnavigation">
+	<div id="disableLeftMenu" style="display:none;width: 254px; height: 500px; position: absolute; z-index: 5;"></div>
+    <div class="title">Промышленная зона</div>
+
+    <div class="sub">
+    
+
+    <span id="toolTipHandler"></span>
+    
+    <dl id="buildingsList" class="race2">
+                        
+            <dd id="11" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_211.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+        	</dd>
+                                
+            <dd id="12" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_212.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+        	</dd>
+                                
+            <dd id="13" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_213.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+        	</dd>
+                                
+            <dd id="14" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_214.jpg&#39;);" onclick="next_level(14);" ondblclick="next_level(14)">
+        	</dd>
+                                
+            <dd id="15" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_215.jpg&#39;);" onclick="next_level(15);" ondblclick="next_level(15)">
+        	</dd>
+                                
+            <dd id="16" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_216.jpg&#39;);opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50);cursor: default;">
+        	</dd>
+                                
+            <dd id="17" style="background-image: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/race2/thumb_217.jpg&#39;);" onclick="next_level(17);" ondblclick="next_level(17)">
+        	</dd>
+                                	                    </dl>
+    
+    </div>
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>    
+</div>
+
+<div id="contentWrapper">
+
+		<script type="text/javascript">
+	TimersGlobalQueue = new Array();
+	GlobalQueueCountTimers = 0;
+</script>
+<div id="queueBar">
+	<div id="queueBarOpen" style="">
+		<a href="javascript:void(0);" onclick="globalQueueHide();" class="hideQueueBar"></a>
+		<div class="queItemHolder"><div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_resource.php" onmouseover="Tip(&#39;Зона ресурсов&#39;)" onmouseout="UnTip();">
+		<span class="resource"></span>
+		<span class="queItemTime" id="gql_ZoneResource">01:25:50</span>
+	</a>
+			<script type="text/javascript">
+			TimersGlobalQueue[GlobalQueueCountTimers++] = new Array('gql_ZoneResource', 5154, 'globalQueueLoad()');
+		</script>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;)" onmouseout="UnTip();">
+		<span class="industry"></span>
+        <span class="queItemTime" id="gql_ZoneIndustry">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;)" onmouseout="UnTip();">
+		<span class="military"></span>
+        <span class="queItemTime" id="gql_ZoneMilitary">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/laboratory.php" onmouseover="Tip(&#39;Науки&#39;)" onmouseout="UnTip();">
+		<span class="laboratory"></span>
+        <span class="queItemTime" id="gql_Sciences">00:34:37</span>
+	</a>
+			<script type="text/javascript">
+			TimersGlobalQueue[GlobalQueueCountTimers++] = new Array('gql_Sciences', 2081, 'globalQueueLoad()');
+		</script>
+	</div><!--.queueItem-->
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/ships.php" onmouseover="Tip(&#39;Корабли&#39;)" onmouseout="UnTip();">
+		<span class="ships"></span>
+        <span class="queItemTime" id="gql_Ships">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+
+
+<div class="queueItem">
+	<a class="queItemInfo" href="https://game.ares.nemexia.com/ship_upgrade.php" onmouseover="Tip(&#39;Усовершенствования&#39;)" onmouseout="UnTip();">
+		<span class="upgrades"></span>
+        <span class="queItemTime" id="gql_Upgrades">Готово</span>
+	</a>
+	</div><!--.queueItem-->
+<!-- zlib compression level 1 --></div>
+	</div>
+	<div id="queueBarClose" style="display: none;">
+		<a href="javascript:void(0);" onclick="globalQueueShow();" class="showQueueBar"></a><span>Текущие процессы</span>
+	</div><!--#queueBarClose-->
+</div><!--#queueBar-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var showGlobalQueueStatus = readCookie('GlobalQueueBar');
+	if(showGlobalQueueStatus == null) {
+		createCookie('GlobalQueueBar', 1, 30);
+		showGlobalQueueStatus = 1;
+	}
+
+	if(showGlobalQueueStatus == 1) {
+		globalQueueShow();
+	} else {
+		globalQueueHide();
+	}
+
+	globalQueueTimers();
+});
+</script>
+
+	
+    <div id="drawArea" name="drawArea" onclick="map_click()" class="terrain" style="background: url(&#39;https://static.nemexia.com/ares/img/v2.0/img/buildings/terrain/2_zone_industry.png&#39;) no-repeat;">
+	    <div id="playerB-11" style="width:214px;height:109px;position:absolute;left:61px;top:175px;z-index:284">
+		<div id="BuildingImageHolder-11"> 
+        <img src="./page_2026-09-05_23-39-45_files/211-2.png" border="0" usemap="#Map11-2">
+		</div>
+		<map name="Map11-1" id="Map11-1"><area shape="poly" coords="2,88,9,70,15,62,15,32,40,25,48,26,78,14,88,13,101,20,110,32,113,42,116,70,128,77,126,85,130,92,102,106,86,97,73,102,50,91,25,93,8,92" href="javascript:void(0)" onmouseover="SmallToolTip(11)" onmouseout="UnTip()" onclick="next_level(11)"></map>
+						 <map name="Map11-2" id="Map11-2"><area shape="poly" coords="15,33,15,60,4,81,2,89,10,93,30,94,50,91,78,108,93,108,102,105,132,92,138,94,155,83,163,84,176,74,175,44,171,28,164,19,97,0,93,2,93,5,77,8,67,14,61,21,48,26,40,25" href="javascript:void(0)" onmouseover="SmallToolTip(11)" onmouseout="UnTip()" onclick="next_level(11)"></map>
+		<div id="BuildingTimerHolder-11"></div></div>
+<div id="playerB-13" style="width:174px;height:104px;position:absolute;left:236px;top:75px;z-index:179">
+		<div id="BuildingImageHolder-13"> 
+        <img src="./page_2026-09-05_23-39-45_files/213-1.png" border="0" usemap="#Map13-1">
+		</div>
+		<map name="Map13-1" id="Map13-1"><area shape="poly" coords="6,66,6,89,18,90,19,94,25,94,28,91,58,95,58,97,78,99,79,96,103,98,103,102,112,102,114,99,125,100,127,94,136,94,137,88,136,83,143,81,142,71,146,70,148,65,147,61,153,60,153,51,147,33,141,33,133,24,124,18,109,9,97,6,83,5,71,5,57,9,47,15,36,23,26,33,21,42,16,52,11,61" href="javascript:void(0)" onmouseover="SmallToolTip(13)" onmouseout="UnTip()" onclick="next_level(13)"></map>
+						 <map name="Map13-2" id="Map13-2"><area shape="poly" coords="6,66,6,89,18,90,19,94,25,94,28,91,58,95,58,97,78,99,79,96,103,98,103,102,112,102,114,99,125,100,127,94,136,94,137,88,136,83,143,81,142,71,146,70,148,65,147,61,153,60,153,51,147,33,141,33,133,24,124,18,109,9,97,6,83,5,71,5,55,11,47,5,40,11,43,16,36,23,26,33,21,42,16,52,11,61" href="javascript:void(0)" onmouseover="SmallToolTip(13)" onmouseout="UnTip()" onclick="next_level(13)"></map>
+		<div id="BuildingTimerHolder-13"></div></div>
+<div id="playerB-14" style="width:167px;height:119px;position:absolute;left:445px;top:67px;z-index:186">
+		<div id="BuildingImageHolder-14"> 
+        <img src="./page_2026-09-05_23-39-45_files/214-1.png" border="0" usemap="#Map14-1">
+		</div>
+		<map name="Map14-1" id="Map14-1"><area shape="poly" coords="2,43,4,48,4,60,0,74,1,80,11,80,10,90,24,90,28,95,33,93,54,117,107,100,115,103,120,101,120,93,124,92,128,96,137,97,140,94,140,84,137,76,137,65,139,63,137,58,135,52,130,41,119,26,106,17,93,11,80,8,63,7,47,10,27,18,14,30" href="javascript:void(0)" onmouseover="SmallToolTip(14)" onmouseout="UnTip()" onclick="next_level(14)"></map>
+		<div id="BuildingTimerHolder-14"></div></div>
+<div id="playerB-15" style="width:169px;height:144px;position:absolute;left:551px;top:146px;z-index:290">
+		<div id="BuildingImageHolder-15"> 
+        <img src="./page_2026-09-05_23-39-45_files/215-1.png" border="0" usemap="#Map15-1">
+		</div>
+		<map name="Map15-1" id="Map15-1"><area shape="poly" coords="3,18,3,92,1,93,1,106,5,113,10,111,32,115,34,121,43,117,65,123,67,128,75,125,82,126,91,117,99,117,100,110,123,110,129,106,132,101,130,93,123,75,117,63,110,57,102,54,102,15,99,10,94,14,94,28,90,31,85,23,77,17,70,16,70,6,62,9,62,17,56,21,47,14,44,13,44,2,36,4,36,12,29,13,22,16,20,20,20,10,9,10,9,18" href="javascript:void(0)" onmouseover="SmallToolTip(15)" onmouseout="UnTip()" onclick="next_level(15)"></map>
+		<div id="BuildingTimerHolder-15"></div></div>
+<div id="playerB-17" style="width:211px;height:172px;position:absolute;left:473px;top:238px;z-index:410">
+		<div id="BuildingImageHolder-17"> 
+        <img src="./page_2026-09-05_23-39-45_files/217-1.png" border="0" usemap="#Map17-1">
+		</div>
+		<map name="Map17-1" id="Map17-1"><area shape="poly" coords="14,54,14,72,2,75,2,119,32,154,71,154,142,124,152,115,153,102,148,87,139,75,125,65,110,61,105,61,88,49,72,46,48,48" href="javascript:void(0)" onmouseover="SmallToolTip(17)" onmouseout="UnTip()" onclick="next_level(17)"></map>
+						 <map name="Map17-2" id="Map17-2"><area shape="poly" coords="14,53,14,72,2,76,2,119,22,142,22,159,32,168,46,170,65,168,77,160,84,151,148,121,153,114,154,103,147,83,134,70,120,63,111,61,105,61,95,54,84,49,72,46,65,46,59,14,53,1,47,0,42,9,39,20,36,33,35,48,35,51" href="javascript:void(0)" onmouseover="SmallToolTip(17)" onmouseout="UnTip()" onclick="next_level(17)"></map>
+		<div id="BuildingTimerHolder-17"></div></div>
+
+	    <div id="cursor" name="cursor" style="display:none;left: 0;top: 0;position:absolute;z-index:10000;"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="./page_2026-09-05_23-39-45_files/buildings.js"></script>
+<script type="text/javascript" src="./page_2026-09-05_23-39-45_files/processesBooster.js"></script>
+
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 89.9659px; left: 655.909px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1032.91px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+</body></html>

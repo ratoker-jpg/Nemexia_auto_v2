@@ -1,0 +1,1068 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)https://game.horus.nemexia.com/advanced_search.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Продвинутый поиск</title>
+
+  
+
+  <link href="./page_2026-07-26_00-54-56_files/jquery.pnotify.default.css" rel="stylesheet" type="text/css">
+  <link href="./page_2026-07-26_00-54-56_files/layout.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/horus/img/race_icon_2.ico">
+  
+  
+  
+      
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="./page_2026-07-26_00-54-56_files/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-pe7Urw0O6UldFj7/kpENHcMoJqyFG1LTn/jG/lQGkgZVAZIpQYjd9+pcXEI3+VpL"></script><script type="text/javascript" src="./page_2026-07-26_00-54-56_files/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/sprintf.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/misc.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/tutorialArrow.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/activityRewards.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/actionsQueue.js"></script>
+  <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/treasureHunting.js"></script>
+
+  <script src="./page_2026-07-26_00-54-56_files/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-2" class=""><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '2';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 111805;
+        PLAYER['max_metal'] = 150000;
+        PLAYER['crystal']   = 61879;
+        PLAYER['max_crystal'] = 150000;
+        PLAYER['gas']       = 34017;
+        PLAYER['max_gas']   = 230040;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 728;
+        PLAYER['pop']       = 120;
+        PLAYER['pop_used']  = 52;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 400;
+        PLAYER['phase']     = 3;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '111,805';
+        PLAYER['maxMetalFormat'] = '150,000';
+        PLAYER['crystalFormat'] = '61,879';
+        PLAYER['maxCrystalFormat'] = '150,000';
+        PLAYER['gasFormat'] = '34,017';
+        PLAYER['maxGasFormat'] = '230,040';
+        PLAYER['popFormat'] = '120';
+
+		PLAYER['ozone'] = 12910;
+		PLAYER['ozone_loss'] = 310;
+		PLAYER['ozone_gain'] = 0;
+
+		PLAYER['battle_points'] = 0;
+		PLAYER['admiral_current_level'] = 0;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 0;
+		PLAYER['admiral_next_level_battle_points'] = 10;
+		PLAYER['admiral_level_up_battle_points'] = 10;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/advanced_search.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10379;
+    var URL_REDIRECT = 'bot_check.php?redir=%2Fadvanced_search.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('July 25, 2026 23:54:39');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/horus/1/index/index/21994/bd12f72f32c89549045f39badefaa7252df45c2c48efeaf06728dbb182bc8328/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/horus/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="./page_2026-07-26_00-54-56_files/promotions.js"></script>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="./page_2026-07-26_00-54-56_files/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="./page_2026-07-26_00-54-56_files/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="https://game.horus.nemexia.com/advanced_search.php#"><img border="0" width="12px" src="./page_2026-07-26_00-54-56_files/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;ar&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;bg&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;br&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;cz&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;de&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/de.png">German</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;es&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;en&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/en.png">English</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;fr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;gr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;hr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;hu&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;it&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;ir&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;pl&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;lt&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;ro&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;ru&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;sk&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="changeLanguage(&#39;tr&#39;);
+					return false;"><img border="0" width="12" src="./page_2026-07-26_00-54-56_files/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="https://game.horus.nemexia.com/advanced_search.php#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilik</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="https://game.horus.nemexia.com/logout.php" class="logout" onmouseover="Tip(&#39;Выход&#39;);" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">23:55:01</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url(&#39;../img/v2.0/img/planets/top/planet_23.png&#39;)">
+				<div id="ozoneStatusWidget" class="fill90">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup(&#39;subtabOzonePurchase&#39;);" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="https://game.horus.nemexia.com/zone_resource.php?race=1" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="https://game.horus.nemexia.com/zone_resource.php?race=2" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="https://game.horus.nemexia.com/zone_resource.php?race=3" onmouseover="Tip(&#39;Зона ресурсов&#39;);" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="https://game.horus.nemexia.com/zone_galaxy.php" onmouseover="Tip(&#39;Галактическая зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="https://game.horus.nemexia.com/zone_industry.php" onmouseover="Tip(&#39;Промышленная зона&#39;);" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="https://game.horus.nemexia.com/zone_military.php" onmouseover="Tip(&#39;Военная зона&#39;);" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = &#39;admiral.php?tabId=tabStats&#39;" class="admiral" id="admiral" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/admiral/race2/header/1.png&#39;);">
+				<div id="admiralLevelProgressWidget" class="fill0">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="https://game.horus.nemexia.com/admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip(&#39;Характеристики&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip(&#39;Навыки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip(&#39;Ежедневные подарки&#39;)" onmouseout="UnTip();"></a>
+			<a href="https://game.horus.nemexia.com/arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip(&#39;Металл&lt;br&gt;&#39; + PLAYER[&#39;metalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxMetalFormat&#39;]);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			111,805
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Минералы&lt;br&gt;&#39; + PLAYER[&#39;crystalFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxCrystalFormat&#39;]);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			61,879
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Газ&lt;br&gt;&#39; + PLAYER[&#39;gasFormat&#39;] + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;maxGasFormat&#39;]);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			34,017
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip(&#39;Энергия&#39;);" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = &#39;/resourceInfo.php?show=gathering&#39;;">
+			728
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip(&#39;Ангар&lt;br&gt;&#39; + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + &#39;/&lt;br&gt;&#39; + PLAYER[&#39;popFormat&#39;]);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = &#39;/resourceInfo.php?show=storages&#39;;">
+			<span id="resourceBoxHangarShips">
+				52
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip(&#39;Обломки&#39;);" onmouseout="UnTip();" onclick="window.location.href = &#39;/recyclingPlant.php&#39;;">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $(&#39;#planetsListHolder&#39;).slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/planets/icon/planet_23.png&#39;);"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>Goffin <span>[2:27:3]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="https://game.horus.nemexia.com/change_planet.php?id=895" onclick="delete($.post);">
+						<img src="./page_2026-07-26_00-54-56_files/planet_23.png" width="18" id="planetListImg-895">
+						Goffin <span>[2:27:3]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="https://game.horus.nemexia.com/planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="https://game.horus.nemexia.com/fleets.php">Полеты</a>
+											</li>
+			<li class="galaxy"><a href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=27">Галактика</a></li>
+			<li class="alliance"><a href="https://game.horus.nemexia.com/alliance.php">Союз</a></li>
+			<li class="personal"><a href="https://game.horus.nemexia.com/options.php">Личные</a>
+							</li>
+			<li class="ranking"><a href="https://game.horus.nemexia.com/ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url(&#39;https://static.nemexia.com/horus/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png&#39;);"></div>
+				<a href="https://game.horus.nemexia.com/ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" onmouseover="Tip(&#39;Премиум&#39;);" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">400</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" onmouseover="Tip(&#39;Платинум&#39;);" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">10</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip(&#39;Изменение интерфейса&#39;);" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display:none;">
+        <div class="title"><a href="https://game.horus.nemexia.com/options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="https://game.horus.nemexia.com/laboratory.php">Экспериментальный центр</a></li>
+<li><a href="https://game.horus.nemexia.com/ships.php">Верфь</a></li>
+<li><a href="https://game.horus.nemexia.com/ship_upgrade.php">Космодром</a></li>
+<li><a href="https://game.horus.nemexia.com/recyclingPlant.php">Свалка</a></li>
+<li><a href="https://game.horus.nemexia.com/resource_trader.php">Торговый центр</a></li>
+<li><a href="https://game.horus.nemexia.com/factory.php">Конструкцион</a></li>
+<li><a href="https://game.horus.nemexia.com/auction.php">Аукцион</a></li>
+<li><a href="https://game.horus.nemexia.com/bank.php">Банк</a></li>
+<li><a href="https://game.horus.nemexia.com/technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display: block;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="./page_2026-07-26_00-54-56_files/advanced_search.js"></script>
+
+<div class="pageSubnavigation" id="buildingInfo">
+	<div class="title">Продвинутый поиск</div>
+	<div class="sub">
+        <ul class="menu">
+			<li><a href="javascript:void(0);" onclick="showTab(&#39;nameSearchTab&#39;);">Поиск по имени/союзу</a></li>
+							<li><a href="javascript:void(0);" onclick="showTab(&#39;pointsSearchTab&#39;);">Поиск по очкам/координатам</a></li>
+			        </ul>
+			</div>
+	<div class="pageSubnavigationBottom"></div>
+	<div class="ornamentsTop"></div>
+	<div class="ornamentsBot"></div>
+</div>
+
+
+<div id="contentWrapper">
+
+		
+	<div id="mainFrame">
+
+		<div id="nameSearchTab" style="display: none;">
+			<h1>Продвинутый поиск по имени</h1>
+			<div class="box" id="nameSearchTabBox">
+				<div class="boxBottom"></div>
+				<div class="formbox">
+					<form method="POST" id="nameSearchForm" onsubmit="return searchByName();">
+						<div class="row">
+							<label> Имя </label>
+							<input type="text" id="txt_nameSearch" name="name" value="">
+							<select name="name_type" id="" style="width: 100px;">
+								<option value="player"> Игрок </option>
+								<option value="planet"> Планета </option>
+								<option value="alliance"> Союз </option>
+								<option value="team"> Командная планета </option>
+							</select>
+						</div>
+
+						<div class="buttonrow">
+							<input type="submit" name="" value="Поиск">
+						</div>
+					</form>
+				</div>
+
+			</div>
+			<div class="box" id="nameResultsBox" style="display:none;">
+				<div class="boxBottom"></div>
+				<div id="nameResults"> </div>
+			</div>
+		</div>
+
+					<div id="pointsSearchTab" style="">
+				<h1>Продвинутый поиск по координатам</h1>
+				<div class="box" id="pointsSearchTabBox">
+					<div class="boxBottom"></div>
+					<div class="formbox">
+						<form method="POST" id="pointsSearchForm" onsubmit="return searchByPoints();">
+							<div class="row">
+								<label>Вид очков</label>
+								<select name="points_type" id="points_type" onchange="setPredefinedPoints({resource: {min: 0, max: 503}, total: {min: 126, max: 504}})">
+									<option value="resource">Ресурс</option>
+									<option value="total">Всего</option>
+								</select>
+							</div>
+							<div class="row">
+																	<label>очки от</label>
+									<input type="text" id="txt_points_down" name="points_down" value="0">
+															</div>
+							<div class="row">
+								<label>очки до</label>
+								<input type="text" id="txt_points_up" name="points_up" value="503">
+							</div>
+
+							<div class="row">
+								<label>Координаты от </label>
+								<input type="text" id="txt_c1_down" name="c1_down" value="2" size="2">
+								<input type="text" id="txt_c2_down" name="c2_down" value="1" size="2">
+								<input type="text" id="txt_c3_down" name="c3_down" value="1" size="2">
+							</div>
+							<div class="row">
+								<label>Координаты до</label>
+								<input type="text" id="txt_c1_up" name="c1_up" value="2" size="2">
+								<input type="text" id="txt_c2_up" name="c2_up" value="40" size="2">
+								<input type="text" id="txt_c3_up" name="c3_up" value="24" size="2">
+							</div>
+							<div class="row">
+								<label for="ck_vacation">Показать игроков в режиме отдыха</label>
+								<input type="checkbox" id="ck_vacation" name="vacation" value="1">
+							</div>
+							<div class="row">
+								<label for="ck_alliance">Показать игроков моего Союза</label>
+								<input type="checkbox" id="ck_alliance" name="alliance" value="1">
+							</div>
+
+							<div class="buttonrow">
+								<input type="submit" name="" value="Поиск">
+							</div>
+						</form>
+					</div>
+
+				</div>
+				<div class="box" id="pointsResultsBox" style="">
+					<div class="boxBottom"></div>
+					<div id="pointsResults"><div class="pagination">Страница <span>1</span> выходит за пределы <span>3</span></div><table width="100%"><thead><tr><th>#</th><th>Игрок (Координаты)</th><th>Союз</th><th>Очки</th><th>Активность</th><th>Опции</th></tr></thead><tbody><tr>
+		            <td>1</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21941">KAMIKAZE TEAM³</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=1">(2:1:3)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>87</td>
+		            <td> inactive 2026-06-29 18:42:10</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=1&amp;c3=3"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>2</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=19668">Tankadinko</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=1">(2:1:16)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>74</td>
+		            <td> inactive 2026-07-05 17:29:58</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=1&amp;c3=16"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>3</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=22001">fahd11</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=2">(2:2:11)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td>2026-07-23 20:07:32</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=2&amp;c3=11"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>4</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21989">igorborandaa</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=2">(2:2:13)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>192</td>
+		            <td> inactive 2026-07-16 17:24:13</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=2&amp;c3=13"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>5</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21114">flyover</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=2">(2:2:18)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-12-01 22:23:59</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=2&amp;c3=18"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>6</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21977">القاتل</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=2">(2:2:19)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>75</td>
+		            <td> inactive 2026-07-07 01:14:57</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=2&amp;c3=19"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>7</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20133">alienCarpet14</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=2">(2:2:21)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2024-06-05 16:30:21</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=2&amp;c3=21"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>8</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21982">kingamirali</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=3">(2:3:2)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>75</td>
+		            <td> inactive 2026-07-11 11:49:07</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=3&amp;c3=2"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>9</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20545">Nikotin</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=3">(2:3:3)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2024-07-06 23:43:51</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=3&amp;c3=3"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>10</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21521">Cardassian-empire</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=3">(2:3:13)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-04-11 19:22:43</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=3&amp;c3=13"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>11</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20972">Starboy®</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=3">(2:3:22)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-02-06 07:36:06</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=3&amp;c3=22"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>12</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=19551">Pasiutes Farm</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=4">(2:4:23)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2024-11-07 14:47:50</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=4&amp;c3=23"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>13</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21501">tyrlaka</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=5">(2:5:2)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>192</td>
+		            <td> inactive 2026-07-16 08:40:10</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=5&amp;c3=2"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>14</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21940">Badabum</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=5">(2:5:13)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>238</td>
+		            <td> inactive 2026-07-14 05:19:30</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=5&amp;c3=13"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>15</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21963">trex12</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=6">(2:6:4)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-06-29 19:09:31</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=6&amp;c3=4"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>16</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21988">Ishmael</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=6">(2:6:14)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>255</td>
+		            <td> inactive 2026-07-15 22:14:35</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=6&amp;c3=14"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>17</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21983">v1k1ng</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=6">(2:6:20)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td>2026-07-25 07:28:56</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=6&amp;c3=20"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>18</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21974">Damon01</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=7">(2:7:14)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-05 06:47:24</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=7&amp;c3=14"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>19</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21997">DrWhoo</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=7">(2:7:18)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td>2026-07-21 09:23:08</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=7&amp;c3=18"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>20</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21611">Boss</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=7">(2:7:20)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-04-10 19:56:54</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=7&amp;c3=20"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>21</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21971">googa</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=8">(2:8:2)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-04 09:32:05</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=8&amp;c3=2"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>22</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21973">AnatoliiOdesa</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=8">(2:8:4)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-04 21:58:04</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=8&amp;c3=4"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>23</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21480">Sergiu1</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=8">(2:8:16)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-12-04 13:21:35</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=8&amp;c3=16"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>24</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21559">yolo</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=8">(2:8:19)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-04-02 08:10:09</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=8&amp;c3=19"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>25</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21402">༄ᶦᶰᵈ᭄✿ᴮᴬᴰʙᴏʏツ</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=8">(2:8:20)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-04-14 20:22:02</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=8&amp;c3=20"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>26</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=22002">Akasha</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=9">(2:9:16)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>255</td>
+		            <td>2026-07-24 09:33:59</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=9&amp;c3=16"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>27</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21979">luisao69</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=9">(2:9:24)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-10 19:48:41</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=9&amp;c3=24"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>28</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21588">JOKER</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=10">(2:10:11)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-05-27 00:00:45</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=10&amp;c3=11"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>29</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21993">Duck_Dodgers</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=10">(2:10:12)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>239</td>
+		            <td> inactive 2026-07-18 14:21:58</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=10&amp;c3=12"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>30</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=19354">666</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=11">(2:11:4)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-09-05 23:26:24</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=11&amp;c3=4"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>31</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21893">Unknown</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=11">(2:11:9)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>74</td>
+		            <td>2026-07-24 08:02:28</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=11&amp;c3=9"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>32</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=19625">♦️♠️Sniper♣️♥️</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=12">(2:12:18)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2023-05-06 13:57:24</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=12&amp;c3=18"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>33</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21969">Algis</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:5)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id=2">Lithuania</a>
+		            </td><td>142</td>
+		            <td> inactive 2026-07-05 19:05:41</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=5"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>34</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21545">AZÜCRYM</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:6)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-12-09 12:58:53</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=6"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>35</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21981">Anonimo</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:10)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>75</td>
+		            <td> inactive 2026-07-10 00:58:24</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=10"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>36</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21998">K R A T O S</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:17)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>255</td>
+		            <td>2026-07-21 13:05:18</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=17"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>37</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20858">Zzzz</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:20)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-02-08 01:25:36</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=20"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>38</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21235">Umbra</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:22)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-08-20 10:03:04</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=22"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>39</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21985">foklty</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=13">(2:13:24)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-13 01:39:10</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=13&amp;c3=24"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>40</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=22004">Zordon™®ⓒ</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=14">(2:14:1)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>255</td>
+		            <td>2026-07-25 10:19:26</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=14&amp;c3=1"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>41</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=19480">Aristel</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=14">(2:14:7)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2023-04-28 16:27:16</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=14&amp;c3=7"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>42</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21546">Caprica</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=14">(2:14:8)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-01-19 13:04:28</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=14&amp;c3=8"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>43</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21389">يأتي الموت في صمت</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=14">(2:14:9)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td>2026-07-23 22:13:12</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=14&amp;c3=9"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>44</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20486">ZOOM</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=15">(2:15:1)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2024-06-17 18:55:31</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=15&amp;c3=1"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>45</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21884">SUKA BLQD</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=15">(2:15:4)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-06 00:35:41</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=15&amp;c3=4"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>46</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21811">VenoMツ</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=15">(2:15:10)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-04-18 15:23:49</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=15&amp;c3=10"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>47</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21964">FEROCIOUS-ZORG</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=15">(2:15:11)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>75</td>
+		            <td> inactive 2026-06-29 11:27:46</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=15&amp;c3=11"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>48</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20006">giannakis</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=15">(2:15:14)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2023-11-15 10:22:43</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=15&amp;c3=14"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>49</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=21970">kingofhell</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=16">(2:16:8)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2026-07-03 23:28:53</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=16&amp;c3=8"> Отправить флот</a></td>
+		          </tr><tr>
+		            <td>50</td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/playerInfo.php?player_id=20879">Ibachev</a> &nbsp; <a target="_blank" href="https://game.horus.nemexia.com/galaxy.php?galaxy=2&amp;solar=16">(2:16:15)</a></td>
+		            <td><a target="_blank" href="https://game.horus.nemexia.com/alliance.php?alliance_id="></a>
+		            </td><td>0</td>
+		            <td> inactive 2025-10-16 06:47:15</td>
+		            <td><a class="sendFleeta" title="Отправить флот" href="https://game.horus.nemexia.com/fleets.php?c1=2&amp;c2=16&amp;c3=15"> Отправить флот</a></td>
+		          </tr></tbody></table><div class="pagination"><span>1</span><a href="javascript:void(0);" onclick="searchByPoints(1);">2</a><a href="javascript:void(0);" onclick="searchByPoints(2);">3</a></div></div>
+				</div>
+			</div>
+		
+		<!-- mainFrame -->
+	</div>
+
+	<!-- contentWrapper -->
+</div>
+
+<script type="text/javascript">
+	</script>
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+</div><!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResMetal" data-type="metal" class="warning low" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="Хранилища заполнены более чем на 70%" style="top: 46px; left: 750px; display: block;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 750px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 90px; left: 750px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 46px; left: 1127px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1127px; display: none;"></a>
+	<a href="javascript: openPremiumPopup(&#39;subtabSpecialities&#39;);" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr(&#39;data-tooltip&#39;));" onmouseout="UnTip();" data-tooltip="" style="top: 68px; left: 1127px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+<script type="module" src="./page_2026-07-26_00-54-56_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ce8637103a9447749966475d995e9f9b&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+
+
+</body></html>
