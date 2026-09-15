@@ -19,8 +19,8 @@ except ZoneInfoNotFoundError:
     MOSCOW_TZ = timezone(timedelta(hours=3), name="Europe/Moscow")
 SIMULATION_LOG_DIR = DATA_DIR / "simulation-battles"
 PLANET_CACHE_PATH = SIMULATION_LOG_DIR / "planet-top7-cache.json"
-# Version 2 starts after the corrected two-stage simulator/report flow.
-PLANET_MATRIX_VERSION = 2
+# Version 3 adds the live attacking-race id to the compact Top-7 cache key.
+PLANET_MATRIX_VERSION = 3
 
 
 def _current_path() -> Path:
@@ -42,8 +42,15 @@ def append_trial(record: dict[str, Any]) -> Path:
     return path
 
 
-def load_recent_trials(limit: int = 300) -> list[dict[str, Any]]:
-    """Read recent valid journal rows without letting one damaged line break UI."""
+def load_recent_trials(limit: int | None = None) -> list[dict[str, Any]]:
+    """Read valid journal rows without imposing an archival retention limit.
+
+    ``limit`` remains available for a caller that deliberately wants a
+    preview, but the simulator journal itself is append-only and the default
+    now loads every saved row.
+    """
+    if limit is not None and int(limit) <= 0:
+        return []
     rows: list[dict[str, Any]] = []
     for path in sorted(SIMULATION_LOG_DIR.glob("battles-*.jsonl"), reverse=True):
         try:
@@ -57,23 +64,31 @@ def load_recent_trials(limit: int = 300) -> list[dict[str, Any]]:
                 continue
             if isinstance(row, dict):
                 rows.append(row)
-            if len(rows) >= limit:
+            if limit is not None and len(rows) >= max(0, int(limit)):
                 return rows
     return rows
 
 
-def load_planet_cache(combat_limit: int, own_level: int) -> dict[str, Any] | None:
+def _planet_cache_key(combat_limit: int, own_level: int, attacker_race_id: int = 1) -> str:
+    return f"v{PLANET_MATRIX_VERSION}:{int(attacker_race_id)}:{int(combat_limit)}:{int(own_level)}"
+
+
+def load_planet_cache(
+    combat_limit: int, own_level: int, attacker_race_id: int = 1,
+) -> dict[str, Any] | None:
     """Return a completed Top-7 matrix for this exact population limit."""
     try:
         payload = json.loads(PLANET_CACHE_PATH.read_text(encoding="utf-8"))
     except (OSError, TypeError, ValueError):
         return None
-    key = f"v{PLANET_MATRIX_VERSION}:{int(combat_limit)}:{int(own_level)}"
+    key = _planet_cache_key(combat_limit, own_level, attacker_race_id)
     item = payload.get(key) if isinstance(payload, dict) else None
     return item if isinstance(item, dict) and item.get("plans") else None
 
 
-def save_planet_cache(combat_limit: int, own_level: int, plans: list[dict[str, Any]]) -> Path:
+def save_planet_cache(
+    combat_limit: int, own_level: int, plans: list[dict[str, Any]], attacker_race_id: int = 1,
+) -> Path:
     """Atomically replace only the compact summary cache; trial history stays append-only."""
     SIMULATION_LOG_DIR.mkdir(parents=True, exist_ok=True)
     try:
@@ -82,11 +97,12 @@ def save_planet_cache(combat_limit: int, own_level: int, plans: list[dict[str, A
         payload = {}
     if not isinstance(payload, dict):
         payload = {}
-    key = f"v{PLANET_MATRIX_VERSION}:{int(combat_limit)}:{int(own_level)}"
+    key = _planet_cache_key(combat_limit, own_level, attacker_race_id)
     payload[key] = {
         "saved_at": datetime.now(MOSCOW_TZ).isoformat(timespec="seconds"),
         "combat_limit": int(combat_limit),
         "own_level": int(own_level),
+        "attacker_race_id": int(attacker_race_id),
         "plans": plans,
     }
     temporary = PLANET_CACHE_PATH.with_suffix(".tmp")
