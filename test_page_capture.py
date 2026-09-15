@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from page_capture import application_directory, capture_current_page
+from page_capture import application_directory, capture_current_page, capture_page
 
 
 class FakeSession:
@@ -102,6 +102,28 @@ class CaptureCurrentPageTest(unittest.TestCase):
                     asyncio.run(asyncio.sleep(0.002))
             self.assertEqual(len([path for path in root.iterdir() if path.is_dir()]), 10)
             self.assertEqual(worker.selected_calls, 12)
+
+    def test_direct_page_archive_is_not_pruned_and_keeps_context(self):
+        with tempfile.TemporaryDirectory(prefix="nemexia_report_archive_test_") as temp:
+            root = Path(temp)
+            worker = FakeWorker()
+            report = worker._page
+            first = asyncio.run(capture_page(
+                report, root, keep=None, folder_name="0001-baseline",
+                metadata_extra={"run_id": "run-1", "case_id": "baseline", "clean_technologies": True},
+            ))
+            second = asyncio.run(capture_page(
+                report, root, keep=None, folder_name="0002-baseline",
+                metadata_extra={"run_id": "run-1", "case_id": "baseline-2"},
+            ))
+            self.assertEqual(worker.selected_calls, 0)
+            self.assertEqual(
+                {Path(first["folder"]).name, Path(second["folder"]).name},
+                {"0001-baseline", "0002-baseline"},
+            )
+            metadata = json.loads((Path(first["folder"]) / "metadata.json").read_text(encoding="utf-8"))
+            self.assertEqual(metadata["context"]["case_id"], "baseline")
+            self.assertEqual(len([path for path in root.iterdir() if path.is_dir()]), 2)
 
 
 if __name__ == "__main__":

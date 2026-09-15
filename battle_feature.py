@@ -8,20 +8,38 @@ from uuid import uuid4
 
 from browser import BrowserAutomationError, BrowserWorker
 from battle_catalog import BLUE_FLEET, BY_NAME, COMMANDER_SLOTS, ENEMY_FLEET
+from battle_campaign import (
+    RACE_LABELS, build_verification_campaign, campaign_manifest, write_campaign_manifest,
+)
 from battle_engine import CounterPlan, EnemyScan, parse_enemy_scan, recommend_planet_fleets
 from battle_simulator import (
     SimulatorResult, SimulatorScenario, build_planet_candidates, build_planet_scenarios, build_simulator_candidates,
-    fit_candidate_population, parse_report_summary, rank_planet_trials, rank_simulator_results,
+    catalog_for_race, fit_candidate_population, parse_report_summary, rank_planet_trials, rank_simulator_results,
 )
-
-
-DEFENDER_EQUIPMENT_MARGIN_PP = 7.5
+from page_capture import capture_page
 from battle_simulation_log import append_trial, load_planet_cache, load_recent_trials, save_planet_cache
-from config import FLEETS_URL
+from config import DATA_DIR, FLEETS_URL
+
+
+# Verification runs are clean-room comparisons.  The former hidden +7.5 pp
+# defender equipment margin made reports disagree with the visible form.
+DEFENDER_EQUIPMENT_MARGIN_PP = 0.0
 
 
 RACE_IDS = {"Синяя": 1, "Зелёная": 2, "Красная": 3}
 RACE_SELECTION_IDS = {"Конфедерация": 1, "Тертеты": 2, "Ноксы": 3}
+BATTLE_ARCHIVE_DIR = DATA_DIR / "simulation-battles" / "reports"
+CAMPAIGN_ARCHIVE_DIR = DATA_DIR / "simulation-battles" / "campaigns"
+
+
+def _safe_page_url(page: Any) -> str:
+    """Read a Playwright page URL even when a popup has already closed."""
+    if page is None:
+        return ""
+    try:
+        return str(page.url)
+    except Exception:
+        return ""
 
 
 def _scan_race_id(scan: EnemyScan, preferred_race_id: int | None = None) -> int:
@@ -74,6 +92,401 @@ def _normalise_scenario_commanders(scenario: SimulatorScenario) -> SimulatorScen
     )
 
 
+_SIMULATOR_FORM_STATE_JS = r"""() => {
+    const form = document.querySelector('#simulatorForm');
+    if (!form) return {url: location.href, fields: {}};
+    const fields = {};
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+        if (!el.id && !el.name) return;
+        const key = el.id || el.name;
+        fields[key] = {
+            id: el.id || '', name: el.name || '', type: el.type || el.tagName.toLowerCase(),
+            value: el.value ?? '', checked: el.type === 'checkbox' ? !!el.checked : null,
+            selectedText: el.tagName.toLowerCase() === 'select'
+                ? (el.selectedOptions[0]?.textContent || '').trim() : '',
+        };
+    });
+    const value = id => document.getElementById(id)?.value ?? '';
+    return {
+        url: location.href,
+        attackerRaceId: Number(value('choose_race1') || 0),
+        defenderRaceId: Number(value('choose_race2') || 0),
+        rounds: Number(form.querySelector('select[name="battleRounds"]')?.value || 0),
+        fields,
+    };
+}"""
+
+
+def _normalise_live_catalogs(payload: dict[str, Any]) -> tuple[dict[int, dict[str, Any]], dict[int, dict[str, Any]]]:
+    """Convert JavaScript's numeric object keys into Python integer keys."""
+    def normalise(raw: Any) -> dict[int, dict[str, Any]]:
+        if not isinstance(raw, dict):
+            return {}
+        result: dict[int, dict[str, Any]] = {}
+        for key, value in raw.items():
+            try:
+                result[int(key)] = dict(value) if isinstance(value, dict) else {}
+            except (TypeError, ValueError):
+                continue
+        return result
+    return normalise(payload.get("raceShips")), normalise(payload.get("raceDefence"))
+
+
+async def _expand_report_analysis(report: Any) -> dict[str, Any]:
+    """Open every round's «Анализ» disclosure before the page is captured."""
+    result = await report.evaluate(r"""() => {
+        const links = [...document.querySelectorAll('.detailedReport a')];
+        const rounds = [];
+        let clicked = 0;
+        for (const link of links) {
+            const onclick = link.getAttribute('onclick') || '';
+            const match = onclick.match(/#([A-Za-z0-9_-]+)/);
+            const target = match ? document.getElementById(match[1]) : link.parentElement?.nextElementSibling;
+            if (!target) continue;
+            const id = target.id || '';
+            rounds.push(id);
+            const hidden = getComputedStyle(target).display === 'none' || target.style.display === 'none';
+            if (hidden) {
+                link.click();
+                clicked += 1;
+            }
+        }
+        const hidden = rounds.filter(id => {
+            const target = id ? document.getElementById(id) : null;
+            return target && getComputedStyle(target).display === 'none';
+        });
+        return {links: links.length, clicked, rounds, hidden};
+    }""")
+    # jQuery's toggle is synchronous, but the short yield lets the browser
+    # commit style/layout changes before full_page screenshots are taken.
+    await report.wait_for_timeout(120)
+    return dict(result or {})
+
+
+async def _run_verification_campaign(
+    worker: BrowserWorker,
+    *,
+    progress: Callable[[int, int, str], None] | None = None,
+    rounds: int = 12,
+) -> dict[str, Any]:
+    """Run the assistant-controlled discovery pack and archive every report.
+
+    This path deliberately does not use the compact counter/top-7 ranking
+    flow.  It submits one explicit case at a time, zeros every science/skill/
+    stat/equipment field, expands every report round and stores the exact
+    effective form state alongside the HTML/PNG/MHTML artefacts.
+    """
+    page = await worker._ensure_fleets_page()
+    await worker._assert_no_captcha(page, "captcha_verification_campaign")
+    if not await page.locator("#simulatorForm").count():
+        raise BrowserAutomationError("На странице «Полёты» не найдена форма симулятора")
+    simulator = page
+    async with simulator.expect_response(
+        lambda response: "ajax_fleets.php" in response.url and response.request.method == "POST",
+        timeout=30_000,
+    ):
+        await simulator.evaluate("""() => {
+            if (typeof simulatorLoadData === 'function') simulatorLoadData();
+            if (typeof showTab === 'function') showTab('TabSimulator');
+        }""")
+    await simulator.locator("#simulatorForm").wait_for(state="attached", timeout=15_000)
+    # jQuery runs the simulatorLoadData callback after the response event; let
+    # that callback populate commander names before we construct the pack.
+    await simulator.wait_for_timeout(250)
+    live = await simulator.evaluate("""() => ({
+        attackerRaceId: Number(document.querySelector('#choose_race1')?.value || 0),
+        raceShips: window.raceShips || {}, raceDefence: window.raceDefence || {},
+        commanderNames: [...document.querySelectorAll('[id^="attackerCommanderShipName-"]')]
+            .map(el => (el.textContent || '').trim()).filter(Boolean),
+    })""")
+    live = dict(live or {})
+    attacker_race_id = int(live.get("attackerRaceId") or 0)
+    if attacker_race_id not in (1, 2, 3):
+        raise BrowserAutomationError("Не удалось определить автоматически выбранную расу атакующего")
+    race_ships, race_defence = _normalise_live_catalogs(live)
+    commander_names = [str(name) for name in (live.get("commanderNames") or []) if str(name).strip()]
+    cases = build_verification_campaign(
+        attacker_race_id, race_ships, race_defence, rounds=rounds,
+        commander_names=commander_names,
+    )
+    run_id = uuid4().hex[:12]
+    run_dir = CAMPAIGN_ARCHIVE_DIR / run_id
+    report_root = BATTLE_ARCHIVE_DIR / run_id
+    initial_form = await simulator.evaluate(_SIMULATOR_FORM_STATE_JS)
+    manifest = campaign_manifest(
+        run_id=run_id, attacker_race_id=attacker_race_id, cases=cases, rounds=rounds,
+    )
+    manifest["source_form_state"] = initial_form
+    manifest["available_commanders"] = commander_names
+    manifest["report_root"] = str(report_root)
+    manifest.update({"status": "planned", "completed": 0, "failed": 0, "failures": []})
+    manifest_path = write_campaign_manifest(run_dir / "manifest.json", manifest)
+
+    total = len(cases)
+    completed = 0
+    failed = 0
+    failures: list[dict[str, str]] = []
+    results: list[dict[str, Any]] = []
+    for index, case in enumerate(cases, start=1):
+        await worker._assert_no_captcha(page, "captcha_verification_campaign_batch")
+        applied: dict[str, Any] | None = None
+        effective_form: dict[str, Any] | None = None
+        report = None
+        report_url = ""
+        artifact: dict[str, str] | None = None
+        analysis: dict[str, Any] = {}
+        body = ""
+        winner, attacker_population, defender_population, report_rounds = "Не определён", None, None, 0
+        error_text = ""
+        payload = {
+            "attackerRaceId": attacker_race_id,
+            "case": case.to_dict(),
+            "commanderSlots": COMMANDER_SLOTS,
+        }
+        try:
+            applied = await simulator.evaluate(r"""data => {
+                const form = document.querySelector('#simulatorForm');
+                if (!form) throw new Error('Форма симулятора не найдена');
+                const normal = value => String(value || '').trim().toLocaleLowerCase('ru').replace(/ё/g, 'е').replace(/\s+/g, ' ');
+                const set = (id, value) => {
+                    const el = document.getElementById(id);
+                    if (!el) return false;
+                    if (el.type === 'checkbox') {
+                        el.checked = Number(value) > 0;
+                        // The legacy game's simulatorGetPop reads the boolean
+                        // shield state through jQuery .attr('checked').
+                        if (el.checked) el.setAttribute('checked', 'checked');
+                        else el.removeAttribute('checked');
+                    }
+                    else el.value = String(value ?? '');
+                    el.dispatchEvent(new Event('input', {bubbles: true}));
+                    el.dispatchEvent(new Event('change', {bubbles: true}));
+                    return true;
+                };
+                const clear = selector => [...form.querySelectorAll(selector)].forEach(el => {
+                    if (el.type === 'checkbox') {
+                        el.checked = false;
+                        el.removeAttribute('checked');
+                    }
+                    else if (el.tagName.toLowerCase() === 'select') set(el.id, 0);
+                    else set(el.id, 0);
+                });
+                set('choose_race1', data.attackerRaceId);
+                set('choose_race2', data.case.defender_race_id);
+                if (typeof simulatorChangeNames === 'function') simulatorChangeNames();
+                clear('[id^="attackerShipCount-"], [id^="defenderShipCount-"], [id^="attackerShipLevel-"], [id^="defenderShipLevel-"], [id^="defenderDefenceCount-"]');
+                clear('[id^="attackerCommanderShipCount-"], [id^="defenderCommanderShipCount-"], [id^="attackerCommanderShipLevel-"], [id^="defenderCommanderShipLevel-"]');
+                clear('[id^="attackerScienceLevel-"], [id^="defenderScienceLevel-"], [id^="attackerAbilityLevel-"], [id^="defenderAbilityLevel-"], [id^="attackerAdmiralEquipmentValue-"], [id^="defenderAdmiralEquipmentValue-"]');
+                const slotsFromGame = source => Object.fromEntries(
+                    Object.entries(source || {}).map(([slot, item]) => [normal(item?.name), Number(slot)])
+                );
+                const attackerSlots = slotsFromGame(window.raceShips?.[data.attackerRaceId]);
+                const defenderSlots = slotsFromGame(window.raceShips?.[data.case.defender_race_id]);
+                const defenceSlots = slotsFromGame(window.raceDefence?.[data.case.defender_race_id]);
+                const missing = {attackerShips: [], defenderShips: [], defence: [], commanders: []};
+                Object.entries(data.case.attacker_ships || {}).forEach(([name, count]) => {
+                    const slot = attackerSlots[normal(name)];
+                    if (!slot) { missing.attackerShips.push(name); return; }
+                    set(`attackerShipCount-${slot}`, count);
+                    set(`attackerShipLevel-${slot}`, data.case.attacker_levels?.[name] ?? 10);
+                });
+                Object.entries(data.case.defender_ships || {}).forEach(([name, count]) => {
+                    const slot = defenderSlots[normal(name)];
+                    if (!slot) { missing.defenderShips.push(name); return; }
+                    set(`defenderShipCount-${slot}`, count);
+                    set(`defenderShipLevel-${slot}`, data.case.defender_levels?.[name] ?? 10);
+                });
+                Object.entries(data.case.defender_defence || {}).forEach(([name, count]) => {
+                    const slot = defenceSlots[normal(name)];
+                    if (!slot) { missing.defence.push(name); return; }
+                    set(`defenderDefenceCount-${slot}`, count);
+                });
+                Object.entries(data.case.attacker_commanders || {}).forEach(([name, values]) => {
+                    const slot = data.commanderSlots[name];
+                    if (!slot) { missing.commanders.push(name); return; }
+                    set(`attackerCommanderShipCount-${slot}`, values[0]);
+                    set(`attackerCommanderShipLevel-${slot}`, values[1]);
+                });
+                Object.entries(data.case.defender_commanders || {}).forEach(([name, values]) => {
+                    const slot = data.commanderSlots[name];
+                    if (!slot) { missing.commanders.push(name); return; }
+                    set(`defenderCommanderShipCount-${slot}`, values[0]);
+                    set(`defenderCommanderShipLevel-${slot}`, values[1]);
+                });
+                const selectLead = (id, name) => {
+                    const select = document.getElementById(id);
+                    if (!select) return !name;
+                    if (!name) { set(id, ''); return true; }
+                    const target = [...select.options].find(option =>
+                        normal(option.textContent) === normal(name) || normal(option.value) === normal(name)
+                    );
+                    if (!target) return false;
+                    set(id, target.value);
+                    return true;
+                };
+                const attackerLeadSet = selectLead('attackerLeadCommander', data.case.attacker_lead || '');
+                const defenderLeadSet = selectLead('defenderLeadCommander', data.case.defender_lead || '');
+                set('battle_rounds', data.case.rounds || 12);
+                const battleRounds = form.querySelector('select[name="battleRounds"]');
+                if (battleRounds) {
+                    battleRounds.value = String(data.case.rounds || 12);
+                    battleRounds.dispatchEvent(new Event('input', {bubbles: true}));
+                    battleRounds.dispatchEvent(new Event('change', {bubbles: true}));
+                }
+                // Clean-room mode: no science, skills, stats or admiral
+                // equipment may leak from the logged-in account or a prior run.
+                clear('[id^="attackerScienceLevel-"], [id^="defenderScienceLevel-"], [id^="attackerAbilityLevel-"], [id^="defenderAbilityLevel-"], [id^="attackerAdmiralEquipmentValue-"], [id^="defenderAdmiralEquipmentValue-"]');
+                if (typeof simulatorUpdatePopDisplays === 'function') simulatorUpdatePopDisplays();
+                const read = id => {
+                    const el = document.getElementById(id);
+                    return el ? (el.type === 'checkbox' ? Number(el.checked) : Number(el.value || 0)) : 0;
+                };
+                const nonZero = [...form.querySelectorAll('[id^="attackerScienceLevel-"], [id^="defenderScienceLevel-"], [id^="attackerAbilityLevel-"], [id^="defenderAbilityLevel-"], [id^="attackerAdmiralEquipmentValue-"], [id^="defenderAdmiralEquipmentValue-"]')]
+                    .filter(el => Number(String(el.value || 0).replace(',', '.')) !== 0)
+                    .map(el => ({id: el.id, value: el.value}));
+                return {
+                    missing, attackerLeadSet, defenderLeadSet, nonZero,
+                    races: {attacker: Number(document.getElementById('choose_race1')?.value || 0), defender: Number(document.getElementById('choose_race2')?.value || 0)},
+                    rounds: Number(form.querySelector('select[name="battleRounds"]')?.value || 0),
+                    population: {
+                        attacker: typeof simulatorGetPop === 'function' ? simulatorGetPop('attacker', 'ships') : null,
+                        defender: typeof simulatorGetPop === 'function' ? simulatorGetPop('defender', 'ships') : null,
+                        defence: typeof simulatorGetPop === 'function' ? simulatorGetPop('defender', 'defence') : null,
+                        maxShips: Number(window.battlesimulatorPopShips || 0),
+                        maxDefence: Number(window.battlesimulatorPopDefence || 0),
+                    },
+                    commanderSlots: data.commanderSlots,
+                };
+            }""", payload)
+            if applied.get("missing", {}).get("attackerShips") or applied.get("missing", {}).get("defenderShips"):
+                raise BrowserAutomationError(f"Корабль отсутствует в форме: {applied.get('missing')}")
+            if applied.get("missing", {}).get("defence") or applied.get("missing", {}).get("commanders"):
+                raise BrowserAutomationError(f"Оборона или командир отсутствуют в форме: {applied.get('missing')}")
+            if case.attacker_lead and not applied.get("attackerLeadSet"):
+                raise BrowserAutomationError(f"Ведущий командир атакующего не выбран: {case.attacker_lead}")
+            if case.defender_lead and not applied.get("defenderLeadSet"):
+                raise BrowserAutomationError(f"Ведущий командир защитника не выбран: {case.defender_lead}")
+            if applied.get("nonZero"):
+                raise BrowserAutomationError(f"После обнуления остались технологии: {applied['nonZero']}")
+            races = applied.get("races") or {}
+            if int(races.get("attacker") or 0) != attacker_race_id or int(races.get("defender") or 0) != int(case.defender_race_id):
+                raise BrowserAutomationError(f"Форма приняла другие расы: {races}")
+            if int(applied.get("rounds") or 0) != int(case.rounds):
+                raise BrowserAutomationError(f"Форма приняла {applied.get('rounds')} раундов вместо {case.rounds}")
+            effective_form = await simulator.evaluate(_SIMULATOR_FORM_STATE_JS)
+            population = applied.get("population") or {}
+            if any(
+                population.get(key) is not None and int(population.get(key) or 0) > int(population.get(limit) or 0)
+                for key, limit in (("attacker", "maxShips"), ("defender", "maxShips"))
+            ):
+                raise BrowserAutomationError(f"Состав превышает лимит населения: {population}")
+            if population.get("defence") is not None and int(population.get("defence") or 0) > int(population.get("maxDefence") or 0):
+                raise BrowserAutomationError(f"Оборона превышает лимит населения: {population}")
+            async with simulator.expect_popup(timeout=30_000) as popup_info:
+                submitted = await simulator.evaluate("() => simulatorSimulate()")
+                if not submitted:
+                    raise BrowserAutomationError("Симулятор не принял проверочный состав")
+            report = await popup_info.value
+            report_url = _safe_page_url(report)
+            await report.wait_for_load_state("domcontentloaded", timeout=30_000)
+            await report.wait_for_url("**/battleReport.php*", timeout=30_000, wait_until="domcontentloaded")
+            report_url = _safe_page_url(report)
+            await report.locator("body").wait_for(state="attached", timeout=15_000)
+            analysis = await _expand_report_analysis(report)
+            artifact = await capture_page(
+                report, report_root, keep=None, folder_name=f"{index:04d}_{case.case_id}",
+                metadata_extra={
+                    "run_id": run_id, "case_id": case.case_id, "case_title": case.title,
+                    "planned_case": case.to_dict(), "effective_form": effective_form,
+                    "analysis": analysis, "clean_technologies": True,
+                },
+            )
+            for _ in range(60):
+                body = await report.locator("body").inner_text(timeout=10_000)
+                winner, attacker_population, defender_population, report_rounds = parse_report_summary(body)
+                if winner != "Не определён" and report_rounds > 0:
+                    break
+                await report.wait_for_timeout(250)
+            if winner == "Не определён" or report_rounds <= 0:
+                error_text = "Отчёт сохранён, но итог или раунды не распознаны"
+        except Exception as exc:
+            error_text = str(exc)
+            if report is not None and artifact is None and not report.is_closed():
+                try:
+                    effective_form = effective_form or await simulator.evaluate(_SIMULATOR_FORM_STATE_JS)
+                    artifact = await capture_page(
+                        report, report_root, keep=None, folder_name=f"{index:04d}_{case.case_id}_partial",
+                        metadata_extra={
+                            "run_id": run_id, "case_id": case.case_id, "case_title": case.title,
+                            "planned_case": case.to_dict(), "effective_form": effective_form,
+                            "analysis": analysis, "clean_technologies": True,
+                            "capture_stage": "partial-after-error", "error": error_text,
+                        },
+                    )
+                except Exception as capture_exc:
+                    error_text = f"{error_text}; частичный архив не сохранён: {capture_exc}"
+        finally:
+            if report is not None:
+                report_url = report_url or _safe_page_url(report)
+            if report is not None and not report.is_closed():
+                try:
+                    await report.close()
+                except Exception:
+                    pass
+            try:
+                await simulator.bring_to_front()
+            except Exception:
+                pass
+
+        row = {
+            "run_id": run_id, "kind": "verification", "case_id": case.case_id,
+            "case_title": case.title, "candidate_title": case.title,
+            "own_ships": dict(case.attacker_ships),
+            "enemy_scenario": f"{RACE_LABELS.get(case.defender_race_id, case.defender_race_id)} · {case.title}",
+            "enemy_race": case.defender_race_id, "enemy_ships": dict(case.defender_ships),
+            "enemy_levels": dict(case.defender_levels),
+            "enemy_commanders": dict(case.defender_commanders),
+            "enemy_defence": dict(case.defender_defence),
+            "planned_case": case.to_dict(),
+            "effective_form": effective_form, "applied": applied,
+            "winner": winner, "attacker_population": attacker_population,
+            "defender_population": defender_population, "rounds": report_rounds,
+            "report_url": report_url,
+            "report_artifact": artifact, "analysis": analysis, "analysis_text": body,
+            "error": error_text,
+        }
+        append_trial(row)
+        results.append(row)
+        if error_text:
+            failed += 1
+            failures.append({"case_id": case.case_id, "error": error_text})
+        else:
+            completed += 1
+        # Keep the manifest useful even if the desktop app or browser is
+        # interrupted between two reports.  The already archived folders and
+        # journal rows remain the source of truth for completed cases.
+        progress_manifest = dict(manifest)
+        progress_manifest.update({
+            "status": "running", "completed": completed, "failed": failed,
+            "last_case": case.case_id, "failures": failures,
+        })
+        write_campaign_manifest(manifest_path, progress_manifest)
+        if progress:
+            progress(index, total, f"{case.title}{' · ' + error_text if error_text else ''}")
+
+    final_manifest = dict(manifest)
+    final_manifest.update({
+        "status": "completed" if not failures else "completed_with_errors",
+        "completed": completed, "failed": failed,
+        "failures": failures,
+    })
+    write_campaign_manifest(manifest_path, final_manifest)
+    return {
+        "run_id": run_id, "planned": total, "completed": completed, "failed": failed,
+        "manifest": str(manifest_path), "report_root": str(report_root), "results": results,
+    }
+
+
 async def _run_simulator_candidates(
     worker: BrowserWorker, scan: EnemyScan | None, *, own_level: int = 10, candidate_limit: int = 20,
     candidates_override: list[CounterPlan] | None = None, scenarios: list[SimulatorScenario] | None = None,
@@ -81,6 +494,7 @@ async def _run_simulator_candidates(
     progress: Callable[[int, int, str], None] | None = None,
     enemy_race_id: int | None = None,
     leave_report_open: bool = False,
+    clean_technologies: bool = True,
 ) -> list[SimulatorResult]:
     """Run the real in-game simulator and return only its own report facts.
 
@@ -96,7 +510,14 @@ async def _run_simulator_candidates(
         scenarios = [SimulatorScenario(
             "Разведка", enemy_race_id or _scan_race_id(scan), scan.ships, scan.levels, scan.commanders, scan.defence,
         )]
-    candidates = (candidates_override or (build_simulator_candidates(scan, own_level=own_level) if scan else []))[:candidate_limit]
+    selected_attacker_race = int(await page.evaluate(
+        "() => Number(document.querySelector('#choose_race1')?.value || 1)"
+    ))
+    if selected_attacker_race not in (1, 2, 3):
+        selected_attacker_race = 1
+    candidates = (candidates_override or (
+        build_simulator_candidates(scan, own_level=own_level, race_id=selected_attacker_race) if scan else []
+    ))[:candidate_limit]
     if not candidates:
         raise ValueError("Не удалось собрать варианты для проверки в симуляторе")
     run_id = uuid4().hex[:12]
@@ -140,7 +561,9 @@ async def _run_simulator_candidates(
         # Counter mode previously filled all 25k with regular ships and then
         # added mirrored commanders on top, so the game refused to submit.
         # Preserve the composition but reserve their actual population first.
-        candidates = [fit_candidate_population(candidate, 25_000 - int(commander_population or 0)) for candidate in candidates]
+        candidates = [fit_candidate_population(
+            candidate, 25_000 - int(commander_population or 0), catalog_for_race(selected_attacker_race)
+        ) for candidate in candidates]
         for candidate in candidates:
             for raw_scenario in scenarios:
                 scenario = _normalise_scenario_commanders(raw_scenario)
@@ -155,7 +578,9 @@ async def _run_simulator_candidates(
                 "defence": scenario.defence,
                 "defenderEquipmentMargin": DEFENDER_EQUIPMENT_MARGIN_PP,
                 "enemyRace": scenario.race_id,
+                "attackerRace": selected_attacker_race,
                 "mirror": mirror,
+                "cleanTechnologies": clean_technologies,
                 }
                 applied_enemy = await simulator.evaluate("""data => {
                 const form = document.querySelector('#simulatorForm');
@@ -164,30 +589,37 @@ async def _run_simulator_candidates(
                 const set = (id, value) => {
                     const el = document.getElementById(id);
                     if (!el) return false;
-                    if (el.type === 'checkbox') el.checked = Number(value) > 0;
+                    if (el.type === 'checkbox') {
+                        el.checked = Number(value) > 0;
+                        if (el.checked) el.setAttribute('checked', 'checked');
+                        else el.removeAttribute('checked');
+                    }
                     else el.value = String(value);
                     el.dispatchEvent(new Event('input', {bubbles:true}));
                     el.dispatchEvent(new Event('change', {bubbles:true}));
                     return true;
                 };
-                set('choose_race1', 1); set('choose_race2', data.enemyRace);
+                set('choose_race1', data.attackerRace); set('choose_race2', data.enemyRace);
                 if (typeof simulatorChangeNames === 'function') simulatorChangeNames();
                 const read = id => {
                     const el = document.getElementById(id);
                     return el ? (el.type === 'checkbox' ? Number(el.checked) : Number(el.value || 0)) : 0;
                 };
                 [...form.querySelectorAll('[id^="attackerShipCount-"], [id^="defenderShipCount-"], [id^="defenderDefenceCount-"], [id^="defenderCommanderShipCount-"]')]
-                    .forEach(el => { if (el.type === 'checkbox') el.checked = false; else el.value = '0'; });
+                    .forEach(el => {
+                        if (el.type === 'checkbox') { el.checked = false; el.removeAttribute('checked'); }
+                        else el.value = '0';
+                    });
                 [...form.querySelectorAll('[id^="attackerShipLevel-"], [id^="defenderShipLevel-"], [id^="defenderCommanderShipLevel-"]')]
                     .forEach(el => { el.value = '0'; });
                 const slotsFromGame = (source, prefix) => Object.fromEntries(
                     Object.entries(source || {}).map(([slot, item]) => [normal(item?.name), Number(slot)])
                 );
                 const raceShips = window.raceShips?.[data.enemyRace] || {};
-                const blueSlots = slotsFromGame(window.raceShips?.[1], 'attackerShip');
+                const attackerSlots = slotsFromGame(window.raceShips?.[data.attackerRace], 'attackerShip');
                 const slots = slotsFromGame(raceShips, 'defenderShip');
                 const defenceSlots = slotsFromGame(window.raceDefence?.[data.enemyRace], 'defenderDefence');
-                Object.entries(data.candidate).forEach(([name, count]) => { const slot = blueSlots[normal(name)]; if (slot) { set(`attackerShipCount-${slot}`, count); set(`attackerShipLevel-${slot}`, data.ownLevel); } });
+                Object.entries(data.candidate).forEach(([name, count]) => { const slot = attackerSlots[normal(name)]; if (slot) { set(`attackerShipCount-${slot}`, count); set(`attackerShipLevel-${slot}`, data.ownLevel); } });
                 Object.entries(data.enemy).forEach(([name, count]) => { const slot = slots[normal(name)]; if (slot) { set(`defenderShipCount-${slot}`, count); set(`defenderShipLevel-${slot}`, data.levels[name] ?? 10); } });
                 Object.entries(data.defence).forEach(([name, count]) => { const slot = defenceSlots[normal(name)]; if (slot) set(`defenderDefenceCount-${slot}`, count); });
                 data.mirror.forEach(item => {
@@ -204,6 +636,15 @@ async def _run_simulator_candidates(
                         set(target, value);
                     }
                 });
+                if (data.cleanTechnologies) {
+                    [...form.querySelectorAll('[id^="attackerScienceLevel-"], [id^="defenderScienceLevel-"], [id^="attackerAbilityLevel-"], [id^="defenderAbilityLevel-"], [id^="attackerAdmiralEquipmentValue-"], [id^="defenderAdmiralEquipmentValue-"]')]
+                        .forEach(el => set(el.id, 0));
+                }
+                const rounds = form.querySelector('select[name="battleRounds"]');
+                if (rounds) {
+                    rounds.value = '12';
+                    rounds.dispatchEvent(new Event('change', {bubbles: true}));
+                }
                 // Commander controls have their own IDs.  Read the names from
                 // the live simulator form after the defender race was set;
                 // this avoids relying on a stale/static slot table.
@@ -287,6 +728,28 @@ async def _run_simulator_candidates(
                         raise BrowserAutomationError(
                             f"Симулятор не перешёл на финальный отчёт за 30 секунд: {report.url}"
                         ) from exc
+                    analysis = await _expand_report_analysis(report)
+                    effective_form = await simulator.evaluate(_SIMULATOR_FORM_STATE_JS)
+                    report_artifact = None
+                    capture_warning = ""
+                    try:
+                        report_artifact = await capture_page(
+                            report, BATTLE_ARCHIVE_DIR / run_id, keep=None,
+                            folder_name=f"{completed_trials + 1:04d}",
+                            metadata_extra={
+                                "run_id": run_id, "kind": run_kind,
+                                "candidate_title": candidate.title, "scenario": scenario.title,
+                                "planned_candidate": dict(candidate.ships),
+                                "planned_scenario": {
+                                    "ships": scenario.ships, "levels": scenario.levels,
+                                    "commanders": scenario.commanders, "defence": scenario.defence,
+                                },
+                                "effective_form": effective_form, "analysis": analysis,
+                                "clean_technologies": clean_technologies,
+                            },
+                        )
+                    except Exception as exc:
+                        capture_warning = f"Полный архив не сохранён: {exc}"
                     body = ""
                     winner, attacker_population, defender_population, rounds = "Не определён", None, None, 0
                     for _ in range(60):
@@ -358,6 +821,8 @@ async def _run_simulator_candidates(
                         "winner": winner, "attacker_population": attacker_population,
                         "defender_population": defender_population, "rounds": rounds,
                         "report_url": report.url, "mirror_settings": mirror,
+                        "report_artifact": report_artifact, "effective_form": effective_form,
+                        "analysis": analysis, "capture_warning": capture_warning,
                         "analysis_text": body,
                     })
                     completed_trials += 1
@@ -413,7 +878,7 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             ).pack(fill="x", pady=(5, 0))
             if expanded:
                 app_module.tk.Frame(card, bg=app_module.PANEL_ALT, height=1).pack(fill="x", pady=(9, 8))
-                app_module.tk.Label(card, text="Состав синей расы", bg=app_module.PANEL, fg=app_module.MUTED,
+                app_module.tk.Label(card, text="Состав атакующей расы", bg=app_module.PANEL, fg=app_module.MUTED,
                                     anchor="w", font=("Segoe UI", 9)).pack(fill="x")
                 fleet = "\n".join(f"{name:<18} × {count:,}".replace(",", " ") for name, count in plan.ships.items())
                 app_module.tk.Label(card, text=fleet, bg=app_module.PANEL, fg=app_module.TEXT, justify="left", anchor="w",
@@ -470,7 +935,7 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             if expanded:
                 app_module.tk.Frame(card, bg=app_module.PANEL_ALT, height=1).pack(fill="x", pady=(9, 8))
                 fleet = "\n".join(f"{name:<18} × {count:,}".replace(",", " ") for name, count in plan.ships.items())
-                app_module.tk.Label(card, text="Состав синей расы", bg=app_module.PANEL, fg=app_module.MUTED,
+                app_module.tk.Label(card, text="Состав атакующей расы", bg=app_module.PANEL, fg=app_module.MUTED,
                                     anchor="w", font=("Segoe UI", 9)).pack(fill="x")
                 app_module.tk.Label(card, text=fleet, bg=app_module.PANEL, fg=app_module.TEXT, justify="left", anchor="w",
                                     font=("Consolas", 10)).pack(fill="x", pady=(3, 8))
@@ -588,10 +1053,15 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
         item_rows: dict[str, dict[str, Any]] = {}
         for row in rows:
             incomplete = row.get("winner") == "Не определён" or not row.get("rounds")
+            kind_label = {
+                "planet": "Топ‑7", "verification": "Проверки", "wave": "Волны",
+                "wave-preview": "Волна",
+            }.get(row.get("kind"), "Контр‑флот")
             item = tree.insert("", "end", values=(
-                row.get("saved_at", ""), "Топ‑7" if row.get("kind") == "planet" else "Контр‑флот",
+                row.get("saved_at", ""), kind_label,
                 row.get("candidate_title", ""), row.get("enemy_scenario", ""),
-                "Неполный старый отчёт" if incomplete else row.get("winner", ""),
+                ("Ошибка: " + str(row.get("error"))[:110] if row.get("error") else
+                 ("Неполный старый отчёт" if incomplete else row.get("winner", ""))),
                 ("— / —" if incomplete else f"{row.get('attacker_population', '—')} / {row.get('defender_population', '—')}"),
                 ("—" if incomplete else row.get("rounds", "—")),
             ))
@@ -606,11 +1076,14 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             enemy = "\n".join(f"  {name} × {count:,}".replace(",", " ") for name, count in dict(row.get("enemy_ships") or {}).items())
             text = (
                 f"Серия: {row.get('run_id', '—')} · {row.get('saved_at', '—')}\n"
+                f"Проверка: {row.get('case_title') or row.get('candidate_title', '—')}\n"
                 f"Итог: {row.get('winner', '—')} · раундов: {row.get('rounds', '—')}\n"
                 f"Остаток населения: мы {row.get('attacker_population', '—')} · враг {row.get('defender_population', '—')}\n\n"
                 f"НАШ ФЛОТ · {row.get('candidate_title', '')}\n{own or '  —'}\n\n"
                 f"ФЛОТ ПРОТИВНИКА · {row.get('enemy_scenario', '')}\n{enemy or '  —'}\n\n"
-                f"Отчёт игры: {row.get('report_url', '—')}\n\n"
+                f"Отчёт игры: {row.get('report_url', '—')}\n"
+                f"Полный архив: {(row.get('report_artifact') or {}).get('folder', '—')}\n"
+                f"Ошибка: {row.get('error') or '—'}\n\n"
                 f"АНАЛИЗ ИГРЫ\n{row.get('analysis_text', 'Старый журнал: подробный текст отчёта ещё не сохранялся.')}"
             )
             detail.configure(state="normal")
@@ -622,6 +1095,36 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
         if rows:
             tree.selection_set(tree.get_children()[0])
             show_detail()
+
+    def battle_run_verification_campaign(self: Any) -> None:
+        """Run the assistant-controlled, append-only evidence-gathering pack."""
+        def progress(done: int, total: int, current: str) -> None:
+            self.after(0, lambda: self.battle_progress_var.set(
+                f"Проверочный пакет: {done} из {total} · осталось {total - done} · {current}"
+            ))
+
+        async def operation() -> dict[str, Any]:
+            await self.worker.connect(self.endpoint())
+            return await _run_verification_campaign(self.worker, progress=progress, rounds=12)
+
+        def success(result: dict[str, Any]) -> None:
+            self.connected = True
+            self.battle_progress_var.set(
+                f"Проверочный пакет завершён: {result['completed']} из {result['planned']} отчётов. "
+                f"Ошибок: {result['failed']}. Архив без лимита: {result['report_root']}"
+            )
+            app_module.messagebox.showinfo(
+                app_module.APP_NAME,
+                f"Проверочные симуляции завершены.\n\n"
+                f"Успешно: {result['completed']} из {result['planned']}\n"
+                f"Ошибок: {result['failed']}\n\n"
+                f"Манифест: {result['manifest']}\n"
+                f"Полные отчёты: {result['report_root']}\n\n"
+                "Каждый отчёт сохранён с раскрытым анализом всех раундов; старые отчёты не удаляются.",
+            )
+
+        self.battle_progress_var.set("Проверочный пакет: читаю текущую расу и форму…")
+        self.run_task(operation(), "Симулятор: запуск проверочного пакета…", success)
 
     def render_battle(self: Any) -> None:
         if not hasattr(self, "battle_tree"):
@@ -676,7 +1179,7 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             abilities = "\n".join(plan.ability_notes) or "нет численно применимого эффекта"
             self.battle_tree.insert("", "end", values=(
                 f"#{plan.rank}", plan.title, f"{plan.population:,} / {population_limit:,}".replace(",", " "),
-                fleet, counters, abilities,
+                    fleet, counters, abilities,
             ))
 
     def build_battle_page(self: Any) -> None:
@@ -695,6 +1198,9 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
         self.battle_counter_expanded: set[int] = set()
         toolbar = tk.Frame(page, bg=app_module.BG)
         toolbar.pack(fill="x", pady=(0, 10))
+        app_module.make_button(
+            toolbar, "Запустить проверочные симуляции", self.battle_run_verification_campaign, "success",
+        ).pack(side="left")
         app_module.make_button(toolbar, "Контр‑флот", self.battle_show_counter_mode, "primary").pack(side="left")
         app_module.make_button(toolbar, "Топ‑7 для планет", self.battle_planet_calculate, "secondary").pack(side="left", padx=8)
         app_module.make_button(toolbar, "Перепроверить топ‑7", lambda: self.battle_planet_calculate(force=True), "secondary").pack(side="left")
@@ -724,7 +1230,10 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
                   "уровень 10 — значение по умолчанию. Если названия пересекаются (например, «Бомбардировщик»), "
                   "выбери расу врага сверху. Программа закрывает только созданные ею вкладки отчётов. "
                   "«Топ‑7 для планет» проверяет постоянные флоты против броневой, тяжёлой и смешанной сборок "
-                  "Конфедерации, Тертетов и Ноксов; капитальные корабли в этих боях исключены."),
+                  "Конфедерации, Тертетов и Ноксов; капитальные корабли в этих боях исключены. "
+                  "«Запустить проверочные симуляции» запускает подготовленный пакет по всем 12 обычным слотам "
+                  "текущей атакующей расы, количествам, уровням, командирам и обороне; все технологии и снаряжение "
+                  "принудительно обнуляются, а полные отчёты сохраняются без ограничения количества."),
             justify="left", wraplength=1050, bg=app_module.PANEL_ALT, fg=app_module.MUTED, padx=14, pady=10,
         )
         note.pack(fill="x", pady=(0, 10))
@@ -788,7 +1297,7 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
         self.battle_tree = ttk.Treeview(page, columns=("rank", "title", "population", "fleet", "counter", "ability"),
                                         show="headings", style="Battle.Treeview")
         headings = (("rank", "Топ"), ("title", "Подход"), ("population", "Население"),
-                    ("fleet", "Состав синей расы"), ("counter", "Контр‑связки"), ("ability", "Спецумения"))
+                    ("fleet", "Состав атакующей расы"), ("counter", "Контр‑связки"), ("ability", "Спецумения"))
         widths = {"rank": 45, "title": 160, "population": 110, "fleet": 220, "counter": 260, "ability": 280}
         for key, text in headings:
             self.battle_tree.heading(key, text=text)
@@ -875,12 +1384,18 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
 
         async def operation() -> list[SimulatorResult]:
             await self.worker.connect(self.endpoint())
+            sim_page = await self.worker._ensure_fleets_page()
+            attacker_race_id = int(await sim_page.evaluate(
+                "() => Number(document.querySelector('#choose_race1')?.value || 1)"
+            ))
+            if attacker_race_id not in (1, 2, 3):
+                attacker_race_id = 1
             ships, commanders = dict(scan.ships), dict(scan.commanders)
             defence = dict(scan.defence) if include_defence else {}
             waves: list[SimulatorResult] = []
             for index in range(1, 13):
                 state = EnemyScan(ships, dict(scan.levels), (), commanders, defence)
-                candidates = build_simulator_candidates(state, own_level=own_level)
+                candidates = build_simulator_candidates(state, own_level=own_level, race_id=attacker_race_id)
                 reports = await _run_simulator_candidates(
                     self.worker, None, own_level=own_level, candidates_override=candidates,
                     scenarios=[SimulatorScenario(f"Волна {index}", enemy_race_id, ships, scan.levels, commanders, defence)],
@@ -947,28 +1462,28 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             return
         combat_limit = 25_000 - reserve
         own_level = int(self.battle_own_level_var.get())
-        cached = None if force else load_planet_cache(combat_limit, own_level)
-        if cached is not None:
-            self.battle_scan = None
-            self.battle_plans = [_battle_plan_from_cache(dict(row)) for row in cached["plans"]]
-            self.battle_planet_expanded.clear()
-            self.battle_result_kind = "planet"
-            self.battle_progress_var.set(
-                f"Топ‑7: показан сохранённый результат для лимита {combat_limit:,} · "
-                f"проверено {cached.get('saved_at', 'ранее')}. Для нового прогона нажми «Перепроверить топ‑7».".replace(",", " ")
-            )
-            render_battle(self)
-            return
-        candidates = build_planet_candidates(combat_limit)
         scenarios = build_planet_scenarios(combat_limit)
+        expected_trials = len(build_planet_candidates(combat_limit)) * len(scenarios)
 
         def progress(done: int, total: int, current: str) -> None:
             self.after(0, lambda: self.battle_progress_var.set(
                 f"Топ‑7: проверено {done} из {total} · осталось {total - done} · {current}"
             ))
 
-        async def operation() -> list[CounterPlan]:
+        async def operation() -> tuple[list[CounterPlan], bool, int]:
             await self.worker.connect(self.endpoint())
+            sim_page = await self.worker._ensure_fleets_page()
+            attacker_race_id = int(await sim_page.evaluate(
+                "() => Number(document.querySelector('#choose_race1')?.value || 1)"
+            ))
+            if attacker_race_id not in (1, 2, 3):
+                attacker_race_id = 1
+            cached = None if force else load_planet_cache(combat_limit, own_level, attacker_race_id)
+            if cached is not None:
+                return ([_battle_plan_from_cache(dict(row)) for row in cached["plans"]], True, attacker_race_id)
+            candidates = build_planet_candidates(combat_limit, race_id=attacker_race_id)
+            if not candidates:
+                raise BrowserAutomationError(f"Для расы атакующего {attacker_race_id} не собраны постоянные флоты")
             reports = await _run_simulator_candidates(
                 self.worker, None, own_level=own_level, candidates_override=candidates, scenarios=scenarios,
                 candidate_limit=len(candidates), rank_results=False, run_kind="planet", progress=progress,
@@ -976,23 +1491,33 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
             grouped: dict[str, list[tuple[str, SimulatorResult]]] = {}
             for report in reports:
                 grouped.setdefault(report.title, []).append((report.scenario, report))
-            return rank_planet_trials(candidates, grouped, top_n=7)
+            plans = rank_planet_trials(candidates, grouped, top_n=7)
+            save_planet_cache(
+                combat_limit, own_level, [_battle_plan_to_cache(plan) for plan in plans], attacker_race_id,
+            )
+            return plans, False, attacker_race_id
 
-        def success(plans: list[CounterPlan]) -> None:
+        def success(result: tuple[list[CounterPlan], bool, int]) -> None:
+            plans, from_cache, attacker_race_id = result
             self.battle_scan = None
             self.battle_plans = plans
             self.battle_planet_expanded.clear()
             self.battle_result_kind = "planet"
-            save_planet_cache(combat_limit, own_level, [_battle_plan_to_cache(plan) for plan in plans])
-            self.battle_progress_var.set(
-                f"Топ‑7: серия завершена · {len(candidates) * len(scenarios)} боёв сохранено. "
-                "Повторное нажатие покажет этот кэш мгновенно."
-            )
+            if from_cache:
+                self.battle_progress_var.set(
+                    f"Топ‑7: показан сохранённый результат для расы {RACE_LABELS.get(attacker_race_id, attacker_race_id)} "
+                    f"и лимита {combat_limit:,}. Для нового прогона нажми «Перепроверить топ‑7».".replace(",", " ")
+                )
+            else:
+                self.battle_progress_var.set(
+                    f"Топ‑7: серия завершена · {expected_trials} боёв сохранено. "
+                    "Повторное нажатие покажет этот кэш мгновенно."
+                )
             render_battle(self)
 
-        self.battle_progress_var.set(f"Топ‑7: подготовка · 0 из {len(candidates) * len(scenarios)} боёв…")
+        self.battle_progress_var.set(f"Топ‑7: подготовка · 0 из {expected_trials} боёв…")
         self.run_task(
-            operation(), f"Симулятор: {len(candidates) * len(scenarios)} боёв для топ‑7…", success,
+            operation(), f"Симулятор: {expected_trials} боёв для топ‑7…", success,
         )
 
     def patched_build_shell(self: Any) -> None:
@@ -1040,6 +1565,7 @@ def install_battle_feature(app_module: Any, app_class: type[Any]) -> None:
     app_class._battle_budget = battle_budget
     app_class.battle_calculate = battle_calculate
     app_class.battle_calculate_waves = battle_calculate_waves
+    app_class.battle_run_verification_campaign = battle_run_verification_campaign
     app_class.battle_show_counter_mode = battle_show_counter_mode
     app_class.battle_planet_calculate = battle_planet_calculate
     app_class.battle_open_simulation_log = battle_open_simulation_log

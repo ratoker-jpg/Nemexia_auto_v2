@@ -44,13 +44,31 @@ def _cleanup_snapshots(root: Path, keep: int) -> None:
         shutil.rmtree(old, ignore_errors=True)
 
 
-async def capture_current_page(worker: Any, root: Path, *, keep: int = 10) -> dict[str, str]:
-    """Save the current Nemexia page as screenshot, DOM HTML, MHTML and metadata."""
-    page = await _focused_game_page(worker)
+async def capture_page(
+    page: Any,
+    root: Path,
+    *,
+    keep: int | None = 10,
+    folder_name: str | None = None,
+    metadata_extra: dict[str, Any] | None = None,
+) -> dict[str, str]:
+    """Save one already selected page without changing the browser focus.
+
+    Battle reports are opened in popup tabs.  Resolving the "active" Nemexia
+    page at capture time is unsafe because the resolver deliberately prefers
+    ``fleets.php``.  Callers therefore pass the exact report page here.  A
+    ``None`` retention value disables cleanup; this is used for the append-only
+    battle archive while manual page snapshots keep their old ten-item limit.
+    """
     root.mkdir(parents=True, exist_ok=True)
 
     now = datetime.now().astimezone()
-    folder = root / now.strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
+    default_name = now.strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
+    folder = root / (folder_name or default_name)
+    # A caller-provided run id normally makes the directory unique.  Keep the
+    # helper safe for repeated names in tests or after a resumed batch.
+    if folder.exists():
+        folder = root / f"{folder.name}_{now.strftime('%f')}"
     folder.mkdir(parents=True, exist_ok=False)
 
     screenshot_path = folder / "screenshot.png"
@@ -103,16 +121,30 @@ async def capture_current_page(worker: Any, root: Path, *, keep: int = 10) -> di
             "mhtml": mhtml_path.name if mhtml_path.exists() else None,
         },
     }
+    if metadata_extra:
+        metadata["context"] = metadata_extra
     metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
 
     if not any(path.exists() for path in (screenshot_path, html_path, mhtml_path)):
         shutil.rmtree(folder, ignore_errors=True)
         raise RuntimeError("Не удалось сохранить ни один файл страницы")
 
-    _cleanup_snapshots(root, keep)
+    if keep is not None:
+        _cleanup_snapshots(root, keep)
     return {
         "folder": str(folder),
         "url": page.url,
         "title": title,
         "warnings": "\n".join(warnings),
     }
+
+
+async def capture_current_page(worker: Any, root: Path, *, keep: int = 10) -> dict[str, str]:
+    """Save the currently selected Nemexia page.
+
+    This compatibility wrapper retains the old active-tab behaviour for the
+    manual «Сохранить страницу» action.  Battle code must call
+    :func:`capture_page` with its popup report page directly.
+    """
+    page = await _focused_game_page(worker)
+    return await capture_page(page, root, keep=keep)

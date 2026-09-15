@@ -49,6 +49,13 @@ class BattleSimulatorHelpersTest(unittest.TestCase):
         self.assertTrue(all("\u0422\u0438\u0442\u0430\u043d" not in name for scenario in scenarios for name in scenario.ships))
         self.assertTrue(all("\u0426\u0430\u0440\u0438\u0446" not in name for scenario in scenarios for name in scenario.ships))
 
+    def test_permanent_candidates_follow_selected_race(self) -> None:
+        candidates = build_planet_candidates(23_400, race_id=2)
+        self.assertEqual(len(candidates), 12)
+        self.assertTrue(candidates)
+        allowed = {"\u0418\u0441\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c", "\u041f\u0435\u0440\u0435\u0445\u0432\u0430\u0442\u0447\u0438\u043a", "\u0411\u043e\u0442 \u0429\u0438\u0442", "\u0417\u0432\u0435\u0437\u0434\u043d\u0430\u044f \u0410\u0440\u043c\u0430\u0434\u0430", "\u0413\u043e\u043b\u0438\u0430\u0444", "\u0411\u043e\u043c\u0431\u0435\u0440\u0411\u043e\u0442"}
+        self.assertTrue(all(name in allowed for candidate in candidates for name in candidate.ships))
+
 
 if __name__ == "__main__":
     unittest.main()
