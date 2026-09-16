@@ -1,0 +1,2 @@
+simulation-battles/**/*.png filter=lfs diff=lfs merge=lfs -text
+simulation-battles/**/*.mhtml filter=lfs diff=lfs merge=lfs -text

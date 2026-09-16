@@ -1,0 +1,1536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <title>Nemexia Вселенная 1  // Военный доклад</title>
+
+  
+
+  <link href="https://static.nemexia.com/ares/css/jquery.pnotify.default.css?ver=5410" rel="stylesheet" type="text/css">
+  <link href="https://static.nemexia.com/ares/css/layout.css?ver=5410" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="https://static.nemexia.com/ares/img/race_icon_2.ico">
+  
+  <link href="https://static.nemexia.com/ares/css/report.css" rel="stylesheet" type="text/css">
+  
+      <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <!-- prevent private tab -->
+<!-- end prevent private tab -->
+
+  <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/BnqMGSY_YP4cCmbNINHpJPkd/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-sYpJtMbQQVMcL6ys3brW+zRjzkSdQkjC87qQ425VFRFUqoVkIWqa+mJFHsq5ZbzG"></script><script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery-ui-1.11.0.custom.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/jquery.pnotify-1.2.0.min.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/sprintf.js"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/misc.js?ver=5387&amp;2"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/tutorialArrow.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/activityRewards.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/actionsQueue.js?ver=5387"></script>
+  <script type="text/javascript" src="https://static.nemexia.com/ares/js/treasureHunting.js?ver=5387"></script>
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+ 
+</head>
+<body onload="serverTime(Math.round((new Date().getTime()-renderStart)/1000));" id="raceSkin-2" class=""><link rel="stylesheet" type="text/css" href="https://static.nemexia.net/game/css/battle_style.css?1789506413"><div id="myModal" class="modal" style="display:none;">  <div class="sixteen-nine">    <div class="content"><h1 style="width:100%;">Battle</h1>      <div class="modal-content"><div class="modal-footer" style="text-align:center;">Speed:  <select id="battle-speed">    <option value="0">||</option>    <option value="1" selected="">1</option>    <option value="3">3</option>    <option value="5">5</option>  </select>  <button onclick="restartBattlesim ()" style="padding: 3px;">Restart</button>  <span class="close" style="display:inline-block; float: right;"></span></div>        <div class="modal-header">          <div class="background_head"></div>          <div class="attacker-title">            <div id="myProgress_att">              <div id="myBar_att" style="width: 100%; height: 100%;"><h2 id="at">Attacker</h2></div>            </div>          </div>          <div class="defender-title">            <div id="myProgress_def">              <div id="myBar_def" style="width: 100%; height: 100%;"><h2 id="de">Defender</h2></div>            </div>          </div>        </div>        <div id="popupbody" class="modal-body">          <div class="sixteen-nine">            <div class="content">              <canvas id="background"></canvas>              <canvas id="ship"></canvas>              <canvas id="main"></canvas>              <canvas id="explosion"></canvas>              <!-- div class="score">SCORE: <span id="score"></span></div -->                <div class="game-over" id="game-over">                  <div id="d"><div style="display: block; position: absolute; width: 50%; top: 41%;">                    <div class="bp">-</div>                    <div class="rp">-</div>                  </div>                </div>                <!-- p><span onclick="game.restart()">Restart</span></p -->              </div>              <div class="loading" id="loading">Loading<p>Please Wait</p></div>            </div>          </div>        </div>      </div>    </div>  </div></div><div id="WzTtDiV" style="visibility: hidden; position: absolute; overflow: hidden; padding: 0px; width: 0px; left: 5px; top: 0px;"></div>
+          
+<div id="premiumPopupContainer" style="display: none"></div>
+<div id="platinumPopupContainer" style="display: none"></div>
+
+
+
+<script type="text/javascript">
+	var renderStart = new Date().getTime();
+	
+    var RACE_ID = '2';
+/* Translated Strings */
+    var Ok = 'Ок';
+    var Yes = 'Да';
+    var No = 'Нет';
+    var Submit = 'Подтвердить';
+    var Select = 'Выберите';
+    var Cancel = 'Отмена';
+    var Attention = 'Внимание';
+    var Success = 'Успешно!';
+    var StringError = 'Ошибка';
+    var Info = 'Информация';
+    var RUSure = 'Вы уверены?';
+	var TutorialArrowClickHere = 'Проверьте';
+	var StringServerTime = 'Время сервера (UTC+04:00)';
+	var StringBotcheckTime = 'Автоматический режим проверки через %1$s мин.';
+	var StringSpyScanInstantBtnLabel = 'Сканировать';
+	var StringHeaderAdmiralAuctionPackagesUnused = 'У вас %1$s неиспользованных пакетов';
+	var StringHeaderArenaHasReturningUnits = 'Ваши корабли готовы к возвращению';
+	
+	var HEADER_RESOURCE_WARNING_HIGH_TOOLTIP = 'Хранилища заполнены более чем на 90%';
+	var HEADER_RESOURCE_WARNING_MEDIUM_TOOLTIP = 'Хранилища заполнены более чем на 80%';
+	var HEADER_RESOURCE_WARNING_LOW_TOOLTIP = 'Хранилища заполнены более чем на 70%';
+	var HEADER_ENERGY_WARNING_HIGH_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_MEDIUM_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_ENERGY_WARNING_LOW_TOOLTIP = 'Низкий запас энергии';
+	var HEADER_POP_WARNING_HIGH_TOOLTIP = 'Ангары заполнены более чем на 90%';
+	var HEADER_POP_WARNING_MEDIUM_TOOLTIP = 'Ангары заполнены более чем на 80%';
+	var HEADER_POP_WARNING_LOW_TOOLTIP = 'Ангары заполнены более чем на 70%';
+    
+	var PLANET_OZONE_WARNING_HIGH_TOOLTIP = 'Состояние озонового слоя: Критическое&lt;br /&gt;&lt;br /&gt;Наши ученые предлагают принять немедленные меры, иначе планета может быть заблокирована.';
+	var PLANET_OZONE_WARNING_MEDIUM_TOOLTIP = 'Состояние озонового слоя: Опасное';
+	var PLANET_OZONE_WARNING_LOW_TOOLTIP = 'Состояние озонового слоя: Хорошее';
+
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Озона на этой планете: %1$s / %2$s';
+	var HEADER_OZONESTATUSWIDGET_TOOLTIP_GAIN = 'Пополнение озона в день: %1$s';
+
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_LEVEL_CURRENT = 'Уровень Адмирала: %1$s';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_POINTS_TO_NEXT_LEVEL = 'Вам необходимо %1$s боевых очков для достижения следующего уровня.';
+	var HEADER_ADMIRALLEVELPROGRESSWIDGET_TOOLTIP_MAX_LEVEL_REACHED = 'Максимальный уровень достигнут';
+
+	/* Special Variables */
+	var RESOURCE_TYPES = Array();
+		RESOURCE_TYPES["1"] = {"id":"1","name":"metal","title":"\u041c\u0435\u0442\u0430\u043b\u043b","active":"1"};
+		RESOURCE_TYPES["2"] = {"id":"2","name":"crystal","title":"\u041c\u0438\u043d\u0435\u0440\u0430\u043b\u044b","active":"1"};
+		RESOURCE_TYPES["3"] = {"id":"3","name":"gas","title":"\u0413\u0430\u0437","active":"1"};
+		// Downsize to the actual length (the 0 index is not used)
+		RESOURCE_TYPES.shift();
+
+    var PLAYER = Array();
+        PLAYER['metal']     = 1005743;
+        PLAYER['max_metal'] = 19550461;
+        PLAYER['crystal']   = 586223;
+        PLAYER['max_crystal'] = 14700466;
+        PLAYER['gas']       = 152480;
+        PLAYER['max_gas']   = 6141298;
+        PLAYER['recycle']   = 0;
+        PLAYER['energy']    = 1233;
+        PLAYER['pop']       = 8262;
+        PLAYER['pop_used']  = 10;
+		PLAYER['pop_station'] = 0;
+		PLAYER['defence_pop_used']  = 0;
+        PLAYER['credits']   = 775;
+        PLAYER['phase']     = 24;
+
+        //Set Resource Tip Values
+        PLAYER['metalFormat'] = '1,005,743';
+        PLAYER['maxMetalFormat'] = '19,550,461';
+        PLAYER['crystalFormat'] = '586,223';
+        PLAYER['maxCrystalFormat'] = '14,700,466';
+        PLAYER['gasFormat'] = '152,480';
+        PLAYER['maxGasFormat'] = '6,141,298';
+        PLAYER['popFormat'] = '8,262';
+
+		PLAYER['ozone'] = 5390;
+		PLAYER['ozone_loss'] = 3320;
+		PLAYER['ozone_gain'] = 3250;
+
+		PLAYER['battle_points'] = 158;
+		PLAYER['admiral_current_level'] = 6;
+		PLAYER['admiral_is_max_level'] = false;
+		PLAYER['admiral_current_level_battle_points'] = 140;
+		PLAYER['admiral_next_level_battle_points'] = 210;
+		PLAYER['admiral_level_up_battle_points'] = 52;
+
+	var OZONE_MAXIMUM = 15000;
+    var PHP_SELF = '/battleReport.php';
+    var JQ_ANIMATION_SPEED = 'fast';
+
+    var DEC_SEPARATOR = '.';
+    var THO_SEPARATOR = ',';
+
+    var BOT_CHECK = 10300;
+    var URL_REDIRECT = 'bot_check.php?redir=%2FbattleReport.php';
+	var BOTCHECK_ACTIVE = true;
+	var BOTCHECK_PAGE_LOCK = false;
+	var VACATION_PAGE_LOCK = false;
+	var BAN_PAGE_LOCK = false;
+    
+    var currentTime = new Date('September 15, 2026 23:06:53');
+
+    var paymentsUrl = 'payments_redirect.php';
+	var paymentsFBPUrl = 'fbp_redirect.php';
+	
+	var gameSupportUrl = 'https://feedback.nemexia.com/nemexia/ares/1/index/index/14764/ee2475719d0a26276661446cde364e4c0da239f67cb3d0260f5cd805d2cfed56/ru_RU/partnerid/0';
+
+	var GLOBAL_HTTP_PATH_IMAGES = 'https://static.nemexia.com/ares/';
+	
+	var HANGAR_VALUE_SOURCE = 'pop_used';
+	
+	var SCRAP_MOTIVATION_FLEETS = '3,7,12,13,16';
+
+			var AUTOREFRESH_TIME = 60;
+		autoSessionRefresh();
+			
+	var ENDLESS_MODE = '0';
+	
+	var TREASURE_HUNTING_THEME = '';
+	var TREASURE_HUNTING_TITLE = '';
+	
+	var PROCESSES_BOOSTER_ALLOWED = true
+	var SHIPS_9_REQUIREMENT_12_COUNT = 20;
+
+	
+	var headerAttentionSignsMap = {
+		'metal': {sourceField: 'metal', sourceMax: 'max_metal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'crystal': {sourceField: 'crystal', sourceMax: 'max_crystal', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'gas': {sourceField: 'gas', sourceMax: 'max_gas', stringKey: 'RESOURCE', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'energy': {sourceField: 'energy', sourceMax: 1, stringKey: 'ENERGY', high: 1, medium: 10, low: 100, check: '<'},
+		'hangarShips': {sourceField: 'pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7, check: '>'},
+		'hangarDefence': {sourceField: 'defence_pop_used', sourceMax: 'pop', stringKey: 'POP', high: 0.9, medium: 0.8, low: 0.7,check: '>'}
+	};
+	
+
+			
+			var pnotify_config_addclass = 'stack-bottomleft';
+			var pnotify_config_stack = {"dir1": "up", "dir2": "right", "push": "bottom"};
+		
+	</script><script type="text/javascript" src="https://static.nemexia.com/ares/js/promotions.js?ver=5384"></script>
+	<a href="javascript: void(0)" class="promoLabel " onclick="loadPromoWindow(showPromoMessage)"></a>
+
+<div id="promo_popup" style="display: none;"></div>
+
+  <script type="text/javascript">
+    var LoginPopupsQueue = new CallQueue(2);
+  </script>
+
+
+
+
+<div id="fade" class="black_overlay" style="display: none;">
+    <div style="clear: both;"></div>
+</div>
+
+<div id="adviserOverlay" onclick="return QuesterHide();"></div>
+<div id="adviserWrapper">
+
+</div><!-- #adviserWrapper -->
+
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/wz_tooltip.js"></script>
+<div id="dialogMessage" style="left: 50%; top: 100px;">
+  <div id="dialogBox">
+  </div>
+</div>
+<script type="text/javascript" src="https://static.nemexia.com/ares/js/floatingbox.js"></script>
+
+<div id="bodyWrapper" class="">
+
+  <div id="mainWrapper">
+
+  <div id="mainHeader" class="">
+		<div id="headerOrnaments"></div>
+
+		<div class="logo" id="logo">
+		<span>Превосходство</span>
+	</div>
+
+				<div class="language">
+			<a class="switchLanguage" href="#"><img border="0" width="12px" src="https://static.nemexia.com/ares/img/flags/small/ru.png"></a>
+			<ul class="selectLanguage">
+																									<li>
+						<a href="#" onclick="changeLanguage('ar');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/sa.png">Arabic</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('bg');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/bg.png">Bulgarian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('br');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/pt.png">Portuguese</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('cz');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/cz.png">Czech</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('de');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/de.png">German</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('es');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/es.png">Spanish</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('en');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/en.png">English</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('fr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/fr.png">French</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('gr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/gr.png">Greek</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('hr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/hr.png">Croatian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('hu');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/hu.png">Magyar</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('it');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/it.png">Italian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ir');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ir.png">Farsi</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('pl');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/pl.png">Polish</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('lt');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/lt.png">Lithuanian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ro');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ro.png">Romanian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('ru');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/ru.png">Russian</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('sk');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/sk.png">Slovak</a>
+					</li>
+																									<li>
+						<a href="#" onclick="changeLanguage('tr');
+					return false;"><img border="0" width="12" src="https://static.nemexia.com/ares/img/flags/small/tr.png">Turkish</a>
+					</li>
+							</ul>
+		</div>
+	
+	
+		<div class="accountsSwitching">
+		<div class="sitters">
+	<a href="#" onclick="return false;" onmouseover="sittersLoadSignedBabies();">Dendrilion</a>
+	
+	<div id="sittersLoginList"></div>
+	
+</div>
+		<a href="logout.php" class="logout" onmouseover="Tip('Выход');" onmouseout="UnTip();"></a>
+					<a href="http://forums.incuvationgames.com/viewforum.php?f=22" style="float: right; color: #fff; font-size: 12px; text-transform: uppercase; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Tutorial</a>
+			</div>
+
+		<div id="timers">
+
+				
+							<a href="https://discord.gg/WKQNZ7Qeq6" style="color: #fff; font-size: 12px; -moz-border-radius: 10px; -webkit-border-radius: 10px; cursor: pointer;" target="_blank">Discord</a>
+				<a href="javascript: void(0);" id="serverTimeDisplay" class="servertime" onclick="BOTCHECK_ACTIVE &amp;&amp; !BOTCHECK_PAGE_LOCK ? window.location.href = URL_REDIRECT : false;" onmouseover="Tip(getServerTimeTooltip());" onmouseout="UnTip();">23:07:04</a>
+	</div>
+
+		<div id="zoneSelectionMenu" class="userPlanet" style="background-image: url('../img/v2.0/img/planets/top/planet_133.png')">
+				<div id="ozoneStatusWidget" class="fill40">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<circle class="clickable" cx="108" cy="23" r="105" fill-opacity="0" onclick="openPremiumPopup('subtabOzonePurchase');" onmouseover="Tip(ozoneStatusWidgetGetTooltip())" onmouseout="UnTip();"></circle>
+				<circle cx="108" cy="23" r="90" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a class="resourceZone race_1" href="zone_resource.php?race=1" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_2" href="zone_resource.php?race=2" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="resourceZone race_3" href="zone_resource.php?race=3" onmouseover="Tip('Зона ресурсов');" onmouseout="UnTip();"></a>
+			<a class="galaxyZone" href="zone_galaxy.php" onmouseover="Tip('Галактическая зона');" onmouseout="UnTip();"></a>
+			<a class="industryZone" href="zone_industry.php" onmouseover="Tip('Промышленная зона');" onmouseout="UnTip();"></a>
+			<a class="governmentZone" href="zone_military.php" onmouseover="Tip('Военная зона');" onmouseout="UnTip();"></a>
+		</div>
+	</div>
+
+		<div onclick="location.href = 'admiral.php?tabId=tabStats'" class="admiral" id="admiral" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/admiral/race2/header/1.png');">
+				<div id="admiralLevelProgressWidget" class="fill30">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" onmouseover="Tip(admiralLevelProgressWidgetGetTooltip())" onmouseout="UnTip();">
+				<circle cx="47" cy="36" r="47" fill-opacity="0"></circle>
+				<circle cx="46" cy="36" r="41" fill-opacity="0"></circle>
+			</svg>
+		</div>
+		<div>
+			<a href="admiral.php?tabId=tabStats" id="admiralStats" onmouseover="Tip('Характеристики')" onmouseout="UnTip();"></a>
+			<a href="admiral.php?tabId=tabSkills" id="admiralSkills" onmouseover="Tip('Навыки')" onmouseout="UnTip();"></a>
+			<a href="auction.php" id="AuctionAdmiralButton" data-unused-packages="0" data-tooltip="Аукцион"></a>
+			<a href="javascript: void(0);" id="ActivityRewardsButton" onmouseover="Tip('Ежедневные подарки')" onmouseout="UnTip();"></a>
+			<a href="arena.php" id="ArenaButton" data-tooltip="Галактическая Арена" data-has-returning-units="false"></a>
+		</div>
+	</div><!--.admiral-->
+
+		<div class="resources left">
+		<div class="resourceBox" onmouseover="Tip('Металл&lt;br&gt;' + PLAYER['metalFormat'] + '/&lt;br&gt;' + PLAYER['maxMetalFormat']);" onmouseout="UnTip();" id="boxResMetal" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			1,005,743
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Минералы&lt;br&gt;' + PLAYER['crystalFormat'] + '/&lt;br&gt;' + PLAYER['maxCrystalFormat']);" onmouseout="UnTip();" id="boxResCrystal" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			586,223
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Газ&lt;br&gt;' + PLAYER['gasFormat'] + '/&lt;br&gt;' + PLAYER['maxGasFormat']);" onmouseout="UnTip();" id="boxResGas" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			152,480
+		</div>
+	</div>
+
+		<div class="resources right">
+		<div class="resourceBox" onmouseover="Tip('Энергия');" onmouseout="UnTip();" id="boxResEnergy" onclick="window.location.href = '/resourceInfo.php?show=gathering';">
+			1,233
+		</div>
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" onmouseover="Tip('Ангар&lt;br&gt;' + number_format(PLAYER[HANGAR_VALUE_SOURCE]) + '/&lt;br&gt;' + PLAYER['popFormat']);" onmouseout="UnTip();" id="boxResHangar" onclick="window.location.href = '/resourceInfo.php?show=storages';">
+			<span id="resourceBoxHangarShips">
+				10
+							</span>
+			<span id="resourceBoxHangarDefence" style="display: none;">
+				0
+			</span>
+		</div>
+
+		<span class="resourceSeparator"></span>
+
+		<div class="resourceBox" id="boxResRecycle" onmouseover="Tip('Обломки');" onmouseout="UnTip();" onclick="window.location.href = '/recyclingPlant.php';">
+			0
+		</div>
+	</div>
+
+		<div id="planetSwitch" onclick="!BOTCHECK_PAGE_LOCK ? $('#planetsListHolder').slideToggle() : false;">
+		<div class="currentPlanetImage" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png');"></div>
+        <div class="trigger" title="Кликните, чтобы поменять планету">
+            <small>Текущая планета:</small>
+            <big>do not att <span>[2:32:7]</span></big>
+        </div>
+        <ul class="planetsList" id="planetsListHolder" style="display:none;">
+							<li class="active">
+					<a href="change_planet.php?id=557" onclick="delete($.post);">
+						<img src="https://static.nemexia.com/ares/img/v2.0/img/planets/icon/planet_133.png" width="18" id="planetListImg-557">
+						do not att <span>[2:32:7]</span>
+					</a>
+				</li>
+						<li class="bottom"></li>
+		</ul>
+    </div>
+
+		<div id="globalMenu">
+		<ul>
+			<li class="planet"><a href="planet.php">Планета</a></li>
+			<li class="fleets">
+				<a href="fleets.php">Полеты</a>
+													<a class="repairNotification" href="repair_center.php"></a>
+							</li>
+			<li class="galaxy"><a href="galaxy.php?galaxy=2&amp;solar=32">Галактика</a></li>
+			<li class="alliance"><a href="alliance.php">Союз</a></li>
+			<li class="personal"><a href="options.php">Личные</a>
+							</li>
+			<li class="ranking"><a href="ranking.php">Рейтинг</a></li>
+			<li class="comanders">
+				<div class="preview tall" style="background-image: url('https://static.nemexia.com/ares/img/v2.0/img/commanderShips/thumbs/commanderShip_1.png');"></div>
+				<a href="ships.php?show=CommanderShips">Боевой корабль</a>
+			</li>
+		</ul>
+	</div>
+
+		<div id="credits" class="active" onmouseover="Tip('Вы Премиум пользователь.&lt;br/&gt;Ваша подписка заканчивается 2026-10-17 22:39:45.');" onmouseout="UnTip();">
+		<a class="premiumLink" href="javascript: openPremiumPopup()">
+			<span id="creditsHolder">775</span>
+			<span class="glow"></span>
+		</a>
+	</div>
+
+	<div id="platinumStars" class="active" onmouseover="Tip('Вы Платинум пользователь!&lt;br/&gt;Ваша подписка заканчивается 2026-09-22 22:25:27.');" onmouseout="UnTip();">
+		<a class="platinumLink" href="javascript: openPlatinumPopup();">
+			<span id="starsHolder">90</span>
+		</a>
+	</div>
+
+		<div id="adviserLink">
+		<a href="javascript:void(0);" onclick="BOTCHECK_PAGE_LOCK === false &amp;&amp; VACATION_PAGE_LOCK === false &amp;&amp; BAN_PAGE_LOCK === false ? QuesterLoad() : false;" title="Открыть Помощника" class=""></a>
+	</div>
+
+	<div id="adviserMessage" style="display: none;" onclick="QuesterLoad();">
+		<div class="text">
+			<div class="title">Эй, у меня кое-что есть для вас!</div>
+			<p>Проверьте помощника!</p>
+		</div>
+			</div>
+
+		<div class="hudToggle" onclick="headerHudToggle();" onmouseover="Tip('Изменение интерфейса');" onmouseout="UnTip();"></div>
+</div>
+
+	<script type="text/javascript">
+				headerUpdateOzoneStatusWidget();
+				headerUpdateAdmiralLevelProgressWidget();
+
+				$('#AuctionAdmiralButton').bind('mouseover', function() {
+					var AuctionAdmiralTipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-unused-packages') > 0) {
+						AuctionAdmiralTipString += '<br /><br />';
+						AuctionAdmiralTipString += sprintf(StringHeaderAdmiralAuctionPackagesUnused, $(this).attr('data-unused-packages'));
+					}
+					Tip(AuctionAdmiralTipString);
+				}).bind('mouseout', UnTip);
+
+				headerAuctionTooltipUpdate(0);
+
+				$('#ActivityRewardsButton').bind('click', function(event) {
+					event.stopPropagation();
+					if (BOTCHECK_PAGE_LOCK === false && VACATION_PAGE_LOCK === false && BAN_PAGE_LOCK === false) {
+						getActivityRewardsPopup().show();
+					}
+				});
+
+				$('#ArenaButton').bind('mouseover', function() {
+					var tipString = $(this).attr('data-tooltip');
+					if ($(this).attr('data-has-returning-units') === 'true') {
+						tipString += '<br /><br />';
+						tipString += sprintf(StringHeaderArenaHasReturningUnits);
+					}
+					Tip(tipString);
+				}).bind('mouseout', UnTip);
+
+				headerArenaTooltipUpdate(false);
+	</script>
+
+
+
+  <div id="pageBody" class="clearfix">
+          <div id="hotLinksMenu" style="display: block;">
+        <div class="title"><a href="options.php?tabId=TabHotLinks">Ссылки</a></div>
+        <ul>
+          <li><a href="laboratory.php">Экспериментальный центр</a></li>
+<li><a href="ships.php">Верфь</a></li>
+<li><a href="ship_upgrade.php">Космодром</a></li>
+<li><a href="recyclingPlant.php">Свалка</a></li>
+<li><a href="resource_trader.php">Торговый центр</a></li>
+<li><a href="factory.php">Конструкцион</a></li>
+<li><a href="auction.php">Аукцион</a></li>
+<li><a href="bank.php">Банк</a></li>
+<li><a href="technics.php">Технологии</a></li>
+
+
+        
+          <script>
+          $(function () {
+            $("#global-chat").click (function () {
+              window.open ($(this).attr ('data-link'), 'nmxGlobalChat', 'width=1100,height=800');
+            })
+          })
+          </script>
+        
+        </ul>
+        <div class="hide"><a href="javascript:void(0);" onclick="toggleHotLinks();">Спрятать меню »</a></div>
+      </div>
+      <div id="showHotLinks" style="display:none;"><a href="javascript:void(0);" onclick="toggleHotLinks();"><span>Открыть</span></a></div>
+        <!--Banners start-->
+    
+
+    <script type="text/javascript" src="https://static.nemexia.com/ares/js/boxover.js"></script>
+<div id="battleWrapper">
+			<br><h1>Военный доклад</h1>
+        <div class="headerInfo">
+          <div class="titleBlock"><a href="#BattleEnd">В конец Битвы</a></div>
+                    <div class="titleBlock">2026-09-15 23:06</div>
+          
+          <div class="titleBlock"><a href="#" id="myBtn">Show Battle</a></div>
+          <script type="text/javascript" src="https://static.nemexia.com/game/js/game_battle.js?1789506413"></script>
+        </div>
+<div class="box" id="battleHeader">
+  <div id="upgrades">
+    <div class="playerUpgrades">
+      <div class="playerHeader">
+        <div class="avatar">
+          <a href="playerInfo.php?player_id=0">
+            <img src="https://static.nemexia.com/ares/img/no_avatar.jpg" border="0" height="50">
+          </a>
+        </div>
+        <a href="playerInfo.php?player_id=0">Атакующий</a>&nbsp;(<a href="galaxy.php?galaxy=0&amp;solar=0" title="Найди в Галактике">0:0:1</a>)<small>Атакующий</small>
+      </div>
+      <br>
+      <table width="100%" cellspacing="1">
+        <thead>
+          <tr>
+            <td width="50%">
+              Единицы            </td>
+            <td>
+              Население            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Корабли            </td>
+            <td>
+              25,000
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      
+<table width="100%" cellspacing="1" class="BonusSummaryTable">
+  <thead onclick="$(this).parent().find('tbody').toggle();">
+    <tr>
+      <td>Бонусы кораблей</td>
+      <td>%</td>
+    </tr>
+  </thead>
+  <tbody style="">
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_LASER_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Лазером</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_ION_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Ионом</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_PLASMA_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Плазмой</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_LIGHT').html());" onmouseout="UnTip();">
+      <td>Легкая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_NORMAL').html());" onmouseout="UnTip();">
+      <td>Средняя Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_HEAVY').html());" onmouseout="UnTip();">
+      <td>Тяжелая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_LIFE').html());" onmouseout="UnTip();">
+      <td>Жизни Кораблей</td>
+      <td>100%</td>
+    </tr>
+  </tbody>
+</table><div style="display: none"><div id="List_ATTACKER_SHIPS_REPORT_BONUS_LASER_DAMAGE">
+    <ul><li class="ListRow_Sciences_LaserScience">Лазерная наука: 0 (0%)</li><li class="ListRow_Skills_LaserDamage">Лазерный Удар: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_ION_DAMAGE">
+    <ul><li class="ListRow_Sciences_IonScience">Ионная наука: 0 (0%)</li><li class="ListRow_Skills_IonDamage">Пучок Ионов: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_PLASMA_DAMAGE">
+    <ul><li class="ListRow_Sciences_PlasmaScience">Плазменная наука: 0 (0%)</li><li class="ListRow_Skills_PlasmaDamage">Контроль Плазмы: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_LIGHT">
+    <ul><li class="ListRow_Sciences_LightArmor">Легкая Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_NORMAL">
+    <ul><li class="ListRow_Sciences_NormalArmor">Средняя Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_HEAVY">
+    <ul><li class="ListRow_Sciences_HeavyArmor">Тяжелая Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_ATTACKER_SHIPS_REPORT_BONUS_SHIPS_LIFE">
+    <ul><li class="ListRow_Skills_ShipsLife">Улучшенная Броня: 0 (0%)</li><li class="ListRow_Sciences_ShipsDefence">Броня кораблей: 10 (100%)</li><li class="ListRow_Sciences_PromptDefence">Маневренная защита: 0 (0%)</li><li class="ListRow_Skills_ShipsDefenceLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_Stats_ShipsLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Life">Снаряжение Жизни: 0%</li>        </ul>
+  </div></div>
+    </div>
+    <div class="playerUpgrades">
+      <div class="playerHeader">
+        <div class="avatar">
+          <a href="playerInfo.php?player_id=0">
+            <img src="https://static.nemexia.com/ares/img/no_avatar.jpg" border="0" height="50">
+          </a>
+        </div>
+        <a href="playerInfo.php?player_id=0">Защитник</a>&nbsp;(<a href="galaxy.php?galaxy=0&amp;solar=0" title="Найди в Галактике">0:0:2</a>)<small>Защитник</small>
+      </div>
+      <br>
+      <table width="100%" cellspacing="1">
+        <thead>
+          <tr>
+            <td width="50%">
+              Единицы            </td>
+            <td>
+              Население            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Корабли            </td>
+            <td>
+              25,000
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Оборона            </td>
+            <td>
+              0
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      
+<table width="100%" cellspacing="1" class="BonusSummaryTable">
+  <thead onclick="$(this).parent().find('tbody').toggle();">
+    <tr>
+      <td>Бонусы кораблей</td>
+      <td>%</td>
+    </tr>
+  </thead>
+  <tbody style="">
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_LASER_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Лазером</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_ION_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Ионом</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_PLASMA_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Плазмой</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_LIGHT').html());" onmouseout="UnTip();">
+      <td>Легкая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_NORMAL').html());" onmouseout="UnTip();">
+      <td>Средняя Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_HEAVY').html());" onmouseout="UnTip();">
+      <td>Тяжелая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_LIFE').html());" onmouseout="UnTip();">
+      <td>Жизни Кораблей</td>
+      <td>100%</td>
+    </tr>
+  </tbody>
+</table><div style="display: none"><div id="List_DEFENDER_SHIPS_REPORT_BONUS_LASER_DAMAGE">
+    <ul><li class="ListRow_Sciences_LaserScience">Лазерная наука: 0 (0%)</li><li class="ListRow_Skills_LaserDamage">Лазерный Удар: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_ION_DAMAGE">
+    <ul><li class="ListRow_Sciences_IonScience">Ионная наука: 0 (0%)</li><li class="ListRow_Skills_IonDamage">Пучок Ионов: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_PLASMA_DAMAGE">
+    <ul><li class="ListRow_Sciences_PlasmaScience">Плазменная наука: 0 (0%)</li><li class="ListRow_Skills_PlasmaDamage">Контроль Плазмы: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_LIGHT">
+    <ul><li class="ListRow_Sciences_LightArmor">Легкая Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_NORMAL">
+    <ul><li class="ListRow_Sciences_NormalArmor">Средняя Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_ARMOR_HEAVY">
+    <ul><li class="ListRow_Sciences_HeavyArmor">Тяжелая Броня: 0 (0%)</li><li class="ListRow_Skills_ShipsArmor">Усиленные Щиты: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_SHIPS_REPORT_BONUS_SHIPS_LIFE">
+    <ul><li class="ListRow_Skills_ShipsLife">Улучшенная Броня: 0 (0%)</li><li class="ListRow_Sciences_ShipsDefence">Броня кораблей: 10 (100%)</li><li class="ListRow_Sciences_PromptDefence">Маневренная защита: 0 (0%)</li><li class="ListRow_Skills_ShipsDefenceLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_Stats_ShipsLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Life">Снаряжение Жизни: 0%</li>        </ul>
+  </div></div>
+      <br>
+      
+<table width="100%" cellspacing="1" class="BonusSummaryTable">
+  <thead onclick="$(this).parent().find('tbody').toggle();">
+    <tr>
+      <td>Бонусы защиты</td>
+      <td>%</td>
+    </tr>
+  </thead>
+  <tbody style="display: none">
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_LASER_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Лазером</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_ION_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Ионом</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_PLASMA_DAMAGE').html());" onmouseout="UnTip();">
+      <td>Повреждения Плазмой</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_LIGHT').html());" onmouseout="UnTip();">
+      <td>Легкая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_NORMAL').html());" onmouseout="UnTip();">
+      <td>Средняя Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_HEAVY').html());" onmouseout="UnTip();">
+      <td>Тяжелая Броня</td>
+      <td>0%</td>
+    </tr>
+    <tr onmouseover="Tip($('#List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_LIFE').html());" onmouseout="UnTip();">
+      <td>Жизни</td>
+      <td>100%</td>
+    </tr>
+  </tbody>
+</table><div style="display: none"><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_LASER_DAMAGE">
+    <ul><li class="ListRow_Sciences_LaserScience">Лазерная наука: 0 (0%)</li><li class="ListRow_Skills_LaserDamage">Лазерный Удар: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_ION_DAMAGE">
+    <ul><li class="ListRow_Sciences_IonScience">Ионная наука: 0 (0%)</li><li class="ListRow_Skills_IonDamage">Пучок Ионов: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_PLASMA_DAMAGE">
+    <ul><li class="ListRow_Sciences_PlasmaScience">Плазменная наука: 0 (0%)</li><li class="ListRow_Skills_PlasmaDamage">Контроль Плазмы: 0 (0%)</li><li class="ListRow_Sciences_ForceAttack">Пробивающая атака: 0 (0%)</li><li class="ListRow_Skills_AllDamage">Усиленная атака: 0 (0%)</li><li class="ListRow_Stats_ShipsAttack">Сила Атаки: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Attack">Снаряжение Атаки: 0%</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_LIGHT">
+    <ul><li class="ListRow_Sciences_LightArmor">Легкая Броня: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_NORMAL">
+    <ul><li class="ListRow_Sciences_NormalArmor">Средняя Броня: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_ARMOR_HEAVY">
+    <ul><li class="ListRow_Sciences_HeavyArmor">Тяжелая Броня: 0 (0%)</li>        </ul>
+  </div><div id="List_DEFENDER_DEFENCE_REPORT_BONUS_DEFENCE_LIFE">
+    <ul><li class="ListRow_Skills_DefenceLife">Мастер Защиты: 0 (0%)</li><li class="ListRow_Sciences_ShipsDefence">Броня кораблей: 10 (100%)</li><li class="ListRow_Sciences_PromptDefence">Маневренная защита: 0 (0%)</li><li class="ListRow_Skills_ShipsDefenceLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_Stats_ShipsLife">Жизнеобеспечение: 0 (0%)</li><li class="ListRow_AdmiralEquipment_Life">Снаряжение Жизни: 0%</li>        </ul>
+  </div></div>
+    </div>
+  </div>
+</div><!-- #battleHeader --><h1>Раунд 1</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round1').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,447,792&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,128,560&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>694</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,530,800&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,450,200&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>2,109</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;5,651,100&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;32,534,190&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;19.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s7.png"><span>138</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;5,488,560&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;31,135,104&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;16.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>189</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,115,420&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;19,213,740&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>595</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,487,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;27,223,560&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>277</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,115,420&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;19,213,740&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>595</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,487,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;27,223,560&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s6.png"><span>277</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;5,651,100&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;32,534,190&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;19.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>138</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,447,792&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,128,560&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>694</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,530,800&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,450,200&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s3.png"><span>2,109</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;5,488,560&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;31,135,104&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;16.53%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>189</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round1" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 30%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 10.526%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 30%
+        <br>
+        Сторона: Защитник    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 10.526%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 1 -->694 <strong>Защитник </strong> (Атакующий) обнаружил и ударил <strong>Бомбардировщик</strong> (Защитник) с 3,447,792 + 2,413,454 Атаки</p><p class="sustain" style="padding-bottom:20px;">189 <strong>Бомбардировщик</strong> (Защитник) обладают 31,135,104 Жизни и 16.53% Брони. 29 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->2,109 <strong>Скаут</strong> (Атакующий) открыл огонь по <strong>Защитник </strong> (Защитник) с 2,530,800 + 1,771,560 Атаки</p><p class="sustain" style="padding-bottom:20px;">694 <strong>Защитник </strong> (Защитник) обладают 16,128,560 Жизни и 13.53% Брони. 160 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->138 <strong>Разрушитель </strong> (Атакующий) открыл огонь по <strong>Боевой корабль</strong> (Защитник) с 5,651,100 + 18,366,075 Атаки&nbsp;<strong>Опустошать!</strong></p><p class="sustain" style="padding-bottom:20px;">277 <strong>Боевой корабль</strong> (Защитник) обладают 27,223,560 Жизни и 6.00% Брони. 229 <strong>Боевой корабль</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->189 <strong>Бомбардировщик</strong> (Атакующий) обнаружил и ударил <strong>Разрушитель </strong> (Защитник) с 5,488,560 + 3,841,992 Атаки</p><p class="sustain" style="padding-bottom:20px;">138 <strong>Разрушитель </strong> (Защитник) обладают 32,534,190 Жизни и 19.53% Брони. 31 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->595 <strong>Крейсер</strong> (Атакующий) открыл огонь из всех орудий по <strong>Скаут</strong> (Защитник) с 3,115,420 + 2,180,794 Атаки</p><p class="sustain" style="padding-bottom:20px;">2,109 <strong>Скаут</strong> (Защитник) обладают 16,450,200 Жизни и 13.53% Брони. 587 <strong>Скаут</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->277 <strong>Боевой корабль</strong> (Атакующий) обнаружил и ударил <strong>Крейсер</strong> (Защитник) с 4,487,400 + 3,141,180 Атаки</p><p class="sustain" style="padding-bottom:20px;">595 <strong>Крейсер</strong> (Защитник) обладают 19,213,740 Жизни и 13.53% Брони. 204 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->595 <strong>Крейсер</strong> (Защитник) попытался прорвать <strong>Скаут</strong> (Атакующий) с 3,115,420 + 2,180,794 Атаки</p><p class="sustain" style="padding-bottom:20px;">2,109 <strong>Скаут</strong> (Атакующий) обладают 16,450,200 Жизни и 13.53% Брони. 587 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->277 <strong>Боевой корабль</strong> (Защитник) открыл огонь из всех орудий по <strong>Крейсер</strong> (Атакующий) с 4,487,400 + 3,141,180 Атаки</p><p class="sustain" style="padding-bottom:20px;">595 <strong>Крейсер</strong> (Атакующий) обладают 19,213,740 Жизни и 13.53% Брони. 204 <strong>Крейсер</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->138 <strong>Разрушитель </strong> (Защитник) попытался прорвать <strong>Боевой корабль</strong> (Атакующий) с 5,651,100 + 3,955,770 Атаки&nbsp;<strong>Игнорирование брони!</strong></p><p class="sustain" style="padding-bottom:20px;">277 <strong>Боевой корабль</strong> (Атакующий) обладают 27,223,560 Жизни и 0.00% Брони. 97 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->694 <strong>Защитник </strong> (Защитник) обнаружил и ударил <strong>Бомбардировщик</strong> (Атакующий) с 3,447,792 + 2,413,454 Атаки</p><p class="sustain" style="padding-bottom:20px;">189 <strong>Бомбардировщик</strong> (Атакующий) обладают 31,135,104 Жизни и 16.53% Брони. 29 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->2,109 <strong>Скаут</strong> (Защитник) открыл огонь из всех орудий по <strong>Защитник </strong> (Атакующий) с 2,530,800 + 1,771,560 Атаки</p><p class="sustain" style="padding-bottom:20px;">694 <strong>Защитник </strong> (Атакующий) обладают 16,128,560 Жизни и 13.53% Брони. 160 <strong>Защитник </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 1 -->189 <strong>Бомбардировщик</strong> (Защитник) яростно атаковал <strong>Разрушитель </strong> (Атакующий) с 5,488,560 + 3,841,992 Атаки</p><p class="sustain" style="padding-bottom:20px;">138 <strong>Разрушитель </strong> (Атакующий) обладают 32,534,190 Жизни и 19.53% Брони. 31 <strong>Разрушитель </strong> (Атакующий) были уничтожены.</p>
+  <p class="hit">
+    Починенные корабли: <strong>Боевой корабль</strong>
+    <br>
+    Количество: 8
+    <br>
+    Сторона: Атакующий      </p></div><!-- #FullReportdEnd --><h1>Раунд 2</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round2').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,652,912&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;12,408,137&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.14%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>534</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,826,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;11,568,996&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.14%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>1,522</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,381,650&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;24,385,175&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;16.14%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s7.png"><span>107</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,646,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;25,573,406&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.14%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>160</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,047,276&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;12,296,491&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.14%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>391</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,045,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;17,933,908&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>188</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,047,276&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;12,296,491&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.82%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>391</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;777,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,527,665&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s6.png"><span>48</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,381,650&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;24,385,175&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.82%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>107</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,652,912&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;12,408,137&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.82%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>534</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,826,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;11,568,996&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.82%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s3.png"><span>1,522</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;4,646,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;25,573,406&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;7.82%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>160</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round2" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 26.7%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 7.144%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 26.7%
+        <br>
+        Сторона: Защитник    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 1.824%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 2 -->534 <strong>Защитник </strong> (Атакующий) обнаружил и ударил <strong>Бомбардировщик</strong> (Защитник) с 2,652,912 + 1,857,038 Атаки</p><p class="sustain" style="padding-bottom:20px;">160 <strong>Бомбардировщик</strong> (Защитник) обладают 25,573,406 Жизни и 7.82% Брони. 26 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->1,522 <strong>Скаут</strong> (Атакующий) попытался прорвать <strong>Защитник </strong> (Защитник) с 1,826,400 + 1,278,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">534 <strong>Защитник </strong> (Защитник) обладают 12,408,137 Жизни и 4.82% Брони. 127 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->107 <strong>Разрушитель </strong> (Атакующий) открыл огонь из всех орудий по <strong>Боевой корабль</strong> (Защитник) с 4,381,650 + 3,067,155 Атаки</p><p class="sustain" style="padding-bottom:20px;">48 <strong>Боевой корабль</strong> (Защитник) обладают 4,527,665 Жизни и 6.00% Брони. 48 <strong>Боевой корабль</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->107 <strong>Разрушитель </strong> (Атакующий) открыл огонь из всех орудий по <strong>Бомбардировщик</strong> (Защитник) с 3,505,320 - 1,051,596 Атаки</p><p class="sustain" style="padding-bottom:20px;">134 <strong>Бомбардировщик</strong> (Защитник) обладают 21,416,314 Жизни и 7.82% Брони. 14 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->160 <strong>Бомбардировщик</strong> (Атакующий) открыл огонь из всех орудий по <strong>Разрушитель </strong> (Защитник) с 4,646,400 + 3,252,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">107 <strong>Разрушитель </strong> (Защитник) обладают 24,385,175 Жизни и 10.82% Брони. 31 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->391 <strong>Крейсер</strong> (Атакующий) открыл огонь по <strong>Скаут</strong> (Защитник) с 2,047,276 + 1,433,093 Атаки</p><p class="sustain" style="padding-bottom:20px;">1,522 <strong>Скаут</strong> (Защитник) обладают 11,568,996 Жизни и 4.82% Брони. 435 <strong>Скаут</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->188 <strong>Боевой корабль</strong> (Атакующий) обнаружил и ударил <strong>Крейсер</strong> (Защитник) с 3,045,600 + 2,131,920 Атаки</p><p class="sustain" style="padding-bottom:20px;">391 <strong>Крейсер</strong> (Защитник) обладают 12,296,491 Жизни и 4.82% Брони. 156 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->391 <strong>Крейсер</strong> (Защитник) открыл огонь из всех орудий по <strong>Скаут</strong> (Атакующий) с 2,047,276 + 1,433,093 Атаки&nbsp;<strong>Игнорирование брони!</strong></p><p class="sustain" style="padding-bottom:20px;">1,522 <strong>Скаут</strong> (Атакующий) обладают 11,568,996 Жизни и 0.00% Брони. 457 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->48 <strong>Боевой корабль</strong> (Защитник) открыл огонь по <strong>Крейсер</strong> (Атакующий) с 777,600 + 544,320 Атаки</p><p class="sustain" style="padding-bottom:20px;">391 <strong>Крейсер</strong> (Атакующий) обладают 12,296,491 Жизни и 10.14% Брони. 38 <strong>Крейсер</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->107 <strong>Разрушитель </strong> (Защитник) открыл огонь из всех орудий по <strong>Боевой корабль</strong> (Атакующий) с 4,381,650 + 3,067,155 Атаки</p><p class="sustain" style="padding-bottom:20px;">188 <strong>Боевой корабль</strong> (Атакующий) обладают 17,933,908 Жизни и 6.00% Брони. 73 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->534 <strong>Защитник </strong> (Защитник) обнаружил и ударил <strong>Бомбардировщик</strong> (Атакующий) с 2,652,912 + 1,857,038 Атаки</p><p class="sustain" style="padding-bottom:20px;">160 <strong>Бомбардировщик</strong> (Атакующий) обладают 25,573,406 Жизни и 13.14% Брони. 25 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->1,522 <strong>Скаут</strong> (Защитник) открыл огонь по <strong>Защитник </strong> (Атакующий) с 1,826,400 + 1,278,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">534 <strong>Защитник </strong> (Атакующий) обладают 12,408,137 Жизни и 10.14% Брони. 120 <strong>Защитник </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 2 -->160 <strong>Бомбардировщик</strong> (Защитник) открыл огонь из всех орудий по <strong>Разрушитель </strong> (Атакующий) с 4,646,400 + 3,252,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">107 <strong>Разрушитель </strong> (Атакующий) обладают 24,385,175 Жизни и 16.14% Брони. 29 <strong>Разрушитель </strong> (Атакующий) были уничтожены.</p>
+  <p class="sustain">
+    Починенные корабли: <strong>Боевой корабль</strong>
+    <br>
+    Количество: 5
+    <br>
+    Сторона: Атакующий      </p>
+  <p class="hit">
+    Починенные корабли: <strong>Боевой корабль</strong>
+    <br>
+    Количество: 3
+    <br>
+    Сторона: Защитник      </p></div><!-- #FullReportdEnd --><h1>Раунд 3</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round3').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,056,752&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,618,216&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;7.56%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>414</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,278,000&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;7,705,227&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;7.56%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>1,065</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,194,100&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,912,772&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;13.56%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s7.png"><span>78</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,920,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;20,629,811&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.56%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>135</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,848,308&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;10,582,556&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;7.56%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>353</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,944,000&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;10,866,637&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>120</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,230,460&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;6,998,060&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.11%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>235</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;48,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;272,954&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s6.png"><span>3</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,112,200&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,466,074&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;9.11%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>76</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,021,976&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,453,037&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.11%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>407</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,304,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;7,842,373&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.11%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s3.png"><span>1,087</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,484,800&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;18,188,963&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.11%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>120</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round3" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 20.7%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 4.56%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 20.35%
+        <br>
+        Сторона: Защитник    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 0.114%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 3 -->414 <strong>Защитник </strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 2,056,752 + 1,439,726 Атаки</p><p class="sustain" style="padding-bottom:20px;">120 <strong>Бомбардировщик</strong> (Защитник) обладают 18,188,963 Жизни и 6.11% Брони. 22 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->1,065 <strong>Скаут</strong> (Атакующий) открыл огонь из всех орудий по <strong>Защитник </strong> (Защитник) с 1,278,000 + 894,600 Атаки</p><p class="sustain" style="padding-bottom:20px;">407 <strong>Защитник </strong> (Защитник) обладают 9,453,037 Жизни и 3.11% Брони. 90 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->78 <strong>Разрушитель </strong> (Атакующий) яростно атаковал <strong>Боевой корабль</strong> (Защитник) с 3,194,100 + 2,235,870 Атаки</p><p class="sustain" style="padding-bottom:20px;">3 <strong>Боевой корабль</strong> (Защитник) обладают 272,954 Жизни и 6.00% Брони. 3 <strong>Боевой корабль</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->78 <strong>Разрушитель </strong> (Атакующий) открыл огонь из всех орудий по <strong>Бомбардировщик</strong> (Защитник) с 2,555,280 - 766,584 Атаки</p><p class="sustain" style="padding-bottom:20px;">98 <strong>Бомбардировщик</strong> (Защитник) обладают 14,906,259 Жизни и 6.11% Брони. 11 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->135 <strong>Бомбардировщик</strong> (Атакующий) яростно атаковал <strong>Разрушитель </strong> (Защитник) с 3,920,400 + 2,744,280 Атаки</p><p class="sustain" style="padding-bottom:20px;">76 <strong>Разрушитель </strong> (Защитник) обладают 16,466,074 Жизни и 9.11% Брони. 28 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->353 <strong>Крейсер</strong> (Атакующий) открыл огонь из всех орудий по <strong>Скаут</strong> (Защитник) с 1,848,308 + 1,293,816 Атаки</p><p class="sustain" style="padding-bottom:20px;">1,087 <strong>Скаут</strong> (Защитник) обладают 7,842,373 Жизни и 3.11% Брони. 422 <strong>Скаут</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->120 <strong>Боевой корабль</strong> (Атакующий) яростно атаковал <strong>Крейсер</strong> (Защитник) с 1,944,000 + 1,360,800 Атаки</p><p class="sustain" style="padding-bottom:20px;">235 <strong>Крейсер</strong> (Защитник) обладают 6,998,060 Жизни и 3.11% Брони. 108 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->235 <strong>Крейсер</strong> (Защитник) открыл огонь из всех орудий по <strong>Скаут</strong> (Атакующий) с 1,230,460 + 861,322 Атаки</p><p class="sustain" style="padding-bottom:20px;">1,065 <strong>Скаут</strong> (Атакующий) обладают 7,705,227 Жизни и 7.56% Брони. 268 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->3 <strong>Боевой корабль</strong> (Защитник) открыл огонь по <strong>Крейсер</strong> (Атакующий) с 48,600 + 34,020 Атаки</p><p class="sustain" style="padding-bottom:20px;">353 <strong>Крейсер</strong> (Атакующий) обладают 10,582,556 Жизни и 7.56% Брони. 2 <strong>Крейсер</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->76 <strong>Разрушитель </strong> (Защитник) попытался прорвать <strong>Боевой корабль</strong> (Атакующий) с 3,112,200 + 2,178,540 Атаки</p><p class="sustain" style="padding-bottom:20px;">120 <strong>Боевой корабль</strong> (Атакующий) обладают 10,866,637 Жизни и 6.00% Брони. 55 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->407 <strong>Защитник </strong> (Защитник) открыл огонь из всех орудий по <strong>Бомбардировщик</strong> (Атакующий) с 2,021,976 + 1,415,383 Атаки</p><p class="sustain" style="padding-bottom:20px;">135 <strong>Бомбардировщик</strong> (Атакующий) обладают 20,629,811 Жизни и 10.56% Брони. 20 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->1,087 <strong>Скаут</strong> (Защитник) открыл огонь по <strong>Защитник </strong> (Атакующий) с 1,304,400 + 4,017,552 Атаки&nbsp;<strong>Опустошать!</strong></p><p class="sustain" style="padding-bottom:20px;">414 <strong>Защитник </strong> (Атакующий) обладают 9,618,216 Жизни и 7.56% Брони. 211 <strong>Защитник </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 3 -->120 <strong>Бомбардировщик</strong> (Защитник) открыл огонь из всех орудий по <strong>Разрушитель </strong> (Атакующий) с 3,484,800 + 2,439,360 Атаки</p><p class="sustain" style="padding-bottom:20px;">78 <strong>Разрушитель </strong> (Атакующий) обладают 16,912,772 Жизни и 13.56% Брони. 24 <strong>Разрушитель </strong> (Атакующий) были уничтожены.</p></div><!-- #FullReportdEnd --><h1>Раунд 4</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round4').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,008,504&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,698,604&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;5.47%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>203</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;956,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;5,267,082&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;5.47%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>797</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,211,300&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;10,758,777&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;11.47%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s7.png"><span>54</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;3,339,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;16,018,007&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;8.47%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>115</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,837,836&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,586,344&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;5.47%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>351</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,053,000&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;5,374,914&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>65</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;664,972&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;3,654,211&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>127</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,965,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;10,017,097&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;9.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>48</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,574,856&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;7,348,091&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>317</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;798,000&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,618,545&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s3.png"><span>665</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,526,480&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;12,730,815&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>87</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round4" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 10.15%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 2.47%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 15.85%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 4 -->203 <strong>Защитник </strong> (Атакующий) яростно атаковал <strong>Бомбардировщик</strong> (Защитник) с 1,008,504 + 705,953 Атаки</p><p class="sustain" style="padding-bottom:20px;">87 <strong>Бомбардировщик</strong> (Защитник) обладают 12,730,815 Жизни и 6.00% Брони. 11 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->797 <strong>Скаут</strong> (Атакующий) яростно атаковал <strong>Защитник </strong> (Защитник) с 956,400 + 669,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">317 <strong>Защитник </strong> (Защитник) обладают 7,348,091 Жизни и 3.00% Брони. 68 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->54 <strong>Разрушитель </strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 2,211,300 - 663,390 Атаки</p><p class="sustain" style="padding-bottom:20px;">76 <strong>Бомбардировщик</strong> (Защитник) обладают 11,119,226 Жизни и 6.00% Брони. 10 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->115 <strong>Бомбардировщик</strong> (Атакующий) открыл огонь по <strong>Разрушитель </strong> (Защитник) с 3,339,600 + 2,337,720 Атаки</p><p class="sustain" style="padding-bottom:20px;">48 <strong>Разрушитель </strong> (Защитник) обладают 10,017,097 Жизни и 9.00% Брони. 24 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->351 <strong>Крейсер</strong> (Атакующий) яростно атаковал <strong>Скаут</strong> (Защитник) с 1,837,836 + 1,286,485 Атаки</p><p class="sustain" style="padding-bottom:20px;">665 <strong>Скаут</strong> (Защитник) обладают 4,618,545 Жизни и 3.00% Брони. 436 <strong>Скаут</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->65 <strong>Боевой корабль</strong> (Атакующий) открыл огонь из всех орудий по <strong>Крейсер</strong> (Защитник) с 1,053,000 + 737,100 Атаки</p><p class="sustain" style="padding-bottom:20px;">127 <strong>Крейсер</strong> (Защитник) обладают 3,654,211 Жизни и 3.00% Брони. 60 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->127 <strong>Крейсер</strong> (Защитник) попытался прорвать <strong>Скаут</strong> (Атакующий) с 664,972 + 465,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">797 <strong>Скаут</strong> (Атакующий) обладают 5,267,082 Жизни и 5.47% Брони. 161 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->48 <strong>Разрушитель </strong> (Защитник) открыл огонь из всех орудий по <strong>Боевой корабль</strong> (Атакующий) с 1,965,600 + 1,375,920 Атаки</p><p class="sustain" style="padding-bottom:20px;">65 <strong>Боевой корабль</strong> (Атакующий) обладают 5,374,914 Жизни и 6.00% Брони. 38 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->317 <strong>Защитник </strong> (Защитник) попытался прорвать <strong>Бомбардировщик</strong> (Атакующий) с 1,574,856 + 1,102,399 Атаки</p><p class="sustain" style="padding-bottom:20px;">115 <strong>Бомбардировщик</strong> (Атакующий) обладают 16,018,007 Жизни и 8.47% Брони. 17 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->665 <strong>Скаут</strong> (Защитник) обнаружил и ударил <strong>Защитник </strong> (Атакующий) с 798,000 + 558,600 Атаки</p><p class="sustain" style="padding-bottom:20px;">203 <strong>Защитник </strong> (Атакующий) обладают 4,698,604 Жизни и 5.47% Брони. 56 <strong>Защитник </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 4 -->87 <strong>Бомбардировщик</strong> (Защитник) попытался прорвать <strong>Разрушитель </strong> (Атакующий) с 2,526,480 + 8,211,060 Атаки&nbsp;<strong>Опустошать!</strong></p><p class="sustain" style="padding-bottom:20px;">54 <strong>Разрушитель </strong> (Атакующий) обладают 10,758,777 Жизни и 11.47% Брони. 47 <strong>Разрушитель </strong> (Атакующий) были уничтожены.</p></div><!-- #FullReportdEnd --><h1>Раунд 5</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round5').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;730,296&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;3,416,210&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.03%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>147</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;763,200&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,091,618&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.03%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>636</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;286,650&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;1,217,288&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;10.03%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s7.png"><span>7</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,845,920&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;13,219,795&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;7.03%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>98</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,837,836&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,342,217&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;4.03%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>351</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;437,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,176,732&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>27</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;350,812&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;1,861,228&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>67</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;982,800&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,702,755&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;9.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>24</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,237,032&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;5,770,988&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>249</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;274,800&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;1,541,237&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s3.png"><span>229</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,916,640&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,379,831&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>66</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round5" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 7.35%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 1.026%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 12.45%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 5 -->147 <strong>Защитник </strong> (Атакующий) обнаружил и ударил <strong>Бомбардировщик</strong> (Защитник) с 730,296 + 511,207 Атаки</p><p class="sustain" style="padding-bottom:20px;">66 <strong>Бомбардировщик</strong> (Защитник) обладают 9,379,831 Жизни и 6.00% Брони. 8 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->636 <strong>Скаут</strong> (Атакующий) открыл огонь по <strong>Защитник </strong> (Защитник) с 763,200 + 534,240 Атаки</p><p class="sustain" style="padding-bottom:20px;">249 <strong>Защитник </strong> (Защитник) обладают 5,770,988 Жизни и 3.00% Брони. 54 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->7 <strong>Разрушитель </strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 286,650 - 85,995 Атаки</p><p class="sustain" style="padding-bottom:20px;">58 <strong>Бомбардировщик</strong> (Защитник) обладают 8,212,818 Жизни и 6.00% Брони. 1 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->98 <strong>Бомбардировщик</strong> (Атакующий) обнаружил и ударил <strong>Разрушитель </strong> (Защитник) с 2,845,920 + 1,992,144 Атаки</p><p class="sustain" style="padding-bottom:20px;">24 <strong>Разрушитель </strong> (Защитник) обладают 4,702,755 Жизни и 9.00% Брони. 22 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->351 <strong>Крейсер</strong> (Атакующий) обнаружил и ударил <strong>Скаут</strong> (Защитник) с 1,837,836 + 1,286,485 Атаки</p><p class="sustain" style="padding-bottom:20px;">229 <strong>Скаут</strong> (Защитник) обладают 1,541,237 Жизни и 3.00% Брони. 229 <strong>Скаут</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->351 <strong>Крейсер</strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 1,470,269 Атаки</p><p class="sustain" style="padding-bottom:20px;">57 <strong>Бомбардировщик</strong> (Защитник) обладают 8,024,202 Жизни и 6.00% Брони. 10 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->27 <strong>Боевой корабль</strong> (Атакующий) обнаружил и ударил <strong>Крейсер</strong> (Защитник) с 437,400 + 306,180 Атаки</p><p class="sustain" style="padding-bottom:20px;">67 <strong>Крейсер</strong> (Защитник) обладают 1,861,228 Жизни и 3.00% Брони. 26 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->67 <strong>Крейсер</strong> (Защитник) открыл огонь по <strong>Скаут</strong> (Атакующий) с 350,812 + 245,568 Атаки</p><p class="sustain" style="padding-bottom:20px;">636 <strong>Скаут</strong> (Атакующий) обладают 4,091,618 Жизни и 4.03% Брони. 89 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->24 <strong>Разрушитель </strong> (Защитник) яростно атаковал <strong>Боевой корабль</strong> (Атакующий) с 982,800 + 687,960 Атаки</p><p class="sustain" style="padding-bottom:20px;">27 <strong>Боевой корабль</strong> (Атакующий) обладают 2,176,732 Жизни и 6.00% Брони. 19 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->249 <strong>Защитник </strong> (Защитник) обнаружил и ударил <strong>Бомбардировщик</strong> (Атакующий) с 1,237,032 + 865,922 Атаки</p><p class="sustain" style="padding-bottom:20px;">98 <strong>Бомбардировщик</strong> (Атакующий) обладают 13,219,795 Жизни и 7.03% Брони. 15 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->229 <strong>Скаут</strong> (Защитник) обнаружил и ударил <strong>Защитник </strong> (Атакующий) с 274,800 + 192,360 Атаки</p><p class="sustain" style="padding-bottom:20px;">147 <strong>Защитник </strong> (Атакующий) обладают 3,416,210 Жизни и 4.03% Брони. 19 <strong>Защитник </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->66 <strong>Бомбардировщик</strong> (Защитник) открыл огонь по <strong>Разрушитель </strong> (Атакующий) с 1,916,640 + 1,341,648 Атаки</p><p class="sustain" style="padding-bottom:20px;">7 <strong>Разрушитель </strong> (Атакующий) обладают 1,217,288 Жизни и 10.03% Брони. 7 <strong>Разрушитель </strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 5 -->66 <strong>Бомбардировщик</strong> (Защитник) яростно атаковал <strong>Бомбардировщик</strong> (Атакующий) с 1,533,312 - 459,994 Атаки</p><p class="sustain" style="padding-bottom:20px;">83 <strong>Бомбардировщик</strong> (Атакующий) обладают 11,264,594 Жизни и 7.03% Брони. 7 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p></div><!-- #FullReportdEnd --><h1>Раунд 6</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round6').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;635,904&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,967,858&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.30%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>128</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;656,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;3,488,069&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.30%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>547</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;2,207,040&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;10,175,196&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.30%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>76</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,837,836&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,259,388&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.30%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>351</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;129,600&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;600,472&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>8</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;214,676&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;1,112,458&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>41</span></div>
+
+<div class="ship" title="header=[Разрушитель ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;81,900&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;290,323&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;9.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s7.png"><span>2</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;968,760&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;4,512,471&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>195</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,364,880&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;6,481,341&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>47</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round6" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 6.4%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 0.304%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 9.75%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 6 -->128 <strong>Защитник </strong> (Атакующий) обнаружил и ударил <strong>Бомбардировщик</strong> (Защитник) с 635,904 + 445,133 Атаки</p><p class="sustain" style="padding-bottom:20px;">47 <strong>Бомбардировщик</strong> (Защитник) обладают 6,481,341 Жизни и 6.00% Брони. 7 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->547 <strong>Скаут</strong> (Атакующий) яростно атаковал <strong>Защитник </strong> (Защитник) с 656,400 + 459,480 Атаки</p><p class="sustain" style="padding-bottom:20px;">195 <strong>Защитник </strong> (Защитник) обладают 4,512,471 Жизни и 3.00% Брони. 47 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->76 <strong>Бомбардировщик</strong> (Атакующий) попытался прорвать <strong>Разрушитель </strong> (Защитник) с 2,207,040 + 1,544,928 Атаки</p><p class="sustain" style="padding-bottom:20px;">2 <strong>Разрушитель </strong> (Защитник) обладают 290,323 Жизни и 9.00% Брони. 2 <strong>Разрушитель </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->76 <strong>Бомбардировщик</strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 1,765,632 - 529,690 Атаки</p><p class="sustain" style="padding-bottom:20px;">40 <strong>Бомбардировщик</strong> (Защитник) обладают 5,465,167 Жизни и 6.00% Брони. 9 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->351 <strong>Крейсер</strong> (Атакующий) открыл огонь из всех орудий по <strong>Бомбардировщик</strong> (Защитник) с 1,837,836 Атаки</p><p class="sustain" style="padding-bottom:20px;">31 <strong>Бомбардировщик</strong> (Защитник) обладают 4,303,381 Жизни и 6.00% Брони. 12 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->8 <strong>Боевой корабль</strong> (Атакующий) открыл огонь по <strong>Крейсер</strong> (Защитник) с 129,600 + 90,720 Атаки</p><p class="sustain" style="padding-bottom:20px;">41 <strong>Крейсер</strong> (Защитник) обладают 1,112,458 Жизни и 3.00% Брони. 8 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->41 <strong>Крейсер</strong> (Защитник) попытался прорвать <strong>Скаут</strong> (Атакующий) с 214,676 + 150,273 Атаки</p><p class="sustain" style="padding-bottom:20px;">547 <strong>Скаут</strong> (Атакующий) обладают 3,488,069 Жизни и 3.30% Брони. 55 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->2 <strong>Разрушитель </strong> (Защитник) открыл огонь из всех орудий по <strong>Боевой корабль</strong> (Атакующий) с 81,900 + 57,330 Атаки</p><p class="sustain" style="padding-bottom:20px;">8 <strong>Боевой корабль</strong> (Атакующий) обладают 600,472 Жизни и 6.00% Брони. 2 <strong>Боевой корабль</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->195 <strong>Защитник </strong> (Защитник) попытался прорвать <strong>Бомбардировщик</strong> (Атакующий) с 968,760 + 678,132 Атаки</p><p class="sustain" style="padding-bottom:20px;">76 <strong>Бомбардировщик</strong> (Атакующий) обладают 10,175,196 Жизни и 6.30% Брони. 11 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 6 -->47 <strong>Бомбардировщик</strong> (Защитник) открыл огонь из всех орудий по <strong>Бомбардировщик</strong> (Атакующий) с 1,364,880 - 409,464 Атаки</p><p class="sustain" style="padding-bottom:20px;">65 <strong>Бомбардировщик</strong> (Атакующий) обладают 8,632,124 Жизни и 6.30% Брони. 7 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p></div><!-- #FullReportdEnd --><h1>Раунд 7</h1><div class="round"><div class="planet"></div>
+<div class="detailedReport"><a href="javascript:void(0);" onclick="$('#round7').toggle();">Анализ</a></div>
+
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;635,904&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,967,858&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.23%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>128</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;590,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;3,135,177&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.23%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>492</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,684,320&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;7,736,937&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.23%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>58</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,837,836&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;9,259,388&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.23%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>351</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;97,200&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;469,596&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>6</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;172,788&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;879,484&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s4.png"><span>33</span></div>
+
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;735,264&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;3,430,067&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s5.png"><span>148</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;551,760&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,519,235&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_d_s8.png"><span>19</span></div>
+
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round7" style="">
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 6.4%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Боевой корабль</strong>
+        <br>
+        Бонус&nbsp;Броня: 0.228%
+        <br>
+        Сторона: Атакующий    </p>
+    <p class="hit">
+        Бонус от специальных юнитов на начало раунда:    </p>
+    <p class="sustain">
+        <strong>Защитник </strong>
+        <br>
+        Бонус&nbsp;Жизнь: 7.4%
+        <br>
+        Сторона: Защитник    </p><p class="hit">
+
+<!-- ROUND: 7 -->128 <strong>Защитник </strong> (Атакующий) открыл огонь по <strong>Бомбардировщик</strong> (Защитник) с 635,904 + 445,133 Атаки</p><p class="sustain" style="padding-bottom:20px;">19 <strong>Бомбардировщик</strong> (Защитник) обладают 2,519,235 Жизни и 6.00% Брони. 7 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->492 <strong>Скаут</strong> (Атакующий) открыл огонь по <strong>Защитник </strong> (Защитник) с 590,400 + 1,718,064 Атаки&nbsp;<strong>Опустошать!</strong></p><p class="sustain" style="padding-bottom:20px;">148 <strong>Защитник </strong> (Защитник) обладают 3,430,067 Жизни и 3.00% Брони. 96 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->58 <strong>Бомбардировщик</strong> (Атакующий) попытался прорвать <strong>Бомбардировщик</strong> (Защитник) с 1,684,320 - 505,296 Атаки</p><p class="sustain" style="padding-bottom:20px;">12 <strong>Бомбардировщик</strong> (Защитник) обладают 1,503,060 Жизни и 6.00% Брони. 9 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->351 <strong>Крейсер</strong> (Атакующий) открыл огонь по <strong>Бомбардировщик</strong> (Защитник) с 1,837,836 Атаки</p><p class="sustain" style="padding-bottom:20px;">3 <strong>Бомбардировщик</strong> (Защитник) обладают 394,778 Жизни и 6.00% Брони. 3 <strong>Бомбардировщик</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->351 <strong>Крейсер</strong> (Атакующий) обнаружил и ударил <strong>Защитник </strong> (Защитник) с 1,470,269 + 1,029,188 Атаки</p><p class="sustain" style="padding-bottom:20px;">52 <strong>Защитник </strong> (Защитник) обладают 1,190,857 Жизни и 3.00% Брони. 52 <strong>Защитник </strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->351 <strong>Крейсер</strong> (Атакующий) обнаружил и ударил <strong>Крейсер</strong> (Защитник) с 1,102,702 - 330,810 Атаки</p><p class="sustain" style="padding-bottom:20px;">33 <strong>Крейсер</strong> (Защитник) обладают 879,484 Жизни и 3.00% Брони. 28 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->6 <strong>Боевой корабль</strong> (Атакующий) яростно атаковал <strong>Крейсер</strong> (Защитник) с 97,200 + 68,040 Атаки</p><p class="sustain" style="padding-bottom:20px;">5 <strong>Крейсер</strong> (Защитник) обладают 130,750 Жизни и 3.00% Брони. 5 <strong>Крейсер</strong> (Защитник) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->33 <strong>Крейсер</strong> (Защитник) открыл огонь из всех орудий по <strong>Скаут</strong> (Атакующий) с 172,788 + 120,952 Атаки</p><p class="sustain" style="padding-bottom:20px;">492 <strong>Скаут</strong> (Атакующий) обладают 3,135,177 Жизни и 3.23% Брони. 45 <strong>Скаут</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->148 <strong>Защитник </strong> (Защитник) открыл огонь по <strong>Бомбардировщик</strong> (Атакующий) с 735,264 + 514,685 Атаки</p><p class="sustain" style="padding-bottom:20px;">58 <strong>Бомбардировщик</strong> (Атакующий) обладают 7,736,937 Жизни и 6.23% Брони. 9 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p><p class="hit">
+
+<!-- ROUND: 7 -->19 <strong>Бомбардировщик</strong> (Защитник) открыл огонь по <strong>Бомбардировщик</strong> (Атакующий) с 551,760 - 165,528 Атаки</p><p class="sustain" style="padding-bottom:20px;">49 <strong>Бомбардировщик</strong> (Атакующий) обладают 6,564,835 Жизни и 6.23% Брони. 2 <strong>Бомбардировщик</strong> (Атакующий) были уничтожены.</p></div><!-- #FullReportdEnd --><h1>Конец битвы</h1><div class="round" id="BattleEnd"><div class="planet"></div>
+  <div class="attacker">
+      <div class="playerTitle">Атакующий<span>Атакующий</span>
+    </div>
+      <div class="ships">
+<div class="ship" title="header=[Защитник ] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;635,904&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,967,858&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s5.png"><span>128</span></div>
+
+<div class="ship" title="header=[Скаут] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;536,400&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;2,679,272&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s3.png"><span>447</span></div>
+
+<div class="ship" title="header=[Бомбардировщик] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,364,880&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;5,821,484&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s8.png"><span>47</span></div>
+
+<div class="ship" title="header=[Крейсер] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;1,837,836&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;8,701,382&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;3.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s4.png"><span>351</span></div>
+
+<div class="ship" title="header=[Боевой корабль] body=[Уровень:  &lt;b&gt;10&lt;/b&gt; &lt;br /&gt;Атака: &lt;b&gt;97,200&lt;/b&gt; &lt;br /&gt;Жизнь:   &lt;b&gt;440,565&lt;/b&gt; &lt;br /&gt;Броня:  &lt;b&gt;6.00%&lt;/b&gt;]"><img src="https://static.nemexia.com/ares/img/v2.0/img/report/ships/r1_a_s6.png"><span>6</span></div>
+
+      </div>
+  </div>
+  <div class="defender">
+      <div class="playerTitle">Защитник<span>Защитник</span>
+    </div>
+      <div class="ships">
+      </div>
+      <div class="defence">
+      </div>
+  </div></div> <!-- #RoundEnd --> <p></p>
+    <div class="hits" id="round0" style="display: none;"></div><!-- #FullReportdEnd --><div class="message information">
+      <div class="sub">
+    <h2>Атакующий победитель</h2><script>
+        winner_name="Атакующий победитель";
+        </script><h6>Оставшаяся популяция: Атакующие</h6><p>Корабли:&nbsp;<strong>5,243</strong></p><h6>Оставшаяся популяция: Защитники</h6><p>Корабли:&nbsp;<strong>0</strong></p><p>Оборона:&nbsp;<strong>0</strong></p><h6>Боевой опыт</h6><p>The Attacker loses <strong>83,855</strong> resource points and wins <strong>103,498</strong> battle points.</p>
+<p>Защитник потерял <strong>100,478</strong> очков ресурсов и получил <strong>81,334</strong> боевых очков.</p>
+<h6>Останки</h6>
+    <ul>
+        <li>
+      Обломки: <strong>42,857,422</strong>
+        </li>
+    </ul><h6>Украденные ресурсы</h6><ul>
+<li>Металл: <strong>0</strong></li>
+<li>Минералы: <strong>0</strong></li>
+<li>Газ: <strong>0</strong></li>
+<li>Обломки: <strong>0</strong></li>
+</ul>
+</div>
+       </div></div><!-- #mainWrapper -->
+	</div><!-- #battleWrapper -->
+  </div><!-- #pageBody -->
+
+ 
+    <div id="footer">
+
+      <div id="copyright">
+        <span id="helpLinks">
+                    <a href="https://www.2axion.com/terms/" target="_blank">Правила и условия XS Software</a> |
+                              <a href="http://forums.incuvationgames.com/" target="_blank">Форум</a> |
+                      <a href="javascript:supportOpen();">Обратная связь</a> |
+                    <a href="http://forums.incuvationgames.com/viewforum.php?f=22" target="_blank">Помощь</a><!-- |
+
+          <a href="#" onClick="$('#open-chat').click ();">Open Chat</a> -->
+        </span>
+        <span class="copyText">Copyright © 2026 2Axion, LLC. All rights reserved.</span>
+      </div>
+                      </div>
+
+</div><!-- #mainWrapper -->
+<!-- #bodyWrapper -->
+
+<!-- #warningHeaderContainer - begin -->
+<div id="warningHeaderContainer">
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResMetal" data-type="metal" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 662.727px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResCrystal" data-type="crystal" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 662.727px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResGas" data-type="gas" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 89.9659px; left: 662.727px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResEnergy" data-type="energy" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 45.9886px; left: 1039.73px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResHangar" data-type="hangarShips" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1039.73px; display: none;"></a>
+	<a href="javascript: openPremiumPopup('subtabSpecialities');" data-target="boxResHangar" data-type="hangarDefence" class="warning" onmouseover="Tip($(this).attr('data-tooltip'));" onmouseout="UnTip();" data-tooltip="" style="top: 67.9773px; left: 1039.73px; display: none;"></a>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		headerAttentionSignsReposition();
+		headerAttentionSignsUpdate();
+	});
+</script>
+
+<!-- #warningHeaderContainer - end -->
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    LoginPopupsQueue.exec();
+  });
+  </script>
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		function getRandomInt(min, max) 
+		{
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+		window.addEventListener('load', function () {
+		$(document).ready(function()
+		{
+			$.post("../check_humanity.php?id="+getRandomInt(10000, 999999999), {
+			type: 'chk'
+			}, function(response){
+				var a="a";
+			});
+		});
+		})
+	</script>
+
+
+
+
+<div style="position: absolute; text-align: left; visibility: hidden; z-index: 10;"><div></div><div></div></div></body></html>

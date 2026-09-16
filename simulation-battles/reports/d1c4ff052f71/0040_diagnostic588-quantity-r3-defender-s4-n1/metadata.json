@@ -1,0 +1,1993 @@
+{
+  "captured_at": "2026-09-16T13:46:12.017866+03:00",
+  "url": "https://game.ares.nemexia.com/battleReport.php",
+  "title": "Nemexia Вселенная 1 // Военный доклад",
+  "warnings": [],
+  "files": {
+    "screenshot": "screenshot.png",
+    "html": "page.html",
+    "mhtml": "page.mhtml"
+  },
+  "context": {
+    "run_id": "d1c4ff052f71",
+    "case_id": "diagnostic588-quantity-r3-defender-s4-n1",
+    "case_title": "Кривая количества · Ноксы · Немезис · defender · 1 шт.",
+    "planned_index": 40,
+    "planned_case": {
+      "case_id": "diagnostic588-quantity-r3-defender-s4-n1",
+      "title": "Кривая количества · Ноксы · Немезис · defender · 1 шт.",
+      "attacker_ships": {
+        "Нокс Дарт": 4187,
+        "Немезис": 2083,
+        "Абсорбатор": 1388,
+        "Призрак": 416,
+        "Шмель": 245,
+        "Бомбардировщик": 198
+      },
+      "attacker_levels": {
+        "Нокс Дарт": 10,
+        "Немезис": 10,
+        "Абсорбатор": 10,
+        "Призрак": 10,
+        "Шмель": 10,
+        "Бомбардировщик": 10
+      },
+      "defender_race_id": 3,
+      "defender_ships": {
+        "Немезис": 1
+      },
+      "defender_levels": {
+        "Немезис": 10
+      },
+      "attacker_commanders": {},
+      "defender_commanders": {},
+      "attacker_lead": "",
+      "defender_lead": "",
+      "defender_defence": {},
+      "rounds": 12,
+      "notes": "Нулевая наука; меняется количество одного боевого корпуса, противоположная сторона сохраняет полный смешанный состав.",
+      "attacker_sciences": {
+        "7": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "18": 0,
+        "19": 0,
+        "20": 0
+      },
+      "defender_sciences": {
+        "7": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "18": 0,
+        "19": 0,
+        "20": 0
+      },
+      "science_profile": "zero",
+      "attacker_race_id": 3,
+      "experiment_block": "quantity_curve",
+      "comparison_key": "diagnostic-quantity-r3-defender-s4-n1",
+      "replicate": 1,
+      "factors": {
+        "attacker_race_id": 3,
+        "defender_race_id": 3,
+        "quantity_side": "defender",
+        "ship_slot": 4,
+        "ship_name": "Немезис",
+        "quantity_count": 1,
+        "quantity_max_count": 12500,
+        "quantity_ratio": 8e-05,
+        "ability_cap_probe": 2000,
+        "composition_mode": "one_hull_vs_mixed",
+        "population_budget": 25000,
+        "round_limit": 12
+      }
+    },
+    "effective_form": {
+      "url": "https://game.ares.nemexia.com/fleets.php",
+      "attackerRaceId": 3,
+      "defenderRaceId": 3,
+      "rounds": 12,
+      "fields": {
+        "choose_race1": {
+          "id": "choose_race1",
+          "name": "choose_race1",
+          "type": "select-one",
+          "value": "3",
+          "checked": null,
+          "selectedText": "Ноксы"
+        },
+        "choose_race2": {
+          "id": "choose_race2",
+          "name": "choose_race2",
+          "type": "select-one",
+          "value": "3",
+          "checked": null,
+          "selectedText": "Ноксы"
+        },
+        "attackerShipPop-1": {
+          "id": "attackerShipPop-1",
+          "name": "",
+          "type": "hidden",
+          "value": "2",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-1": {
+          "id": "attackerShipCount-1",
+          "name": "attackerShipCount[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-1": {
+          "id": "attackerShipLevel-1",
+          "name": "attackerShipLevel[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-2": {
+          "id": "attackerShipPop-2",
+          "name": "",
+          "type": "hidden",
+          "value": "4",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-2": {
+          "id": "attackerShipCount-2",
+          "name": "attackerShipCount[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-2": {
+          "id": "attackerShipLevel-2",
+          "name": "attackerShipLevel[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-1": {
+          "id": "defenderShipPop-1",
+          "name": "",
+          "type": "hidden",
+          "value": "2",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-1": {
+          "id": "defenderShipCount-1",
+          "name": "defenderShipCount[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-1": {
+          "id": "defenderShipLevel-1",
+          "name": "defenderShipLevel[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-2": {
+          "id": "defenderShipPop-2",
+          "name": "",
+          "type": "hidden",
+          "value": "4",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-2": {
+          "id": "defenderShipCount-2",
+          "name": "defenderShipCount[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-2": {
+          "id": "defenderShipLevel-2",
+          "name": "defenderShipLevel[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-3": {
+          "id": "attackerShipPop-3",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-3": {
+          "id": "attackerShipCount-3",
+          "name": "attackerShipCount[3]",
+          "type": "text",
+          "value": "4187",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-3": {
+          "id": "attackerShipLevel-3",
+          "name": "attackerShipLevel[3]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-4": {
+          "id": "attackerShipPop-4",
+          "name": "",
+          "type": "hidden",
+          "value": "2",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-4": {
+          "id": "attackerShipCount-4",
+          "name": "attackerShipCount[4]",
+          "type": "text",
+          "value": "2083",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-4": {
+          "id": "attackerShipLevel-4",
+          "name": "attackerShipLevel[4]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-3": {
+          "id": "defenderShipPop-3",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-3": {
+          "id": "defenderShipCount-3",
+          "name": "defenderShipCount[3]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-3": {
+          "id": "defenderShipLevel-3",
+          "name": "defenderShipLevel[3]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-4": {
+          "id": "defenderShipPop-4",
+          "name": "",
+          "type": "hidden",
+          "value": "2",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-4": {
+          "id": "defenderShipCount-4",
+          "name": "defenderShipCount[4]",
+          "type": "text",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-4": {
+          "id": "defenderShipLevel-4",
+          "name": "defenderShipLevel[4]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-5": {
+          "id": "attackerShipPop-5",
+          "name": "",
+          "type": "hidden",
+          "value": "3",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-5": {
+          "id": "attackerShipCount-5",
+          "name": "attackerShipCount[5]",
+          "type": "text",
+          "value": "1388",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-5": {
+          "id": "attackerShipLevel-5",
+          "name": "attackerShipLevel[5]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-6": {
+          "id": "attackerShipPop-6",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-6": {
+          "id": "attackerShipCount-6",
+          "name": "attackerShipCount[6]",
+          "type": "text",
+          "value": "416",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-6": {
+          "id": "attackerShipLevel-6",
+          "name": "attackerShipLevel[6]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-5": {
+          "id": "defenderShipPop-5",
+          "name": "",
+          "type": "hidden",
+          "value": "3",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-5": {
+          "id": "defenderShipCount-5",
+          "name": "defenderShipCount[5]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-5": {
+          "id": "defenderShipLevel-5",
+          "name": "defenderShipLevel[5]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-6": {
+          "id": "defenderShipPop-6",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-6": {
+          "id": "defenderShipCount-6",
+          "name": "defenderShipCount[6]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-6": {
+          "id": "defenderShipLevel-6",
+          "name": "defenderShipLevel[6]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-7": {
+          "id": "attackerShipPop-7",
+          "name": "",
+          "type": "hidden",
+          "value": "17",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-7": {
+          "id": "attackerShipCount-7",
+          "name": "attackerShipCount[7]",
+          "type": "text",
+          "value": "245",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-7": {
+          "id": "attackerShipLevel-7",
+          "name": "attackerShipLevel[7]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-8": {
+          "id": "attackerShipPop-8",
+          "name": "",
+          "type": "hidden",
+          "value": "21",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-8": {
+          "id": "attackerShipCount-8",
+          "name": "attackerShipCount[8]",
+          "type": "text",
+          "value": "198",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-8": {
+          "id": "attackerShipLevel-8",
+          "name": "attackerShipLevel[8]",
+          "type": "text",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-7": {
+          "id": "defenderShipPop-7",
+          "name": "",
+          "type": "hidden",
+          "value": "17",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-7": {
+          "id": "defenderShipCount-7",
+          "name": "defenderShipCount[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-7": {
+          "id": "defenderShipLevel-7",
+          "name": "defenderShipLevel[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-8": {
+          "id": "defenderShipPop-8",
+          "name": "",
+          "type": "hidden",
+          "value": "21",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-8": {
+          "id": "defenderShipCount-8",
+          "name": "defenderShipCount[8]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-8": {
+          "id": "defenderShipLevel-8",
+          "name": "defenderShipLevel[8]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-9": {
+          "id": "attackerShipPop-9",
+          "name": "",
+          "type": "hidden",
+          "value": "320",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-9": {
+          "id": "attackerShipCount-9",
+          "name": "attackerShipCount[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-9": {
+          "id": "attackerShipLevel-9",
+          "name": "attackerShipLevel[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-10": {
+          "id": "attackerShipPop-10",
+          "name": "",
+          "type": "hidden",
+          "value": "12",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-10": {
+          "id": "attackerShipCount-10",
+          "name": "attackerShipCount[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-10": {
+          "id": "attackerShipLevel-10",
+          "name": "attackerShipLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-9": {
+          "id": "defenderShipPop-9",
+          "name": "",
+          "type": "hidden",
+          "value": "320",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-9": {
+          "id": "defenderShipCount-9",
+          "name": "defenderShipCount[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-9": {
+          "id": "defenderShipLevel-9",
+          "name": "defenderShipLevel[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-10": {
+          "id": "defenderShipPop-10",
+          "name": "",
+          "type": "hidden",
+          "value": "12",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-10": {
+          "id": "defenderShipCount-10",
+          "name": "defenderShipCount[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-10": {
+          "id": "defenderShipLevel-10",
+          "name": "defenderShipLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-11": {
+          "id": "attackerShipPop-11",
+          "name": "",
+          "type": "hidden",
+          "value": "5",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-11": {
+          "id": "attackerShipCount-11",
+          "name": "attackerShipCount[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-11": {
+          "id": "attackerShipLevel-11",
+          "name": "attackerShipLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipPop-12": {
+          "id": "attackerShipPop-12",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipCount-12": {
+          "id": "attackerShipCount-12",
+          "name": "attackerShipCount[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerShipLevel-12": {
+          "id": "attackerShipLevel-12",
+          "name": "attackerShipLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-11": {
+          "id": "defenderShipPop-11",
+          "name": "",
+          "type": "hidden",
+          "value": "5",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-11": {
+          "id": "defenderShipCount-11",
+          "name": "defenderShipCount[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-11": {
+          "id": "defenderShipLevel-11",
+          "name": "defenderShipLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-12": {
+          "id": "defenderShipPop-12",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-12": {
+          "id": "defenderShipCount-12",
+          "name": "defenderShipCount[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-12": {
+          "id": "defenderShipLevel-12",
+          "name": "defenderShipLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipPop-13": {
+          "id": "defenderShipPop-13",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipCount-13": {
+          "id": "defenderShipCount-13",
+          "name": "defenderShipCount[13]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderShipLevel-13": {
+          "id": "defenderShipLevel-13",
+          "name": "defenderShipLevel[13]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-2": {
+          "id": "attackerCommanderShipPop-2",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-2": {
+          "id": "attackerCommanderShipCount-2",
+          "name": "attackerCommanderShipCount[2]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-2": {
+          "id": "attackerCommanderShipLevel-2",
+          "name": "attackerCommanderShipLevel[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-7": {
+          "id": "attackerCommanderShipPop-7",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-7": {
+          "id": "attackerCommanderShipCount-7",
+          "name": "attackerCommanderShipCount[7]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-7": {
+          "id": "attackerCommanderShipLevel-7",
+          "name": "attackerCommanderShipLevel[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-2": {
+          "id": "defenderCommanderShipPop-2",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-2": {
+          "id": "defenderCommanderShipCount-2",
+          "name": "defenderCommanderShipCount[2]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-2": {
+          "id": "defenderCommanderShipLevel-2",
+          "name": "defenderCommanderShipLevel[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-7": {
+          "id": "defenderCommanderShipPop-7",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-7": {
+          "id": "defenderCommanderShipCount-7",
+          "name": "defenderCommanderShipCount[7]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-7": {
+          "id": "defenderCommanderShipLevel-7",
+          "name": "defenderCommanderShipLevel[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-9": {
+          "id": "attackerCommanderShipPop-9",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-9": {
+          "id": "attackerCommanderShipCount-9",
+          "name": "attackerCommanderShipCount[9]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-9": {
+          "id": "attackerCommanderShipLevel-9",
+          "name": "attackerCommanderShipLevel[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-10": {
+          "id": "attackerCommanderShipPop-10",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-10": {
+          "id": "attackerCommanderShipCount-10",
+          "name": "attackerCommanderShipCount[10]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-10": {
+          "id": "attackerCommanderShipLevel-10",
+          "name": "attackerCommanderShipLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-9": {
+          "id": "defenderCommanderShipPop-9",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-9": {
+          "id": "defenderCommanderShipCount-9",
+          "name": "defenderCommanderShipCount[9]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-9": {
+          "id": "defenderCommanderShipLevel-9",
+          "name": "defenderCommanderShipLevel[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-10": {
+          "id": "defenderCommanderShipPop-10",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-10": {
+          "id": "defenderCommanderShipCount-10",
+          "name": "defenderCommanderShipCount[10]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-10": {
+          "id": "defenderCommanderShipLevel-10",
+          "name": "defenderCommanderShipLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-8": {
+          "id": "attackerCommanderShipPop-8",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-8": {
+          "id": "attackerCommanderShipCount-8",
+          "name": "attackerCommanderShipCount[8]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-8": {
+          "id": "attackerCommanderShipLevel-8",
+          "name": "attackerCommanderShipLevel[8]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-4": {
+          "id": "attackerCommanderShipPop-4",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-4": {
+          "id": "attackerCommanderShipCount-4",
+          "name": "attackerCommanderShipCount[4]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-4": {
+          "id": "attackerCommanderShipLevel-4",
+          "name": "attackerCommanderShipLevel[4]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-8": {
+          "id": "defenderCommanderShipPop-8",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-8": {
+          "id": "defenderCommanderShipCount-8",
+          "name": "defenderCommanderShipCount[8]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-8": {
+          "id": "defenderCommanderShipLevel-8",
+          "name": "defenderCommanderShipLevel[8]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-4": {
+          "id": "defenderCommanderShipPop-4",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-4": {
+          "id": "defenderCommanderShipCount-4",
+          "name": "defenderCommanderShipCount[4]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-4": {
+          "id": "defenderCommanderShipLevel-4",
+          "name": "defenderCommanderShipLevel[4]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-6": {
+          "id": "attackerCommanderShipPop-6",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-6": {
+          "id": "attackerCommanderShipCount-6",
+          "name": "attackerCommanderShipCount[6]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-6": {
+          "id": "attackerCommanderShipLevel-6",
+          "name": "attackerCommanderShipLevel[6]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-5": {
+          "id": "attackerCommanderShipPop-5",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-5": {
+          "id": "attackerCommanderShipCount-5",
+          "name": "attackerCommanderShipCount[5]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-5": {
+          "id": "attackerCommanderShipLevel-5",
+          "name": "attackerCommanderShipLevel[5]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-6": {
+          "id": "defenderCommanderShipPop-6",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-6": {
+          "id": "defenderCommanderShipCount-6",
+          "name": "defenderCommanderShipCount[6]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-6": {
+          "id": "defenderCommanderShipLevel-6",
+          "name": "defenderCommanderShipLevel[6]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-5": {
+          "id": "defenderCommanderShipPop-5",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-5": {
+          "id": "defenderCommanderShipCount-5",
+          "name": "defenderCommanderShipCount[5]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-5": {
+          "id": "defenderCommanderShipLevel-5",
+          "name": "defenderCommanderShipLevel[5]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-1": {
+          "id": "attackerCommanderShipPop-1",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-1": {
+          "id": "attackerCommanderShipCount-1",
+          "name": "attackerCommanderShipCount[1]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-1": {
+          "id": "attackerCommanderShipLevel-1",
+          "name": "attackerCommanderShipLevel[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-3": {
+          "id": "attackerCommanderShipPop-3",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-3": {
+          "id": "attackerCommanderShipCount-3",
+          "name": "attackerCommanderShipCount[3]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-3": {
+          "id": "attackerCommanderShipLevel-3",
+          "name": "attackerCommanderShipLevel[3]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-1": {
+          "id": "defenderCommanderShipPop-1",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-1": {
+          "id": "defenderCommanderShipCount-1",
+          "name": "defenderCommanderShipCount[1]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-1": {
+          "id": "defenderCommanderShipLevel-1",
+          "name": "defenderCommanderShipLevel[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-3": {
+          "id": "defenderCommanderShipPop-3",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-3": {
+          "id": "defenderCommanderShipCount-3",
+          "name": "defenderCommanderShipCount[3]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-3": {
+          "id": "defenderCommanderShipLevel-3",
+          "name": "defenderCommanderShipLevel[3]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-11": {
+          "id": "attackerCommanderShipPop-11",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-11": {
+          "id": "attackerCommanderShipCount-11",
+          "name": "attackerCommanderShipCount[11]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-11": {
+          "id": "attackerCommanderShipLevel-11",
+          "name": "attackerCommanderShipLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-12": {
+          "id": "attackerCommanderShipPop-12",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-12": {
+          "id": "attackerCommanderShipCount-12",
+          "name": "attackerCommanderShipCount[12]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-12": {
+          "id": "attackerCommanderShipLevel-12",
+          "name": "attackerCommanderShipLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-11": {
+          "id": "defenderCommanderShipPop-11",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-11": {
+          "id": "defenderCommanderShipCount-11",
+          "name": "defenderCommanderShipCount[11]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-11": {
+          "id": "defenderCommanderShipLevel-11",
+          "name": "defenderCommanderShipLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-12": {
+          "id": "defenderCommanderShipPop-12",
+          "name": "",
+          "type": "hidden",
+          "value": "10",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-12": {
+          "id": "defenderCommanderShipCount-12",
+          "name": "defenderCommanderShipCount[12]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-12": {
+          "id": "defenderCommanderShipLevel-12",
+          "name": "defenderCommanderShipLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipPop-13": {
+          "id": "attackerCommanderShipPop-13",
+          "name": "",
+          "type": "hidden",
+          "value": "500",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerCommanderShipCount-13": {
+          "id": "attackerCommanderShipCount-13",
+          "name": "attackerCommanderShipCount[13]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "attackerCommanderShipLevel-13": {
+          "id": "attackerCommanderShipLevel-13",
+          "name": "attackerCommanderShipLevel[13]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipPop-13": {
+          "id": "defenderCommanderShipPop-13",
+          "name": "",
+          "type": "hidden",
+          "value": "500",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderCommanderShipCount-13": {
+          "id": "defenderCommanderShipCount-13",
+          "name": "defenderCommanderShipCount[13]",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "Нет"
+        },
+        "defenderCommanderShipLevel-13": {
+          "id": "defenderCommanderShipLevel-13",
+          "name": "defenderCommanderShipLevel[13]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerLeadCommander": {
+          "id": "attackerLeadCommander",
+          "name": "attackerLeadCommander",
+          "type": "select-one",
+          "value": "12",
+          "checked": null,
+          "selectedText": "Судья"
+        },
+        "defenderLeadCommander": {
+          "id": "defenderLeadCommander",
+          "name": "defenderLeadCommander",
+          "type": "select-one",
+          "value": "1",
+          "checked": null,
+          "selectedText": "Аннигилятор"
+        },
+        "defenderDefencePop-1": {
+          "id": "defenderDefencePop-1",
+          "name": "",
+          "type": "hidden",
+          "value": "1",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-1": {
+          "id": "defenderDefenceCount-1",
+          "name": "defenderDefenceCount[1]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-2": {
+          "id": "defenderDefencePop-2",
+          "name": "",
+          "type": "hidden",
+          "value": "2",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-2": {
+          "id": "defenderDefenceCount-2",
+          "name": "defenderDefenceCount[2]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-4": {
+          "id": "defenderDefencePop-4",
+          "name": "",
+          "type": "hidden",
+          "value": "4",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-4": {
+          "id": "defenderDefenceCount-4",
+          "name": "defenderDefenceCount[4]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-5": {
+          "id": "defenderDefencePop-5",
+          "name": "",
+          "type": "hidden",
+          "value": "7",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-5": {
+          "id": "defenderDefenceCount-5",
+          "name": "defenderDefenceCount[5]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-8": {
+          "id": "defenderDefencePop-8",
+          "name": "",
+          "type": "hidden",
+          "value": "11",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-8": {
+          "id": "defenderDefenceCount-8",
+          "name": "defenderDefenceCount[8]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-9": {
+          "id": "defenderDefencePop-9",
+          "name": "",
+          "type": "hidden",
+          "value": "18",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-9": {
+          "id": "defenderDefenceCount-9",
+          "name": "defenderDefenceCount[9]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-10": {
+          "id": "defenderDefencePop-10",
+          "name": "",
+          "type": "hidden",
+          "value": "42",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-10": {
+          "id": "defenderDefenceCount-10",
+          "name": "defenderDefenceCount[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefencePop-6": {
+          "id": "defenderDefencePop-6",
+          "name": "",
+          "type": "hidden",
+          "value": "12",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-6": {
+          "id": "defenderDefenceCount-6",
+          "name": "defenderDefenceCount[6]",
+          "type": "checkbox",
+          "value": "1",
+          "checked": false,
+          "selectedText": ""
+        },
+        "defenderDefencePop-7": {
+          "id": "defenderDefencePop-7",
+          "name": "",
+          "type": "hidden",
+          "value": "44",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderDefenceCount-7": {
+          "id": "defenderDefenceCount-7",
+          "name": "defenderDefenceCount[7]",
+          "type": "checkbox",
+          "value": "1",
+          "checked": false,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-10": {
+          "id": "attackerScienceLevel-10",
+          "name": "attackerScienceLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillLaserDamage": {
+          "id": "attackerAbilityLevel-SkillLaserDamage",
+          "name": "attackerAbilityLevel[SkillLaserDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-10": {
+          "id": "defenderScienceLevel-10",
+          "name": "defenderScienceLevel[10]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillLaserDamage": {
+          "id": "defenderAbilityLevel-SkillLaserDamage",
+          "name": "defenderAbilityLevel[SkillLaserDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-11": {
+          "id": "attackerScienceLevel-11",
+          "name": "attackerScienceLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillIonDamage": {
+          "id": "attackerAbilityLevel-SkillIonDamage",
+          "name": "attackerAbilityLevel[SkillIonDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-11": {
+          "id": "defenderScienceLevel-11",
+          "name": "defenderScienceLevel[11]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillIonDamage": {
+          "id": "defenderAbilityLevel-SkillIonDamage",
+          "name": "defenderAbilityLevel[SkillIonDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-12": {
+          "id": "attackerScienceLevel-12",
+          "name": "attackerScienceLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillPlasmaDamage": {
+          "id": "attackerAbilityLevel-SkillPlasmaDamage",
+          "name": "attackerAbilityLevel[SkillPlasmaDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-12": {
+          "id": "defenderScienceLevel-12",
+          "name": "defenderScienceLevel[12]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillPlasmaDamage": {
+          "id": "defenderAbilityLevel-SkillPlasmaDamage",
+          "name": "defenderAbilityLevel[SkillPlasmaDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-18": {
+          "id": "attackerScienceLevel-18",
+          "name": "attackerScienceLevel[18]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillAllDamage": {
+          "id": "attackerAbilityLevel-SkillAllDamage",
+          "name": "attackerAbilityLevel[SkillAllDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-18": {
+          "id": "defenderScienceLevel-18",
+          "name": "defenderScienceLevel[18]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillAllDamage": {
+          "id": "defenderAbilityLevel-SkillAllDamage",
+          "name": "defenderAbilityLevel[SkillAllDamage]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-StatShipsAttack": {
+          "id": "attackerAbilityLevel-StatShipsAttack",
+          "name": "attackerAbilityLevel[StatShipsAttack]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-StatShipsAttack": {
+          "id": "defenderAbilityLevel-StatShipsAttack",
+          "name": "defenderAbilityLevel[StatShipsAttack]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-21": {
+          "id": "attackerScienceLevel-21",
+          "name": "attackerScienceLevel[21]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-22": {
+          "id": "attackerScienceLevel-22",
+          "name": "attackerScienceLevel[22]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-21": {
+          "id": "defenderScienceLevel-21",
+          "name": "defenderScienceLevel[21]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-22": {
+          "id": "defenderScienceLevel-22",
+          "name": "defenderScienceLevel[22]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-23": {
+          "id": "attackerScienceLevel-23",
+          "name": "attackerScienceLevel[23]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillShipsArmor": {
+          "id": "attackerAbilityLevel-SkillShipsArmor",
+          "name": "attackerAbilityLevel[SkillShipsArmor]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-23": {
+          "id": "defenderScienceLevel-23",
+          "name": "defenderScienceLevel[23]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillShipsArmor": {
+          "id": "defenderAbilityLevel-SkillShipsArmor",
+          "name": "defenderAbilityLevel[SkillShipsArmor]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillShipsLife": {
+          "id": "attackerAbilityLevel-SkillShipsLife",
+          "name": "attackerAbilityLevel[SkillShipsLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillDefenceLife": {
+          "id": "attackerAbilityLevel-SkillDefenceLife",
+          "name": "attackerAbilityLevel[SkillDefenceLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillShipsLife": {
+          "id": "defenderAbilityLevel-SkillShipsLife",
+          "name": "defenderAbilityLevel[SkillShipsLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillDefenceLife": {
+          "id": "defenderAbilityLevel-SkillDefenceLife",
+          "name": "defenderAbilityLevel[SkillDefenceLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-7": {
+          "id": "attackerScienceLevel-7",
+          "name": "attackerScienceLevel[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillShipsDefenceLife": {
+          "id": "attackerAbilityLevel-SkillShipsDefenceLife",
+          "name": "attackerAbilityLevel[SkillShipsDefenceLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-7": {
+          "id": "defenderScienceLevel-7",
+          "name": "defenderScienceLevel[7]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillShipsDefenceLife": {
+          "id": "defenderAbilityLevel-SkillShipsDefenceLife",
+          "name": "defenderAbilityLevel[SkillShipsDefenceLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-19": {
+          "id": "attackerScienceLevel-19",
+          "name": "attackerScienceLevel[19]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-StatShipsLife": {
+          "id": "attackerAbilityLevel-StatShipsLife",
+          "name": "attackerAbilityLevel[StatShipsLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-19": {
+          "id": "defenderScienceLevel-19",
+          "name": "defenderScienceLevel[19]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-StatShipsLife": {
+          "id": "defenderAbilityLevel-StatShipsLife",
+          "name": "defenderAbilityLevel[StatShipsLife]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerScienceLevel-20": {
+          "id": "attackerScienceLevel-20",
+          "name": "attackerScienceLevel[20]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAbilityLevel-SkillCriticalChance": {
+          "id": "attackerAbilityLevel-SkillCriticalChance",
+          "name": "attackerAbilityLevel[SkillCriticalChance]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderScienceLevel-20": {
+          "id": "defenderScienceLevel-20",
+          "name": "defenderScienceLevel[20]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAbilityLevel-SkillCriticalChance": {
+          "id": "defenderAbilityLevel-SkillCriticalChance",
+          "name": "defenderAbilityLevel[SkillCriticalChance]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAdmiralEquipmentValue-attack": {
+          "id": "attackerAdmiralEquipmentValue-attack",
+          "name": "attackerAdmiralEquipmentValue[attack]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "attackerAdmiralEquipmentValue-life": {
+          "id": "attackerAdmiralEquipmentValue-life",
+          "name": "attackerAdmiralEquipmentValue[life]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAdmiralEquipmentValue-attack": {
+          "id": "defenderAdmiralEquipmentValue-attack",
+          "name": "defenderAdmiralEquipmentValue[attack]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "defenderAdmiralEquipmentValue-life": {
+          "id": "defenderAdmiralEquipmentValue-life",
+          "name": "defenderAdmiralEquipmentValue[life]",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "battleRounds": {
+          "id": "",
+          "name": "battleRounds",
+          "type": "select-one",
+          "value": "12",
+          "checked": null,
+          "selectedText": "12"
+        },
+        "defendername": {
+          "id": "defendername",
+          "name": "defendername",
+          "type": "select-one",
+          "value": "0",
+          "checked": null,
+          "selectedText": "-"
+        },
+        "deletename": {
+          "id": "deletename",
+          "name": "deletename",
+          "type": "button",
+          "value": "Delete",
+          "checked": null,
+          "selectedText": ""
+        },
+        "savescience_name": {
+          "id": "savescience_name",
+          "name": "savesciencename",
+          "type": "text",
+          "value": "0",
+          "checked": null,
+          "selectedText": ""
+        },
+        "simulate": {
+          "id": "",
+          "name": "simulate",
+          "type": "button",
+          "value": "Начать",
+          "checked": null,
+          "selectedText": ""
+        },
+        "reset": {
+          "id": "",
+          "name": "reset",
+          "type": "button",
+          "value": "ОЧИСТИТЬ",
+          "checked": null,
+          "selectedText": ""
+        }
+      }
+    },
+    "experiment_block": "quantity_curve",
+    "comparison_key": "diagnostic-quantity-r3-defender-s4-n1",
+    "replicate": 1,
+    "factors": {
+      "attacker_race_id": 3,
+      "defender_race_id": 3,
+      "quantity_side": "defender",
+      "ship_slot": 4,
+      "ship_name": "Немезис",
+      "quantity_count": 1,
+      "quantity_max_count": 12500,
+      "quantity_ratio": 8e-05,
+      "ability_cap_probe": 2000,
+      "composition_mode": "one_hull_vs_mixed",
+      "population_budget": 25000,
+      "round_limit": 12
+    },
+    "analysis": {
+      "links": 1,
+      "clicked": 0,
+      "rounds": [
+        "round1"
+      ],
+      "hidden": [],
+      "missing": 0,
+      "round_count": 1,
+      "analysis_required": true,
+      "analysis_verified": true
+    },
+    "science_profile": "zero",
+    "full_report": true,
+    "analysis_required": true,
+    "analysis_verified": true,
+    "analysis_expanded": true,
+    "canonical_science_ids": [
+      7,
+      10,
+      11,
+      12,
+      21,
+      22,
+      23
+    ],
+    "science_max_levels": {
+      "7": 20,
+      "10": 15,
+      "11": 15,
+      "12": 15,
+      "21": 10,
+      "22": 10,
+      "23": 10,
+      "18": 10,
+      "19": 10,
+      "20": 10
+    },
+    "canonical_sciences_zero": true,
+    "additional_science_ids": [
+      18,
+      19,
+      20
+    ],
+    "zeroed_fields": [
+      "attackerAbilityLevel-*",
+      "defenderAbilityLevel-*",
+      "attackerAdmiralEquipmentValue-*",
+      "defenderAdmiralEquipmentValue-*"
+    ],
+    "clean_technologies": true,
+    "outcome": {
+      "winner": "Атакующий победитель",
+      "rounds_played": 1,
+      "attacker_remaining_population": 24999,
+      "defender_remaining_population": 0,
+      "report_url": "https://game.ares.nemexia.com/battleReport.php"
+    }
+  }
+}
